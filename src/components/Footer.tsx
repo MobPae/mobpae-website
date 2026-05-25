@@ -49,7 +49,15 @@ export function Footer() {
             © {new Date().getFullYear()} MOBPAE SERVICES PRIVATE LIMITED. All
             rights reserved.
           </p>
-          <p>Built for modern employee financial wellness.</p>
+
+          <div className="flex gap-4">
+            <a href="/privacy-policy" className="hover:text-white">
+              Privacy Policy
+            </a>
+            <a href="/terms" className="hover:text-white">
+              Terms & Conditions
+            </a>
+          </div>
         </div>
       </div>
     </footer>
