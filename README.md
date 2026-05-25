@@ -1,73 +1,118 @@
-# React + TypeScript + Vite
+# MobPae Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MobPae Website is the public portfolio/landing website for MobPae.
+It explains the MobPae salary advance platform, highlights benefits for employers and employees, and allows companies to submit enquiry/demo requests.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
 
-## React Compiler
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Axios
+- React Router DOM
+- Lucide React
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Modern responsive landing page
+- Mobile navbar
+- Employer/employee benefit sections
+- How it works section
+- FAQ section
+- Enquiry/contact form
+- API integration with MobPae backend
+- Privacy Policy page
+- Terms & Conditions page
+- 404 page
+- SEO metadata
+- Custom favicon
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Routes
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+| Route             | Description         |
+| ----------------- | ------------------- |
+| `/`               | Home / landing page |
+| `/privacy-policy` | Privacy Policy      |
+| `/terms`          | Terms & Conditions  |
+| `*`               | 404 Not Found page  |
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Backend API Dependency
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+The enquiry form connects to the MobPae backend API:
+
+```txt
+POST /api/v1/enquiries
+
+Expected backend local URL:
+
+http://localhost:3000/api/v1
+
+⸻
+
+Environment Variables
+
+Create a .env file in the project root:
+
+VITE_API_BASE_URL=http://localhost:3000/api/v1
+
+Example file:
+
+.env.example
+
+⸻
+
+Local Development
+
+Install dependencies:
+
+npm install
+
+Run development server:
+
+npm run dev
+
+Open:
+
+http://localhost:5173
+
+Run on local network/mobile:
+
+npm run dev -- --host 0.0.0.0
+
+Then open using your machine IP:
+
+http://YOUR_LOCAL_IP:5173
+
+⸻
+
+Production Build
+
+npm run build
+
+Preview production build:
+
+npm run preview
+
+⸻
+
+Important Notes
+
+* Backend must be running for enquiry form submission.
+* For mobile testing, update .env with your local IP backend URL:
+
+VITE_API_BASE_URL=http://YOUR_LOCAL_IP:3000/api/v1
+
+* For deployment, update VITE_API_BASE_URL with the hosted backend URL.
+
+⸻
+
 ```
