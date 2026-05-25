@@ -15,6 +15,9 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { api } from "../services/api";
 
+const defaultMessage =
+  "I am interested in MobPae for my company. Please contact me for a demo.";
+
 const benefits = [
   "Improve employee financial wellness",
   "Reduce salary advance manual work",
@@ -61,28 +64,92 @@ const faqs = [
   },
 ];
 
-export function HomePage() {
-  const [form, setForm] = useState({
-    companyName: "",
-    contactName: "",
-    email: "",
-    phone: "",
-    employeeCount: "",
-    message: "",
-  });
+type FormState = {
+  companyName: string;
+  contactName: string;
+  email: string;
+  phone: string;
+  employeeCount: string;
+  message: string;
+};
 
+type FormErrors = Partial<Record<keyof FormState, string>>;
+
+const initialForm: FormState = {
+  companyName: "",
+  contactName: "",
+  email: "",
+  phone: "",
+  employeeCount: "",
+  message: "",
+};
+
+export function HomePage() {
+  const [form, setForm] = useState<FormState>(initialForm);
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [showMessage, setShowMessage] = useState(false);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
 
+  function validateForm() {
+    const nextErrors: FormErrors = {};
+
+    if (!form.companyName.trim()) {
+      nextErrors.companyName = "Company name is required";
+    }
+
+    if (!form.contactName.trim()) {
+      nextErrors.contactName = "Contact name is required";
+    }
+
+    if (!form.email.trim()) {
+      nextErrors.email = "Email is required";
+    } else if (!/^\S+@\S+\.\S+$/.test(form.email)) {
+      nextErrors.email = "Enter a valid email address";
+    }
+
+    if (form.phone && form.phone.trim().length < 10) {
+      nextErrors.phone = "Phone number should be 10 digits";
+    }
+
+    if (form.employeeCount && Number(form.employeeCount) < 1) {
+      nextErrors.employeeCount = "Employee count should be at least 1";
+    }
+
+    setErrors(nextErrors);
+    return Object.keys(nextErrors).length === 0;
+  }
+
   function updateField(
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
-    setForm({ ...form, [event.target.name]: event.target.value });
+    const { name, value } = event.target;
+
+    if (name === "phone") {
+      const digitsOnly = value.replace(/\D/g, "").slice(0, 10);
+      setForm({ ...form, phone: digitsOnly });
+      setErrors({ ...errors, phone: "" });
+      return;
+    }
+
+    setForm({ ...form, [name]: value });
+    setErrors({ ...errors, [name]: "" });
+  }
+
+  function handleMessageFocus() {
+    if (!form.message.trim()) {
+      setForm({ ...form, message: defaultMessage });
+    }
+
+    setShowMessage(true);
   }
 
   async function submitEnquiry(event: React.FormEvent) {
     event.preventDefault();
+
+    if (!validateForm()) return;
+
     setLoading(true);
     setSuccess("");
     setError("");
@@ -90,26 +157,27 @@ export function HomePage() {
     try {
       await api.post("/enquiries", {
         ...form,
+        message: form.message || defaultMessage,
         employeeCount: form.employeeCount
           ? Number(form.employeeCount)
           : undefined,
       });
 
       setSuccess("Thank you! Our team will contact you shortly.");
-      setForm({
-        companyName: "",
-        contactName: "",
-        email: "",
-        phone: "",
-        employeeCount: "",
-        message: "",
-      });
+      setForm(initialForm);
+      setErrors({});
+      setShowMessage(false);
     } catch {
       setError("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
   }
+
+  const inputClass =
+    "w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-primary focus:bg-white focus:ring-4 focus:ring-blue-50";
+
+  const errorClass = "mt-2 text-sm font-medium text-red-600";
 
   return (
     <main className="min-h-screen bg-soft text-dark">
@@ -301,72 +369,139 @@ export function HomePage() {
 
         <form
           onSubmit={submitEnquiry}
-          className="rounded-3xl bg-white p-6 shadow-soft"
+          className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-soft md:p-8"
         >
-          <div className="grid gap-4">
-            <input
-              name="companyName"
-              value={form.companyName}
-              onChange={updateField}
-              required
-              placeholder="Company Name"
-              className="rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-primary"
-            />
-            <input
-              name="contactName"
-              value={form.contactName}
-              onChange={updateField}
-              required
-              placeholder="Contact Name"
-              className="rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-primary"
-            />
-            <input
-              name="email"
-              value={form.email}
-              onChange={updateField}
-              required
-              type="email"
-              placeholder="Email"
-              className="rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-primary"
-            />
-            <input
-              name="phone"
-              value={form.phone}
-              onChange={updateField}
-              placeholder="Phone"
-              className="rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-primary"
-            />
-            <input
-              name="employeeCount"
-              value={form.employeeCount}
-              onChange={updateField}
-              type="number"
-              placeholder="Employee Count"
-              className="rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-primary"
-            />
-            <textarea
-              name="message"
-              value={form.message}
-              onChange={updateField}
-              placeholder="Message"
-              rows={4}
-              className="rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-primary"
-            />
+          <div className="mb-6">
+            <h3 className="text-2xl font-bold">Request a demo</h3>
+            <p className="mt-2 text-sm leading-6 text-slate-500">
+              Fill in your details. We’ll get back to you shortly.
+            </p>
+          </div>
+
+          <div className="grid gap-5">
+            <div>
+              <label className="mb-2 block text-sm font-semibold text-slate-700">
+                Company Name <span className="text-red-500">*</span>
+              </label>
+              <input
+                name="companyName"
+                value={form.companyName}
+                onChange={updateField}
+                placeholder="Example: ABC Technologies"
+                className={inputClass}
+              />
+              {errors.companyName && (
+                <p className={errorClass}>{errors.companyName}</p>
+              )}
+            </div>
+
+            <div>
+              <label className="mb-2 block text-sm font-semibold text-slate-700">
+                Contact Name <span className="text-red-500">*</span>
+              </label>
+              <input
+                name="contactName"
+                value={form.contactName}
+                onChange={updateField}
+                placeholder="Your full name"
+                className={inputClass}
+              />
+              {errors.contactName && (
+                <p className={errorClass}>{errors.contactName}</p>
+              )}
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-2">
+              <div>
+                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                  Email <span className="text-red-500">*</span>
+                </label>
+                <input
+                  name="email"
+                  value={form.email}
+                  onChange={updateField}
+                  type="email"
+                  placeholder="you@company.com"
+                  className={inputClass}
+                />
+                {errors.email && <p className={errorClass}>{errors.email}</p>}
+              </div>
+
+              <div>
+                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                  Phone
+                </label>
+                <input
+                  name="phone"
+                  value={form.phone}
+                  onChange={updateField}
+                  inputMode="numeric"
+                  maxLength={10}
+                  placeholder="10 digit mobile number"
+                  className={inputClass}
+                />
+                {errors.phone && <p className={errorClass}>{errors.phone}</p>}
+              </div>
+            </div>
+
+            <div>
+              <label className="mb-2 block text-sm font-semibold text-slate-700">
+                Employee Count
+              </label>
+              <input
+                name="employeeCount"
+                value={form.employeeCount}
+                onChange={updateField}
+                type="number"
+                min="1"
+                placeholder="Example: 100"
+                className={inputClass}
+              />
+              {errors.employeeCount && (
+                <p className={errorClass}>{errors.employeeCount}</p>
+              )}
+            </div>
+
+            <div>
+              <button
+                type="button"
+                onClick={handleMessageFocus}
+                className="text-sm font-semibold text-primary hover:text-blue-700"
+              >
+                Add message
+              </button>
+
+              {showMessage && (
+                <div className="mt-3">
+                  <label className="mb-2 block text-sm font-semibold text-slate-700">
+                    Message
+                  </label>
+                  <textarea
+                    name="message"
+                    value={form.message}
+                    onChange={updateField}
+                    rows={4}
+                    className={inputClass}
+                  />
+                </div>
+              )}
+            </div>
 
             {success && (
-              <p className="rounded-xl bg-green-50 p-3 text-sm font-semibold text-green-700">
+              <p className="rounded-2xl border border-green-100 bg-green-50 p-4 text-sm font-semibold text-green-700">
                 {success}
               </p>
             )}
+
             {error && (
-              <p className="rounded-xl bg-red-50 p-3 text-sm font-semibold text-red-700">
+              <p className="rounded-2xl border border-red-100 bg-red-50 p-4 text-sm font-semibold text-red-700">
                 {error}
               </p>
             )}
 
             <button
               disabled={loading}
-              className="rounded-full bg-primary px-6 py-3 font-semibold text-white disabled:opacity-60"
+              className="mt-2 inline-flex items-center justify-center rounded-full bg-primary px-6 py-3.5 font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {loading ? "Submitting..." : "Submit Enquiry"}
             </button>
