@@ -52,15 +52,23 @@ const steps = [
 const faqs = [
   {
     q: "What is MobPae?",
-    a: "MobPae is a salary advance platform that helps employees access a part of their earned salary before payday.",
+    a: "MobPae is a salary advance platform that helps employees access a part of their salary before payday through an employer-controlled workflow.",
   },
   {
-    q: "Who can use MobPae?",
-    a: "Companies can onboard their employees. Employees can use MobPae after employer activation.",
+    q: "How does MobPae help employers?",
+    a: "Employers can onboard employees, configure salary advance limits, review requests, track disbursals, and monitor repayments from one system.",
   },
   {
-    q: "Is the limit fixed?",
-    a: "No. Limits can be configured based on salary rules and employer policy.",
+    q: "How does MobPae help employees?",
+    a: "Employees get a simple mobile-first experience to view their eligible limit, request salary advance, and track request status.",
+  },
+  {
+    q: "Is the salary advance limit fixed?",
+    a: "No. Limits can be configured based on salary, employer policy, and internal eligibility rules.",
+  },
+  {
+    q: "Can MobPae support approval workflows?",
+    a: "Yes. Employers can review and approve requests before disbursal, keeping the process transparent and controlled.",
   },
 ];
 
@@ -192,13 +200,13 @@ export function HomePage() {
             </div>
 
             <h1 className="max-w-3xl text-5xl font-bold leading-tight tracking-tight md:text-6xl">
-              Financial flexibility for employees. Control for employers.
+              Give employees salary flexibility without losing employer control.
             </h1>
 
             <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-              MobPae helps companies offer salary advance benefits with
-              transparent limits, approval flows, disbursal tracking, and
-              repayment visibility.
+              MobPae helps companies offer salary advance benefits with employee
+              onboarding, smart limits, approval workflows, disbursal tracking,
+              and repayment visibility.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
