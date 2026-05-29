@@ -10,7 +10,7 @@ export function NotFoundPage() {
       <section className="mx-auto flex min-h-[70vh] max-w-4xl flex-col items-center justify-center px-6 py-20 text-center">
         <p className="font-semibold text-primary">404</p>
         <h1 className="mt-3 text-5xl font-bold">Page not found</h1>
-        <p className="mt-5 max-w-xl leading-8 text-slate-600">
+        <p className="mt-5 max-w-xl leading-8 text-slate-700">
           The page you are looking for does not exist or may have been moved.
         </p>
 

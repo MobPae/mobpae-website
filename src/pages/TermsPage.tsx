@@ -15,9 +15,9 @@ export function TermsPage() {
         <div className="mt-8 rounded-[2rem] bg-white p-8 shadow-soft">
           <p className="font-semibold text-primary">MobPae</p>
           <h1 className="mt-3 text-4xl font-bold">Terms & Conditions</h1>
-          <p className="mt-4 text-sm text-slate-500">Last updated: 2026</p>
+          <p className="mt-4 text-sm text-slate-600">Last updated: 2026</p>
 
-          <div className="mt-8 space-y-6 leading-8 text-slate-600">
+          <div className="mt-8 space-y-6 leading-8 text-slate-700">
             <p>
               These Terms & Conditions govern the use of the MobPae website. By
               accessing this website, you agree to use it responsibly and
