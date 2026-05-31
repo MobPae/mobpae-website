@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
-import { api } from "../../services/api";
+import emailjs from "@emailjs/browser";
+import {
+  EMAILJS_PUBLIC_KEY,
+  EMAILJS_SERVICE_ID,
+  EMAILJS_TEMPLATE_ID,
+} from "../../config/email";
 
 const defaultMessage =
   "I am interested in MobPae for my company. Please contact me for a demo.";
@@ -100,24 +105,36 @@ export function EnquirySection() {
     setError("");
 
     try {
-      const response = await api.post("/enquiries", {
-        ...form,
-        message: form.message || defaultMessage,
-        employeeCount: form.employeeCount
-          ? Number(form.employeeCount)
-          : undefined,
-      });
-
-      setSuccess(
-        response.data?.data?.message ||
-          "Thank you! Our team will contact you shortly."
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          companyName: form.companyName,
+          contactName: form.contactName,
+          email: form.email,
+          phone: form.phone,
+          employeeCount: form.employeeCount || "Not Provided",
+          message: form.message || defaultMessage,
+        },
+        EMAILJS_PUBLIC_KEY
       );
 
+      setSuccess(
+        "Enquiry submitted successfully. Our team will contact you shortly."
+      );
+      setTimeout(() => {
+        setSuccess("");
+      }, 3000);
+
       setForm(initialForm);
-      setShowMessage(false);
       setErrors({});
-    } catch {
-      setError("Something went wrong. Please try again.");
+      setShowMessage(false);
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+
+      setError(
+        "Unable to submit enquiry at the moment. Please email support@mobpae.com."
+      );
     } finally {
       setLoading(false);
     }
