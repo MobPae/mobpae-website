@@ -16,62 +16,70 @@ export function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/90 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+    <header className="sticky top-0 z-50 border-b border-slate-100/80 bg-white/95 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
         {/* Logo */}
-        <a href="/" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-lg font-black text-white">
+        <a href="/" className="flex items-center gap-3 group">
+          <div className="flex h-9 w-9 items-center justify-center rounded-[10px] bg-[#0047AB] text-base font-black text-white shadow-sm">
             M
           </div>
-
-          <div className="text-2xl font-extrabold tracking-tight text-slate-950">
-            Mob<span className="text-blue-600">Pae</span>
+          <div className="text-[22px] font-[800] tracking-[-0.03em] text-slate-950 leading-none">
+            Mob<span className="text-[#0047AB]">Pae</span>
           </div>
         </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden items-center gap-10 text-sm font-semibold text-slate-600 lg:flex">
+        <nav className="hidden items-center gap-8 text-[13.5px] font-[500] text-slate-500 lg:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="transition hover:text-blue-600"
+              className="transition-colors hover:text-[#0047AB]"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        {/* CTA */}
-        <a
-          href="#contact"
-          className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
-        >
-          Contact Us
-        </a>
+        {/* CTA + Mobile toggle */}
+        <div className="flex items-center gap-3">
+          <a
+            href="#contact"
+            className="hidden lg:inline-flex items-center justify-center gap-2 rounded-[10px] bg-[#0047AB] px-5 py-2.5 text-[13px] font-[600] text-white shadow-cobalt transition-all duration-200 hover:bg-[#00358a] hover:-translate-y-px"
+          >
+            Contact Us
+          </a>
 
-        {/* Mobile */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 lg:hidden"
-        >
-          {isOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-500 lg:hidden"
+          >
+            {isOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </div>
       </div>
 
+      {/* Mobile menu */}
       {isOpen && (
-        <div className="border-t border-slate-100 bg-white px-6 py-4 lg:hidden">
-          <nav className="grid gap-2">
+        <div className="border-t border-slate-100 bg-white/98 px-4 py-3 lg:hidden">
+          <nav className="grid gap-1">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={closeMenu}
-                className="rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-blue-50"
+                className="rounded-lg px-4 py-3 text-[14px] font-[500] text-slate-700 hover:bg-blue-50 hover:text-[#0047AB] transition-colors"
               >
                 {link.label}
               </a>
             ))}
+            <a
+              href="#contact"
+              onClick={closeMenu}
+              className="mt-2 flex items-center justify-center rounded-xl bg-[#0047AB] px-4 py-3 text-[14px] font-[600] text-white"
+            >
+              Contact Us
+            </a>
           </nav>
         </div>
       )}

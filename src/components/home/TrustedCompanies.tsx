@@ -5,21 +5,37 @@ export function TrustedCompanies() {
     "Acme Industries",
     "Nova Retail",
     "Prime Logistics",
+    "Apex Ventures",
+    "Sterling Corp",
   ];
 
-  return (
-    <section className="border-y border-slate-200 bg-slate-50">
-      <div className="mx-auto max-w-7xl px-6 py-8 lg:py-14">
-        <div className="text-center">
-          <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-slate-600">
-            Trusted by Growing Employers
-          </p>
-        </div>
+  // Double for seamless marquee loop
+  const doubled = [...companies, ...companies];
 
-        <div className="mt-8 grid grid-cols-2 gap-8 text-center md:grid-cols-3 lg:grid-cols-5">
-          {companies.map((company) => (
-            <div key={company} className="flex items-center justify-center">
-              <span className="text-lg font-bold tracking-wide text-slate-400 transition hover:text-slate-700">
+  return (
+    <section className="border-y border-slate-100 bg-white py-10 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-6 mb-7">
+        <p className="text-center text-[11px] font-[700] uppercase tracking-[0.2em] text-slate-400">
+          Trusted by Growing Employers
+        </p>
+      </div>
+
+      {/* Marquee */}
+      <div className="relative flex overflow-hidden select-none">
+        {/* Left fade */}
+        <div className="absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-white to-transparent pointer-events-none" />
+        {/* Right fade */}
+        <div className="absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-white to-transparent pointer-events-none" />
+
+        <div className="flex gap-12 animate-marquee whitespace-nowrap">
+          {doubled.map((company, i) => (
+            <div
+              key={i}
+              className="flex items-center gap-3 px-4 py-2 rounded-full border border-slate-100 bg-slate-50"
+            >
+              {/* Placeholder icon dot */}
+              <span className="h-2 w-2 rounded-full bg-[#007FFF] opacity-60 flex-shrink-0" />
+              <span className="text-[13.5px] font-[600] tracking-tight text-slate-500">
                 {company}
               </span>
             </div>
