@@ -2,25 +2,25 @@ import { Building2, Eye, ShieldCheck, HeartHandshake } from "lucide-react";
 
 const quickAnswers = [
   {
-    icon: <ShieldCheck size={24} />,
+    icon: <ShieldCheck size={22} />,
     title: "No Credit Checks",
     description:
-      "MobPae is not a traditional loan product. No CIBIL checks or complex underwriting.",
+      "MobPae is not a traditional loan product. No CIBIL checks or complex underwriting involved.",
   },
   {
-    icon: <Building2 size={24} />,
+    icon: <Building2 size={22} />,
     title: "Employer Controlled",
     description:
       "Employers define limits, approval workflows and policies with complete visibility.",
   },
   {
-    icon: <Eye size={24} />,
+    icon: <Eye size={22} />,
     title: "Transparent Workflow",
     description:
-      "Track requests, approvals, disbursals and repayments through a structured process.",
+      "Track requests, approvals, disbursals and repayments through a structured, auditable process.",
   },
   {
-    icon: <HeartHandshake size={24} />,
+    icon: <HeartHandshake size={22} />,
     title: "Employee Financial Wellness",
     description:
       "Help employees manage short-term financial needs without stress or awkward borrowing.",
@@ -29,21 +29,29 @@ const quickAnswers = [
 
 export function FaqSection() {
   return (
-    <section id="faq" className="bg-white py-14">
+    <section id="faq" className="bg-white py-20">
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         <div className="text-center">
-          <div className="inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 px-4 py-2">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white">
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-[#f0f5ff] px-4 py-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#0047AB]" />
+            <span className="text-[11px] font-[700] uppercase tracking-[0.2em] text-[#0047AB]">
               Quick Answers
             </span>
           </div>
 
-          <h2 className="mt-6 text-5xl font-bold tracking-tight text-slate-950">
+          <h2 className="mt-7 text-[40px] font-[800] tracking-[-0.03em] leading-[1.1] text-slate-950 lg:text-[48px]">
             Everything you need to know
           </h2>
 
-          <p className="mx-auto mt-4 max-w-3xl text-lg leading-8 text-slate-800">
+          <a
+            href="#contact"
+            className="mt-3 inline-block font-serif italic text-[40px] font-[400] text-[#007FFF] hover:text-[#0047AB] transition-colors lg:text-[48px]"
+          >
+            Get in Touch with us.
+          </a>
+
+          <p className="mx-auto mt-5 max-w-2xl text-[15px] leading-[1.8] text-slate-600">
             Built for employers who want to support employees without losing
             visibility, governance or control.
           </p>
@@ -54,17 +62,18 @@ export function FaqSection() {
           {quickAnswers.map((item) => (
             <div
               key={item.title}
-              className="group rounded-3xl border border-blue-100 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-100/60"
+              className="group rounded-2xl border border-slate-100 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-soft"
             >
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600">
+              {/* Icon */}
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#f0f5ff] text-[#0047AB] group-hover:bg-[#0047AB] group-hover:text-white transition-colors duration-300">
                 {item.icon}
               </div>
 
-              <h3 className="mt-5 text-lg font-bold text-slate-950">
+              <h3 className="mt-5 text-[15px] font-[700] text-slate-900">
                 {item.title}
               </h3>
 
-              <p className="mt-3 text-sm leading-7 text-slate-700">
+              <p className="mt-3 text-[13px] leading-[1.75] text-slate-500">
                 {item.description}
               </p>
             </div>
