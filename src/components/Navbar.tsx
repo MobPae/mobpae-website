@@ -16,15 +16,15 @@ export function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-100/80 bg-white/95 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-[#f1e8e3]/80 bg-white/95 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
         {/* Logo */}
         <a href="/" className="flex items-center gap-3 group">
-          <div className="flex h-9 w-9 items-center justify-center rounded-[10px] bg-[#0047AB] text-base font-black text-white shadow-sm">
+          <div className="flex h-9 w-9 items-center justify-center rounded-[10px] bg-[#c4522a] text-base font-black text-white shadow-warm">
             M
           </div>
           <div className="text-[22px] font-[800] tracking-[-0.03em] text-slate-950 leading-none">
-            Mob<span className="text-[#0047AB]">Pae</span>
+            Mob<span className="text-[#c4522a]">Pae</span>
           </div>
         </a>
 
@@ -34,7 +34,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="transition-colors hover:text-[#0047AB]"
+              className="transition-colors hover:text-[#c4522a]"
             >
               {link.label}
             </a>
@@ -45,7 +45,7 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <a
             href="#contact"
-            className="hidden lg:inline-flex items-center justify-center gap-2 rounded-[10px] bg-[#0047AB] px-5 py-2.5 text-[13px] font-[600] text-white shadow-cobalt transition-all duration-200 hover:bg-[#00358a] hover:-translate-y-px"
+            className="hidden lg:inline-flex items-center justify-center gap-2 rounded-[10px] bg-[#c4522a] px-5 py-2.5 text-[13px] font-[600] text-white shadow-warm transition-all duration-200 hover:bg-[#a8411f] hover:-translate-y-px"
           >
             Contact Us
           </a>
@@ -61,14 +61,14 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="border-t border-slate-100 bg-white/98 px-4 py-3 lg:hidden">
+        <div className="border-t border-[#f1e8e3] bg-white/98 px-4 py-3 lg:hidden">
           <nav className="grid gap-1">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={closeMenu}
-                className="rounded-lg px-4 py-3 text-[14px] font-[500] text-slate-700 hover:bg-blue-50 hover:text-[#0047AB] transition-colors"
+                className="rounded-lg px-4 py-3 text-[14px] font-[500] text-slate-700 hover:bg-[#fdf3ee] hover:text-[#c4522a] transition-colors"
               >
                 {link.label}
               </a>
@@ -76,7 +76,7 @@ export function Navbar() {
             <a
               href="#contact"
               onClick={closeMenu}
-              className="mt-2 flex items-center justify-center rounded-xl bg-[#0047AB] px-4 py-3 text-[14px] font-[600] text-white"
+              className="mt-2 flex items-center justify-center rounded-xl bg-[#c4522a] px-4 py-3 text-[14px] font-[600] text-white"
             >
               Contact Us
             </a>

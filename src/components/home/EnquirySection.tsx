@@ -89,27 +89,38 @@ export function EnquirySection() {
   }
 
   const inputClass =
-    "h-12 w-full rounded-full border border-slate-200 bg-white px-5 text-[13.5px] text-slate-900 placeholder-slate-400 outline-none transition focus:border-[#0047AB] focus:ring-3 focus:ring-blue-100";
+    "h-12 w-full rounded-full border border-slate-200 bg-white px-5 text-[13.5px] text-slate-900 placeholder-slate-400 outline-none transition focus:border-[#c4522a] focus:ring-3 focus:ring-[#fde8d8]";
 
   return (
-    <section id="contact" className="py-16 bg-white">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="contact" className="relative overflow-hidden bg-white py-16">
+
+      {/* Decorative terracotta glow behind the card */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#c4522a]/5 blur-[100px]" />
+
+      <div className="relative mx-auto max-w-6xl px-6">
         {/* Two-panel card */}
-        <div className="overflow-hidden rounded-[28px] shadow-[0_20px_60px_rgba(15,23,42,0.10)] grid lg:grid-cols-[1fr_1.5fr]">
+        <div
+          className="overflow-hidden rounded-[28px] grid lg:grid-cols-[1fr_1.5fr]"
+          style={{ boxShadow: "0 20px 60px rgba(15,23,42,0.12)" }}
+        >
 
           {/* ── LEFT — dark panel ── */}
           <div
-            className="flex flex-col justify-between p-10"
+            className="relative flex flex-col justify-between overflow-hidden p-10"
             style={{ background: "linear-gradient(160deg, #0c1322 0%, #0f1e3d 100%)" }}
           >
-            <div>
-              <p className="text-[11px] font-[700] uppercase tracking-[0.2em] text-[#007FFF] mb-6">
+            {/* Decorative terracotta accent circle */}
+            <div className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rounded-full bg-[#c4522a]/12 blur-[60px]" />
+            <div className="pointer-events-none absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-[#c4522a]/8 blur-[50px]" />
+
+            <div className="relative">
+              <p className="text-[11px] font-[700] uppercase tracking-[0.2em] text-[#c4522a] mb-6">
                 Submit Enquiry
               </p>
 
               <h2 className="text-[32px] font-[800] leading-[1.15] tracking-[-0.02em] text-white lg:text-[36px]">
                 Have questions?{" "}
-                <span className="font-serif italic font-[400] text-[#007FFF]">
+                <span className="font-serif italic font-[400] text-[#d95a2e]">
                   We're here to help.
                 </span>
               </h2>
@@ -120,15 +131,15 @@ export function EnquirySection() {
               </p>
             </div>
 
-            <div className="mt-10 space-y-4">
+            <div className="relative mt-10 space-y-4">
               {[
                 { title: "Fast Onboarding", text: "Get started with minimal setup." },
                 { title: "Transparent Workflow", text: "Complete visibility from request to repayment." },
                 { title: "Employer Controlled", text: "Define limits, approvals and policies." },
               ].map(({ title, text }) => (
                 <div key={title} className="flex items-start gap-3">
-                  <div className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border border-[#007FFF]/40 bg-[#007FFF]/10">
-                    <CheckCircle2 size={13} className="text-[#007FFF]" />
+                  <div className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border border-[#c4522a]/40 bg-[#c4522a]/15">
+                    <CheckCircle2 size={13} className="text-[#c4522a]" />
                   </div>
                   <div>
                     <p className="text-[13px] font-[700] text-white leading-none">{title}</p>
@@ -181,7 +192,7 @@ export function EnquirySection() {
                   value={form.message}
                   onChange={updateField}
                   placeholder="Tell us a little about your requirement"
-                  className="w-full rounded-[20px] border border-slate-200 bg-white px-5 py-3.5 text-[13.5px] text-slate-900 placeholder-slate-400 outline-none transition focus:border-[#0047AB] focus:ring-3 focus:ring-blue-100 resize-none"
+                  className="w-full rounded-[20px] border border-slate-200 bg-white px-5 py-3.5 text-[13.5px] text-slate-900 placeholder-slate-400 outline-none transition focus:border-[#c4522a] focus:ring-3 focus:ring-[#fde8d8] resize-none"
                 />
               </Field>
 
@@ -201,7 +212,7 @@ export function EnquirySection() {
               <button
                 type="submit"
                 disabled={loading}
-                className="flex h-13 w-full items-center justify-center gap-2 rounded-full bg-[#0047AB] py-4 text-[14px] font-[600] text-white shadow-cobalt transition hover:bg-[#00358a] disabled:opacity-60"
+                className="flex h-13 w-full items-center justify-center gap-2 rounded-full bg-[#c4522a] py-4 text-[14px] font-[600] text-white shadow-terracotta transition-all hover:bg-[#a8411f] hover:-translate-y-px disabled:opacity-60"
               >
                 {loading ? (
                   <Loader2 size={16} className="animate-spin" />

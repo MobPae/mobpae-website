@@ -29,13 +29,18 @@ const quickAnswers = [
 
 export function FaqSection() {
   return (
-    <section id="faq" className="bg-white py-20">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="faq" className="relative overflow-hidden bg-[#faf7f5] pb-32 pt-20">
+
+      {/* Decorative blobs */}
+      <div className="pointer-events-none absolute left-0 top-0 h-56 w-56 rounded-full bg-[#c4522a]/5 blur-[70px]" />
+      <div className="pointer-events-none absolute right-0 bottom-24 h-56 w-56 rounded-full bg-[#fde8d8]/60 blur-[70px]" />
+
+      <div className="relative mx-auto max-w-7xl px-6">
         {/* Header */}
         <div className="text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-[#f0f5ff] px-4 py-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#0047AB]" />
-            <span className="text-[11px] font-[700] uppercase tracking-[0.2em] text-[#0047AB]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#fde8d8] bg-[#fdf3ee] px-4 py-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#c4522a]" />
+            <span className="text-[11px] font-[700] uppercase tracking-[0.2em] text-[#c4522a]">
               Quick Answers
             </span>
           </div>
@@ -46,7 +51,7 @@ export function FaqSection() {
 
           <a
             href="#contact"
-            className="mt-3 inline-block font-serif italic text-[40px] font-[400] text-[#007FFF] hover:text-[#0047AB] transition-colors lg:text-[48px]"
+            className="mt-3 inline-block font-serif italic text-[40px] font-[400] text-[#c4522a] hover:text-[#a8411f] transition-colors lg:text-[48px]"
           >
             Get in Touch with us.
           </a>
@@ -62,10 +67,10 @@ export function FaqSection() {
           {quickAnswers.map((item) => (
             <div
               key={item.title}
-              className="group rounded-2xl border border-slate-100 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-soft"
+              className="group rounded-2xl border border-[#f1e8e3] bg-white p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#fde8d8] hover:shadow-warm"
             >
-              {/* Icon */}
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#f0f5ff] text-[#0047AB] group-hover:bg-[#0047AB] group-hover:text-white transition-colors duration-300">
+              {/* Icon box */}
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#fdf3ee] text-[#c4522a] transition-all duration-300 group-hover:bg-[#c4522a] group-hover:text-white group-hover:shadow-terracotta">
                 {item.icon}
               </div>
 
@@ -79,6 +84,22 @@ export function FaqSection() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* ── Wave divider — into white ── */}
+      <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-[0]">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 70"
+          preserveAspectRatio="none"
+          className="block w-full"
+          style={{ height: 70 }}
+        >
+          <path
+            d="M0,40 C360,0 1080,70 1440,30 L1440,70 L0,70 Z"
+            fill="#ffffff"
+          />
+        </svg>
       </div>
     </section>
   );

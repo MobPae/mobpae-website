@@ -2,13 +2,27 @@ import { User, Building2, Wallet, CalendarDays } from "lucide-react";
 
 export function HowItWorksSection() {
   return (
-    <section id="how-it-works" className="bg-[#f8fafc] py-20">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="how-it-works" className="relative overflow-hidden bg-[#faf7f5] pb-32 pt-20">
+
+      {/* Decorative background dots */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage: "radial-gradient(circle, #c4522a 1.5px, transparent 1.5px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
+
+      {/* Decorative blobs */}
+      <div className="pointer-events-none absolute right-0 top-0 h-64 w-64 rounded-full bg-[#c4522a]/6 blur-[70px]" />
+      <div className="pointer-events-none absolute left-1/4 bottom-24 h-48 w-48 rounded-full bg-[#d95a2e]/5 blur-[60px]" />
+
+      <div className="relative mx-auto max-w-7xl px-6">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-[#f0f5ff] px-4 py-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#0047AB]" />
-            <span className="text-[11px] font-[700] uppercase tracking-[0.2em] text-[#0047AB]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#fde8d8] bg-[#fdf3ee] px-4 py-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#c4522a]" />
+            <span className="text-[11px] font-[700] uppercase tracking-[0.2em] text-[#c4522a]">
               How It Works
             </span>
           </div>
@@ -16,7 +30,7 @@ export function HowItWorksSection() {
           <h2 className="mt-7 text-[40px] font-[800] leading-[1.15] tracking-[-0.03em] text-slate-950 lg:text-[50px]">
             Simple. Transparent.
             <br />
-            <span className="font-serif italic font-[400] text-[#007FFF]">
+            <span className="font-serif italic font-[400] text-[#c4522a]">
               Employer controlled.
             </span>
           </h2>
@@ -29,10 +43,15 @@ export function HowItWorksSection() {
 
         {/* Timeline */}
         <div className="mt-14">
-          <div className="rounded-[28px] border border-slate-100 bg-white p-8 shadow-soft lg:p-10">
+          <div className="rounded-[28px] border border-[#f1e8e3] bg-white p-8 shadow-soft lg:p-10">
             <div className="relative">
               {/* Desktop connector line */}
-              <div className="absolute left-[12.5%] right-[12.5%] top-8 hidden h-[2px] bg-gradient-to-r from-blue-100 via-[#007FFF]/30 to-blue-100 lg:block" />
+              <div
+                className="absolute left-[12.5%] right-[12.5%] top-8 hidden h-[2px] lg:block"
+                style={{
+                  background: "linear-gradient(to right, #fde8d8, #c4522a40, #fde8d8)",
+                }}
+              />
 
               <div className="grid gap-10 lg:grid-cols-4">
                 <TimelineStep
@@ -64,6 +83,22 @@ export function HowItWorksSection() {
           </div>
         </div>
       </div>
+
+      {/* ── Wave divider — into white ── */}
+      <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-[0]">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 70"
+          preserveAspectRatio="none"
+          className="block w-full"
+          style={{ height: 70 }}
+        >
+          <path
+            d="M0,55 C480,0 960,70 1440,20 L1440,70 L0,70 Z"
+            fill="#ffffff"
+          />
+        </svg>
+      </div>
     </section>
   );
 }
@@ -80,14 +115,19 @@ function TimelineStep({
   description: string;
 }) {
   return (
-    <div className="relative text-center">
+    <div className="relative text-center group">
       {/* Step number circle */}
-      <div className="relative z-10 mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#0047AB] shadow-cobalt">
+      <div
+        className="relative z-10 mx-auto flex h-16 w-16 items-center justify-center rounded-full shadow-terracotta transition-transform duration-300 group-hover:-translate-y-1"
+        style={{
+          background: "linear-gradient(135deg, #6d2514 0%, #c4522a 100%)",
+        }}
+      >
         <span className="font-serif text-[20px] font-[400] text-white leading-none">{number}</span>
       </div>
 
       {/* Icon */}
-      <div className="mt-5 flex justify-center text-[#0047AB]">{icon}</div>
+      <div className="mt-5 flex justify-center text-[#c4522a]">{icon}</div>
 
       <h3 className="mt-3 text-[15px] font-[700] text-slate-900">{title}</h3>
 
