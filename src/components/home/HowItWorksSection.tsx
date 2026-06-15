@@ -114,7 +114,7 @@ function TimelineStep({
   return (
     <div className="group relative overflow-hidden rounded-2xl border border-white/8 p-6 transition-all duration-300 hover:border-[#c4522a]/40" style={{ background: "rgba(255,255,255,0.04)" }}>
       {/* Large background number */}
-      <div className="pointer-events-none absolute right-3 top-1 select-none font-serif text-[72px] font-[400] leading-none text-white/15">
+      <div className="pointer-events-none absolute right-3 top-1 select-none font-serif text-[72px] font-[400] leading-none text-white/70">
         {number}
       </div>
 
