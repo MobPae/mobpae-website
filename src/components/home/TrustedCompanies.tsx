@@ -9,11 +9,10 @@ export function TrustedCompanies() {
     "Sterling Corp",
   ];
 
-  // Double for seamless marquee loop
   const doubled = [...companies, ...companies];
 
   return (
-    <section className="border-y border-slate-100 bg-white py-10 overflow-hidden">
+    <section className="border-y border-[#f1e8e3] bg-white py-10 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 mb-7">
         <p className="text-center text-[11px] font-[700] uppercase tracking-[0.2em] text-slate-400">
           Trusted by Growing Employers
@@ -31,10 +30,9 @@ export function TrustedCompanies() {
           {doubled.map((company, i) => (
             <div
               key={i}
-              className="flex items-center gap-3 px-4 py-2 rounded-full border border-slate-100 bg-slate-50"
+              className="flex items-center gap-3 px-4 py-2 rounded-full border border-[#f1e8e3] bg-[#fdf9f7]"
             >
-              {/* Placeholder icon dot */}
-              <span className="h-2 w-2 rounded-full bg-[#007FFF] opacity-60 flex-shrink-0" />
+              <span className="h-2 w-2 rounded-full bg-[#c4522a] opacity-60 flex-shrink-0" />
               <span className="text-[13.5px] font-[600] tracking-tight text-slate-500">
                 {company}
               </span>
