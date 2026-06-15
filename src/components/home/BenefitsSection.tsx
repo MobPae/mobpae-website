@@ -55,8 +55,8 @@ export function BenefitsSection() {
                       <Building2 size={22} className="text-[#c4522a]" />
                     </div>
                     <div>
-                      <h4 className="text-[14px] font-[700] text-slate-900">Employer</h4>
-                      <p className="text-[12px] text-slate-500">Sets policies & approvals</p>
+                      <h4 className="text-[14px] font-[700] text-[#1c1209]">Employer</h4>
+                      <p className="text-[12px] text-[#6b5e53]">Sets policies & approvals</p>
                     </div>
                   </div>
                 </div>
@@ -88,8 +88,8 @@ export function BenefitsSection() {
                       <User size={22} className="text-[#c4522a]" />
                     </div>
                     <div>
-                      <h4 className="text-[14px] font-[700] text-slate-900">Employee</h4>
-                      <p className="text-[12px] text-slate-500">Access earned salary</p>
+                      <h4 className="text-[14px] font-[700] text-[#1c1209]">Employee</h4>
+                      <p className="text-[12px] text-[#6b5e53]">Access earned salary</p>
                     </div>
                   </div>
                 </div>
@@ -97,14 +97,14 @@ export function BenefitsSection() {
                 {/* Bottom highlights */}
                 <div className="mt-6 grid w-full gap-3 sm:grid-cols-2">
                   <div className="rounded-xl bg-white p-4 shadow-sm border border-[#f1e8e3]">
-                    <p className="text-[13px] font-[600] text-slate-900">Employer Backed</p>
-                    <p className="mt-1 text-[11.5px] text-slate-500 leading-relaxed">
+                    <p className="text-[13px] font-[600] text-[#1c1209]">Employer Backed</p>
+                    <p className="mt-1 text-[11.5px] text-[#6b5e53] leading-relaxed">
                       Approval remains under employer control.
                     </p>
                   </div>
                   <div className="rounded-xl bg-white p-4 shadow-sm border border-[#f1e8e3]">
-                    <p className="text-[13px] font-[600] text-slate-900">Financial Wellness</p>
-                    <p className="mt-1 text-[11.5px] text-slate-500 leading-relaxed">
+                    <p className="text-[13px] font-[600] text-[#1c1209]">Financial Wellness</p>
+                    <p className="mt-1 text-[11.5px] text-[#6b5e53] leading-relaxed">
                       Reduce employee financial stress.
                     </p>
                   </div>
@@ -122,7 +122,7 @@ export function BenefitsSection() {
               </span>
             </div>
 
-            <h2 className="mt-7 text-[40px] font-[800] leading-[1.15] tracking-[-0.03em] text-slate-950 lg:text-[48px]">
+            <h2 className="mt-7 text-[40px] font-[600] leading-[1.1] tracking-[-0.02em] text-[#1c1209] lg:text-[46px]">
               Built for employers,
               <br />
               <span className="font-serif italic font-[400] text-[#c4522a]">
@@ -130,7 +130,7 @@ export function BenefitsSection() {
               </span>
             </h2>
 
-            <p className="mt-5 max-w-[420px] text-[15px] leading-[1.8] text-slate-600">
+            <p className="mt-5 max-w-[420px] text-[15px] leading-[1.8] text-[#6b5e53]">
               MobPae helps organizations support employee financial wellness
               while maintaining complete visibility, governance and control over
               the salary access process.
@@ -143,8 +143,8 @@ export function BenefitsSection() {
                     <CheckCircle2 size={20} />
                   </div>
                   <div>
-                    <h3 className="text-[14px] font-[700] text-slate-900">{benefit.title}</h3>
-                    <p className="mt-1 text-[13.5px] leading-[1.7] text-slate-500">{benefit.description}</p>
+                    <h3 className="text-[14px] font-[600] text-[#1c1209]">{benefit.title}</h3>
+                    <p className="mt-1 text-[13.5px] leading-[1.7] text-[#6b5e53]">{benefit.description}</p>
                   </div>
                 </div>
               ))}

@@ -118,14 +118,14 @@ export function EnquirySection() {
                 Submit Enquiry
               </p>
 
-              <h2 className="text-[32px] font-[800] leading-[1.15] tracking-[-0.02em] text-white lg:text-[36px]">
+              <h2 className="text-[32px] font-[600] leading-[1.1] tracking-[-0.02em] text-white lg:text-[36px]">
                 Have questions?{" "}
                 <span className="font-serif italic font-[400] text-[#d95a2e]">
                   We're here to help.
                 </span>
               </h2>
 
-              <p className="mt-5 text-[14px] leading-[1.8] text-white/50 max-w-[300px]">
+              <p className="mt-5 text-[15px] leading-[1.8] text-white/50 max-w-[300px]">
                 Help employees access earned salary with a structured,
                 employer-controlled and transparent process.
               </p>
@@ -142,7 +142,7 @@ export function EnquirySection() {
                     <CheckCircle2 size={13} className="text-[#c4522a]" />
                   </div>
                   <div>
-                    <p className="text-[13px] font-[700] text-white leading-none">{title}</p>
+                    <p className="text-[13px] font-[800] text-white leading-none">{title}</p>
                     <p className="mt-1 text-[12px] text-white/45 leading-relaxed">{text}</p>
                   </div>
                 </div>
@@ -212,7 +212,8 @@ export function EnquirySection() {
               <button
                 type="submit"
                 disabled={loading}
-                className="flex h-13 w-full items-center justify-center gap-2 rounded-full bg-[#c4522a] py-4 text-[14px] font-[600] text-white shadow-terracotta transition-all hover:bg-[#a8411f] hover:-translate-y-px disabled:opacity-60"
+                className="flex w-full items-center justify-center gap-2 rounded-[14px] bg-[#c4522a] px-8 py-4 text-[14px] font-[600] text-white transition-all hover:bg-[#a8411f] hover:-translate-y-px disabled:opacity-60"
+                style={{ boxShadow: "0 8px 28px rgba(196,82,42,0.35)" }}
               >
                 {loading ? (
                   <Loader2 size={16} className="animate-spin" />
@@ -240,7 +241,7 @@ function Field({
 }) {
   return (
     <div>
-      <label className="mb-1.5 block text-[12.5px] font-[600] text-slate-700">{label}</label>
+      <label className="mb-1.5 block text-[12.5px] font-[700] text-[#1c1209]">{label}</label>
       {children}
       {error && <p className="mt-1 text-[11.5px] font-[500] text-red-500">{error}</p>}
     </div>

@@ -22,7 +22,7 @@ export function WhyMobPaeSection() {
               </span>
             </div>
 
-            <h2 className="mt-7 text-[40px] font-[800] leading-[1.15] tracking-[-0.03em] text-slate-950 lg:text-[50px]">
+            <h2 className="mt-7 text-[40px] font-[600] leading-[1.1] tracking-[-0.02em] text-[#1c1209] lg:text-[48px]">
               Financial support,
               <br />
               <span className="font-serif italic font-[400] text-[#c4522a]">
@@ -31,17 +31,17 @@ export function WhyMobPaeSection() {
             </h2>
 
             <div className="mt-7 max-w-[420px] space-y-4">
-              <p className="text-[15px] leading-[1.8] text-slate-600">
+              <p className="text-[15px] leading-[1.8] text-[#6b5e53]">
                 Financial emergencies don't wait for payday.
               </p>
-              <p className="text-[15px] leading-[1.8] text-slate-600">
+              <p className="text-[15px] leading-[1.8] text-[#6b5e53]">
                 MobPae helps employees access earned salary through an
                 employer-backed process that maintains visibility, governance
                 and trust.
               </p>
             </div>
 
-            <p className="mt-6 text-[13px] font-[600] uppercase tracking-[0.1em] text-slate-400">
+            <p className="mt-6 text-[13px] font-[700] uppercase tracking-[0.14em] text-[#9e8f85]">
               Built for employees and employers alike
             </p>
 
@@ -69,7 +69,7 @@ export function WhyMobPaeSection() {
 
               {/* Flow diagram */}
               <div className="mt-5 rounded-2xl bg-white p-6 shadow-sm border border-[#f1e8e3]">
-                <p className="mb-4 text-center text-[11px] font-[600] uppercase tracking-[0.16em] text-slate-400">
+                <p className="mb-4 text-center text-[11px] font-[700] uppercase tracking-[0.16em] text-[#9e8f85]">
                   How it flows
                 </p>
                 <div className="grid items-center gap-4 md:grid-cols-[1fr_auto_1fr_auto_1fr]">
@@ -81,8 +81,8 @@ export function WhyMobPaeSection() {
                         <circle cx="12" cy="7" r="4"/>
                       </svg>
                     </div>
-                    <h4 className="mt-3 text-[13px] font-[700] text-slate-900">Employee</h4>
-                    <p className="mt-0.5 text-[11px] text-slate-500">Earned salary access</p>
+                    <h4 className="mt-3 text-[13px] font-[600] text-[#1c1209]">Employee</h4>
+                    <p className="mt-0.5 text-[11px] text-[#9e8f85]">Earned salary access</p>
                   </div>
 
                   <div className="hidden md:flex items-center justify-center text-[#c4522a] text-xl font-bold">→</div>
@@ -90,15 +90,15 @@ export function WhyMobPaeSection() {
                   {/* MobPae */}
                   <div className="text-center">
                     <div
-                      className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl shadow-terracotta"
+                      className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl"
                       style={{
                         background: "linear-gradient(135deg, #6d2514 0%, #c4522a 100%)",
                       }}
                     >
                       <span className="text-[16px] font-[800] text-white">MP</span>
                     </div>
-                    <h4 className="mt-3 text-[13px] font-[700] text-slate-900">MobPae</h4>
-                    <p className="mt-0.5 text-[11px] text-slate-500">Salary access platform</p>
+                    <h4 className="mt-3 text-[13px] font-[600] text-[#1c1209]">MobPae</h4>
+                    <p className="mt-0.5 text-[11px] text-[#9e8f85]">Salary access platform</p>
                   </div>
 
                   <div className="hidden md:flex items-center justify-center text-[#c4522a] text-xl font-bold">→</div>
@@ -111,8 +111,8 @@ export function WhyMobPaeSection() {
                         <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
                       </svg>
                     </div>
-                    <h4 className="mt-3 text-[13px] font-[700] text-slate-900">Employer</h4>
-                    <p className="mt-0.5 text-[11px] text-slate-500">Visibility & control</p>
+                    <h4 className="mt-3 text-[13px] font-[600] text-[#1c1209]">Employer</h4>
+                    <p className="mt-0.5 text-[11px] text-[#9e8f85]">Visibility & control</p>
                   </div>
                 </div>
               </div>
@@ -132,7 +132,7 @@ export function WhyMobPaeSection() {
         >
           <path
             d="M0,0 C360,70 1080,0 1440,55 L1440,70 L0,70 Z"
-            fill="#faf7f5"
+            fill="#1c1209"
           />
         </svg>
       </div>
@@ -144,7 +144,7 @@ function StatCard({ title, subtitle }: { title: string; subtitle: string }) {
   return (
     <div>
       <p className="font-serif text-[28px] font-[400] tracking-tight text-[#c4522a]">{title}</p>
-      <p className="mt-1 text-[11px] font-[500] text-slate-500">{subtitle}</p>
+      <p className="mt-1 text-[11px] font-[500] text-[#9e8f85]">{subtitle}</p>
     </div>
   );
 }

@@ -2,89 +2,86 @@ import { User, Building2, Wallet, CalendarDays } from "lucide-react";
 
 export function HowItWorksSection() {
   return (
-    <section id="how-it-works" className="relative overflow-hidden bg-[#faf7f5] pb-32 pt-20">
+    <section id="how-it-works" className="relative overflow-hidden bg-[#1c1209] pb-32 pt-20">
 
-      {/* Decorative background dots */}
+      {/* Subtle dot grid */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        className="pointer-events-none absolute inset-0 opacity-[0.06]"
         style={{
           backgroundImage: "radial-gradient(circle, #c4522a 1.5px, transparent 1.5px)",
           backgroundSize: "40px 40px",
         }}
       />
 
-      {/* Decorative blobs */}
-      <div className="pointer-events-none absolute right-0 top-0 h-64 w-64 rounded-full bg-[#c4522a]/6 blur-[70px]" />
-      <div className="pointer-events-none absolute left-1/4 bottom-24 h-48 w-48 rounded-full bg-[#d95a2e]/5 blur-[60px]" />
+      {/* Decorative glows */}
+      <div className="pointer-events-none absolute left-0 top-0 h-72 w-72 rounded-full bg-[#c4522a]/10 blur-[90px]" />
+      <div className="pointer-events-none absolute right-0 bottom-20 h-64 w-64 rounded-full bg-[#c4522a]/8 blur-[80px]" />
 
       <div className="relative mx-auto max-w-7xl px-6">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#fde8d8] bg-[#fdf3ee] px-4 py-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#c4522a]" />
-            <span className="text-[11px] font-[700] uppercase tracking-[0.2em] text-[#c4522a]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#c4522a]/30 bg-[#c4522a]/10 px-4 py-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#d95a2e]" />
+            <span className="text-[11px] font-[700] uppercase tracking-[0.2em] text-[#d95a2e]">
               How It Works
             </span>
           </div>
 
-          <h2 className="mt-7 text-[40px] font-[800] leading-[1.15] tracking-[-0.03em] text-slate-950 lg:text-[50px]">
+          <h2 className="mt-7 text-[40px] font-[600] leading-[1.1] tracking-[-0.02em] text-white lg:text-[48px]">
             Simple. Transparent.
             <br />
-            <span className="font-serif italic font-[400] text-[#c4522a]">
+            <span className="font-serif italic font-[400] text-[#d95a2e]">
               Employer controlled.
             </span>
           </h2>
 
-          <p className="mt-5 text-[15px] leading-[1.8] text-slate-600">
+          <p className="mt-5 text-[15px] leading-[1.8] text-white/55">
             A structured process that gives employees financial flexibility
             while ensuring employers retain complete visibility and control.
           </p>
         </div>
 
-        {/* Timeline */}
+        {/* Steps */}
         <div className="mt-14">
-          <div className="rounded-[28px] border border-[#f1e8e3] bg-white p-8 shadow-soft lg:p-10">
-            <div className="relative">
-              {/* Desktop connector line */}
-              <div
-                className="absolute left-[12.5%] right-[12.5%] top-8 hidden h-[2px] lg:block"
-                style={{
-                  background: "linear-gradient(to right, #fde8d8, #c4522a40, #fde8d8)",
-                }}
-              />
+          <div className="relative grid gap-6 lg:grid-cols-4">
 
-              <div className="grid gap-10 lg:grid-cols-4">
-                <TimelineStep
-                  number="01"
-                  icon={<User size={22} />}
-                  title="Request Advance"
-                  description="Employee submits a request for earned salary access via the MobPae app."
-                />
-                <TimelineStep
-                  number="02"
-                  icon={<Building2 size={22} />}
-                  title="Request Review"
-                  description="Employer reviews and approves according to their defined policy."
-                />
-                <TimelineStep
-                  number="03"
-                  icon={<Wallet size={22} />}
-                  title="Funds Disbursed"
-                  description="Approved amount is transferred to the employee's account securely."
-                />
-                <TimelineStep
-                  number="04"
-                  icon={<CalendarDays size={22} />}
-                  title="Auto Repayment"
-                  description="Repayment happens automatically through payroll deduction."
-                />
-              </div>
-            </div>
+
+            <TimelineStep
+              number="01"
+              icon={<User size={20} />}
+              title="Request Advance"
+              description="Employee submits a request for earned salary access via the MobPae app."
+            />
+            <TimelineStep
+              number="02"
+              icon={<Building2 size={20} />}
+              title="Employer Reviews"
+              description="Employer reviews and approves according to their defined policy."
+            />
+            <TimelineStep
+              number="03"
+              icon={<Wallet size={20} />}
+              title="Funds Disbursed"
+              description="Approved amount is transferred to the employee's account securely."
+            />
+            <TimelineStep
+              number="04"
+              icon={<CalendarDays size={20} />}
+              title="Auto Repayment"
+              description="Repayment happens automatically through payroll deduction."
+            />
           </div>
+        </div>
+
+        {/* Bottom strip — key proof points */}
+        <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-white/8 sm:grid-cols-3" style={{ background: "rgba(255,255,255,0.04)" }}>
+          <Proof value="₹0" label="Interest charged" />
+          <Proof value="24 hrs" label="Average approval time" />
+          <Proof value="100%" label="Employer visibility" />
         </div>
       </div>
 
-      {/* ── Wave divider — into white ── */}
+      {/* Wave into Benefits (white) */}
       <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-[0]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -115,23 +112,31 @@ function TimelineStep({
   description: string;
 }) {
   return (
-    <div className="relative text-center group">
-      {/* Step number circle */}
-      <div
-        className="relative z-10 mx-auto flex h-16 w-16 items-center justify-center rounded-full shadow-terracotta transition-transform duration-300 group-hover:-translate-y-1"
-        style={{
-          background: "linear-gradient(135deg, #6d2514 0%, #c4522a 100%)",
-        }}
-      >
-        <span className="font-serif text-[20px] font-[400] text-white leading-none">{number}</span>
+    <div className="group relative overflow-hidden rounded-2xl border border-white/8 p-6 transition-all duration-300 hover:border-[#c4522a]/40" style={{ background: "rgba(255,255,255,0.04)" }}>
+      {/* Large background number */}
+      <div className="pointer-events-none absolute right-3 top-1 select-none font-serif text-[72px] font-[400] leading-none text-white/15">
+        {number}
       </div>
 
-      {/* Icon */}
-      <div className="mt-5 flex justify-center text-[#c4522a]">{icon}</div>
+      {/* Step circle */}
+      <div
+        className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full"
+        style={{ background: "linear-gradient(135deg, #6d2514 0%, #c4522a 100%)" }}
+      >
+        <div className="text-white/90">{icon}</div>
+      </div>
 
-      <h3 className="mt-3 text-[15px] font-[700] text-slate-900">{title}</h3>
+      <h3 className="mt-5 text-[15px] font-[600] text-white">{title}</h3>
+      <p className="mt-2 text-[13px] leading-[1.7] text-white/50">{description}</p>
+    </div>
+  );
+}
 
-      <p className="mt-2 text-[13px] leading-[1.7] text-slate-500">{description}</p>
+function Proof({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="border-r border-white/8 px-8 py-6 text-center last:border-r-0">
+      <p className="font-serif text-[32px] font-[400] text-[#d95a2e] leading-none">{value}</p>
+      <p className="mt-2 text-[12px] font-[500] text-white/45">{label}</p>
     </div>
   );
 }
