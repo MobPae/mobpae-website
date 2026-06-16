@@ -1,6 +1,5 @@
 import { Footer } from "../components/Footer";
 import { BenefitsSection } from "../components/home/BenefitsSection";
-import { EnquirySection } from "../components/home/EnquirySection";
 import { FaqSection } from "../components/home/FaqSection";
 import { HeroSection } from "../components/home/HeroSection";
 import { HowItWorksSection } from "../components/home/HowItWorksSection";
@@ -18,8 +17,6 @@ export function HomePage() {
       <HowItWorksSection />
       <BenefitsSection />
       <FaqSection />
-      <EnquirySection />
-
       <Footer />
     </main>
   );

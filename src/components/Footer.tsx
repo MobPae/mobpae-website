@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer className="border-t border-[#f1e8e3] bg-white">
       <div className="mx-auto max-w-7xl px-6 py-14">
-        <div className="grid gap-12 md:grid-cols-[1.6fr_1fr_1fr]">
+        <div className="grid gap-12 md:grid-cols-[1.6fr_1fr_1fr_1fr]">
 
           {/* Brand */}
           <div>
@@ -50,7 +50,18 @@ export function Footer() {
               <a href="#how-it-works" className="text-slate-500 transition hover:text-[#c4522a]">How It Works</a>
               <a href="#benefits" className="text-slate-500 transition hover:text-[#c4522a]">Benefits</a>
               <a href="#faq" className="text-slate-500 transition hover:text-[#c4522a]">FAQ</a>
+            </div>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h4 className="text-[12px] font-[700] uppercase tracking-[0.15em] text-slate-900 mb-5">
+              Legal
+            </h4>
+            <div className="flex flex-col gap-3.5 text-[13.5px]">
               <a href="/privacy-policy" className="text-slate-500 transition hover:text-[#c4522a]">Privacy Policy</a>
+              <a href="/terms" className="text-slate-500 transition hover:text-[#c4522a]">Terms &amp; Conditions</a>
+              <a href="/careers" className="text-slate-500 transition hover:text-[#c4522a]">Careers</a>
             </div>
           </div>
 

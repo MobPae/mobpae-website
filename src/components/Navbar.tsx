@@ -2,10 +2,10 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
 const navLinks = [
-  { label: "Product",    href: "#why-mobpae" },
-  { label: "Employers",  href: "#benefits" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "FAQ",        href: "#faq" },
+  { label: "Product",    href: "/#why-mobpae" },
+  { label: "Employers",  href: "/#benefits" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "FAQ",        href: "/#faq" },
 ];
 
 export function Navbar() {
@@ -48,7 +48,7 @@ export function Navbar() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="/#faq"
             className="inline-flex items-center justify-center rounded-[10px] bg-[#1c1209] px-4 py-2 text-[12px] font-[600] text-white transition-all hover:bg-[#c4522a]"
           >
             Get Started
@@ -79,7 +79,7 @@ export function Navbar() {
               </a>
             ))}
             <a
-              href="#contact"
+              href="/#faq"
               onClick={() => setIsOpen(false)}
               className="mt-2 flex items-center justify-center rounded-xl bg-[#1c1209] px-4 py-3 text-[14px] font-[600] text-white"
             >
