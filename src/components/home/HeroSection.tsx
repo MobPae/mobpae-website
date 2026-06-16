@@ -248,26 +248,6 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* ── Dark bottom strip + scroll indicator ── */}
-        <div className="bg-[#1c1209] px-6 py-5">
-          <div className="mx-auto max-w-7xl flex items-center justify-between">
-            <p className="text-[12px] font-[600] text-white/40 uppercase tracking-[0.16em]">
-              Salary access for modern India
-            </p>
-            <a
-              href="#why-mobpae"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white/50 transition hover:border-white/40 hover:text-white"
-            >
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 5v14M5 12l7 7 7-7"/>
-              </svg>
-            </a>
-            <p className="text-[12px] font-[600] text-white/40 uppercase tracking-[0.16em]">
-              Employer backed · Zero interest
-            </p>
-          </div>
-        </div>
-
       </section>
     </>
   );
