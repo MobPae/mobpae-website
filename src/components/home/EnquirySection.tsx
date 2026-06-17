@@ -49,9 +49,12 @@ export function EnquirySection() {
     const { name, value } = e.target;
     if (name === "phone") {
       setForm((p) => ({ ...p, phone: value.replace(/\D/g, "").slice(0, 10) }));
-      return;
+    } else {
+      setForm((p) => ({ ...p, [name]: value }));
     }
-    setForm((p) => ({ ...p, [name]: value }));
+    if (errors[name as keyof FormState]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
   }
 
   async function submitEnquiry(e: React.FormEvent) {
@@ -74,7 +77,7 @@ export function EnquirySection() {
       setForm(initialForm);
       setErrors({});
     } catch {
-      setError("Unable to submit. Please email support@mobpae.com.");
+      setError("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
