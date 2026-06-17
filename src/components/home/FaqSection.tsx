@@ -8,14 +8,14 @@ import {
 } from "../../config/email";
 
 const faqs = [
-  { q: "What is MobPae?", a: "MobPae is an employer-backed salary access platform that lets employees withdraw a portion of their earned salary before payday — at zero interest, with no credit checks." },
+  { q: "What is MobPae?", a: "MobPae is an employer-backed salary access platform that lets employees withdraw a portion of their earned salary before payday — with no credit checks." },
   { q: "How does MobPae work?", a: "Employees submit a request through the app. The employer reviews and approves it. Funds are disbursed within 24 hours and repaid automatically from the next payroll." },
-  { q: "Is MobPae a loan product?", a: "No. MobPae is not a loan. Employees access money they have already earned. There is no interest, no credit scoring, and no traditional underwriting involved." },
+  { q: "Is MobPae a loan product?", a: "No. MobPae is not a loan. Employees access money they have already earned — no credit scoring, no traditional underwriting." },
   { q: "What platforms are supported?", a: "MobPae is available on iOS and Android for employees, and via a web-based portal for employers and administrators." },
   { q: "How long does onboarding take?", a: "Employer onboarding typically takes 2–3 working days. Once set up, employees can begin requesting advances immediately." },
   { q: "Can MobPae integrate with payroll?", a: "Yes. MobPae works alongside your existing payroll process. Repayments are structured as payroll deductions with minimal changes to your workflow." },
   { q: "What support does MobPae provide?", a: "We provide dedicated onboarding support, a help centre, and ongoing account management for employers. Employee support is available in-app." },
-  { q: "How is pricing structured?", a: "MobPae charges a small platform fee to employers. There are no fees for employees — access is completely free for them." },
+  { q: "How is pricing structured?", a: "Employees pay ₹499 per year — a mandatory annual membership covering unlimited access to up to 12 salary advances. There is no free plan. Employers are billed separately for platform access; contact us for employer pricing." },
 ];
 
 const defaultMessage = "Tell us a little about your requirement";
@@ -104,7 +104,7 @@ export function FaqSection() {
     "w-full rounded-xl border border-[#e8ddd4] bg-[#faf6f1] px-4 py-3 text-[13px] text-[#1c1209] placeholder-[#9e8f85] outline-none transition focus:border-[#c4522a] focus:ring-2 focus:ring-[#fde8d8]";
 
   return (
-    <section id="faq" className="relative overflow-hidden bg-[#faf7f5] pb-28 pt-20">
+    <section id="faq" className="relative overflow-hidden bg-[#faf6f1] py-24">
 
       {/* Blobs */}
       <div className="pointer-events-none absolute left-0 top-0 h-56 w-56 rounded-full bg-[#c4522a]/5 blur-[70px]" />
@@ -230,7 +230,7 @@ export function FaqSection() {
                 type="submit"
                 disabled={loading}
                 className="flex w-full items-center justify-center gap-2 rounded-[14px] py-3.5 text-[14px] font-[600] text-white transition-all hover:-translate-y-px disabled:opacity-60"
-                style={{ background: "linear-gradient(135deg, #a8411f, #c4522a)", boxShadow: "0 8px 28px rgba(196,82,42,0.30)" }}
+                style={{ background: "#c4522a", boxShadow: "0 8px 24px rgba(196,82,42,0.26)" }}
               >
                 {loading ? <Loader2 size={15} className="animate-spin" /> : <Send size={15} />}
                 {loading ? "Submitting..." : "Submit Enquiry"}
@@ -238,13 +238,6 @@ export function FaqSection() {
             </div>
           </form>
         </div>
-      </div>
-
-      {/* Wave → Footer */}
-      <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-[0]">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 70" preserveAspectRatio="none" className="block w-full" style={{ height: 70 }}>
-          <path d="M0,40 C360,0 1080,70 1440,30 L1440,70 L0,70 Z" fill="#ffffff"/>
-        </svg>
       </div>
     </section>
   );

@@ -91,7 +91,7 @@ export function CareersPage() {
                 {/* Placeholder gradient until real photo is added */}
                 <div
                   className="absolute inset-0"
-                  style={{ background: "linear-gradient(145deg, #d95a2e 0%, #8b3015 60%, #5a1f0c 100%)" }}
+                  style={{ background: "#c4522a" }}
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
                   <div className="h-16 w-16 rounded-full bg-white/20 flex items-center justify-center">
@@ -172,7 +172,7 @@ export function CareersPage() {
               href="#"
               className="inline-flex items-center gap-3 rounded-2xl px-10 py-4 text-[15px] font-[700] text-white transition-all hover:-translate-y-px"
               style={{
-                background: "linear-gradient(135deg, #c4522a, #d95a2e)",
+                background: "#c4522a",
                 boxShadow: "0 10px 32px rgba(196,82,42,0.35)",
               }}
             >

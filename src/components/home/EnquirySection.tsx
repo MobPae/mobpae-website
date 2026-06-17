@@ -120,7 +120,7 @@ export function EnquirySection() {
 
               <h2 className="text-[32px] font-[600] leading-[1.1] tracking-[-0.02em] text-white lg:text-[36px]">
                 Have questions?{" "}
-                <span className="font-serif italic font-[400] text-[#d95a2e]">
+                <span className="italic font-[500] text-[#d95a2e]">
                   We're here to help.
                 </span>
               </h2>

@@ -1,18 +1,25 @@
-export function WhyMobPaeSection() {
-  return (
-    <section id="why-mobpae" className="relative overflow-hidden bg-white pt-20 pb-32">
+import { useInView } from "../../hooks/useInView";
 
-      {/* Blobs */}
-      <div className="pointer-events-none absolute left-0 top-0 h-72 w-72 rounded-full bg-[#fde8d8]/50 blur-[80px]" />
-      <div className="pointer-events-none absolute right-0 bottom-24 h-64 w-64 rounded-full bg-[#fdf3ee]/70 blur-[80px]" />
+export function WhyMobPaeSection() {
+  const [ref, inView] = useInView(0.1);
+
+  return (
+    <section
+      id="why-mobpae"
+      ref={ref as React.RefObject<HTMLElement>}
+      className="relative overflow-hidden bg-white pt-20 pb-32"
+    >
+      {/* Subtle blobs */}
+      <div className="pointer-events-none absolute left-0 top-0 h-72 w-72 rounded-full bg-[#fde8d8]/40 blur-[90px]" />
+      <div className="pointer-events-none absolute right-0 bottom-24 h-64 w-64 rounded-full bg-[#fdf3ee]/60 blur-[90px]" />
 
       <div className="relative mx-auto max-w-7xl px-6">
 
-        {/* ── Top 2-col ── */}
-        <div className="grid gap-14 lg:grid-cols-[1fr_1fr] lg:items-start">
+        {/* 2-col grid */}
+        <div className="grid gap-14 lg:grid-cols-2 lg:items-start">
 
           {/* Left — headline */}
-          <div>
+          <div className={`reveal ${inView ? "in-view" : ""}`}>
             <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-[#c4522a]">
               Why We Exist
             </p>
@@ -20,26 +27,28 @@ export function WhyMobPaeSection() {
 
             <h2
               className="mt-7 font-[700] leading-[1.05] tracking-[-0.02em] text-[#1c1209]"
-              style={{ fontSize: "clamp(36px, 4.5vw, 52px)" }}
+              style={{ fontSize: "clamp(34px, 4.5vw, 52px)" }}
             >
-              Financial<br />
-              emergencies<br />
-              don't wait<br />
-              <span className="font-serif italic font-[400] text-[#c4522a]">for payday.</span>
+              Financial{" "}
+              <span className="text-[#c4522a]">emergencies</span>
+              <br />
+              don't wait
+              <br />
+              for payday.
             </h2>
 
             <p className="mt-6 max-w-[400px] text-[15px] leading-[1.8] text-[#6b5e53]">
-              Life happens. Bills, medical needs, urgent responsibilities — not everything can wait. MobPae was created to bridge the gap between today's needs and tomorrow's paycheck.
+              Life happens. Bills, medical needs, urgent responsibilities — not everything can wait. MobPae bridges the gap between today's needs and tomorrow's paycheck.
             </p>
           </div>
 
-          {/* Right — salary overview card */}
-          <div className="flex items-start lg:justify-end">
-            <div className="w-full max-w-[420px] rounded-2xl border border-[#f1e8e3] bg-[#faf6f1] p-6 shadow-soft">
+          {/* Right — wage access card */}
+          <div className={`flex items-start lg:justify-end reveal delay-150 ${inView ? "in-view" : ""}`}>
+            <div className="w-full max-w-[420px] rounded-2xl border border-[#f1e8e3] bg-[#faf6f1] p-6">
               <p className="text-[10px] font-[700] uppercase tracking-[0.2em] text-[#9e8f85]">
                 Your Wage Access Overview
               </p>
-              <p className="mt-3 text-[36px] font-[300] text-[#1c1209] leading-none tracking-tight">
+              <p className="mt-3 text-[34px] font-[300] text-[#1c1209] leading-none tracking-tight">
                 ₹42,850<span className="text-[20px] text-[#9e8f85]">.00</span>
               </p>
               <p className="mt-1 text-[12px] text-[#9e8f85]">Accessed this pay period</p>
@@ -55,8 +64,8 @@ export function WhyMobPaeSection() {
                     <span className="w-8 text-[10px] text-[#9e8f85]">{d.label}</span>
                     <div className="flex-1 h-1.5 rounded-full overflow-hidden bg-[#e8ddd4]">
                       <div
-                        className="h-full rounded-full"
-                        style={{ width: `${d.w}%`, background: "linear-gradient(to right, #8a3118, #c4522a)" }}
+                        className="h-full rounded-full bg-[#c4522a]"
+                        style={{ width: `${d.w}%` }}
                       />
                     </div>
                     <span className="w-8 text-right text-[10px] font-[600] text-[#c4522a]">{d.w}%</span>
@@ -66,9 +75,9 @@ export function WhyMobPaeSection() {
 
               <div className="mt-5 grid grid-cols-3 gap-2">
                 {[
-                  { val: "₹0", label: "Interest" },
-                  { val: "24h", label: "Approval" },
                   { val: "100%", label: "Employer" },
+                  { val: "24h", label: "Approval" },
+                  { val: "12×", label: "Per Year" },
                 ].map((s) => (
                   <div key={s.label} className="rounded-xl bg-white px-3 py-3 text-center border border-[#f1e8e3]">
                     <p className="text-[18px] font-[700] text-[#c4522a] leading-none">{s.val}</p>
@@ -80,8 +89,8 @@ export function WhyMobPaeSection() {
           </div>
         </div>
 
-        {/* ── Flow diagram ── */}
-        <div className="mt-16 flex items-start justify-center gap-0">
+        {/* Flow diagram */}
+        <div className={`mt-16 flex items-start justify-center gap-0 reveal delay-200 ${inView ? "in-view" : ""}`}>
           <FlowNode
             icon={
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -93,18 +102,13 @@ export function WhyMobPaeSection() {
             description="Gets instant access to earned salary — without stress or debt."
           />
 
-          <div className="flex items-center mt-8 flex-1 max-w-[100px]">
-            <div className="h-2 w-2 flex-shrink-0 rounded-full bg-[#c4522a]" />
-            <div className="flex-1 h-px bg-gradient-to-r from-[#c4522a] to-[#c4522a]/40" />
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="flex-shrink-0">
-              <path d="M2 6h8M7 3l3 3-3 3" stroke="#c4522a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
+          <Arrow />
 
+          {/* Center: MobPae — solid terracotta, no gradient */}
           <div className="text-center px-5">
             <div
-              className="mx-auto flex h-20 w-20 items-center justify-center rounded-full"
-              style={{ background: "linear-gradient(135deg, #6d2514, #c4522a)", boxShadow: "0 12px 40px rgba(196,82,42,0.35)" }}
+              className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-[#c4522a]"
+              style={{ boxShadow: "0 12px 36px rgba(196,82,42,0.30)" }}
             >
               <svg width="28" height="20" viewBox="0 0 22 16" fill="none">
                 <path d="M1 13C1 13 4 3 7 8C10 13 11 2 14 8C17 14 21 3 21 3" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -116,13 +120,7 @@ export function WhyMobPaeSection() {
             </p>
           </div>
 
-          <div className="flex items-center mt-8 flex-1 max-w-[100px]">
-            <div className="h-2 w-2 flex-shrink-0 rounded-full bg-[#c4522a]" />
-            <div className="flex-1 h-px bg-gradient-to-r from-[#c4522a] to-[#c4522a]/40" />
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="flex-shrink-0">
-              <path d="M2 6h8M7 3l3 3-3 3" stroke="#c4522a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
+          <Arrow />
 
           <FlowNode
             icon={
@@ -136,10 +134,10 @@ export function WhyMobPaeSection() {
           />
         </div>
 
-        {/* ── Quote block ── */}
-        <div className="mt-14 rounded-2xl border border-[#f1e8e3] bg-[#fdf9f7] px-8 py-7">
+        {/* Quote block */}
+        <div className={`mt-14 rounded-2xl border border-[#f1e8e3] bg-[#fdf9f7] px-8 py-7 reveal delay-300 ${inView ? "in-view" : ""}`}>
           <div className="flex items-start gap-5">
-            <span className="font-serif text-[52px] leading-none text-[#c4522a] select-none" style={{ marginTop: "-8px" }}>"</span>
+            <span className="text-[52px] leading-none text-[#c4522a] select-none font-[300]" style={{ marginTop: "-8px" }}>"</span>
             <p className="text-[15px] font-[500] leading-[1.8] text-[#1c1209]">
               We exist to build a world where employees never have to choose between their{" "}
               <span className="font-[600] text-[#c4522a]">financial well-being</span> and their{" "}
@@ -148,14 +146,19 @@ export function WhyMobPaeSection() {
           </div>
         </div>
       </div>
-
-      {/* Wave → HowItWorks warm bg */}
-      <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-[0]">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 70" preserveAspectRatio="none" className="block w-full" style={{ height: 70 }}>
-          <path d="M0,0 C360,70 1080,0 1440,55 L1440,70 L0,70 Z" fill="#faf7f5"/>
-        </svg>
-      </div>
     </section>
+  );
+}
+
+function Arrow() {
+  return (
+    <div className="flex items-center mt-8 flex-1 max-w-[100px]">
+      <div className="h-2 w-2 flex-shrink-0 rounded-full bg-[#c4522a]" />
+      <div className="flex-1 h-px bg-[#c4522a]/30" />
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="flex-shrink-0">
+        <path d="M2 6h8M7 3l3 3-3 3" stroke="#c4522a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
   );
 }
 

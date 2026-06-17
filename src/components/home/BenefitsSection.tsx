@@ -1,21 +1,28 @@
 import { Zap, Building2, ShieldCheck, Eye } from "lucide-react";
+import { useInView } from "../../hooks/useInView";
 
 export function BenefitsSection() {
-  return (
-    <section id="benefits" className="relative overflow-hidden bg-white py-24">
+  const [ref, inView] = useInView(0.08);
 
-      <div className="pointer-events-none absolute -bottom-10 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-[#fdf3ee]/80 blur-[80px]" />
+  return (
+    <section
+      id="benefits"
+      ref={ref as React.RefObject<HTMLElement>}
+      className="relative overflow-hidden bg-[#faf6f1] py-24"
+    >
+      <div className="pointer-events-none absolute -bottom-10 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-[#fdf3ee]/70 blur-[80px]" />
 
       <div className="relative mx-auto max-w-7xl px-6">
 
-        {/* Eyebrow */}
-        <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-[#c4522a]">Why Choose</p>
-        <div className="mt-2 h-0.5 w-10 bg-[#c4522a]" />
+        <div className={`reveal ${inView ? "in-view" : ""}`}>
+          <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-[#c4522a]">Why Choose</p>
+          <div className="mt-2 h-0.5 w-10 bg-[#c4522a]" />
+        </div>
 
-        <div className="mt-8 grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-start">
+        <div className="mt-8 grid gap-6 lg:grid-cols-2 lg:items-start">
 
-          {/* ── Left column ── */}
-          <div className="flex flex-col gap-6">
+          {/* Left column */}
+          <div className={`flex flex-col gap-6 reveal delay-100 ${inView ? "in-view" : ""}`}>
             <div>
               <h2
                 className="font-[700] leading-[0.95] tracking-[-0.02em] text-[#1c1209]"
@@ -28,29 +35,16 @@ export function BenefitsSection() {
               </p>
             </div>
 
-            {/* Fast Approval — featured card */}
+            {/* Fast Approval card */}
             <div className="rounded-2xl border border-[#f1e8e3] bg-[#faf6f1] p-6">
               <div className="flex items-start gap-5">
-
                 {/* Clock graphic */}
                 <div className="relative flex-shrink-0 h-28 w-28">
-                  <div
-                    className="absolute inset-0 rounded-full"
-                    style={{ background: "radial-gradient(circle at center, #fde8d8 0%, #faf6f1 70%)", border: "2px solid #e8d5c8" }}
-                  />
+                  <div className="absolute inset-0 rounded-full" style={{ background: "radial-gradient(circle at center, #fde8d8 0%, #faf6f1 70%)", border: "2px solid #e8d5c8" }} />
                   <div className="absolute inset-3 rounded-full border border-[#e8d5c8]" />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    {/* Hour hand */}
-                    <div
-                      className="absolute h-8 w-0.5 rounded-full bg-[#1c1209]/60 origin-bottom"
-                      style={{ bottom: "50%", left: "calc(50% - 1px)", transform: "rotate(30deg)" }}
-                    />
-                    {/* Minute hand */}
-                    <div
-                      className="absolute h-10 w-0.5 rounded-full bg-[#c4522a] origin-bottom"
-                      style={{ bottom: "50%", left: "calc(50% - 1px)", transform: "rotate(150deg)" }}
-                    />
-                    {/* Center dot */}
+                    <div className="absolute h-8 w-0.5 rounded-full bg-[#1c1209]/60 origin-bottom" style={{ bottom: "50%", left: "calc(50% - 1px)", transform: "rotate(30deg)" }} />
+                    <div className="absolute h-10 w-0.5 rounded-full bg-[#c4522a] origin-bottom" style={{ bottom: "50%", left: "calc(50% - 1px)", transform: "rotate(150deg)" }} />
                     <div className="h-3 w-3 rounded-full bg-[#c4522a] z-10" />
                   </div>
                 </div>
@@ -66,7 +60,6 @@ export function BenefitsSection() {
                 </div>
               </div>
 
-              {/* Stats row */}
               <div className="mt-5 flex gap-0 border-t border-[#e8ddd4] pt-5">
                 {[
                   { val: "90%", label: "Approved", sub: "instantly" },
@@ -82,10 +75,8 @@ export function BenefitsSection() {
             </div>
           </div>
 
-          {/* ── Right column: 3 stacked cards ── */}
-          <div className="flex flex-col gap-5">
-
-            {/* Employer Controlled */}
+          {/* Right column */}
+          <div className={`flex flex-col gap-5 reveal delay-200 ${inView ? "in-view" : ""}`}>
             <FeatureCard
               icon={<Building2 size={20} />}
               title="Employer Controlled"
@@ -99,8 +90,6 @@ export function BenefitsSection() {
                 </div>
               }
             />
-
-            {/* No Credit Checks */}
             <FeatureCard
               icon={<ShieldCheck size={20} />}
               title="No Credit Checks"
@@ -116,7 +105,7 @@ export function BenefitsSection() {
               }
             />
 
-            {/* Transparent Workflow — with mini chart */}
+            {/* Transparent workflow — mini chart */}
             <div className="rounded-2xl border border-[#f1e8e3] bg-[#faf6f1] p-6">
               <div className="flex items-start gap-4">
                 <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-[#fdf3ee]">
@@ -125,12 +114,11 @@ export function BenefitsSection() {
                 <div>
                   <h3 className="text-[16px] font-[600] text-[#1c1209]">Transparent Workflow</h3>
                   <p className="mt-1 text-[13px] leading-[1.6] text-[#6b5e53]">
-                    Every step is clear. No hidden fees, no fine print. Just transparency you can trust.
+                    No hidden fees, no fine print. Just clarity you can trust.
                   </p>
                 </div>
               </div>
 
-              {/* Mini chart */}
               <div className="mt-4 rounded-xl border border-[#ede8e2] bg-white p-4">
                 <div className="flex items-center justify-between mb-3">
                   <p className="text-[10px] font-[600] uppercase tracking-[0.12em] text-[#9e8f85]">Wage Access Activity</p>
@@ -139,18 +127,12 @@ export function BenefitsSection() {
                 <svg viewBox="0 0 280 56" className="w-full" style={{ height: 56 }}>
                   <defs>
                     <linearGradient id="wChartFill" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#c4522a" stopOpacity="0.2"/>
+                      <stop offset="0%" stopColor="#c4522a" stopOpacity="0.18"/>
                       <stop offset="100%" stopColor="#c4522a" stopOpacity="0"/>
                     </linearGradient>
                   </defs>
-                  <path
-                    d="M0,50 C40,46 60,38 90,30 C120,22 140,14 170,9 C200,4 230,6 280,2"
-                    fill="none" stroke="#c4522a" strokeWidth="2" strokeLinecap="round"
-                  />
-                  <path
-                    d="M0,50 C40,46 60,38 90,30 C120,22 140,14 170,9 C200,4 230,6 280,2 L280,56 L0,56 Z"
-                    fill="url(#wChartFill)"
-                  />
+                  <path d="M0,50 C40,46 60,38 90,30 C120,22 140,14 170,9 C200,4 230,6 280,2" fill="none" stroke="#c4522a" strokeWidth="2" strokeLinecap="round"/>
+                  <path d="M0,50 C40,46 60,38 90,30 C120,22 140,14 170,9 C200,4 230,6 280,2 L280,56 L0,56 Z" fill="url(#wChartFill)"/>
                   <circle cx="280" cy="2" r="3.5" fill="#c4522a"/>
                 </svg>
                 <div className="mt-1.5 flex justify-between">
@@ -163,13 +145,6 @@ export function BenefitsSection() {
           </div>
         </div>
       </div>
-
-      {/* Wave → FAQ warm bg */}
-      <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-[0]">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 70" preserveAspectRatio="none" className="block w-full" style={{ height: 70 }}>
-          <path d="M0,20 C480,70 960,0 1440,50 L1440,70 L0,70 Z" fill="#faf7f5"/>
-        </svg>
-      </div>
     </section>
   );
 }
@@ -178,7 +153,7 @@ function FeatureCard({ icon, title, description, visual }: {
   icon: React.ReactNode; title: string; description: string; visual: React.ReactNode;
 }) {
   return (
-    <div className="flex items-center gap-5 rounded-2xl border border-[#f1e8e3] bg-white p-6 shadow-sm">
+    <div className="flex items-center gap-5 rounded-2xl border border-[#f1e8e3] bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:border-[#fde8d8] hover:shadow-warm">
       <div className="flex-1">
         <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#fdf3ee] text-[#c4522a]">
           {icon}
