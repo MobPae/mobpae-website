@@ -6,9 +6,9 @@ export function HeroSection() {
   return (
     <section
       ref={heroRef as React.RefObject<HTMLElement>}
-      className="relative overflow-hidden bg-[#faf6f1]"
+      className="relative overflow-hidden bg-[#faf6f1] pt-16 pb-24"
     >
-      <div className="mx-auto max-w-7xl px-6 pt-12 pb-10 lg:pt-16 lg:pb-12">
+      <div className="mx-auto max-w-7xl px-6">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
 
           {/* LEFT */}
@@ -38,20 +38,39 @@ export function HeroSection() {
               — just your money, when you need it most.
             </p>
 
-            <div className={`mt-7 flex flex-wrap items-center gap-4 reveal delay-300 ${heroInView ? "in-view" : ""}`}>
+            <div className={`mt-7 flex flex-wrap items-center gap-3 reveal delay-300 ${heroInView ? "in-view" : ""}`}>
+              {/* Google Play */}
               <a
-                href="#contact"
-                className="inline-flex items-center gap-2 rounded-[14px] bg-[#c4522a] px-7 py-3.5 text-[14px] font-[600] text-white transition-all hover:bg-[#a8411f] hover:-translate-y-px"
-                style={{ boxShadow: "0 8px 24px rgba(196,82,42,0.28)" }}
+                href="#"
+                className="inline-flex items-center gap-3 rounded-[14px] bg-[#1c1209] px-5 py-3 transition-all hover:bg-[#c4522a] hover:-translate-y-px"
+                style={{ boxShadow: "0 6px 20px rgba(28,18,9,0.22)" }}
               >
-                Download the App
+                <svg width="20" height="22" viewBox="0 0 20 22" fill="none">
+                  <path d="M1.5 1C1.5 0.4 2.2 0 2.8 0.3L18.5 9.6C19.1 9.9 19.1 10.8 18.5 11.1L2.8 20.5C2.2 20.8 1.5 20.4 1.5 19.8V1Z" fill="white"/>
+                  <path d="M1.5 1L11 10.3L1.5 19.8" stroke="white" strokeOpacity="0.3" strokeWidth="0.5"/>
+                </svg>
+                <div>
+                  <p className="text-[9px] font-[400] text-white/60 leading-none">Get it on</p>
+                  <p className="text-[13px] font-[700] text-white leading-tight mt-0.5">Google Play</p>
+                </div>
               </a>
+
+              {/* App Store */}
               <a
-                href="#how-it-works"
-                className="inline-flex items-center rounded-[14px] border-2 border-[#1c1209]/20 bg-transparent px-7 py-3.5 text-[14px] font-[500] text-[#1c1209] transition-all hover:border-[#1c1209]/40"
+                href="#"
+                className="inline-flex items-center gap-3 rounded-[14px] bg-[#1c1209] px-5 py-3 transition-all hover:bg-[#c4522a] hover:-translate-y-px"
+                style={{ boxShadow: "0 6px 20px rgba(28,18,9,0.22)" }}
               >
-                How It Works
+                <svg width="18" height="22" viewBox="0 0 18 22" fill="white">
+                  <path d="M14.5 11.7c0-2.9 2.4-4.3 2.5-4.4C15.5 5 13.4 4.7 12.6 4.7c-1.8-.2-3.5 1-4.4 1s-2.3-1-3.8-1C2.5 4.7.3 6.1.3 9.6c0 2.2.9 4.5 1.9 5.9 1 1.4 2 2.8 3.5 2.7 1.4-.1 1.9-.9 3.6-.9 1.7 0 2.2.9 3.6.9 1.5 0 2.4-1.4 3.4-2.8.7-1 1.2-2.1 1.5-3.3-2.1-.8-3.3-2.8-3.3-4.4z"/>
+                  <path d="M11.7 3c.8-1 1.4-2.4 1.2-3.8-1.2.1-2.7.8-3.5 1.8C8.7 2 8 3.3 8.2 4.6c1.3.1 2.7-.7 3.5-1.6z"/>
+                </svg>
+                <div>
+                  <p className="text-[9px] font-[400] text-white/60 leading-none">Download on the</p>
+                  <p className="text-[13px] font-[700] text-white leading-tight mt-0.5">App Store</p>
+                </div>
               </a>
+
             </div>
 
             <div className={`mt-7 flex items-center gap-6 border-t border-[#e8ddd4] pt-6 reveal delay-400 ${heroInView ? "in-view" : ""}`}>
@@ -226,6 +245,13 @@ export function HeroSection() {
           </div>
 
         </div>
+      </div>
+
+      {/* Wave → TrustedCompanies (white) */}
+      <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-[0]">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 70" preserveAspectRatio="none" className="block w-full" style={{ height: 70 }}>
+          <path d="M0,20 C480,70 960,0 1440,55 L1440,70 L0,70 Z" fill="#ffffff" />
+        </svg>
       </div>
     </section>
   );

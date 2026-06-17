@@ -20,8 +20,8 @@ export function Navbar() {
 
   return (
     <header
-      className="sticky top-0 z-50 bg-[#faf6f1] border-b border-[#ede8e2] transition-shadow duration-300"
-      style={{ boxShadow: scrolled ? "0 4px 20px rgba(28,18,9,0.07)" : "none" }}
+      className="sticky top-0 z-50 bg-white border-b border-[#e8ddd4] transition-shadow duration-300"
+      style={{ boxShadow: scrolled ? "0 4px 20px rgba(28,18,9,0.08)" : "none" }}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
 
@@ -75,7 +75,7 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="border-t border-[#ede8e2] bg-[#faf6f1] px-4 py-3 lg:hidden">
+        <div className="border-t border-[#e8ddd4] bg-white px-4 py-3 lg:hidden">
           <nav className="grid gap-0.5">
             {navLinks.map((link) => (
               <a

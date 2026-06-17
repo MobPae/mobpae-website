@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { Plus, Minus, Mail, Loader2, CheckCircle2, Send } from "lucide-react";
-import emailjs from "@emailjs/browser";
-import {
-  EMAILJS_PUBLIC_KEY,
-  EMAILJS_SERVICE_ID,
-  EMAILJS_TEMPLATE_ID,
-} from "../../config/email";
+import axios from "axios";
+
+// Strip /api/v1 suffix — employer-enquiries lives at the root path
+const API_BASE = (import.meta.env.VITE_API_BASE_URL as string).replace(/\/api\/v1\/?$/, "");
 
 const faqs = [
   { q: "What is MobPae?", a: "MobPae is an employer-backed salary access platform that lets employees withdraw a portion of their earned salary before payday — with no credit checks." },
@@ -37,7 +35,7 @@ const initialForm: FormState = {
   email: "",
   phone: "",
   employeeCount: "",
-  message: "",
+  message: defaultMessage,
 };
 
 export function FaqSection() {
@@ -75,25 +73,19 @@ export function FaqSection() {
     setSuccess("");
     setSubmitError("");
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          companyName: form.companyName,
-          contactName: form.contactName,
-          email: form.email,
-          phone: form.phone,
-          employeeCount: form.employeeCount || "Not Provided",
-          message: form.message || defaultMessage,
-        },
-        EMAILJS_PUBLIC_KEY
-      );
+      await axios.post(`${API_BASE}/employer-enquiries`, {
+        companyName: form.companyName,
+        contactPerson: form.contactName,
+        email: form.email,
+        phone: form.phone,
+        employeeCount: form.employeeCount ? Number(form.employeeCount) : null,
+        message: form.message || defaultMessage,
+      });
       setSuccess("Enquiry submitted! Our team will contact you shortly.");
       setTimeout(() => setSuccess(""), 4000);
       setForm(initialForm);
       setErrors({});
-    } catch (err) {
-      console.error("EmailJS Error:", err);
+    } catch {
       setSubmitError("Unable to submit. Please email support@mobpae.com.");
     } finally {
       setLoading(false);
@@ -104,7 +96,7 @@ export function FaqSection() {
     "w-full rounded-xl border border-[#e8ddd4] bg-[#faf6f1] px-4 py-3 text-[13px] text-[#1c1209] placeholder-[#9e8f85] outline-none transition focus:border-[#c4522a] focus:ring-2 focus:ring-[#fde8d8]";
 
   return (
-    <section id="faq" className="relative overflow-hidden bg-[#faf6f1] py-24">
+    <section id="faq" className="relative overflow-hidden bg-[#faf6f1] py-20">
 
       {/* Blobs */}
       <div className="pointer-events-none absolute left-0 top-0 h-56 w-56 rounded-full bg-[#c4522a]/5 blur-[70px]" />

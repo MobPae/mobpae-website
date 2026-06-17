@@ -7,7 +7,7 @@ export function WhyMobPaeSection() {
     <section
       id="why-mobpae"
       ref={ref as React.RefObject<HTMLElement>}
-      className="relative overflow-hidden bg-white pt-20 pb-32"
+      className="relative overflow-hidden bg-[#faf6f1] pt-20 pb-24"
     >
       {/* Subtle blobs */}
       <div className="pointer-events-none absolute left-0 top-0 h-72 w-72 rounded-full bg-[#fde8d8]/40 blur-[90px]" />
@@ -42,46 +42,48 @@ export function WhyMobPaeSection() {
             </p>
           </div>
 
-          {/* Right — wage access card */}
+          {/* Right — monthly salary advances chart */}
           <div className={`flex items-start lg:justify-end reveal delay-150 ${inView ? "in-view" : ""}`}>
-            <div className="w-full max-w-[420px] rounded-2xl border border-[#f1e8e3] bg-[#faf6f1] p-6">
-              <p className="text-[10px] font-[700] uppercase tracking-[0.2em] text-[#9e8f85]">
-                Your Wage Access Overview
-              </p>
-              <p className="mt-3 text-[34px] font-[300] text-[#1c1209] leading-none tracking-tight">
-                ₹42,850<span className="text-[20px] text-[#9e8f85]">.00</span>
-              </p>
-              <p className="mt-1 text-[12px] text-[#9e8f85]">Accessed this pay period</p>
-
-              {/* Mini bar chart */}
-              <div className="mt-5 space-y-2">
-                {[
-                  { label: "Mon", w: 35 }, { label: "Tue", w: 55 },
-                  { label: "Wed", w: 45 }, { label: "Thu", w: 70 },
-                  { label: "Fri", w: 85 }, { label: "Sat", w: 60 },
-                ].map((d) => (
-                  <div key={d.label} className="flex items-center gap-3">
-                    <span className="w-8 text-[10px] text-[#9e8f85]">{d.label}</span>
-                    <div className="flex-1 h-1.5 rounded-full overflow-hidden bg-[#e8ddd4]">
-                      <div
-                        className="h-full rounded-full bg-[#c4522a]"
-                        style={{ width: `${d.w}%` }}
-                      />
-                    </div>
-                    <span className="w-8 text-right text-[10px] font-[600] text-[#c4522a]">{d.w}%</span>
-                  </div>
-                ))}
+            <div className="w-full max-w-[420px] rounded-2xl border border-[#f1e8e3] bg-white p-6">
+              <div className="flex items-center justify-between">
+                <p className="text-[10px] font-[700] uppercase tracking-[0.2em] text-[#9e8f85]">
+                  Monthly Salary Advances
+                </p>
+                <span className="text-[11px] font-[600] text-[#c4522a]">2024–25</span>
               </div>
+
+              {/* Bar chart */}
+              {(() => {
+                const months = [
+                  { m: "Jun", k: 2 }, { m: "Jul", k: 4 }, { m: "Aug", k: 3 },
+                  { m: "Sep", k: 5 }, { m: "Oct", k: 6 }, { m: "Nov", k: 3 },
+                ];
+                const max = Math.max(...months.map(d => d.k));
+                return (
+                  <div className="mt-5 flex items-end gap-2" style={{ height: 100 }}>
+                    {months.map((d) => (
+                      <div key={d.m} className="flex flex-1 flex-col items-center gap-1">
+                        <span className="text-[8.5px] font-[700] text-[#c4522a]">₹{d.k}K</span>
+                        <div
+                          className="w-full rounded-t-[6px] bg-[#c4522a]"
+                          style={{ height: `${Math.round((d.k / max) * 72)}px` }}
+                        />
+                        <span className="text-[8.5px] text-[#9e8f85]">{d.m}</span>
+                      </div>
+                    ))}
+                  </div>
+                );
+              })()}
 
               <div className="mt-5 grid grid-cols-3 gap-2">
                 {[
-                  { val: "100%", label: "Employer" },
-                  { val: "24h", label: "Approval" },
-                  { val: "12×", label: "Per Year" },
+                  { val: "₹23K", label: "Total accessed" },
+                  { val: "6×", label: "Advances" },
+                  { val: "24h", label: "Avg approval" },
                 ].map((s) => (
-                  <div key={s.label} className="rounded-xl bg-white px-3 py-3 text-center border border-[#f1e8e3]">
-                    <p className="text-[18px] font-[700] text-[#c4522a] leading-none">{s.val}</p>
-                    <p className="mt-1 text-[10px] text-[#9e8f85]">{s.label}</p>
+                  <div key={s.label} className="rounded-xl bg-[#fdf9f7] px-3 py-3 text-center border border-[#f1e8e3]">
+                    <p className="text-[17px] font-[700] text-[#c4522a] leading-none">{s.val}</p>
+                    <p className="mt-1 text-[9.5px] text-[#9e8f85] leading-tight">{s.label}</p>
                   </div>
                 ))}
               </div>
@@ -135,16 +137,24 @@ export function WhyMobPaeSection() {
         </div>
 
         {/* Quote block */}
-        <div className={`mt-14 rounded-2xl border border-[#f1e8e3] bg-[#fdf9f7] px-8 py-7 reveal delay-300 ${inView ? "in-view" : ""}`}>
-          <div className="flex items-start gap-5">
-            <span className="text-[52px] leading-none text-[#c4522a] select-none font-[300]" style={{ marginTop: "-8px" }}>"</span>
-            <p className="text-[15px] font-[500] leading-[1.8] text-[#1c1209]">
+        <div className={`mt-10 flex justify-center reveal delay-300 ${inView ? "in-view" : ""}`}>
+          <div className="mx-auto max-w-[600px] rounded-2xl border border-[#f1e8e3] bg-white px-8 py-5 text-center">
+            <p className="text-[13.5px] font-[500] leading-[1.8] text-[#6b5e53]">
+              <span className="text-[28px] leading-none text-[#c4522a] font-[300] align-bottom mr-1">"</span>
               We exist to build a world where employees never have to choose between their{" "}
               <span className="font-[600] text-[#c4522a]">financial well-being</span> and their{" "}
               <span className="font-[600] text-[#c4522a]">peace of mind.</span>
+              <span className="text-[28px] leading-none text-[#c4522a] font-[300] align-bottom ml-1">"</span>
             </p>
           </div>
         </div>
+      </div>
+
+      {/* Wave → HowItWorks (white) */}
+      <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-[0]">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 70" preserveAspectRatio="none" className="block w-full" style={{ height: 70 }}>
+          <path d="M0,20 C480,70 960,0 1440,55 L1440,70 L0,70 Z" fill="#ffffff" />
+        </svg>
       </div>
     </section>
   );

@@ -33,7 +33,7 @@ export function PricingSection() {
     <section
       id="pricing"
       ref={sectionRef as React.RefObject<HTMLElement>}
-      className="relative overflow-hidden bg-[#faf6f1] py-24"
+      className="relative overflow-hidden bg-white pt-20 pb-24"
     >
       {/* Glow blobs */}
       <div className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-[#c4522a]/12 blur-[100px]" />
@@ -79,7 +79,7 @@ export function PricingSection() {
               <div className="inline-flex items-center gap-2 rounded-full bg-[#fdf3ee] px-3.5 py-1.5">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#c4522a]" />
                 <span className="text-[11px] font-[700] uppercase tracking-[0.18em] text-[#c4522a]">
-                  Annual Access Plan
+                  MobPae Premium Plan
                 </span>
               </div>
 
@@ -144,6 +144,13 @@ export function PricingSection() {
           </a>{" "}
           for employer pricing.
         </p>
+      </div>
+
+      {/* Wave → FAQ (cream) */}
+      <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-[0]">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 70" preserveAspectRatio="none" className="block w-full" style={{ height: 70 }}>
+          <path d="M0,55 C480,0 960,70 1440,20 L1440,70 L0,70 Z" fill="#faf6f1" />
+        </svg>
       </div>
     </section>
   );

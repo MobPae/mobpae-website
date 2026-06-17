@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { Loader2, CheckCircle2, Send } from "lucide-react";
-import emailjs from "@emailjs/browser";
-import {
-  EMAILJS_PUBLIC_KEY,
-  EMAILJS_SERVICE_ID,
-  EMAILJS_TEMPLATE_ID,
-} from "../../config/email";
+import axios from "axios";
+
+// Strip /api/v1 suffix — employer-enquiries lives at the root path
+const API_BASE = (import.meta.env.VITE_API_BASE_URL as string).replace(/\/api\/v1\/?$/, "");
 
 const defaultMessage = "Tell us a little about your requirement";
 
@@ -26,7 +24,7 @@ const initialForm: FormState = {
   email: "",
   phone: "",
   employeeCount: "",
-  message: "",
+  message: defaultMessage,
 };
 
 export function EnquirySection() {
@@ -63,25 +61,19 @@ export function EnquirySection() {
     setSuccess("");
     setError("");
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          companyName: form.companyName,
-          contactName: form.contactName,
-          email: form.email,
-          phone: form.phone,
-          employeeCount: form.employeeCount || "Not Provided",
-          message: form.message || defaultMessage,
-        },
-        EMAILJS_PUBLIC_KEY
-      );
+      await axios.post(`${API_BASE}/employer-enquiries`, {
+        companyName: form.companyName,
+        contactPerson: form.contactName,
+        email: form.email,
+        phone: form.phone,
+        employeeCount: form.employeeCount ? Number(form.employeeCount) : null,
+        message: form.message || defaultMessage,
+      });
       setSuccess("Enquiry submitted! Our team will contact you shortly.");
       setTimeout(() => setSuccess(""), 4000);
       setForm(initialForm);
       setErrors({});
-    } catch (err) {
-      console.error("EmailJS Error:", err);
+    } catch {
       setError("Unable to submit. Please email support@mobpae.com.");
     } finally {
       setLoading(false);
@@ -92,7 +84,7 @@ export function EnquirySection() {
     "h-12 w-full rounded-full border border-slate-200 bg-white px-5 text-[13.5px] text-slate-900 placeholder-slate-400 outline-none transition focus:border-[#c4522a] focus:ring-3 focus:ring-[#fde8d8]";
 
   return (
-    <section id="contact" className="relative overflow-hidden bg-white py-16">
+    <section id="contact" className="relative overflow-hidden bg-white py-20">
 
       {/* Decorative terracotta glow behind the card */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#c4522a]/5 blur-[100px]" />

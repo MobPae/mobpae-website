@@ -8,14 +8,14 @@ export function BenefitsSection() {
     <section
       id="benefits"
       ref={ref as React.RefObject<HTMLElement>}
-      className="relative overflow-hidden bg-[#faf6f1] py-24"
+      className="relative overflow-hidden bg-[#faf6f1] pt-20 pb-24"
     >
       <div className="pointer-events-none absolute -bottom-10 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-[#fdf3ee]/70 blur-[80px]" />
 
       <div className="relative mx-auto max-w-7xl px-6">
 
         <div className={`reveal ${inView ? "in-view" : ""}`}>
-          <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-[#c4522a]">Why Choose</p>
+          <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-[#c4522a]">Why Choose Us</p>
           <div className="mt-2 h-0.5 w-10 bg-[#c4522a]" />
         </div>
 
@@ -23,17 +23,6 @@ export function BenefitsSection() {
 
           {/* Left column */}
           <div className={`flex flex-col gap-6 reveal delay-100 ${inView ? "in-view" : ""}`}>
-            <div>
-              <h2
-                className="font-[700] leading-[0.95] tracking-[-0.02em] text-[#1c1209]"
-                style={{ fontSize: "clamp(48px, 6vw, 68px)" }}
-              >
-                MobPae
-              </h2>
-              <p className="mt-4 max-w-[380px] text-[14px] leading-[1.8] text-[#6b5e53]">
-                Built for a new era of earned wage access. Smarter for employers. Better for employees.
-              </p>
-            </div>
 
             {/* Fast Approval card */}
             <div className="rounded-2xl border border-[#f1e8e3] bg-[#faf6f1] p-6">
@@ -144,6 +133,13 @@ export function BenefitsSection() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Wave → Pricing (white) */}
+      <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-[0]">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 70" preserveAspectRatio="none" className="block w-full" style={{ height: 70 }}>
+          <path d="M0,20 C480,70 960,0 1440,55 L1440,70 L0,70 Z" fill="#ffffff" />
+        </svg>
       </div>
     </section>
   );
