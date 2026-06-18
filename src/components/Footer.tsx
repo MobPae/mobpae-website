@@ -30,11 +30,13 @@ export function Footer() {
           <div>
             <h4 className="text-[11px] font-[700] uppercase tracking-[0.15em] text-[#0f172a] mb-5">Explore</h4>
             <div className="flex flex-col gap-3.5 text-[13.5px]">
-              <a href="#why-mobpae"   className="text-[#64748b] transition hover:text-[#10b981]">Why MobPae</a>
-              <a href="#how-it-works" className="text-[#64748b] transition hover:text-[#10b981]">How It Works</a>
-              <a href="#benefits"     className="text-[#64748b] transition hover:text-[#10b981]">Benefits</a>
-              <a href="#pricing"      className="text-[#64748b] transition hover:text-[#10b981]">Pricing</a>
-              <a href="#faq"          className="text-[#64748b] transition hover:text-[#10b981]">FAQ</a>
+              <a href="/#why-mobpae"   className="text-[#64748b] transition hover:text-[#10b981]">Why MobPae</a>
+              <a href="/for-employers" className="text-[#64748b] transition hover:text-[#10b981]">For Employers</a>
+              <a href="/security"      className="text-[#64748b] transition hover:text-[#10b981]">Security</a>
+              <a href="/#how-it-works" className="text-[#64748b] transition hover:text-[#10b981]">How It Works</a>
+              <a href="/#benefits"     className="text-[#64748b] transition hover:text-[#10b981]">Benefits</a>
+              <a href="/#pricing"      className="text-[#64748b] transition hover:text-[#10b981]">Pricing</a>
+              <a href="/#faq"          className="text-[#64748b] transition hover:text-[#10b981]">FAQ</a>
             </div>
           </div>
 

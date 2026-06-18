@@ -2,10 +2,11 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const navLinks = [
+  { label: "Employers",    href: "/for-employers" },
   { label: "Product",      href: "/#why-mobpae" },
   { label: "How It Works", href: "/#how-it-works" },
+  { label: "Security",     href: "/security" },
   { label: "Pricing",      href: "/#pricing" },
-  { label: "FAQ",          href: "/#faq" },
 ];
 
 export function Navbar() {
@@ -56,7 +57,7 @@ export function Navbar() {
         {/* Desktop CTA */}
         <div className="hidden items-center gap-3 lg:flex">
           <a
-            href="#contact"
+            href="/#contact"
             className="inline-flex items-center justify-center rounded-full bg-slate-950 px-5 py-2.5 text-[12.5px] font-[800] text-white transition-all hover:-translate-y-0.5 hover:bg-emerald-700 hover:shadow-[0_16px_34px_rgba(16,185,129,0.28)]"
           >
             Get Started
@@ -88,7 +89,7 @@ export function Navbar() {
               </a>
             ))}
             <a
-              href="#contact"
+              href="/#contact"
               onClick={() => setIsOpen(false)}
               className="mt-2 flex items-center justify-center rounded-2xl bg-emerald-600 px-4 py-3 text-[14px] font-[800] text-white transition-colors hover:bg-emerald-700"
             >
