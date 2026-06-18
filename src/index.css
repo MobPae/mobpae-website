@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -14,14 +14,14 @@ html {
 
 body {
   margin: 0;
-  font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
+  font-family: "DM Sans", ui-sans-serif, system-ui, -apple-system,
     BlinkMacSystemFont, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  background: #ffffff;
-  color: #1c1209;
+  background: #f8faf7;
+  color: #0f172a;
 }
 
 button,
@@ -31,20 +31,20 @@ textarea {
 }
 
 ::selection {
-  background: #c4522a;
+  background: #10b981;
   color: #fff;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { border-radius: 999px; background: #d4c4ba; }
-::-webkit-scrollbar-thumb:hover { background: #a8411f; }
+::-webkit-scrollbar-thumb { border-radius: 999px; background: #a7f3d0; }
+::-webkit-scrollbar-thumb:hover { background: #10b981; }
 
 /* Font utilities */
-.font-sans    { font-family: "Inter", ui-sans-serif, -apple-system, system-ui, sans-serif; }
-.font-display { font-family: "Inter", ui-sans-serif, -apple-system, system-ui, sans-serif; }
-.font-serif   { font-family: "Inter", ui-sans-serif, -apple-system, system-ui, sans-serif; }
+.font-sans    { font-family: "DM Sans", ui-sans-serif, -apple-system, system-ui, sans-serif; }
+.font-display { font-family: "DM Sans", ui-sans-serif, -apple-system, system-ui, sans-serif; }
+.font-serif   { font-family: "DM Sans", ui-sans-serif, -apple-system, system-ui, sans-serif; }
 
 /* ── Scroll-reveal ── */
 .reveal {
@@ -82,4 +82,33 @@ textarea {
 }
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+@keyframes float-soft {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -12px, 0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.42; transform: scale(1); }
+  50% { opacity: 0.72; transform: scale(1.06); }
+}
+
+@keyframes shimmer-line {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-float-soft {
+  animation: float-soft 5.5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 5s ease-in-out infinite;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
 }

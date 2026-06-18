@@ -10,7 +10,7 @@ import { Navbar } from "../components/Navbar";
 
 export function HomePage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-[#f8faf7]">
       <Navbar />
       <HeroSection />
       <TrustedCompanies />

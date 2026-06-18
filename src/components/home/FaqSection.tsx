@@ -96,27 +96,27 @@ export function FaqSection() {
   }
 
   const inputClass =
-    "w-full rounded-xl border border-[#e8ddd4] bg-[#faf6f1] px-4 py-3 text-[13px] text-[#1c1209] placeholder-[#9e8f85] outline-none transition focus:border-[#c4522a] focus:ring-2 focus:ring-[#fde8d8]";
+    "w-full rounded-xl border border-[#e2e8f0] bg-[#f8faf7] px-4 py-3 text-[13px] text-[#0f172a] placeholder-[#94a3b8] outline-none transition focus:border-[#10b981] focus:ring-2 focus:ring-[#d1fae5]";
 
   return (
-    <section id="faq" className="relative overflow-hidden bg-[#faf6f1] py-20">
+    <section id="faq" className="relative overflow-hidden bg-[#f8faf7] py-20">
 
       {/* Blobs */}
-      <div className="pointer-events-none absolute left-0 top-0 h-56 w-56 rounded-full bg-[#c4522a]/5 blur-[70px]" />
-      <div className="pointer-events-none absolute right-0 bottom-24 h-56 w-56 rounded-full bg-[#fde8d8]/60 blur-[70px]" />
+      <div className="pointer-events-none absolute left-0 top-0 h-56 w-56 rounded-full bg-[#10b981]/5 blur-[70px]" />
+      <div className="pointer-events-none absolute right-0 bottom-24 h-56 w-56 rounded-full bg-[#d1fae5]/60 blur-[70px]" />
 
       <div className="relative mx-auto max-w-7xl px-6">
 
         {/* Header */}
         <div className="mb-12 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#fde8d8] bg-[#fdf3ee] px-4 py-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#c4522a]" />
-            <span className="text-[11px] font-[700] uppercase tracking-[0.2em] text-[#c4522a]">FAQ & Contact</span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#d1fae5] bg-[#ecfdf5] px-4 py-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#10b981]" />
+            <span className="text-[11px] font-[700] uppercase tracking-[0.2em] text-[#10b981]">FAQ & Contact</span>
           </div>
-          <h2 className="mt-5 text-[40px] font-[600] tracking-[-0.02em] leading-[1.1] text-[#1c1209] lg:text-[48px]">
+          <h2 className="mt-5 text-[40px] font-[600] tracking-[-0.02em] leading-[1.1] text-[#0f172a] lg:text-[48px]">
             Everything you need to know
           </h2>
-          <div className="mt-4 mx-auto h-0.5 w-16 bg-[#c4522a]" />
+          <div className="mt-4 mx-auto h-0.5 w-16 bg-[#10b981]" />
         </div>
 
         {/* 2-col */}
@@ -131,24 +131,24 @@ export function FaqSection() {
                   key={i}
                   className="overflow-hidden rounded-xl border transition-all duration-200"
                   style={{
-                    borderColor: isOpen ? "#fde8d8" : "#f1e8e3",
-                    background: isOpen ? "#fdf9f7" : "#ffffff",
+                    borderColor: isOpen ? "#d1fae5" : "#e2e8f0",
+                    background: isOpen ? "#ffffff" : "#ffffff",
                   }}
                 >
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : i)}
                     className="flex w-full items-center justify-between px-6 py-4 text-left"
                   >
-                    <span className={`text-[14.5px] font-[500] transition-colors ${isOpen ? "text-[#1c1209]" : "text-[#3d3028]"}`}>
+                    <span className={`text-[14.5px] font-[700] transition-colors ${isOpen ? "text-[#0f172a]" : "text-slate-700"}`}>
                       {faq.q}
                     </span>
-                    <div className={`ml-4 flex-shrink-0 transition-colors ${isOpen ? "text-[#c4522a]" : "text-[#9e8f85]"}`}>
+                    <div className={`ml-4 flex-shrink-0 transition-colors ${isOpen ? "text-[#10b981]" : "text-[#94a3b8]"}`}>
                       {isOpen ? <Minus size={16} /> : <Plus size={16} />}
                     </div>
                   </button>
                   {isOpen && (
                     <div className="px-6 pb-5">
-                      <p className="text-[13.5px] leading-[1.8] text-[#6b5e53]">{faq.a}</p>
+                      <p className="text-[13.5px] leading-[1.8] text-[#64748b]">{faq.a}</p>
                     </div>
                   )}
                 </div>
@@ -160,15 +160,15 @@ export function FaqSection() {
           <form
             id="contact"
             onSubmit={submitEnquiry}
-            className="rounded-2xl border border-[#fde8d8] bg-white p-7 shadow-soft lg:sticky lg:top-24"
+            className="rounded-2xl border border-[#d1fae5] bg-white p-7 shadow-soft lg:sticky lg:top-24"
           >
             <div className="flex items-center gap-4 mb-6">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#fdf3ee]">
-                <Mail size={18} className="text-[#c4522a]" />
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#ecfdf5]">
+                <Mail size={18} className="text-[#10b981]" />
               </div>
               <div>
-                <h3 className="text-[16px] font-[600] text-[#1c1209]">Get in touch</h3>
-                <p className="mt-0.5 text-[12px] text-[#9e8f85]">We'd love to learn about your business.</p>
+                <h3 className="text-[16px] font-[600] text-[#0f172a]">Get in touch</h3>
+                <p className="mt-0.5 text-[12px] text-[#94a3b8]">We'd love to learn about your business.</p>
               </div>
             </div>
 
@@ -197,10 +197,10 @@ export function FaqSection() {
                 <select name="employeeCount" value={form.employeeCount} onChange={updateField}
                   className={inputClass + " appearance-none"}>
                   <option value="">Select range</option>
-                  <option value="1-50">1–50</option>
-                  <option value="51-200">51–200</option>
-                  <option value="201-1000">201–1000</option>
-                  <option value="1000+">1000+</option>
+                  <option value="50">1–50</option>
+                  <option value="200">51–200</option>
+                  <option value="1000">201–1000</option>
+                  <option value="1001">1000+</option>
                 </select>
               </FormField>
               <FormField label="Message">
@@ -225,7 +225,7 @@ export function FaqSection() {
                 type="submit"
                 disabled={loading}
                 className="flex w-full items-center justify-center gap-2 rounded-[14px] py-3.5 text-[14px] font-[600] text-white transition-all hover:-translate-y-px disabled:opacity-60"
-                style={{ background: "#c4522a", boxShadow: "0 8px 24px rgba(196,82,42,0.26)" }}
+                style={{ background: "linear-gradient(135deg, #10b981, #047857)", boxShadow: "0 18px 40px rgba(16,185,129,0.24)" }}
               >
                 {loading ? <Loader2 size={15} className="animate-spin" /> : <Send size={15} />}
                 {loading ? "Submitting..." : "Submit Enquiry"}
@@ -241,7 +241,7 @@ export function FaqSection() {
 function FormField({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
   return (
     <div>
-      <label className="mb-1.5 block text-[12px] font-[700] text-[#1c1209]">{label}</label>
+      <label className="mb-1.5 block text-[12px] font-[700] text-[#0f172a]">{label}</label>
       {children}
       {error && <p className="mt-1 text-[11px] font-[500] text-red-500">{error}</p>}
     </div>

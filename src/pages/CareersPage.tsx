@@ -42,14 +42,14 @@ const benefits = [
 
 export function CareersPage() {
   return (
-    <main className="min-h-screen bg-[#faf6f1]">
+    <main className="min-h-screen bg-[#f8faf7]">
       <Navbar />
 
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-[#c4522a]">
+      <section className="relative overflow-hidden bg-[#10b981]">
         {/* Decorative blobs */}
-        <div className="pointer-events-none absolute left-0 top-0 h-72 w-72 rounded-full bg-[#a8411f]/60 -translate-x-1/3 -translate-y-1/3" />
-        <div className="pointer-events-none absolute bottom-0 left-1/3 h-40 w-40 rounded-full bg-[#fde8d8]/20" />
+        <div className="pointer-events-none absolute left-0 top-0 h-72 w-72 rounded-full bg-[#059669]/60 -translate-x-1/3 -translate-y-1/3" />
+        <div className="pointer-events-none absolute bottom-0 left-1/3 h-40 w-40 rounded-full bg-[#d1fae5]/20" />
 
         <div className="relative mx-auto max-w-7xl px-6 py-20 lg:py-24">
           <div className="grid items-center gap-12 lg:grid-cols-[1fr_440px]">
@@ -91,7 +91,7 @@ export function CareersPage() {
                 {/* Placeholder gradient until real photo is added */}
                 <div
                   className="absolute inset-0"
-                  style={{ background: "#c4522a" }}
+                  style={{ background: "#10b981" }}
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
                   <div className="h-16 w-16 rounded-full bg-white/20 flex items-center justify-center">
@@ -108,22 +108,22 @@ export function CareersPage() {
       {/* ── Open Roles ── */}
       <section id="roles" className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-[#9e8f85] mb-10">Open Roles</p>
+          <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-[#94a3b8] mb-10">Open Roles</p>
 
           <div className="grid gap-5 md:grid-cols-3">
             {roles.map((r) => (
               <div
                 key={r.name}
-                className="group rounded-2xl border border-[#f1e8e3] bg-[#faf6f1] p-7 transition-all hover:-translate-y-1 hover:border-[#fde8d8] hover:shadow-warm"
+                className="group rounded-2xl border border-[#e2e8f0] bg-[#f8faf7] p-7 transition-all hover:-translate-y-1 hover:border-[#d1fae5] hover:shadow-warm"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="h-2.5 w-2.5 rounded-full bg-[#c4522a] flex-shrink-0" />
-                  <h3 className="text-[18px] font-[700] text-[#1c1209]">{r.name}</h3>
+                  <div className="h-2.5 w-2.5 rounded-full bg-[#10b981] flex-shrink-0" />
+                  <h3 className="text-[18px] font-[700] text-[#0f172a]">{r.name}</h3>
                 </div>
-                <p className="text-[13.5px] leading-[1.75] text-[#6b5e53]">{r.desc}</p>
+                <p className="text-[13.5px] leading-[1.75] text-[#64748b]">{r.desc}</p>
                 <a
                   href="#"
-                  className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-[600] text-[#c4522a] group-hover:gap-2.5 transition-all"
+                  className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-[600] text-[#10b981] group-hover:gap-2.5 transition-all"
                 >
                   Explore {r.name} <ArrowRight size={14} />
                 </a>
@@ -134,18 +134,18 @@ export function CareersPage() {
       </section>
 
       {/* ── Why MobPae ── */}
-      <section className="bg-[#faf6f1] py-20">
+      <section className="bg-[#f8faf7] py-20">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-16 lg:grid-cols-[1fr_1fr] lg:items-start mb-14">
             <div>
               <h2
-                className="font-[800] leading-[0.95] tracking-[-0.02em] text-[#1c1209]"
+                className="font-[800] leading-[0.95] tracking-[-0.02em] text-[#0f172a]"
                 style={{ fontSize: "clamp(36px, 4vw, 52px)" }}
               >
                 Why MobPae
               </h2>
             </div>
-            <p className="text-[14.5px] leading-[1.8] text-[#6b5e53] lg:pt-2">
+            <p className="text-[14.5px] leading-[1.8] text-[#64748b] lg:pt-2">
               We back builders, empower ownership, and move fast with purpose. Here's what you can expect.
             </p>
           </div>
@@ -154,14 +154,14 @@ export function CareersPage() {
             {benefits.map((b) => (
               <div
                 key={b.title}
-                className="rounded-2xl border border-[#f1e8e3] bg-white p-6"
-                style={{ boxShadow: "0 2px 16px rgba(196,82,42,0.05)" }}
+                className="rounded-2xl border border-[#e2e8f0] bg-white p-6"
+                style={{ boxShadow: "0 2px 16px rgba(16,185,129,0.05)" }}
               >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#c4522a] text-white">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#10b981] text-white">
                   {b.icon}
                 </div>
-                <h3 className="text-[15px] font-[700] text-[#1c1209] mb-2">{b.title}</h3>
-                <p className="text-[13px] leading-[1.75] text-[#6b5e53]">{b.desc}</p>
+                <h3 className="text-[15px] font-[700] text-[#0f172a] mb-2">{b.title}</h3>
+                <p className="text-[13px] leading-[1.75] text-[#64748b]">{b.desc}</p>
               </div>
             ))}
           </div>
@@ -172,8 +172,8 @@ export function CareersPage() {
               href="#"
               className="inline-flex items-center gap-3 rounded-2xl px-10 py-4 text-[15px] font-[700] text-white transition-all hover:-translate-y-px"
               style={{
-                background: "#c4522a",
-                boxShadow: "0 10px 32px rgba(196,82,42,0.35)",
+                background: "#10b981",
+                boxShadow: "0 10px 32px rgba(16,185,129,0.35)",
               }}
             >
               View All Openings <ArrowRight size={18} />
