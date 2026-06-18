@@ -1,136 +1,114 @@
+import { Database, Eye, FileCheck2, LockKeyhole, Mail, ShieldCheck, UserCheck } from "lucide-react";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
 
-const sections = [
+const privacySections = [
   {
-    title: "Data We Collect",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="8" r="4" stroke="#10b981" strokeWidth="1.7" />
-        <path d="M4 20c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="#10b981" strokeWidth="1.7" strokeLinecap="round" />
-      </svg>
-    ),
-    body: "We collect only the information necessary to provide secure, reliable financial services. This includes personal details, account information, transaction data, and device information.",
+    icon: <Database size={22} />,
+    title: "What we collect",
+    body: "We collect the information needed to run MobPae securely: employee profile details, employer and payroll context, KYC and bank verification data, salary advance requests, repayment activity, device information and support communication.",
   },
   {
-    title: "How We Use It",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="12" r="9" stroke="#10b981" strokeWidth="1.7" />
-        <path d="M12 7v5l3 3" stroke="#10b981" strokeWidth="1.7" strokeLinecap="round" />
-      </svg>
-    ),
-    body: "Your data helps us deliver and improve our services, process transactions, prevent fraud, and comply with legal obligations. We never sell your personal information.",
+    icon: <Eye size={22} />,
+    title: "How we use data",
+    body: "We use this data to verify identity, calculate eligibility, process salary advance requests, support employer approvals, manage repayments, prevent fraud, operate notifications and improve the platform experience.",
   },
   {
-    title: "Your Rights",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M12 3L4 7v5c0 4.418 3.582 8 8 9 4.418-1 8-4.582 8-9V7L12 3z" stroke="#10b981" strokeWidth="1.7" strokeLinejoin="round" />
-        <path d="M9 12l2 2 4-4" stroke="#10b981" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-    body: "You have the right to access, update, or delete your personal data. You may also object to certain processing or withdraw consent at any time.",
+    icon: <ShieldCheck size={22} />,
+    title: "How we protect it",
+    body: "MobPae uses access controls, audit logs, encrypted communication, secure authentication and operational safeguards so sensitive financial data is handled carefully across employee, employer and admin workflows.",
   },
   {
-    title: "Contact Us",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <rect x="3" y="6" width="18" height="13" rx="2" stroke="#10b981" strokeWidth="1.7" />
-        <path d="M3 8l9 6 9-6" stroke="#10b981" strokeWidth="1.7" strokeLinecap="round" />
-      </svg>
-    ),
-    body: "Questions or concerns about your privacy? We're here to help.",
-    contact: true,
+    icon: <UserCheck size={22} />,
+    title: "Your rights",
+    body: "You may request access, correction or deletion of your personal data where permitted by law and business obligations. We do not sell personal information.",
   },
 ];
+
+const trustPoints = ["KYC and bank data are handled with role-based access", "Salary requests are logged through auditable workflow events", "Employer and admin access is limited to required operational use"];
 
 export function PrivacyPolicyPage() {
   return (
     <main className="min-h-screen bg-[#f8faf7]">
       <Navbar />
 
-      <section className="relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:py-28">
-          <div className="grid gap-16 lg:grid-cols-[400px_1fr] lg:items-start">
+      <section className="relative overflow-hidden border-b border-emerald-100">
+        <div className="pointer-events-none absolute left-[-10%] top-[-20%] h-[460px] w-[460px] rounded-full bg-emerald-200/70 blur-[120px]" />
+        <div className="pointer-events-none absolute right-[-10%] top-20 h-[420px] w-[420px] rounded-full bg-cyan-100/70 blur-[110px]" />
 
-            {/* Left column */}
-            <div className="relative">
-              <div className="relative z-10">
-                <div className="flex items-center gap-2.5 mb-10">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-[7px] bg-[#10b981]">
-                    <svg width="18" height="13" viewBox="0 0 22 16" fill="none">
-                      <path d="M1 13C1 13 4 3 7 8C10 13 11 2 14 8C17 14 21 3 21 3" stroke="white" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </div>
-                  <span className="text-[14px] font-[800] tracking-[0.12em] text-[#0f172a] uppercase">MobPae</span>
-                </div>
-
-                <h1
-                  className="font-[800] leading-[0.92] tracking-[-0.03em] text-[#0f172a]"
-                  style={{ fontSize: "clamp(52px, 6.5vw, 76px)" }}
-                >
-                  Privacy<br />Policy
-                </h1>
-
-                <p className="mt-7 text-[14px] leading-[1.85] text-[#64748b] max-w-[320px]">
-                  Your privacy is fundamental to everything we do. We are committed to protecting your data with transparency, respect, and industry-leading security.
-                </p>
-
-                {/* Lock visual */}
-                <div className="relative mt-10 h-[220px] w-[220px]">
-                  {/* Outer circle */}
-                  <div className="absolute inset-0 rounded-full bg-[#10b981]" />
-                  {/* Inner circle */}
-                  <div className="absolute inset-5 rounded-full bg-[#059669]" />
-                  {/* Padlock SVG */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <svg width="90" height="100" viewBox="0 0 90 100" fill="none">
-                      <rect x="10" y="45" width="70" height="50" rx="10" fill="white" fillOpacity="0.95" />
-                      <rect x="20" y="55" width="50" height="30" rx="6" fill="white" fillOpacity="0.6" />
-                      <circle cx="45" cy="68" r="8" fill="white" fillOpacity="0.9" />
-                      <rect x="42" y="68" width="6" height="10" rx="3" fill="#10b981" />
-                      <path d="M25 45V30a20 20 0 0140 0v15" stroke="white" strokeWidth="7" strokeLinecap="round" />
-                    </svg>
-                  </div>
-                  {/* Decorative dot pattern */}
-                  <div className="absolute -bottom-4 -right-4 h-24 w-24 rounded-full bg-[#d1fae5]" />
-                </div>
-
-                {/* Security note */}
-                <div className="mt-8 flex items-start gap-3 max-w-[280px]">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="flex-shrink-0 mt-0.5">
-                    <path d="M12 3L4 7v5c0 4.418 3.582 8 8 9 4.418-1 8-4.582 8-9V7L12 3z" stroke="#10b981" strokeWidth="1.7" />
-                  </svg>
-                  <div>
-                    <p className="text-[12px] italic text-[#64748b] leading-[1.7]">Security is in our DNA. We use advanced encryption and industry best practices to keep your data safe.</p>
-                  </div>
-                </div>
-
-                <p className="mt-5 text-[11.5px] text-[#94a3b8]">Last updated: January 2026</p>
+        <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:py-24">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white/86 px-4 py-2 shadow-[0_16px_42px_rgba(15,23,42,0.07)] backdrop-blur-xl">
+                <LockKeyhole size={14} className="text-emerald-700" />
+                <span className="text-[11px] font-[900] uppercase tracking-[0.18em] text-emerald-800">Privacy first</span>
               </div>
+              <h1 className="mt-6 max-w-[640px] text-[48px] font-[900] leading-[0.96] tracking-[-0.06em] text-slate-950 sm:text-[72px]">
+                Your financial data should feel protected.
+              </h1>
+              <p className="mt-6 max-w-[520px] text-[16px] leading-[1.85] text-slate-600">
+                MobPae handles sensitive workplace and salary access information. This policy explains what we collect, why we use it, and how we keep the experience transparent.
+              </p>
+              <p className="mt-5 text-[12px] font-[800] uppercase tracking-[0.14em] text-slate-400">Last updated: January 2026</p>
             </div>
 
-            {/* Right column */}
-            <div className="divide-y divide-[#e2e8f0] rounded-2xl border border-[#e2e8f0] bg-white overflow-hidden"
-              style={{ boxShadow: "0 4px 30px rgba(16,185,129,0.06)" }}>
-              {sections.map((s, i) => (
-                <div key={i} className="p-8">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-[#ecfdf5]">
-                      {s.icon}
-                    </div>
-                    <h2 className="text-[21px] font-[700] tracking-[-0.01em] text-[#0f172a]">{s.title}</h2>
+            <div className="rounded-[38px] border border-white bg-white/82 p-5 shadow-soft backdrop-blur-xl">
+              <div className="rounded-[30px] bg-slate-950 p-6 text-white">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-[12px] font-[900] uppercase tracking-[0.14em] text-emerald-100/60">MobPae trust layer</p>
+                    <h2 className="mt-3 text-[30px] font-[900] leading-tight tracking-[-0.04em]">Built around controlled access.</h2>
                   </div>
-                  <p className="text-[13.5px] leading-[1.85] text-[#64748b] pl-[60px]">{s.body}</p>
-                  {s.contact && (
-                    <div className="pl-[60px] mt-3 space-y-1.5">
-                      <a href="mailto:privacy@mobpae.com" className="block text-[13.5px] font-[600] text-[#10b981] hover:underline">privacy@mobpae.com</a>
-                      <a href="tel:+919227012145" className="block text-[13.5px] font-[600] text-[#10b981] hover:underline">+91 92270 12145</a>
-                    </div>
-                  )}
+                  <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-emerald-400/15 text-emerald-200">
+                    <ShieldCheck size={27} />
+                  </div>
                 </div>
-              ))}
+                <div className="mt-7 grid gap-3">
+                  {trustPoints.map((point) => (
+                    <div key={point} className="flex items-start gap-3 rounded-2xl bg-white/8 px-4 py-3">
+                      <FileCheck2 size={16} className="mt-0.5 flex-shrink-0 text-emerald-300" />
+                      <p className="text-[13px] font-[700] leading-relaxed text-white/74">{point}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:py-20">
+        <div className="grid gap-5 lg:grid-cols-2">
+          {privacySections.map((section) => (
+            <article key={section.title} className="rounded-[32px] border border-emerald-100 bg-white p-6 shadow-[0_14px_40px_rgba(15,23,42,0.045)]">
+              <div className="flex items-start gap-4">
+                <div className="flex h-13 w-13 h-[52px] w-[52px] flex-shrink-0 items-center justify-center rounded-3xl bg-emerald-100 text-emerald-700">
+                  {section.icon}
+                </div>
+                <div>
+                  <h2 className="text-[21px] font-[900] tracking-[-0.04em] text-slate-950">{section.title}</h2>
+                  <p className="mt-3 text-[14px] leading-[1.85] text-slate-600">{section.body}</p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-6 rounded-[34px] border border-emerald-100 bg-white p-6 shadow-soft lg:p-8">
+          <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <h2 className="text-[26px] font-[900] tracking-[-0.05em] text-slate-950">Need help with privacy?</h2>
+              <p className="mt-3 max-w-2xl text-[14px] leading-[1.8] text-slate-600">
+                For data access, correction or privacy questions, contact our team. We will route your request to the right operational owner.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <a href="mailto:privacy@mobpae.com" className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-slate-950 px-5 text-[13px] font-[900] text-white transition hover:bg-emerald-700">
+                <Mail size={15} /> privacy@mobpae.com
+              </a>
+              <a href="tel:+919227012145" className="inline-flex h-12 items-center justify-center rounded-full border border-emerald-200 bg-emerald-50 px-5 text-[13px] font-[900] text-emerald-800 transition hover:bg-emerald-100">
+                +91 92270 12145
+              </a>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
-import { ArrowRight, BadgeCheck, Building2, Clock3, ShieldCheck, WalletCards } from "lucide-react";
-import heroMockup from "../../assets/hero-mockup.png";
+import { ArrowRight, BadgeCheck, CalendarCheck2, Clock3, ShieldCheck, Sparkles, WalletCards } from "lucide-react";
+import relaxedEmployeeHero from "../../assets/relaxed-employee-hero.png";
 import { useInView } from "../../hooks/useInView";
 
 const metrics = [
@@ -74,60 +74,51 @@ export function HeroSection() {
           </div>
 
           <div className={`relative min-h-[520px] lg:min-h-[650px] reveal-scale delay-150 ${heroInView ? "in-view" : ""}`}>
-            <div className="absolute inset-x-[-12%] bottom-2 top-8 rounded-[42px] bg-gradient-to-br from-emerald-950 via-emerald-800 to-slate-950 shadow-[0_50px_120px_rgba(6,78,59,0.22)] lg:inset-x-0" />
-            <div className="absolute inset-x-[-8%] bottom-8 top-0 overflow-hidden rounded-[42px] border border-white/20 bg-[radial-gradient(circle_at_30%_10%,rgba(255,255,255,0.22),transparent_34%),linear-gradient(135deg,rgba(16,185,129,0.18),rgba(15,23,42,0.1))] lg:inset-x-8">
-              <div className="absolute left-8 top-8 hidden rounded-full border border-white/20 bg-white/12 px-4 py-2 text-[12px] font-[900] text-white backdrop-blur-xl sm:block">
-                Live employee app preview
-              </div>
-              <div className="absolute bottom-10 right-8 hidden w-[230px] rounded-[28px] border border-white/20 bg-white/14 p-4 text-white shadow-[0_20px_54px_rgba(0,0,0,0.18)] backdrop-blur-xl sm:block">
+            <div className="absolute inset-x-0 bottom-4 top-8 rounded-[44px] bg-gradient-to-br from-emerald-950 via-emerald-800 to-slate-950 shadow-[0_50px_120px_rgba(6,78,59,0.22)]" />
+            <div className="absolute inset-x-3 bottom-8 top-0 overflow-hidden rounded-[40px] border border-white/40 bg-white shadow-[0_34px_90px_rgba(15,23,42,0.18)] lg:inset-x-8">
+              <img
+                src={relaxedEmployeeHero}
+                alt="Relaxed employee working calmly with MobPae financial wellness support"
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-white/82 via-white/18 to-transparent" />
+              <div className="absolute left-6 top-6 max-w-[250px] rounded-[28px] border border-white/70 bg-white/82 p-5 shadow-soft backdrop-blur-xl">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/16">
-                    <ShieldCheck size={20} />
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">
+                    <Sparkles size={21} />
                   </div>
                   <div>
-                    <p className="text-[14px] font-[900]">Policy secured</p>
-                    <p className="mt-1 text-[11px] font-[600] text-white/62">Limits, KYC, bank and membership checked before request.</p>
+                    <p className="text-[15px] font-[900] text-slate-950">Workday feels lighter</p>
+                    <p className="mt-1 text-[12px] font-[700] leading-snug text-slate-500">Earned salary access without panic borrowing.</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <img
-              src={heroMockup}
-              alt="MobPae employee app salary advance screens"
-              className="absolute left-1/2 top-8 w-[760px] max-w-none -translate-x-1/2 drop-shadow-[0_38px_70px_rgba(0,0,0,0.28)] hue-rotate-[250deg] saturate-[1.08] lg:top-10 lg:w-[880px]"
-            />
-
-            <div className="absolute left-0 top-28 hidden rounded-[26px] border border-white/70 bg-white/88 p-4 shadow-soft backdrop-blur-xl lg:block animate-float-soft">
-              <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">
-                  <Building2 size={21} />
-                </div>
-                <div>
-                  <p className="text-[14px] font-[900] text-slate-950">Employer approval</p>
-                  <p className="mt-1 text-[12px] font-[700] text-slate-500">No open-ended credit risk</p>
-                </div>
-              </div>
+            <div className="absolute bottom-6 left-0 right-0 mx-auto grid max-w-[560px] grid-cols-3 gap-3 px-6">
+              <HeroSignal icon={<WalletCards size={18} />} label="Advance" value="₹5,000" />
+              <HeroSignal icon={<ShieldCheck size={18} />} label="Policy" value="Secured" />
+              <HeroSignal icon={<CalendarCheck2 size={18} />} label="Recovery" value="Payroll" />
             </div>
 
-            <div className="absolute bottom-2 left-8 rounded-[26px] border border-white/70 bg-white/90 p-4 shadow-soft backdrop-blur-xl lg:bottom-16">
-              <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 text-white">
-                  <WalletCards size={21} />
-                </div>
-                <div>
-                  <p className="text-[21px] font-[900] leading-none tracking-[-0.04em] text-slate-950">₹5,000</p>
-                  <p className="mt-1 text-[12px] font-[700] text-slate-500">Typical advance request</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="absolute right-1 top-5 rounded-full border border-white/70 bg-white/90 px-4 py-2 text-[12px] font-[900] text-emerald-800 shadow-soft backdrop-blur-xl lg:right-12">
-              <Clock3 size={14} className="mr-1 inline" /> 24h payout
+            <div className="absolute right-0 top-16 rounded-full border border-white/70 bg-white/90 px-4 py-2 text-[12px] font-[900] text-emerald-800 shadow-soft backdrop-blur-xl lg:right-2">
+              <Clock3 size={14} className="mr-1 inline" /> calm before payday
             </div>
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function HeroSignal({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
+  return (
+    <div className="rounded-[24px] border border-white/70 bg-white/90 p-4 shadow-soft backdrop-blur-xl">
+      <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">
+        {icon}
+      </div>
+      <p className="text-[10px] font-[900] uppercase tracking-[0.12em] text-slate-400">{label}</p>
+      <p className="mt-1 text-[15px] font-[900] tracking-[-0.03em] text-slate-950">{value}</p>
+    </div>
   );
 }
