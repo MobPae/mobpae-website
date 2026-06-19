@@ -1,4 +1,4 @@
-import { Heart, Mail, Phone } from "lucide-react";
+import { Heart, Mail, MapPin, Phone } from "lucide-react";
 
 export function Footer() {
   return (
@@ -61,6 +61,10 @@ export function Footer() {
               <a href="tel:+919227012145" className="flex items-center gap-3 text-[13.5px] text-[#64748b] transition hover:text-[#10b981]">
                 <Phone size={14} className="text-[#10b981] flex-shrink-0" />+91 92270 12145
               </a>
+              <div className="flex items-start gap-3 text-[13.5px] text-[#64748b]">
+                <MapPin size={14} className="mt-0.5 flex-shrink-0 text-[#10b981]" />
+                <span>Gujarat, Ahmedabad - 382470</span>
+              </div>
               <a href="https://www.linkedin.com/company/mobpae" target="_blank" rel="noreferrer"
                 className="flex items-center gap-3 text-[13.5px] text-[#64748b] transition hover:text-[#10b981]">
                 <span className="flex h-[15px] w-[15px] items-center justify-center rounded-[3px] bg-[#10b981] text-[8px] font-[800] text-white flex-shrink-0">in</span>

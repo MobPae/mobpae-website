@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Building2, CheckCircle2, Loader2, Mail, Phone, Send, ShieldCheck } from "lucide-react";
+import { Building2, CheckCircle2, Loader2, Mail, MapPin, Phone, Send, ShieldCheck } from "lucide-react";
 import { useState } from "react";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
@@ -117,6 +117,7 @@ export function ContactPage() {
               <div className="mt-8 grid gap-3">
                 <ContactPoint icon={<Mail size={17} />} title="Email" value="support@mobpae.com" href="mailto:support@mobpae.com" />
                 <ContactPoint icon={<Phone size={17} />} title="Phone" value="+91 92270 12145" href="tel:+919227012145" />
+                <ContactPoint icon={<MapPin size={17} />} title="Address" value="Gujarat, Ahmedabad - 382470" />
               </div>
             </div>
 
@@ -127,8 +128,8 @@ export function ContactPage() {
                     <Building2 size={23} />
                   </div>
                   <div>
-                    <h2 className="text-[24px] font-[900] tracking-[-0.05em]">Employer enquiry</h2>
-                    <p className="mt-1 text-[13px] font-[700] text-white/56">Usually takes less than a minute.</p>
+                    <h2 className="text-[24px] font-[900] tracking-[-0.05em]">Book a demo</h2>
+                    <p className="mt-1 text-[13px] font-[700] text-white/56">For employers who want setup, pricing and launch guidance.</p>
                   </div>
                 </div>
               </div>
@@ -210,15 +211,22 @@ function Field({ label, error, children }: { label: string; error?: string; chil
   );
 }
 
-function ContactPoint({ icon, title, value, href }: { icon: React.ReactNode; title: string; value: string; href: string }) {
-  return (
-    <a href={href} className="flex items-center gap-4 rounded-[24px] border border-emerald-100 bg-white/82 p-4 shadow-[0_12px_34px_rgba(15,23,42,0.045)] transition hover:-translate-y-1 hover:shadow-soft">
+function ContactPoint({ icon, title, value, href }: { icon: React.ReactNode; title: string; value: string; href?: string }) {
+  const className = "flex items-center gap-4 rounded-[24px] border border-emerald-100 bg-white/82 p-4 shadow-[0_12px_34px_rgba(15,23,42,0.045)] transition hover:-translate-y-1 hover:shadow-soft";
+  const content = (
+    <>
       <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">{icon}</span>
       <span>
         <span className="block text-[11px] font-[900] uppercase tracking-[0.12em] text-slate-400">{title}</span>
         <span className="mt-1 block text-[14px] font-[900] text-slate-950">{value}</span>
       </span>
-    </a>
+    </>
+  );
+
+  return href ? (
+    <a href={href} className={className}>{content}</a>
+  ) : (
+    <div className={className}>{content}</div>
   );
 }
 

@@ -168,7 +168,7 @@ export function FaqSection() {
               </div>
               <div>
                 <h3 className="text-[16px] font-[600] text-[#0f172a]">Get in touch</h3>
-                <p className="mt-0.5 text-[12px] text-[#94a3b8]">We'd love to learn about your business.</p>
+                <p className="mt-0.5 text-[12px] text-[#94a3b8]">Use this for quick questions. For a structured employer demo, use Book Demo.</p>
               </div>
             </div>
 

@@ -11,13 +11,13 @@ const steps = [
   {
     icon: <Building2 size={20} />,
     title: "Employer approves",
-    copy: "Employer sees policy context, salary data and request history.",
+    copy: "Employer reviews salary context, available limit and request history before approval.",
     meta: "Employer portal",
   },
   {
     icon: <CheckCircle2 size={20} />,
     title: "Admin verifies",
-    copy: "Admin can review approved requests and mark them ready for disbursal.",
+    copy: "Admin verifies KYC, bank and selfie status, then marks approved requests ready for disbursal.",
     meta: "Admin portal",
   },
   {
@@ -107,7 +107,7 @@ function WorkflowMini({ index }: { index: number }) {
         <p className="text-[10px] font-[900] uppercase tracking-[0.12em] text-emerald-100/70">Employer policy</p>
         <div className="mt-3 grid grid-cols-2 gap-2">
           <MiniStatus label="Limit" value="10%" />
-          <MiniStatus label="KYC" value="OK" />
+          <MiniStatus label="Salary" value="OK" />
         </div>
       </div>
     );
@@ -116,14 +116,14 @@ function WorkflowMini({ index }: { index: number }) {
   if (index === 2) {
     return (
       <div className="rounded-[24px] bg-white p-4">
-        <p className="text-[10px] font-[900] uppercase tracking-[0.12em] text-slate-400">Admin queue</p>
+        <p className="text-[10px] font-[900] uppercase tracking-[0.12em] text-slate-400">Verification queue</p>
         <div className="mt-3 flex items-center gap-2">
           <span className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
             <Landmark size={16} />
           </span>
           <div>
-            <p className="text-[13px] font-[900] text-slate-950">Ready</p>
-            <p className="text-[11px] font-[700] text-slate-400">For disbursal</p>
+            <p className="text-[13px] font-[900] text-slate-950">KYC + bank</p>
+            <p className="text-[11px] font-[700] text-slate-400">Admin verified</p>
           </div>
         </div>
       </div>
