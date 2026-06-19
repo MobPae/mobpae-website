@@ -1,6 +1,7 @@
 import { AlertTriangle, BadgeCheck, Building2, FileText, Landmark, LockKeyhole, Scale, ShieldCheck, UserRoundCheck } from "lucide-react";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
+import { SEO } from "../components/SEO";
 
 const termSections = [
   {
@@ -40,6 +41,11 @@ const flow = ["Employee request", "Employer approval", "Admin review", "Disbursa
 export function TermsPage() {
   return (
     <main className="min-h-screen bg-[#f8faf7]">
+      <SEO
+        title="Terms of Service"
+        description="Review the terms for using MobPae across employee salary access requests, employer approvals, admin operations, disbursal and payroll recovery."
+        path="/terms"
+      />
       <Navbar />
 
       <section className="relative overflow-hidden border-b border-emerald-100">

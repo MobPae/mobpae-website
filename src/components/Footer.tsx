@@ -33,6 +33,7 @@ export function Footer() {
               <a href="/#why-mobpae"   className="text-[#64748b] transition hover:text-[#10b981]">Why MobPae</a>
               <a href="/for-employers" className="text-[#64748b] transition hover:text-[#10b981]">For Employers</a>
               <a href="/security"      className="text-[#64748b] transition hover:text-[#10b981]">Security</a>
+              <a href="/contact"       className="text-[#64748b] transition hover:text-[#10b981]">Book Demo</a>
               <a href="/#how-it-works" className="text-[#64748b] transition hover:text-[#10b981]">How It Works</a>
               <a href="/#benefits"     className="text-[#64748b] transition hover:text-[#10b981]">Benefits</a>
               <a href="/#pricing"      className="text-[#64748b] transition hover:text-[#10b981]">Pricing</a>
@@ -65,6 +66,9 @@ export function Footer() {
                 <span className="flex h-[15px] w-[15px] items-center justify-center rounded-[3px] bg-[#10b981] text-[8px] font-[800] text-white flex-shrink-0">in</span>
                 LinkedIn
               </a>
+              <p className="max-w-[230px] text-[12.5px] leading-[1.7] text-slate-400">
+                Employer-backed salary access for Indian workplaces.
+              </p>
             </div>
           </div>
         </div>

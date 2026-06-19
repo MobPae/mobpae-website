@@ -2,6 +2,7 @@ import { ArrowRight, BadgeIndianRupee, Code2, Compass, Headphones, Palette, Rock
 import careersTeamHero from "../assets/careers-team-hero.png";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
+import { SEO } from "../components/SEO";
 
 const roles = [
   {
@@ -49,6 +50,11 @@ const principles = ["Human before financial", "Simple beats clever", "Trust is a
 export function CareersPage() {
   return (
     <main className="min-h-screen bg-[#f8faf7]">
+      <SEO
+        title="Careers"
+        description="Join MobPae to build employer-backed salary access technology that helps employees feel financially calmer before payday."
+        path="/careers"
+      />
       <Navbar />
 
       <section className="relative overflow-hidden border-b border-emerald-100">
@@ -94,6 +100,7 @@ export function CareersPage() {
                 <img
                   src={careersTeamHero}
                   alt="MobPae product team collaborating in a modern office"
+                  loading="eager"
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/52 via-transparent to-white/10" />

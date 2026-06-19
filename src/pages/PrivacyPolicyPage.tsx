@@ -1,6 +1,7 @@
 import { Database, Eye, FileCheck2, LockKeyhole, Mail, ShieldCheck, UserCheck } from "lucide-react";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
+import { SEO } from "../components/SEO";
 
 const privacySections = [
   {
@@ -30,6 +31,11 @@ const trustPoints = ["KYC and bank data are handled with role-based access", "Sa
 export function PrivacyPolicyPage() {
   return (
     <main className="min-h-screen bg-[#f8faf7]">
+      <SEO
+        title="Privacy Policy"
+        description="Learn how MobPae collects, uses and protects employee, employer, salary access, KYC and bank verification data."
+        path="/privacy-policy"
+      />
       <Navbar />
 
       <section className="relative overflow-hidden border-b border-emerald-100">

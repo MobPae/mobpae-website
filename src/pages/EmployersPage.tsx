@@ -1,6 +1,7 @@
 import { ArrowRight, BarChart3, Building2, ClipboardCheck, Landmark, Settings2, ShieldCheck, Users, WalletCards } from "lucide-react";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
+import { SEO } from "../components/SEO";
 
 const controlItems = [
   { label: "Advance percentage", value: "10%" },
@@ -35,6 +36,11 @@ const employerSteps = [
 export function EmployersPage() {
   return (
     <main className="min-h-screen bg-[#f8faf7]">
+      <SEO
+        title="For Employers"
+        description="Offer MobPae salary access as an employer-backed workplace benefit with policy limits, approvals, verification, payroll recovery and settlement visibility."
+        path="/for-employers"
+      />
       <Navbar />
 
       <section className="relative overflow-hidden border-b border-emerald-100">

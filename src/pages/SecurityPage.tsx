@@ -1,6 +1,7 @@
 import { Activity, ArrowRight, BadgeCheck, Database, Eye, FileCheck2, KeyRound, LockKeyhole, ShieldCheck, UserCheck } from "lucide-react";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
+import { SEO } from "../components/SEO";
 
 const trustLayers = [
   {
@@ -30,6 +31,11 @@ const proofPoints = ["Employer approval before admin disbursal", "KYC, bank and 
 export function SecurityPage() {
   return (
     <main className="min-h-screen bg-[#f8faf7]">
+      <SEO
+        title="Security & Trust"
+        description="MobPae is built around role-based access, identity verification, audit logs, session security and employer approval gates for sensitive salary workflows."
+        path="/security"
+      />
       <Navbar />
 
       <section className="relative overflow-hidden border-b border-emerald-100">

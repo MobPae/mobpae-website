@@ -79,6 +79,7 @@ export function HeroSection() {
               <img
                 src={relaxedEmployeeHero}
                 alt="Relaxed employee working calmly with MobPae financial wellness support"
+                loading="eager"
                 className="h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-white/82 via-white/18 to-transparent" />
