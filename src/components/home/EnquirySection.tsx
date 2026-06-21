@@ -84,13 +84,13 @@ export function EnquirySection() {
   }
 
   const inputClass =
-    "h-12 w-full rounded-full border border-slate-200 bg-white px-5 text-[13.5px] text-slate-900 placeholder-slate-400 outline-none transition focus:border-[#10b981] focus:ring-3 focus:ring-[#d1fae5]";
+    "h-12 w-full rounded-full border border-slate-200 bg-white px-5 text-[13.5px] text-slate-900 placeholder-slate-400 outline-none transition focus:border-[#0F8F72] focus:ring-3 focus:ring-[#E9F8F3]";
 
   return (
     <section id="contact" className="relative overflow-hidden bg-white py-20">
 
       {/* Decorative emerald glow behind the card */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#10b981]/5 blur-[100px]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0F8F72]/5 blur-[100px]" />
 
       <div className="relative mx-auto max-w-6xl px-6">
         {/* Two-panel card */}
@@ -105,15 +105,15 @@ export function EnquirySection() {
             style={{ background: "linear-gradient(160deg, #0c1322 0%, #0f1e3d 100%)" }}
           >
             {/* Decorative emerald accent circle */}
-            <div className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rounded-full bg-[#10b981]/12 blur-[60px]" />
-            <div className="pointer-events-none absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-[#10b981]/8 blur-[50px]" />
+            <div className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rounded-full bg-[#0F8F72]/12 blur-[60px]" />
+            <div className="pointer-events-none absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-[#0F8F72]/8 blur-[50px]" />
 
             <div className="relative">
-              <p className="text-[11px] font-[700] uppercase tracking-[0.2em] text-[#10b981] mb-6">
+              <p className="text-[11px] font-[700] uppercase tracking-[0.2em] text-[#0F8F72] mb-6">
                 Submit Enquiry
               </p>
 
-              <h2 className="text-[32px] font-[600] leading-[1.1] tracking-[-0.02em] text-white lg:text-[36px]">
+              <h2 className="text-[32px] font-[600] leading-[1.1] tracking-normal text-white lg:text-[36px]">
                 Have questions?{" "}
                 <span className="italic font-[500] text-[#34d399]">
                   We're here to help.
@@ -133,11 +133,11 @@ export function EnquirySection() {
                 { title: "Employer Controlled", text: "Define limits, approvals and policies." },
               ].map(({ title, text }) => (
                 <div key={title} className="flex items-start gap-3">
-                  <div className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border border-[#10b981]/40 bg-[#10b981]/15">
-                    <CheckCircle2 size={13} className="text-[#10b981]" />
+                  <div className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border border-[#0F8F72]/40 bg-[#0F8F72]/15">
+                    <CheckCircle2 size={13} className="text-[#0F8F72]" />
                   </div>
                   <div>
-                    <p className="text-[13px] font-[800] text-white leading-none">{title}</p>
+                    <p className="text-[13px] font-[600] text-white leading-none">{title}</p>
                     <p className="mt-1 text-[12px] text-white/45 leading-relaxed">{text}</p>
                   </div>
                 </div>
@@ -187,7 +187,7 @@ export function EnquirySection() {
                   value={form.message}
                   onChange={updateField}
                   placeholder="Tell us a little about your requirement"
-                  className="w-full rounded-[20px] border border-slate-200 bg-white px-5 py-3.5 text-[13.5px] text-slate-900 placeholder-slate-400 outline-none transition focus:border-[#10b981] focus:ring-3 focus:ring-[#d1fae5] resize-none"
+                  className="w-full rounded-[20px] border border-slate-200 bg-white px-5 py-3.5 text-[13.5px] text-slate-900 placeholder-slate-400 outline-none transition focus:border-[#0F8F72] focus:ring-3 focus:ring-[#E9F8F3] resize-none"
                 />
               </Field>
 
@@ -207,7 +207,7 @@ export function EnquirySection() {
               <button
                 type="submit"
                 disabled={loading}
-                className="flex w-full items-center justify-center gap-2 rounded-[14px] bg-[#10b981] px-8 py-4 text-[14px] font-[600] text-white transition-all hover:bg-[#059669] hover:-translate-y-px disabled:opacity-60"
+                className="flex w-full items-center justify-center gap-2 rounded-[14px] bg-[#0F8F72] px-8 py-4 text-[14px] font-[600] text-white transition-all hover:bg-[#086A56] hover:-translate-y-px disabled:opacity-60"
                 style={{ boxShadow: "0 18px 40px rgba(16,185,129,0.24)" }}
               >
                 {loading ? (
@@ -236,7 +236,7 @@ function Field({
 }) {
   return (
     <div>
-      <label className="mb-1.5 block text-[12.5px] font-[700] text-[#0f172a]">{label}</label>
+      <label className="mb-1.5 block text-[12.5px] font-[700] text-[#101828]">{label}</label>
       {children}
       {error && <p className="mt-1 text-[11.5px] font-[500] text-red-500">{error}</p>}
     </div>

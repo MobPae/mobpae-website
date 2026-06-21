@@ -14,7 +14,7 @@ export function HeroSection() {
   return (
     <section
       ref={heroRef as React.RefObject<HTMLElement>}
-      className="relative isolate overflow-hidden bg-[#f8faf7] pt-12 pb-16 lg:pt-16 lg:pb-24"
+      className="relative isolate overflow-hidden bg-[#F6F9F8] pt-12 pb-16 lg:pt-16 lg:pb-24"
     >
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -left-28 top-0 h-[520px] w-[520px] rounded-full bg-emerald-200/70 blur-[120px]" />
@@ -30,15 +30,14 @@ export function HeroSection() {
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
                   <BadgeCheck size={13} />
                 </span>
-                <span className="text-[11px] font-[900] uppercase tracking-[0.18em] text-emerald-800">
+                <span className="text-[11px] font-[700] uppercase tracking-[0.18em] text-emerald-800">
                   Employer-backed earned salary access
                 </span>
               </div>
             </div>
 
             <h1
-              className={`mt-6 font-[900] leading-[0.94] tracking-[-0.06em] text-slate-950 reveal delay-100 ${heroInView ? "in-view" : ""}`}
-              style={{ fontSize: "clamp(48px, 7.4vw, 96px)" }}
+              className={`mt-6 text-[42px] font-[700] leading-[1.02] tracking-normal text-slate-950 sm:text-[54px] lg:text-[64px] reveal delay-100 ${heroInView ? "in-view" : ""}`}
             >
               Salary access that feels calm, fast and controlled.
             </h1>
@@ -50,14 +49,14 @@ export function HeroSection() {
             <div className={`mt-8 flex flex-wrap items-center gap-3 reveal delay-300 ${heroInView ? "in-view" : ""}`}>
               <a
                 href="#contact"
-                className="group inline-flex h-14 items-center justify-center gap-2 rounded-full bg-slate-950 px-6 text-[14px] font-[900] text-white shadow-[0_22px_54px_rgba(15,23,42,0.24)] transition-all hover:-translate-y-1 hover:bg-emerald-700"
+                className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-slate-950 px-6 text-[14px] font-[700] text-white shadow-[0_22px_54px_rgba(15,23,42,0.24)] transition-all hover:-translate-y-1 hover:bg-emerald-700"
               >
                 Start employer onboarding
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </a>
               <a
                 href="#how-it-works"
-                className="inline-flex h-14 items-center justify-center rounded-full border border-emerald-200 bg-white/86 px-6 text-[14px] font-[900] text-slate-900 shadow-[0_16px_36px_rgba(15,23,42,0.06)] backdrop-blur-xl transition-all hover:-translate-y-1 hover:text-emerald-800"
+                className="inline-flex h-12 items-center justify-center rounded-full border border-emerald-200 bg-white/86 px-6 text-[14px] font-[700] text-slate-900 shadow-[0_16px_36px_rgba(15,23,42,0.06)] backdrop-blur-xl transition-all hover:-translate-y-1 hover:text-emerald-800"
               >
                 View product flow
               </a>
@@ -66,7 +65,7 @@ export function HeroSection() {
             <div className={`mt-9 grid max-w-[590px] grid-cols-3 gap-3 reveal delay-200 ${heroInView ? "in-view" : ""}`}>
               {metrics.map((item) => (
                 <div key={item.label} className="rounded-[24px] border border-emerald-100 bg-white/90 p-4 shadow-[0_16px_40px_rgba(15,23,42,0.07)] backdrop-blur-xl">
-                  <p className="text-[27px] font-[900] leading-none tracking-[-0.05em] text-slate-950">{item.value}</p>
+                  <p className="text-[27px] font-[700] leading-none tracking-normal text-slate-950">{item.value}</p>
                   <p className="mt-2 text-[12px] font-[700] leading-snug text-slate-500">{item.label}</p>
                 </div>
               ))}
@@ -89,7 +88,7 @@ export function HeroSection() {
                     <Sparkles size={21} />
                   </div>
                   <div>
-                    <p className="text-[15px] font-[900] text-slate-950">Workday feels lighter</p>
+                    <p className="text-[15px] font-[700] text-slate-950">Workday feels lighter</p>
                     <p className="mt-1 text-[12px] font-[700] leading-snug text-slate-500">Earned salary access without panic borrowing.</p>
                   </div>
                 </div>
@@ -102,7 +101,7 @@ export function HeroSection() {
               <HeroSignal icon={<CalendarCheck2 size={18} />} label="Recovery" value="Payroll" />
             </div>
 
-            <div className="absolute right-0 top-16 rounded-full border border-white/70 bg-white/90 px-4 py-2 text-[12px] font-[900] text-emerald-800 shadow-soft backdrop-blur-xl lg:right-2">
+            <div className="absolute right-0 top-16 rounded-full border border-white/70 bg-white/90 px-4 py-2 text-[12px] font-[700] text-emerald-800 shadow-soft backdrop-blur-xl lg:right-2">
               <Clock3 size={14} className="mr-1 inline" /> calm before payday
             </div>
           </div>
@@ -118,8 +117,8 @@ function HeroSignal({ icon, label, value }: { icon: React.ReactNode; label: stri
       <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">
         {icon}
       </div>
-      <p className="text-[10px] font-[900] uppercase tracking-[0.12em] text-slate-400">{label}</p>
-      <p className="mt-1 text-[15px] font-[900] tracking-[-0.03em] text-slate-950">{value}</p>
+      <p className="text-[10px] font-[700] uppercase tracking-[0.12em] text-slate-400">{label}</p>
+      <p className="mt-1 text-[15px] font-[700] tracking-normal text-slate-950">{value}</p>
     </div>
   );
 }

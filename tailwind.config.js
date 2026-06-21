@@ -3,13 +3,26 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary:         "#10b981",
-        "primary-mid":   "#059669",
-        "primary-light": "#d1fae5",
-        dark:  "#0f172a",
-        muted: "#64748b",
-        soft:  "#f8faf7",
-        emeraldDeep: "#064e3b",
+        primary:         "#0F8F72",
+        "primary-mid":   "#086A56",
+        "primary-light": "#E9F8F3",
+        dark:  "#101828",
+        muted: "#667085",
+        soft:  "#F6F9F8",
+        emeraldDeep: "#04352D",
+        emerald: {
+          50: "#F0FAF7",
+          100: "#D8F2EA",
+          200: "#B7E7D8",
+          300: "#83D5BF",
+          400: "#45B99A",
+          500: "#159A7B",
+          600: "#0F8F72",
+          700: "#0B735D",
+          800: "#095C4B",
+          900: "#074A3D",
+          950: "#04352D",
+        },
       },
       fontFamily: {
         sans:    ["DM Sans", "ui-sans-serif", "-apple-system", "system-ui", "sans-serif"],
@@ -17,9 +30,9 @@ export default {
         serif:   ["DM Sans", "ui-sans-serif", "-apple-system", "system-ui", "sans-serif"],
       },
       boxShadow: {
-        soft:       "0 24px 80px rgba(15, 23, 42, 0.08)",
-        emerald: "0 18px 46px rgba(16, 185, 129, 0.28)",
-        warm:       "0 18px 42px rgba(6, 78, 59, 0.14)",
+        soft:       "0 10px 32px rgba(16, 24, 40, 0.07)",
+        emerald: "0 14px 36px rgba(15, 143, 114, 0.2)",
+        warm:       "0 14px 32px rgba(8, 106, 86, 0.12)",
       },
       keyframes: {
         "fade-up": {

@@ -40,7 +40,7 @@ const flow = ["Employee request", "Employer approval", "Admin review", "Disbursa
 
 export function TermsPage() {
   return (
-    <main className="min-h-screen bg-[#f8faf7]">
+    <main className="min-h-screen bg-[#F6F9F8]">
       <SEO
         title="Terms of Service"
         description="Review the terms for using MobPae across employee salary access requests, employer approvals, admin operations, disbursal and payroll recovery."
@@ -57,23 +57,23 @@ export function TermsPage() {
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white/86 px-4 py-2 shadow-[0_16px_42px_rgba(15,23,42,0.07)] backdrop-blur-xl">
                 <FileText size={14} className="text-emerald-700" />
-                <span className="text-[11px] font-[900] uppercase tracking-[0.18em] text-emerald-800">Terms of service</span>
+                <span className="text-[11px] font-[700] uppercase tracking-[0.18em] text-emerald-800">Terms of service</span>
               </div>
-              <h1 className="mt-6 max-w-[650px] text-[48px] font-[900] leading-[0.96] tracking-[-0.06em] text-slate-950 sm:text-[72px]">
+              <h1 className="mt-6 max-w-[650px] text-[42px] font-[700] leading-[0.96] tracking-normal text-slate-950 sm:text-[60px]">
                 Clear rules for salary access.
               </h1>
               <p className="mt-6 max-w-[520px] text-[16px] leading-[1.85] text-slate-600">
                 These terms define how MobPae should be used across employee requests, employer approvals, admin operations, disbursal and payroll recovery.
               </p>
-              <p className="mt-5 text-[12px] font-[800] uppercase tracking-[0.14em] text-slate-400">Last updated: January 2026</p>
+              <p className="mt-5 text-[12px] font-[600] uppercase tracking-[0.14em] text-slate-400">Last updated: January 2026</p>
             </div>
 
             <div className="rounded-[38px] border border-white bg-white/82 p-5 shadow-soft backdrop-blur-xl">
               <div className="rounded-[30px] bg-slate-950 p-6 text-white">
                 <div className="flex items-start justify-between gap-5">
                   <div>
-                    <p className="text-[12px] font-[900] uppercase tracking-[0.14em] text-emerald-100/60">MobPae workflow</p>
-                    <h2 className="mt-3 text-[30px] font-[900] leading-tight tracking-[-0.04em]">Structured access, not informal borrowing.</h2>
+                    <p className="text-[12px] font-[700] uppercase tracking-[0.14em] text-emerald-100/60">MobPae workflow</p>
+                    <h2 className="mt-3 text-[30px] font-[700] leading-tight tracking-normal">Structured access, not informal borrowing.</h2>
                   </div>
                   <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-3xl bg-emerald-400/15 text-emerald-200">
                     <ShieldCheck size={27} />
@@ -83,10 +83,10 @@ export function TermsPage() {
                 <div className="mt-7 grid gap-3">
                   {flow.map((item, index) => (
                     <div key={item} className="flex items-center gap-3 rounded-2xl bg-white/8 px-4 py-3">
-                      <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-emerald-300/16 text-[11px] font-[900] text-emerald-200">
+                      <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-emerald-300/16 text-[11px] font-[700] text-emerald-200">
                         {index + 1}
                       </span>
-                      <p className="text-[13px] font-[800] text-white/78">{item}</p>
+                      <p className="text-[13px] font-[600] text-white/78">{item}</p>
                     </div>
                   ))}
                 </div>
@@ -102,11 +102,11 @@ export function TermsPage() {
             <article key={section.num} className="rounded-[32px] border border-emerald-100 bg-white p-6 shadow-[0_14px_40px_rgba(15,23,42,0.045)]">
               <div className="grid gap-5 md:grid-cols-[120px_1fr] md:items-start">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-600 text-[13px] font-[900] text-white">{section.num}</span>
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-600 text-[13px] font-[700] text-white">{section.num}</span>
                   <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">{section.icon}</span>
                 </div>
                 <div>
-                  <h2 className="text-[24px] font-[900] tracking-[-0.05em] text-slate-950">{section.title}</h2>
+                  <h2 className="text-[24px] font-[700] tracking-normal text-slate-950">{section.title}</h2>
                   <p className="mt-3 text-[14px] leading-[1.85] text-slate-600">{section.body}</p>
                 </div>
               </div>
@@ -119,7 +119,7 @@ export function TermsPage() {
             <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">
               <LockKeyhole size={21} />
             </div>
-            <h2 className="mt-5 text-[24px] font-[900] tracking-[-0.05em] text-slate-950">Account safety</h2>
+            <h2 className="mt-5 text-[24px] font-[700] tracking-normal text-slate-950">Account safety</h2>
             <p className="mt-3 text-[14px] leading-[1.8] text-slate-600">
               Keep login details private and report unusual activity. Sessions, approvals and sensitive actions may be monitored for platform safety.
             </p>
@@ -128,7 +128,7 @@ export function TermsPage() {
             <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">
               <Landmark size={21} />
             </div>
-            <h2 className="mt-5 text-[24px] font-[900] tracking-[-0.05em] text-slate-950">Repayment clarity</h2>
+            <h2 className="mt-5 text-[24px] font-[700] tracking-normal text-slate-950">Repayment clarity</h2>
             <p className="mt-3 text-[14px] leading-[1.8] text-slate-600">
               Approved advances are expected to be recovered as payroll deductions or through the configured recovery process shown in MobPae.
             </p>

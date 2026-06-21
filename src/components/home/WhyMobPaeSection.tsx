@@ -8,18 +8,17 @@ export function WhyMobPaeSection() {
     <section
       id="why-mobpae"
       ref={ref as React.RefObject<HTMLElement>}
-      className="relative overflow-hidden bg-[#f8faf7] py-24"
+      className="relative overflow-hidden bg-[#F6F9F8] py-24"
     >
       <div className="pointer-events-none absolute left-0 top-0 h-96 w-96 rounded-full bg-emerald-100/70 blur-[110px]" />
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
         <div className="grid gap-12 lg:grid-cols-[0.86fr_1.14fr] lg:items-center">
           <div className={`reveal ${inView ? "in-view" : ""}`}>
-            <p className="text-[11px] font-[900] uppercase tracking-[0.22em] text-emerald-700">
+            <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-emerald-700">
               The real problem
             </p>
             <h2
-              className="mt-5 font-[900] leading-[0.98] tracking-[-0.05em] text-slate-950"
-              style={{ fontSize: "clamp(38px, 5vw, 66px)" }}
+              className="mt-5 text-[36px] font-[700] leading-[1.08] tracking-normal text-slate-950 lg:text-[48px]"
             >
               Financial emergencies do not wait for payroll.
             </h2>
@@ -36,7 +35,7 @@ export function WhyMobPaeSection() {
                   <span className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
                     <BadgeIndianRupee size={16} />
                   </span>
-                  <span className="text-[14px] font-[800] text-slate-800">{item}</span>
+                  <span className="text-[14px] font-[600] text-slate-800">{item}</span>
                 </div>
               ))}
             </div>
@@ -54,7 +53,7 @@ export function WhyMobPaeSection() {
                 </VisualCard>
                 <div className="rounded-[30px] border border-slate-200 bg-white p-5 shadow-soft">
                   <div className="flex items-center justify-between">
-                    <p className="text-[13px] font-[900] text-slate-950">Month-end pressure</p>
+                    <p className="text-[13px] font-[700] text-slate-950">Month-end pressure</p>
                     <ArrowUpRight size={17} className="text-red-500" />
                   </div>
                   <div className="mt-5 flex h-32 items-end gap-2">
@@ -70,10 +69,10 @@ export function WhyMobPaeSection() {
                   <div className="mt-5 rounded-[24px] bg-emerald-950 p-5 text-white">
                     <div className="flex items-start justify-between">
                       <div>
-                        <p className="text-[11px] font-[800] text-emerald-100/70">Available limit</p>
-                        <p className="mt-2 text-[34px] font-[900] leading-none tracking-[-0.05em]">₹8,000</p>
+                        <p className="text-[11px] font-[600] text-emerald-100/70">Available limit</p>
+                        <p className="mt-2 text-[34px] font-[700] leading-none tracking-normal">₹8,000</p>
                       </div>
-                      <span className="rounded-full bg-white/12 px-3 py-1 text-[11px] font-[900]">Verified</span>
+                      <span className="rounded-full bg-white/12 px-3 py-1 text-[11px] font-[700]">Verified</span>
                     </div>
                     <div className="mt-5 h-2 overflow-hidden rounded-full bg-white/12">
                       <div className="h-full w-[68%] rounded-full bg-gradient-to-r from-emerald-300 to-white" />
@@ -87,7 +86,7 @@ export function WhyMobPaeSection() {
 
                 <div className="rounded-[30px] border border-emerald-100 bg-white p-5 shadow-soft">
                   <div className="flex items-center justify-between">
-                    <p className="text-[13px] font-[900] text-slate-950">Payroll disruption</p>
+                    <p className="text-[13px] font-[700] text-slate-950">Payroll disruption</p>
                     <ArrowDownRight size={17} className="text-emerald-600" />
                   </div>
                   <div className="mt-5 flex h-32 items-end gap-2">
@@ -123,8 +122,8 @@ function VisualCard({
     <div className="rounded-[34px] border border-white bg-white/88 p-6 shadow-soft backdrop-blur-xl">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-[12px] font-[900] uppercase tracking-[0.14em] text-slate-400">{title}</p>
-          <p className="mt-2 text-[22px] font-[900] tracking-[-0.04em] text-slate-950">{amount}</p>
+          <p className="text-[12px] font-[700] uppercase tracking-[0.14em] text-slate-400">{title}</p>
+          <p className="mt-2 text-[22px] font-[700] tracking-normal text-slate-950">{amount}</p>
         </div>
         <div className={`flex h-12 w-12 items-center justify-center rounded-2xl ${success ? "bg-emerald-100 text-emerald-700" : "bg-red-50 text-red-500"}`}>
           {icon}
@@ -138,8 +137,8 @@ function VisualCard({
 function MiniRow({ label, value, down }: { label: string; value: string; down?: boolean }) {
   return (
     <div className="flex items-center justify-between rounded-2xl border border-slate-100 bg-slate-50 px-4 py-3">
-      <span className="text-[12px] font-[800] text-slate-500">{label}</span>
-      <span className={`text-[13px] font-[900] ${down ? "text-red-500" : "text-emerald-600"}`}>{value}</span>
+      <span className="text-[12px] font-[600] text-slate-500">{label}</span>
+      <span className={`text-[13px] font-[700] ${down ? "text-red-500" : "text-emerald-600"}`}>{value}</span>
     </div>
   );
 }
@@ -147,8 +146,8 @@ function MiniRow({ label, value, down }: { label: string; value: string; down?: 
 function MiniPill({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-2xl bg-emerald-50 px-4 py-3">
-      <p className="text-[10px] font-[900] uppercase tracking-[0.12em] text-emerald-600">{label}</p>
-      <p className="mt-1 text-[13px] font-[900] text-slate-950">{value}</p>
+      <p className="text-[10px] font-[700] uppercase tracking-[0.12em] text-emerald-600">{label}</p>
+      <p className="mt-1 text-[13px] font-[700] text-slate-950">{value}</p>
     </div>
   );
 }

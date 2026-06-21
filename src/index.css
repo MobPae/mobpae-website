@@ -1,8 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --brand-primary: #0f8f72;
+  --brand-primary-dark: #086a56;
+  --brand-primary-light: #e9f8f3;
+  --surface-page: #f6f9f8;
+  --surface-card: #ffffff;
+  --text-primary: #101828;
+  --text-secondary: #667085;
+  --border-subtle: #e4eae7;
+  --status-success: #22a06b;
+  --status-warning: #f59e0b;
+  --status-error: #e5484d;
+}
 
 * {
   box-sizing: border-box;
@@ -20,8 +34,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  background: #f8faf7;
-  color: #0f172a;
+  background: var(--surface-page);
+  color: var(--text-primary);
 }
 
 button,
@@ -31,15 +45,15 @@ textarea {
 }
 
 ::selection {
-  background: #10b981;
+  background: var(--brand-primary);
   color: #fff;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { border-radius: 999px; background: #a7f3d0; }
-::-webkit-scrollbar-thumb:hover { background: #10b981; }
+::-webkit-scrollbar-thumb { border-radius: 999px; background: #b7e7d8; }
+::-webkit-scrollbar-thumb:hover { background: var(--brand-primary); }
 
 /* Font utilities */
 .font-sans    { font-family: "DM Sans", ui-sans-serif, -apple-system, system-ui, sans-serif; }
@@ -111,4 +125,22 @@ textarea {
   background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(22px);
   -webkit-backdrop-filter: blur(22px);
+}
+
+@keyframes product-screen-enter {
+  from { opacity: 0; transform: translateY(8px) scale(0.99); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes product-copy-enter {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.product-screen-enter {
+  animation: product-screen-enter 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-copy-enter {
+  animation: product-copy-enter 0.32s cubic-bezier(0.16, 1, 0.3, 1);
 }

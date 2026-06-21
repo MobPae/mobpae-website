@@ -88,7 +88,7 @@ export function ContactPage() {
     "h-13 min-h-[52px] w-full rounded-2xl border border-emerald-100 bg-white px-4 text-[14px] font-[700] text-slate-950 placeholder-slate-400 outline-none transition focus:border-emerald-400 focus:ring-4 focus:ring-emerald-100";
 
   return (
-    <main className="min-h-screen bg-[#f8faf7]">
+    <main className="min-h-screen bg-[#F6F9F8]">
       <SEO
         title="Book a Demo"
         description="Contact MobPae to set up employer-backed salary access with controlled approvals, verification, payroll recovery and settlement visibility."
@@ -105,9 +105,9 @@ export function ContactPage() {
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white/86 px-4 py-2 shadow-[0_16px_42px_rgba(15,23,42,0.07)] backdrop-blur-xl">
                 <Send size={14} className="text-emerald-700" />
-                <span className="text-[11px] font-[900] uppercase tracking-[0.18em] text-emerald-800">Book a demo</span>
+                <span className="text-[11px] font-[700] uppercase tracking-[0.18em] text-emerald-800">Book a demo</span>
               </div>
-              <h1 className="mt-6 max-w-[660px] text-[48px] font-[900] leading-[0.96] tracking-[-0.06em] text-slate-950 sm:text-[76px]">
+              <h1 className="mt-6 max-w-[660px] text-[42px] font-[700] leading-[0.96] tracking-normal text-slate-950 sm:text-[64px]">
                 Bring salary access to your workplace.
               </h1>
               <p className="mt-6 max-w-[520px] text-[16px] leading-[1.85] text-slate-600">
@@ -128,7 +128,7 @@ export function ContactPage() {
                     <Building2 size={23} />
                   </div>
                   <div>
-                    <h2 className="text-[24px] font-[900] tracking-[-0.05em]">Book a demo</h2>
+                    <h2 className="text-[24px] font-[700] tracking-normal">Book a demo</h2>
                     <p className="mt-1 text-[13px] font-[700] text-white/56">For employers who want setup, pricing and launch guidance.</p>
                   </div>
                 </div>
@@ -167,19 +167,19 @@ export function ContactPage() {
                 {success && (
                   <div className="flex items-start gap-3 rounded-2xl border border-emerald-100 bg-emerald-50 px-4 py-3">
                     <CheckCircle2 size={16} className="mt-0.5 flex-shrink-0 text-emerald-600" />
-                    <p className="text-[13px] font-[800] text-emerald-800">{success}</p>
+                    <p className="text-[13px] font-[600] text-emerald-800">{success}</p>
                   </div>
                 )}
                 {submitError && (
                   <div className="rounded-2xl border border-red-100 bg-red-50 px-4 py-3">
-                    <p className="text-[13px] font-[800] text-red-700">{submitError}</p>
+                    <p className="text-[13px] font-[600] text-red-700">{submitError}</p>
                   </div>
                 )}
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="group inline-flex h-14 items-center justify-center gap-2 rounded-full bg-slate-950 px-6 text-[14px] font-[900] text-white shadow-[0_22px_54px_rgba(15,23,42,0.2)] transition-all hover:-translate-y-1 hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-slate-950 px-6 text-[14px] font-[700] text-white shadow-[0_22px_54px_rgba(15,23,42,0.2)] transition-all hover:-translate-y-1 hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {loading ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} className="transition-transform group-hover:translate-x-1" />}
                   {loading ? "Submitting..." : "Submit demo request"}
@@ -204,9 +204,9 @@ export function ContactPage() {
 function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
   return (
     <div>
-      <label className="mb-2 block text-[12px] font-[900] uppercase tracking-[0.1em] text-slate-500">{label}</label>
+      <label className="mb-2 block text-[12px] font-[700] uppercase tracking-[0.1em] text-slate-500">{label}</label>
       {children}
-      {error && <p className="mt-1.5 text-[12px] font-[800] text-red-500">{error}</p>}
+      {error && <p className="mt-1.5 text-[12px] font-[600] text-red-500">{error}</p>}
     </div>
   );
 }
@@ -217,8 +217,8 @@ function ContactPoint({ icon, title, value, href }: { icon: React.ReactNode; tit
     <>
       <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">{icon}</span>
       <span>
-        <span className="block text-[11px] font-[900] uppercase tracking-[0.12em] text-slate-400">{title}</span>
-        <span className="mt-1 block text-[14px] font-[900] text-slate-950">{value}</span>
+        <span className="block text-[11px] font-[700] uppercase tracking-[0.12em] text-slate-400">{title}</span>
+        <span className="mt-1 block text-[14px] font-[700] text-slate-950">{value}</span>
       </span>
     </>
   );
@@ -236,7 +236,7 @@ function ContactTrust({ title, body }: { title: string; body: string }) {
       <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">
         <ShieldCheck size={21} />
       </div>
-      <h3 className="mt-5 text-[22px] font-[900] tracking-[-0.04em] text-slate-950">{title}</h3>
+      <h3 className="mt-5 text-[22px] font-[700] tracking-normal text-slate-950">{title}</h3>
       <p className="mt-3 text-[14px] leading-[1.75] text-slate-600">{body}</p>
     </div>
   );

@@ -8,14 +8,14 @@ export function BenefitsSection() {
     <section
       id="benefits"
       ref={ref as React.RefObject<HTMLElement>}
-      className="relative overflow-hidden bg-[#f8faf7] py-24"
+      className="relative overflow-hidden bg-[#F6F9F8] py-24"
     >
       <div className="pointer-events-none absolute right-0 top-24 h-96 w-96 rounded-full bg-emerald-100/80 blur-[110px]" />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
         <div className={`mx-auto max-w-3xl text-center reveal ${inView ? "in-view" : ""}`}>
-          <p className="text-[11px] font-[900] uppercase tracking-[0.22em] text-emerald-700">Why teams choose MobPae</p>
-          <h2 className="mt-5 text-[40px] font-[900] leading-[1] tracking-[-0.05em] text-slate-950 lg:text-[62px]">
+          <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-emerald-700">Why teams choose MobPae</p>
+          <h2 className="mt-5 text-[36px] font-[700] leading-[1] tracking-normal text-slate-950 lg:text-[48px]">
             Built for financial wellness without losing control.
           </h2>
         </div>
@@ -27,7 +27,7 @@ export function BenefitsSection() {
                 <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-emerald-100 text-emerald-700">
                   <Building2 size={24} />
                 </div>
-                <h3 className="mt-6 text-[28px] font-[900] leading-[1.05] tracking-[-0.04em] text-slate-950">
+                <h3 className="mt-6 text-[28px] font-[700] leading-[1.05] tracking-normal text-slate-950">
                   Employer control center
                 </h3>
                 <p className="mt-4 text-[14px] leading-[1.8] text-slate-600">
@@ -36,8 +36,8 @@ export function BenefitsSection() {
               </div>
               <div className="rounded-[30px] bg-slate-950 p-5 text-white">
                 <div className="mb-5 flex items-center justify-between">
-                  <p className="text-[13px] font-[900]">Policy settings</p>
-                  <span className="rounded-full bg-emerald-400/16 px-3 py-1 text-[10px] font-[900] text-emerald-200">Active</span>
+                  <p className="text-[13px] font-[700]">Policy settings</p>
+                  <span className="rounded-full bg-emerald-400/16 px-3 py-1 text-[10px] font-[700] text-emerald-200">Active</span>
                 </div>
                 <SettingBar label="Advance percentage" value="10%" width="42%" />
                 <SettingBar label="Max advance" value="₹10,000" width="72%" />
@@ -75,8 +75,8 @@ function SettingBar({ label, value, width }: { label: string; value: string; wid
   return (
     <div className="mb-4 last:mb-0">
       <div className="mb-2 flex items-center justify-between gap-3">
-        <span className="text-[11px] font-[800] text-white/56">{label}</span>
-        <span className="text-[12px] font-[900] text-white">{value}</span>
+        <span className="text-[11px] font-[600] text-white/56">{label}</span>
+        <span className="text-[12px] font-[700] text-white">{value}</span>
       </div>
       <div className="h-2 rounded-full bg-white/10">
         <div className="h-full rounded-full bg-gradient-to-r from-emerald-300 to-emerald-500" style={{ width }} />
@@ -91,7 +91,7 @@ function FeatureTile({ icon, title, copy }: { icon: React.ReactNode; title: stri
       <div className="flex h-13 w-13 h-[52px] w-[52px] items-center justify-center rounded-3xl bg-emerald-100 text-emerald-700">
         {icon}
       </div>
-      <h3 className="mt-5 text-[21px] font-[900] tracking-[-0.04em] text-slate-950">{title}</h3>
+      <h3 className="mt-5 text-[21px] font-[700] tracking-normal text-slate-950">{title}</h3>
       <p className="mt-3 text-[13.5px] leading-[1.75] text-slate-600">{copy}</p>
     </div>
   );
@@ -105,8 +105,8 @@ function InsightCard({ title, value, label }: { title: string; value: string; la
         <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-950 text-white">
           <Gauge size={19} />
         </div>
-        <p className="mt-5 text-[13px] font-[900] uppercase tracking-[0.12em] text-slate-400">{title}</p>
-        <p className="mt-2 text-[34px] font-[900] leading-none tracking-[-0.05em] text-slate-950">{value}</p>
+        <p className="mt-5 text-[13px] font-[700] uppercase tracking-[0.12em] text-slate-400">{title}</p>
+        <p className="mt-2 text-[34px] font-[700] leading-none tracking-normal text-slate-950">{value}</p>
         <p className="mt-2 text-[13px] font-[700] text-slate-500">{label}</p>
       </div>
     </div>
