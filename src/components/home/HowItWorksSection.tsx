@@ -1,30 +1,30 @@
-import { User, Building2, Wallet, CalendarDays } from "lucide-react";
+import { Building2, CheckCircle2, Landmark, Send, Wallet } from "lucide-react";
 import { useInView } from "../../hooks/useInView";
 
-const STEPS = [
+const steps = [
   {
-    num: "01",
-    icon: <User size={22} />,
-    title: "Request",
-    sub: "Select how much of your earned salary you need and submit — takes under a minute.",
+    icon: <Send size={20} />,
+    title: "Employee requests",
+    copy: "Amount, tenure and repayment preview are shown before submission.",
+    meta: "Mobile app",
   },
   {
-    num: "02",
-    icon: <Building2 size={22} />,
-    title: "Approval",
-    sub: "Your employer reviews the request and approves based on your pay cycle and policy.",
+    icon: <Building2 size={20} />,
+    title: "Employer approves",
+    copy: "Employer reviews salary context, available limit and request history before approval.",
+    meta: "Employer portal",
   },
   {
-    num: "03",
-    icon: <Wallet size={22} />,
-    title: "Disbursed",
-    sub: "Funds land in your bank account within 24 hours of approval.",
+    icon: <CheckCircle2 size={20} />,
+    title: "Admin verifies",
+    copy: "Admin verifies KYC, bank and selfie status, then marks approved requests ready for disbursal.",
+    meta: "Admin portal",
   },
   {
-    num: "04",
-    icon: <CalendarDays size={22} />,
-    title: "Repayment",
-    sub: "The amount is automatically deducted from your next salary. Nothing to do.",
+    icon: <Wallet size={20} />,
+    title: "Payout and recovery",
+    copy: "Disbursal, payroll recovery and settlement stay linked.",
+    meta: "Tracked end-to-end",
   },
 ];
 
@@ -35,63 +35,114 @@ export function HowItWorksSection() {
     <section
       id="how-it-works"
       ref={ref as React.RefObject<HTMLElement>}
-      className="relative overflow-hidden bg-white pt-20 pb-24"
+      className="relative overflow-hidden bg-white py-24"
     >
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6">
+        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+          <div className={`reveal ${inView ? "in-view" : ""}`}>
+            <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-emerald-700">
+              Product flow
+            </p>
+            <h2
+              className="mt-5 text-[36px] font-[700] leading-[1.08] tracking-normal text-slate-950 lg:text-[48px]"
+            >
+              One request. Three checks. Clean settlement.
+            </h2>
+            <p className="mt-6 max-w-[420px] text-[16px] leading-[1.85] text-slate-600">
+              The flow mirrors how the MVP actually works: employee, employer, admin, disbursal, repayment and settlement all connected.
+            </p>
+          </div>
 
-        {/* Header */}
-        <div className={`text-center reveal ${inView ? "in-view" : ""}`}>
-          <h2
-            className="mt-6 font-[700] leading-[1.05] tracking-[-0.02em] text-[#1c1209]"
-            style={{ fontSize: "clamp(32px, 4vw, 48px)" }}
-          >
-            How It Works
-          </h2>
-          <p className="mt-4 mx-auto max-w-[400px] text-[15px] leading-[1.8] text-[#6b5e53]">
-            Four simple steps from request to funds in your account.
-          </p>
-        </div>
-
-        {/* Steps — horizontal on desktop, vertical on mobile */}
-        <div className="mt-16 relative">
-
-          {/* Connecting line (desktop only) */}
-          <div className="hidden lg:block absolute top-[52px] left-[calc(12.5%+28px)] right-[calc(12.5%+28px)] h-px bg-[#e8ddd4] z-0" />
-
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-4 lg:gap-6 lg:items-stretch">
-            {STEPS.map((step, i) => (
-              <div
-                key={step.num}
-                className={`relative flex flex-col items-center text-center reveal delay-${i * 100} ${inView ? "in-view" : ""}`}
-              >
-                {/* Number circle */}
-                <div className="relative z-10 mb-6 flex-shrink-0">
-                  <div className="flex h-[56px] w-[56px] items-center justify-center rounded-full border-2 border-[#e8ddd4] bg-white shadow-sm">
-                    <span className="text-[13px] font-[700] text-[#c4522a]">{step.num}</span>
-                  </div>
-                </div>
-
-                {/* Card — flex-1 makes all cards equal height */}
-                <div className="w-full flex-1 flex flex-col rounded-2xl border border-[#f1e8e3] bg-white p-6 transition-all hover:-translate-y-1 hover:border-[#fde8d8] hover:shadow-warm">
-                  <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#fdf3ee] text-[#c4522a]">
+          <div className={`relative reveal-scale delay-150 ${inView ? "in-view" : ""}`}>
+            <div className="absolute left-8 top-0 hidden h-full w-px bg-gradient-to-b from-emerald-100 via-emerald-300 to-emerald-100 md:block" />
+            <div className="space-y-4">
+              {steps.map((step, index) => (
+                <div key={step.title} className="group relative rounded-[30px] border border-slate-100 bg-[#F6F9F8] p-4 shadow-[0_12px_32px_rgba(15,23,42,0.045)] transition-all hover:-translate-y-1 hover:border-emerald-200 hover:bg-white hover:shadow-soft md:ml-12">
+                  <div className="absolute -left-[70px] top-6 hidden h-12 w-12 items-center justify-center rounded-2xl border border-emerald-100 bg-white text-emerald-700 shadow-soft md:flex">
                     {step.icon}
                   </div>
-                  <h3 className="text-[16px] font-[700] text-[#1c1209]">{step.title}</h3>
-                  <p className="mt-2 text-[13px] leading-[1.7] text-[#6b5e53]">{step.sub}</p>
+                  <div className="grid gap-4 sm:grid-cols-[1fr_220px] sm:items-center">
+                    <div className="flex items-start gap-4">
+                      <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700 md:hidden">
+                        {step.icon}
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-3">
+                          <span className="text-[12px] font-[700] text-emerald-600">0{index + 1}</span>
+                          <span className="rounded-full bg-white px-3 py-1 text-[10px] font-[700] uppercase tracking-[0.12em] text-slate-400">{step.meta}</span>
+                        </div>
+                        <h3 className="mt-3 text-[19px] font-[700] tracking-normal text-slate-950">{step.title}</h3>
+                        <p className="mt-2 text-[13.5px] leading-[1.7] text-slate-600">{step.copy}</p>
+                      </div>
+                    </div>
+                    <WorkflowMini index={index} />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-
-      </div>
-
-      {/* Wave → Benefits */}
-      <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-[0]">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 70" preserveAspectRatio="none" className="block w-full" style={{ height: 70 }}>
-          <path d="M0,55 C480,0 960,70 1440,20 L1440,70 L0,70 Z" fill="#faf6f1" />
-        </svg>
       </div>
     </section>
+  );
+}
+
+function WorkflowMini({ index }: { index: number }) {
+  if (index === 0) {
+    return (
+      <div className="rounded-[24px] bg-white p-4">
+        <p className="text-[10px] font-[700] uppercase tracking-[0.12em] text-slate-400">Preview</p>
+        <p className="mt-2 text-[24px] font-[700] tracking-normal text-slate-950">₹5,000</p>
+        <div className="mt-3 h-2 rounded-full bg-slate-100">
+          <div className="h-full w-[62%] rounded-full bg-emerald-500" />
+        </div>
+      </div>
+    );
+  }
+
+  if (index === 1) {
+    return (
+      <div className="rounded-[24px] bg-emerald-950 p-4 text-white">
+        <p className="text-[10px] font-[700] uppercase tracking-[0.12em] text-emerald-100/70">Employer policy</p>
+        <div className="mt-3 grid grid-cols-2 gap-2">
+          <MiniStatus label="Limit" value="10%" />
+          <MiniStatus label="Salary" value="OK" />
+        </div>
+      </div>
+    );
+  }
+
+  if (index === 2) {
+    return (
+      <div className="rounded-[24px] bg-white p-4">
+        <p className="text-[10px] font-[700] uppercase tracking-[0.12em] text-slate-400">Verification queue</p>
+        <div className="mt-3 flex items-center gap-2">
+          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+            <Landmark size={16} />
+          </span>
+          <div>
+            <p className="text-[13px] font-[700] text-slate-950">KYC + bank</p>
+            <p className="text-[11px] font-[700] text-slate-400">Admin verified</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="rounded-[24px] bg-white p-4">
+      <p className="text-[10px] font-[700] uppercase tracking-[0.12em] text-slate-400">Recovery</p>
+      <p className="mt-2 text-[20px] font-[700] text-emerald-700">28 Jun</p>
+      <p className="mt-1 text-[11px] font-[700] text-slate-400">Payroll deduction</p>
+    </div>
+  );
+}
+
+function MiniStatus({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-2xl bg-white/10 px-3 py-2">
+      <p className="text-[9px] font-[700] uppercase tracking-[0.12em] text-white/48">{label}</p>
+      <p className="mt-1 text-[14px] font-[700]">{value}</p>
+    </div>
   );
 }

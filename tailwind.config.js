@@ -3,22 +3,36 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary:         "#c4522a",
-        "primary-mid":   "#d95a2e",
-        "primary-light": "#fde8d8",
-        dark:  "#1c1209",
-        muted: "#6b5e53",
-        soft:  "#faf7f5",
+        primary:         "#0F8F72",
+        "primary-mid":   "#086A56",
+        "primary-light": "#E9F8F3",
+        dark:  "#101828",
+        muted: "#667085",
+        soft:  "#F6F9F8",
+        emeraldDeep: "#04352D",
+        emerald: {
+          50: "#F0FAF7",
+          100: "#D8F2EA",
+          200: "#B7E7D8",
+          300: "#83D5BF",
+          400: "#45B99A",
+          500: "#159A7B",
+          600: "#0F8F72",
+          700: "#0B735D",
+          800: "#095C4B",
+          900: "#074A3D",
+          950: "#04352D",
+        },
       },
       fontFamily: {
-        sans:    ["Inter", "ui-sans-serif", "-apple-system", "system-ui", "sans-serif"],
-        display: ["Inter", "ui-sans-serif", "-apple-system", "system-ui", "sans-serif"],
-        serif:   ["Inter", "ui-sans-serif", "-apple-system", "system-ui", "sans-serif"],
+        sans:    ["DM Sans", "ui-sans-serif", "-apple-system", "system-ui", "sans-serif"],
+        display: ["DM Sans", "ui-sans-serif", "-apple-system", "system-ui", "sans-serif"],
+        serif:   ["DM Sans", "ui-sans-serif", "-apple-system", "system-ui", "sans-serif"],
       },
       boxShadow: {
-        soft:       "0 20px 60px rgba(28, 18, 9, 0.08)",
-        terracotta: "0 8px 32px rgba(196, 82, 42, 0.28)",
-        warm:       "0 8px 24px rgba(196, 82, 42, 0.18)",
+        soft:       "0 10px 32px rgba(16, 24, 40, 0.07)",
+        emerald: "0 14px 36px rgba(15, 143, 114, 0.2)",
+        warm:       "0 14px 32px rgba(8, 106, 86, 0.12)",
       },
       keyframes: {
         "fade-up": {
