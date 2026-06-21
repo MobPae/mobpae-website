@@ -2,16 +2,16 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const navLinks = [
-  { label: "Employers",    href: "/for-employers" },
-  { label: "Product",      href: "/#why-mobpae" },
+  { label: "Employers", href: "/for-employers" },
+  { label: "Product", href: "/#why-mobpae" },
   { label: "How It Works", href: "/#how-it-works" },
-  { label: "Security",     href: "/security" },
-  { label: "Pricing",      href: "/#pricing" },
+  { label: "Security", href: "/security" },
+  { label: "Pricing", href: "/#pricing" },
 ];
 
 export function Navbar() {
-  const [isOpen, setIsOpen]       = useState(false);
-  const [scrolled, setScrolled]   = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -22,21 +22,52 @@ export function Navbar() {
   return (
     <header
       className="sticky top-0 z-50 border-b border-emerald-950/5 bg-white/76 backdrop-blur-2xl transition-all duration-300"
-      style={{ boxShadow: scrolled ? "0 18px 48px rgba(15, 23, 42, 0.08)" : "none" }}
+      style={{
+        boxShadow: scrolled ? "0 18px 48px rgba(15, 23, 42, 0.08)" : "none",
+      }}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 sm:px-6">
-
         {/* Logo */}
-        <a href="/" className="flex items-center gap-3 flex-shrink-0">
-          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-800 shadow-[0_14px_30px_rgba(16,185,129,0.28)]">
-            <svg width="20" height="14" viewBox="0 0 22 16" fill="none">
-              <path
-                d="M1 13C1 13 4 3 7 8C10 13 11 2 14 8C17 14 21 3 21 3"
-                stroke="white" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round"
+        <a href="/" className="flex items-center gap-2.5 flex-shrink-0">
+          <div className="flex h-9 w-9 items-center justify-center rounded-[10px] bg-[#0F8F72]">
+            <svg width="16" height="18" viewBox="0 0 20 22" fill="none">
+              <rect
+                x="1"
+                y="1"
+                width="18"
+                height="20"
+                rx="4"
+                fill="none"
+                stroke="white"
+                strokeWidth="2.5"
+              />
+              <rect
+                x="3.5"
+                y="14.5"
+                width="3.5"
+                height="4.5"
+                rx="0.8"
+                fill="white"
+              />
+              <rect
+                x="8.25"
+                y="11"
+                width="3.5"
+                height="8"
+                rx="0.8"
+                fill="white"
+              />
+              <rect
+                x="13"
+                y="7"
+                width="3.5"
+                height="12"
+                rx="0.8"
+                fill="white"
               />
             </svg>
           </div>
-          <span className="text-[15px] font-[700] tracking-[0.13em] text-slate-950 uppercase leading-none">
+          <span className="text-[15px] font-[800] tracking-[0.1em] text-[#101828] uppercase leading-none">
             MOBPAE
           </span>
         </a>
