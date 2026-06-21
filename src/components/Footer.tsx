@@ -1,4 +1,5 @@
 import { Heart, Mail, MapPin, Phone } from "lucide-react";
+import { BrandLogo } from "./BrandLogo";
 
 export function Footer() {
   return (
@@ -7,49 +8,11 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-[1.6fr_1fr_1fr_1fr]">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-5">
-              <div className="flex h-10 w-10 items-center justify-center rounded-[11px] bg-[#0F8F72]">
-                <svg width="17" height="19" viewBox="0 0 20 22" fill="none">
-                  <rect
-                    x="1"
-                    y="1"
-                    width="18"
-                    height="20"
-                    rx="4"
-                    fill="none"
-                    stroke="white"
-                    strokeWidth="2.5"
-                  />
-                  <rect
-                    x="3.5"
-                    y="14.5"
-                    width="3.5"
-                    height="4.5"
-                    rx="0.8"
-                    fill="white"
-                  />
-                  <rect
-                    x="8.25"
-                    y="11"
-                    width="3.5"
-                    height="8"
-                    rx="0.8"
-                    fill="white"
-                  />
-                  <rect
-                    x="13"
-                    y="7"
-                    width="3.5"
-                    height="12"
-                    rx="0.8"
-                    fill="white"
-                  />
-                </svg>
-              </div>
-              <span className="text-[18px] font-[700] tracking-[-0.02em] text-[#101828]">
-                MobPae
-              </span>
-            </div>
+            <BrandLogo
+              className="mb-5"
+              iconClassName="h-10 w-10"
+              wordmarkClassName="text-[18px]"
+            />
             <p className="max-w-[300px] text-[13.5px] leading-[1.8] text-[#667085]">
               Financial flexibility for employees. Complete visibility and
               control for employers.

@@ -1,5 +1,6 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { BrandLogo } from "./BrandLogo";
 
 const navLinks = [
   { label: "Employers", href: "/for-employers" },
@@ -28,48 +29,8 @@ export function Navbar() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 sm:px-6">
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2.5 flex-shrink-0">
-          <div className="flex h-9 w-9 items-center justify-center rounded-[10px] bg-[#0F8F72]">
-            <svg width="16" height="18" viewBox="0 0 20 22" fill="none">
-              <rect
-                x="1"
-                y="1"
-                width="18"
-                height="20"
-                rx="4"
-                fill="none"
-                stroke="white"
-                strokeWidth="2.5"
-              />
-              <rect
-                x="3.5"
-                y="14.5"
-                width="3.5"
-                height="4.5"
-                rx="0.8"
-                fill="white"
-              />
-              <rect
-                x="8.25"
-                y="11"
-                width="3.5"
-                height="8"
-                rx="0.8"
-                fill="white"
-              />
-              <rect
-                x="13"
-                y="7"
-                width="3.5"
-                height="12"
-                rx="0.8"
-                fill="white"
-              />
-            </svg>
-          </div>
-          <span className="text-[15px] font-[800] tracking-[0.1em] text-[#101828] uppercase leading-none">
-            MOBPAE
-          </span>
+        <a href="/" className="flex-shrink-0" aria-label="MobPae home">
+          <BrandLogo />
         </a>
 
         {/* Desktop nav */}
