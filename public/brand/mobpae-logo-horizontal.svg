@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 72" fill="none">
+  <defs>
+    <clipPath id="iconClip">
+      <rect width="72" height="72" rx="14" ry="14"/>
+    </clipPath>
+  </defs>
+  <!-- Icon -->
+  <rect width="72" height="72" rx="14" ry="14" fill="#0F8F72"/>
+  <g clip-path="url(#iconClip)">
+    <polygon points="6,72 19,72 48,0 35,0" fill="white" opacity="0.9"/>
+    <polygon points="22,72 35,72 64,0 51,0" fill="white" opacity="0.9"/>
+    <polygon points="38,72 51,72 72,19 72,3" fill="white" opacity="0.9"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="90" y="50" font-family="DM Sans, Inter, -apple-system, sans-serif" font-weight="700" font-size="36" fill="#0F8F72" letter-spacing="-0.5">MobPae</text>
+</svg>

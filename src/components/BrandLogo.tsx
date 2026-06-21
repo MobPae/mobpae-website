@@ -18,9 +18,9 @@ export function BrandLogo({
         className={`${iconClassName} flex-shrink-0`}
       />
       <span
-        className={`${wordmarkClassName} font-[700] leading-none tracking-[0.1em] text-[#101828]`}
+        className={`${wordmarkClassName} font-[700] leading-none tracking-[-0.02em] text-[#101828]`}
       >
-        MOBPAE
+        MobPae
       </span>
     </span>
   );

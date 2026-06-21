@@ -1,31 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-  mobpae-logo-white.svg  —  Full logo, white version
-  White symbol + white wordmark on transparent background.
-  For coloured / dark / photo surfaces.
--->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 290" role="img" aria-label="MobPae logo">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" fill="none" role="img" aria-label="MobPae logo">
   <title>MobPae</title>
   <defs>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&amp;display=swap');
-    </style>
+    <clipPath id="logo-clip-white">
+      <rect width="120" height="120" rx="24" ry="24"/>
+    </clipPath>
+    <style>@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&amp;display=swap');</style>
   </defs>
-
-  <g transform="translate(156 8) scale(2)">
-    <rect x="11" y="9" width="72" height="76" rx="15.5" ry="15.5"
-          fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linejoin="round"/>
-    <rect x="26" y="55" width="10" height="14" rx="2.5" fill="#FFFFFF"/>
-    <rect x="42" y="47" width="10" height="22" rx="2.5" fill="#FFFFFF"/>
-    <rect x="58" y="37" width="10" height="32" rx="2.5" fill="#FFFFFF"/>
+  <!-- Icon (white outline on transparent) -->
+  <rect width="120" height="120" rx="24" ry="24" fill="rgba(255,255,255,0.2)"/>
+  <g clip-path="url(#logo-clip-white)">
+    <polygon points="10,120 31,120 79,0 58,0" fill="white" opacity="0.95"/>
+    <polygon points="36,120 57,120 105,0 84,0" fill="white" opacity="0.95"/>
+    <polygon points="62,120 83,120 120,31 120,5" fill="white" opacity="0.95"/>
   </g>
-
-  <text
-    x="250" y="272"
-    font-family="'DM Sans', 'Montserrat', ui-sans-serif, system-ui, sans-serif"
-    font-weight="700"
-    font-size="88"
-    letter-spacing="5"
-    text-anchor="middle"
-    fill="#FFFFFF">MOBPAE</text>
+  <!-- White wordmark -->
+  <text x="148" y="80" font-family="'DM Sans', Inter, ui-sans-serif, sans-serif" font-weight="700" font-size="60" fill="white" letter-spacing="-1">MobPae</text>
 </svg>

@@ -1,9 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#0F8F72"/>
-  <!-- Device frame outline (white) -->
-  <rect x="9" y="7" width="44" height="48" rx="10" fill="none" stroke="white" stroke-width="7.5"/>
-  <!-- Bar chart bars (white, ascending left to right) -->
-  <rect x="16.5" y="38" width="7" height="9.5" rx="1.5" fill="white"/>
-  <rect x="27.5" y="31" width="7" height="16.5" rx="1.5" fill="white"/>
-  <rect x="38.5" y="23" width="7" height="24.5" rx="1.5" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <clipPath id="fav-clip">
+      <rect width="64" height="64" rx="14" ry="14"/>
+    </clipPath>
+  </defs>
+  <rect width="64" height="64" rx="14" ry="14" fill="#0F8F72"/>
+  <g clip-path="url(#fav-clip)">
+    <polygon points="5,64 17,64 42,0 30,0" fill="white" opacity="0.9"/>
+    <polygon points="19,64 31,64 56,0 44,0" fill="white" opacity="0.9"/>
+    <polygon points="33,64 45,64 64,17 64,3" fill="white" opacity="0.9"/>
+  </g>
 </svg>
