@@ -1,18 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" fill="none" role="img" aria-label="MobPae logo">
   <title>MobPae</title>
-  <defs>
-    <clipPath id="logo-clip-dark">
-      <rect width="120" height="120" rx="24" ry="24"/>
-    </clipPath>
-    <style>@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&amp;display=swap');</style>
-  </defs>
-  <!-- Icon -->
-  <rect width="120" height="120" rx="24" ry="24" fill="#0F8F72"/>
-  <g clip-path="url(#logo-clip-dark)">
-    <polygon points="10,120 31,120 79,0 58,0" fill="white" opacity="0.9"/>
-    <polygon points="36,120 57,120 105,0 84,0" fill="white" opacity="0.9"/>
-    <polygon points="62,120 83,120 120,31 120,5" fill="white" opacity="0.9"/>
+  <defs><clipPath id="ld-clip"><rect width="120" height="120" rx="24" ry="24"/></clipPath></defs>
+  <rect width="120" height="120" rx="24" ry="24" fill="#7679FF"/>
+  <g clip-path="url(#ld-clip)">
+    <polygon points="7,120 22,120 82,0 67,0" fill="white" opacity="0.9"/>
+    <polygon points="36,120 51,120 111,0 96,0" fill="white" opacity="0.9"/>
+    <polygon points="65,120 80,120 120,38 120,10" fill="white" opacity="0.9"/>
   </g>
-  <!-- White wordmark -->
-  <text x="148" y="80" font-family="'DM Sans', Inter, ui-sans-serif, sans-serif" font-weight="700" font-size="60" fill="white" letter-spacing="-1">MobPae</text>
+  <text x="148" y="80" font-family="Manrope, Inter, ui-sans-serif, sans-serif" font-weight="700" font-size="60" fill="white" letter-spacing="0">MobPae</text>
 </svg>

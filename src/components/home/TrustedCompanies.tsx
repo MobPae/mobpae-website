@@ -12,9 +12,9 @@ export function TrustedCompanies() {
   const doubled = [...companies, ...companies];
 
   return (
-    <section className="relative bg-white py-12 overflow-hidden border-b border-[#E4EAE7]">
+    <section className="relative bg-white py-12 overflow-hidden border-b border-[#E5E6EE]">
       <div className="mx-auto max-w-7xl px-6 mb-7">
-        <p className="text-center text-[11px] font-[700] uppercase tracking-[0.22em] text-[#0F8F72]">
+        <p className="text-center text-[11px] font-[700] uppercase tracking-[0.22em] text-[#7679FF]">
           Trusted by Growing Employers
         </p>
       </div>
@@ -30,10 +30,10 @@ export function TrustedCompanies() {
           {doubled.map((company, i) => (
             <div
               key={i}
-              className="flex items-center gap-3 px-4 py-2 rounded-full border border-[#E4EAE7] bg-[#ffffff]"
+              className="flex items-center gap-3 px-4 py-2 rounded-full border border-[#E5E6EE] bg-[#ffffff]"
             >
-              <span className="h-2 w-2 rounded-full bg-[#0F8F72] opacity-60 flex-shrink-0" />
-              <span className="text-[13.5px] font-[600] tracking-tight text-slate-500">
+              <span className="h-2 w-2 rounded-full bg-[#7679FF] opacity-60 flex-shrink-0" />
+              <span className="text-[13.5px] font-[600] tracking-tight text-[#8D90A3]">
                 {company}
               </span>
             </div>

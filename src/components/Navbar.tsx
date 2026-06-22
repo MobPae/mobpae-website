@@ -22,7 +22,7 @@ export function Navbar() {
 
   return (
     <header
-      className="sticky top-0 z-50 border-b border-emerald-950/5 bg-white/76 backdrop-blur-2xl transition-all duration-300"
+      className="sticky top-0 z-50 border-b border-[#191A2E]/5 bg-white/76 backdrop-blur-2xl transition-all duration-300"
       style={{
         boxShadow: scrolled ? "0 18px 48px rgba(15, 23, 42, 0.08)" : "none",
       }}
@@ -39,7 +39,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-[13px] font-[700] text-slate-500 transition-colors hover:text-emerald-700"
+              className="text-[13px] font-[700] text-[#8D90A3] transition-colors hover:text-[#5659D9]"
             >
               {link.label}
             </a>
@@ -50,7 +50,7 @@ export function Navbar() {
         <div className="hidden items-center gap-3 lg:flex">
           <a
             href="/contact"
-            className="inline-flex items-center justify-center rounded-full bg-slate-950 px-5 py-2.5 text-[12.5px] font-[600] text-white transition-all hover:-translate-y-0.5 hover:bg-emerald-700 hover:shadow-[0_16px_34px_rgba(16,185,129,0.28)]"
+            className="inline-flex items-center justify-center rounded-full bg-[#7679FF] px-5 py-2.5 text-[12.5px] font-[600] text-white transition-all hover:-translate-y-0.5 hover:bg-[#5659D9] hover:shadow-[0_16px_34px_rgba(118,121,255,0.28)]"
           >
             Get Started
           </a>
@@ -59,7 +59,7 @@ export function Navbar() {
         {/* Mobile toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-emerald-950/10 bg-white text-slate-700 transition-colors hover:border-emerald-300 lg:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-[#191A2E]/10 bg-white text-[#62657A] transition-colors hover:border-[#A5A7FF] lg:hidden"
           aria-label="Toggle menu"
         >
           {isOpen ? <X size={17} /> : <Menu size={17} />}
@@ -68,14 +68,14 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="border-t border-emerald-950/5 bg-white/96 px-4 py-3 backdrop-blur-2xl lg:hidden">
+        <div className="border-t border-[#191A2E]/5 bg-white/96 px-4 py-3 backdrop-blur-2xl lg:hidden">
           <nav className="grid gap-0.5">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="rounded-2xl px-4 py-3 text-[14px] font-[700] text-slate-900 transition-colors hover:bg-emerald-50"
+                className="rounded-2xl px-4 py-3 text-[14px] font-[700] text-[#191A2E] transition-colors hover:bg-[#F0F0F8]"
               >
                 {link.label}
               </a>
@@ -83,7 +83,7 @@ export function Navbar() {
             <a
               href="/contact"
               onClick={() => setIsOpen(false)}
-              className="mt-2 flex items-center justify-center rounded-2xl bg-emerald-600 px-4 py-3 text-[14px] font-[600] text-white transition-colors hover:bg-emerald-700"
+              className="mt-2 flex items-center justify-center rounded-2xl bg-[#7679FF] px-4 py-3 text-[14px] font-[600] text-white transition-colors hover:bg-[#5659D9]"
             >
               Get Started
             </a>

@@ -1,13 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <defs>
-    <clipPath id="fav-clip">
-      <rect width="64" height="64" rx="14" ry="14"/>
-    </clipPath>
-  </defs>
-  <rect width="64" height="64" rx="14" ry="14" fill="#0F8F72"/>
-  <g clip-path="url(#fav-clip)">
-    <polygon points="5,64 17,64 42,0 30,0" fill="white" opacity="0.9"/>
-    <polygon points="19,64 31,64 56,0 44,0" fill="white" opacity="0.9"/>
-    <polygon points="33,64 45,64 64,17 64,3" fill="white" opacity="0.9"/>
+  <defs><clipPath id="fav-c"><rect width="64" height="64" rx="14" ry="14"/></clipPath></defs>
+  <rect width="64" height="64" rx="14" ry="14" fill="#7679FF"/>
+  <g clip-path="url(#fav-c)">
+    <polygon points="4,64 12,64 44,0 36,0" fill="white" opacity="0.9"/>
+    <polygon points="20,64 28,64 60,0 52,0" fill="white" opacity="0.9"/>
+    <polygon points="36,64 44,64 64,21 64,5" fill="white" opacity="0.9"/>
   </g>
 </svg>

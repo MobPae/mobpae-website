@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 628" role="img" aria-labelledby="title desc">
+  <title id="title">MobPae earned salary access</title>
+  <desc id="desc">MobPae brand preview in the light periwinkle theme.</desc>
+  <rect width="1200" height="628" fill="#F8F9FC"/>
+  <circle cx="1100" cy="42" r="280" fill="#ECEBFF"/>
+  <circle cx="1070" cy="585" r="230" fill="#E9F6F6"/>
+  <circle cx="80" cy="640" r="190" fill="#FDF6EB"/>
+
+  <g transform="translate(90 82)">
+    <rect width="92" height="92" rx="22" fill="#7679FF"/>
+    <g opacity="0.94">
+      <polygon points="8,92 23,92 69,0 54,0" fill="white"/>
+      <polygon points="32,92 47,92 92,2 92,0 78,0" fill="white"/>
+      <polygon points="58,92 73,92 92,54 92,24" fill="white"/>
+    </g>
+    <text x="116" y="62" fill="#191A2E" font-family="Manrope, Arial, sans-serif" font-size="52" font-weight="700" letter-spacing="0">MobPae</text>
+  </g>
+
+  <g transform="translate(90 260)">
+    <text fill="#5659D9" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2">EMPLOYER-BACKED EARNED SALARY ACCESS</text>
+    <text y="70" fill="#191A2E" font-family="Manrope, Arial, sans-serif" font-size="48" font-weight="700" letter-spacing="0">Salary access that feels</text>
+    <text y="128" fill="#191A2E" font-family="Manrope, Arial, sans-serif" font-size="48" font-weight="700" letter-spacing="0">calm, fast and controlled.</text>
+    <text y="182" fill="#62657A" font-family="Manrope, Arial, sans-serif" font-size="22" font-weight="500" letter-spacing="0">A clear workflow for employees, employers and payroll teams.</text>
+  </g>
+
+  <g transform="translate(90 532)">
+    <rect width="188" height="48" rx="24" fill="#191A2E"/>
+    <text x="94" y="31" text-anchor="middle" fill="white" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="700">mobpae.com</text>
+  </g>
+
+  <g transform="translate(846 214)">
+    <rect width="264" height="230" rx="42" fill="white" stroke="#D8D7FF" stroke-width="2"/>
+    <rect x="26" y="26" width="212" height="74" rx="25" fill="#ECEBFF"/>
+    <text x="48" y="56" fill="#62657A" font-family="Manrope, Arial, sans-serif" font-size="14" font-weight="600">AVAILABLE TO WITHDRAW</text>
+    <text x="48" y="86" fill="#191A2E" font-family="Manrope, Arial, sans-serif" font-size="30" font-weight="700">₹5,400</text>
+    <rect x="26" y="118" width="98" height="82" rx="24" fill="#E9F6F6"/>
+    <rect x="140" y="118" width="98" height="82" rx="24" fill="#FDF6EB"/>
+    <text x="43" y="148" fill="#62657A" font-family="Manrope, Arial, sans-serif" font-size="12" font-weight="600">PAYDAY</text>
+    <text x="43" y="178" fill="#191A2E" font-family="Manrope, Arial, sans-serif" font-size="21" font-weight="700">28 Jun</text>
+    <text x="157" y="148" fill="#62657A" font-family="Manrope, Arial, sans-serif" font-size="12" font-weight="600">STATUS</text>
+    <text x="157" y="178" fill="#191A2E" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="700">Ready</text>
+  </g>
+</svg>

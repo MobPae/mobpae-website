@@ -85,10 +85,10 @@ export function ContactPage() {
   }
 
   const inputClass =
-    "h-13 min-h-[52px] w-full rounded-2xl border border-emerald-100 bg-white px-4 text-[14px] font-[700] text-slate-950 placeholder-slate-400 outline-none transition focus:border-emerald-400 focus:ring-4 focus:ring-emerald-100";
+    "h-13 min-h-[52px] w-full rounded-2xl border border-[#E4E4EF] bg-white px-4 text-[14px] font-[700] text-[#191A2E] placeholder-[#B7B9C7] outline-none transition focus:border-[#7679FF] focus:ring-4 focus:ring-[#ECEBFF]";
 
   return (
-    <main className="min-h-screen bg-[#F6F9F8]">
+    <main className="min-h-screen bg-[#F8F9FC]">
       <SEO
         title="Book a Demo"
         description="Contact MobPae to set up employer-backed salary access with controlled approvals, verification, payroll recovery and settlement visibility."
@@ -96,21 +96,21 @@ export function ContactPage() {
       />
       <Navbar />
 
-      <section className="relative overflow-hidden border-b border-emerald-100">
-        <div className="pointer-events-none absolute left-[-12%] top-[-18%] h-[520px] w-[520px] rounded-full bg-emerald-200/70 blur-[120px]" />
-        <div className="pointer-events-none absolute right-[-10%] top-24 h-[460px] w-[460px] rounded-full bg-cyan-100/80 blur-[110px]" />
+      <section className="relative overflow-hidden border-b border-[#E4E4EF]">
+        <div className="pointer-events-none absolute left-[-12%] top-[-18%] h-[520px] w-[520px] rounded-full bg-[#ECEBFF]/70 blur-[120px]" />
+        <div className="pointer-events-none absolute right-[-10%] top-24 h-[460px] w-[460px] rounded-full bg-[#E9F6F6] blur-[110px]" />
 
         <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white/86 px-4 py-2 shadow-[0_16px_42px_rgba(15,23,42,0.07)] backdrop-blur-xl">
-                <Send size={14} className="text-emerald-700" />
-                <span className="text-[11px] font-[700] uppercase tracking-[0.18em] text-emerald-800">Book a demo</span>
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#D4D5E0] bg-white/86 px-4 py-2 shadow-[0_16px_42px_rgba(15,23,42,0.07)] backdrop-blur-xl">
+                <Send size={14} className="text-[#5659D9]" />
+                <span className="text-[11px] font-[700] uppercase tracking-[0.18em] text-[#191A2E]">Book a demo</span>
               </div>
-              <h1 className="mt-6 max-w-[660px] text-[42px] font-[700] leading-[0.96] tracking-normal text-slate-950 sm:text-[64px]">
+              <h1 className="mt-6 max-w-[660px] text-[42px] font-[700] leading-[0.96] tracking-normal text-[#191A2E] sm:text-[64px]">
                 Bring salary access to your workplace.
               </h1>
-              <p className="mt-6 max-w-[520px] text-[16px] leading-[1.85] text-slate-600">
+              <p className="mt-6 max-w-[520px] text-[16px] leading-[1.85] text-[#62657A]">
                 Tell us about your company and we’ll help you understand employer setup, policy controls, employee onboarding and launch timelines.
               </p>
 
@@ -122,9 +122,9 @@ export function ContactPage() {
             </div>
 
             <form onSubmit={submitEnquiry} className="rounded-[38px] border border-white bg-white/86 p-5 shadow-soft backdrop-blur-xl lg:p-7">
-              <div className="rounded-[30px] bg-slate-950 p-5 text-white lg:p-6">
+              <div className="light-feature-panel rounded-[30px] p-5 lg:p-6">
                 <div className="flex items-center gap-4">
-                  <div className="flex h-13 w-13 h-[52px] w-[52px] items-center justify-center rounded-3xl bg-emerald-400/15 text-emerald-200">
+                  <div className="flex h-13 w-13 h-[52px] w-[52px] items-center justify-center rounded-3xl bg-white/10 text-white/80">
                     <Building2 size={23} />
                   </div>
                   <div>
@@ -165,9 +165,9 @@ export function ContactPage() {
                 </Field>
 
                 {success && (
-                  <div className="flex items-start gap-3 rounded-2xl border border-emerald-100 bg-emerald-50 px-4 py-3">
-                    <CheckCircle2 size={16} className="mt-0.5 flex-shrink-0 text-emerald-600" />
-                    <p className="text-[13px] font-[600] text-emerald-800">{success}</p>
+                  <div className="flex items-start gap-3 rounded-2xl border border-[#E4E4EF] bg-[#F0F0F8] px-4 py-3">
+                    <CheckCircle2 size={16} className="mt-0.5 flex-shrink-0 text-[#7679FF]" />
+                    <p className="text-[13px] font-[600] text-[#191A2E]">{success}</p>
                   </div>
                 )}
                 {submitError && (
@@ -179,7 +179,7 @@ export function ContactPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-slate-950 px-6 text-[14px] font-[700] text-white shadow-[0_22px_54px_rgba(15,23,42,0.2)] transition-all hover:-translate-y-1 hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#7679FF] px-6 text-[14px] font-[700] text-white shadow-[0_22px_54px_rgba(15,23,42,0.2)] transition-all hover:-translate-y-1 hover:bg-[#5659D9] disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {loading ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} className="transition-transform group-hover:translate-x-1" />}
                   {loading ? "Submitting..." : "Submit demo request"}
@@ -204,7 +204,7 @@ export function ContactPage() {
 function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
   return (
     <div>
-      <label className="mb-2 block text-[12px] font-[700] uppercase tracking-[0.1em] text-slate-500">{label}</label>
+      <label className="mb-2 block text-[12px] font-[700] uppercase tracking-[0.1em] text-[#8D90A3]">{label}</label>
       {children}
       {error && <p className="mt-1.5 text-[12px] font-[600] text-red-500">{error}</p>}
     </div>
@@ -212,13 +212,13 @@ function Field({ label, error, children }: { label: string; error?: string; chil
 }
 
 function ContactPoint({ icon, title, value, href }: { icon: React.ReactNode; title: string; value: string; href?: string }) {
-  const className = "flex items-center gap-4 rounded-[24px] border border-emerald-100 bg-white/82 p-4 shadow-[0_12px_34px_rgba(15,23,42,0.045)] transition hover:-translate-y-1 hover:shadow-soft";
+  const className = "flex items-center gap-4 rounded-[24px] border border-[#E4E4EF] bg-white/82 p-4 shadow-[0_12px_34px_rgba(15,23,42,0.045)] transition hover:-translate-y-1 hover:shadow-soft";
   const content = (
     <>
-      <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">{icon}</span>
+      <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#ECEBFF] text-[#5659D9]">{icon}</span>
       <span>
-        <span className="block text-[11px] font-[700] uppercase tracking-[0.12em] text-slate-400">{title}</span>
-        <span className="mt-1 block text-[14px] font-[700] text-slate-950">{value}</span>
+        <span className="block text-[11px] font-[700] uppercase tracking-[0.12em] text-[#B7B9C7]">{title}</span>
+        <span className="mt-1 block text-[14px] font-[700] text-[#191A2E]">{value}</span>
       </span>
     </>
   );
@@ -232,12 +232,12 @@ function ContactPoint({ icon, title, value, href }: { icon: React.ReactNode; tit
 
 function ContactTrust({ title, body }: { title: string; body: string }) {
   return (
-    <div className="rounded-[32px] border border-emerald-100 bg-white p-6 shadow-soft">
-      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">
+    <div className="rounded-[32px] border border-[#E4E4EF] bg-white p-6 shadow-soft">
+      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#ECEBFF] text-[#5659D9]">
         <ShieldCheck size={21} />
       </div>
-      <h3 className="mt-5 text-[22px] font-[700] tracking-normal text-slate-950">{title}</h3>
-      <p className="mt-3 text-[14px] leading-[1.75] text-slate-600">{body}</p>
+      <h3 className="mt-5 text-[22px] font-[700] tracking-normal text-[#191A2E]">{title}</h3>
+      <p className="mt-3 text-[14px] leading-[1.75] text-[#62657A]">{body}</p>
     </div>
   );
 }

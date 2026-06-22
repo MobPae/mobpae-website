@@ -13,7 +13,7 @@ import { SEO } from "../components/SEO";
 
 export function HomePage() {
   return (
-    <main className="min-h-screen bg-[#F6F9F8]">
+    <main className="min-h-screen bg-[#F8F9FC]">
       <SEO
         title="MobPae | Employer-Backed Salary Access"
         description="MobPae helps employers offer controlled earned salary access with KYC, bank verification, approvals, disbursal tracking and payroll recovery visibility."

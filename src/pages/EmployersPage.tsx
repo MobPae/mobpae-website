@@ -35,7 +35,7 @@ const employerSteps = [
 
 export function EmployersPage() {
   return (
-    <main className="min-h-screen bg-[#F6F9F8]">
+    <main className="min-h-screen bg-[#F8F9FC]">
       <SEO
         title="For Employers"
         description="Offer MobPae salary access as an employer-backed workplace benefit with policy limits, approvals, verification, payroll recovery and settlement visibility."
@@ -43,41 +43,41 @@ export function EmployersPage() {
       />
       <Navbar />
 
-      <section className="relative overflow-hidden border-b border-emerald-100">
-        <div className="pointer-events-none absolute left-[-12%] top-[-18%] h-[520px] w-[520px] rounded-full bg-emerald-200/70 blur-[120px]" />
-        <div className="pointer-events-none absolute right-[-10%] top-24 h-[460px] w-[460px] rounded-full bg-cyan-100/80 blur-[110px]" />
+      <section className="relative overflow-hidden border-b border-[#E4E4EF]">
+        <div className="pointer-events-none absolute left-[-12%] top-[-18%] h-[520px] w-[520px] rounded-full bg-[#ECEBFF]/70 blur-[120px]" />
+        <div className="pointer-events-none absolute right-[-10%] top-24 h-[460px] w-[460px] rounded-full bg-[#E9F6F6] blur-[110px]" />
 
         <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:py-24">
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white/86 px-4 py-2 shadow-[0_16px_42px_rgba(15,23,42,0.07)] backdrop-blur-xl">
-                <Building2 size={14} className="text-emerald-700" />
-                <span className="text-[11px] font-[700] uppercase tracking-[0.18em] text-emerald-800">For employers</span>
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#D4D5E0] bg-white/86 px-4 py-2 shadow-[0_16px_42px_rgba(15,23,42,0.07)] backdrop-blur-xl">
+                <Building2 size={14} className="text-[#5659D9]" />
+                <span className="text-[11px] font-[700] uppercase tracking-[0.18em] text-[#191A2E]">For employers</span>
               </div>
-              <h1 className="mt-6 max-w-[690px] text-[42px] font-[700] leading-[0.96] tracking-normal text-slate-950 sm:text-[64px]">
+              <h1 className="mt-6 max-w-[690px] text-[42px] font-[700] leading-[0.96] tracking-normal text-[#191A2E] sm:text-[64px]">
                 Offer salary access without losing control.
               </h1>
-              <p className="mt-6 max-w-[540px] text-[16px] leading-[1.85] text-slate-600">
+              <p className="mt-6 max-w-[540px] text-[16px] leading-[1.85] text-[#62657A]">
                 MobPae helps employers support employees before payday with policy limits, approvals, verification, payroll recovery and settlement visibility.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <a href="/#contact" className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-slate-950 px-6 text-[14px] font-[700] text-white shadow-[0_22px_54px_rgba(15,23,42,0.24)] transition-all hover:-translate-y-1 hover:bg-emerald-700">
+                <a href="/#contact" className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#7679FF] px-6 text-[14px] font-[700] text-white shadow-[0_22px_54px_rgba(15,23,42,0.24)] transition-all hover:-translate-y-1 hover:bg-[#5659D9]">
                   Request demo <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                 </a>
-                <a href="/security" className="inline-flex h-12 items-center justify-center rounded-full border border-emerald-200 bg-white/86 px-6 text-[14px] font-[700] text-slate-900 shadow-[0_16px_36px_rgba(15,23,42,0.06)] backdrop-blur-xl transition-all hover:-translate-y-1 hover:text-emerald-800">
+                <a href="/security" className="inline-flex h-12 items-center justify-center rounded-full border border-[#D4D5E0] bg-white/86 px-6 text-[14px] font-[700] text-[#191A2E] shadow-[0_16px_36px_rgba(15,23,42,0.06)] backdrop-blur-xl transition-all hover:-translate-y-1 hover:text-[#191A2E]">
                   View security
                 </a>
               </div>
             </div>
 
             <div className="rounded-[40px] border border-white bg-white/84 p-5 shadow-soft backdrop-blur-xl">
-              <div className="rounded-[32px] bg-slate-950 p-6 text-white">
+              <div className="light-feature-panel rounded-[32px] p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-[12px] font-[700] uppercase tracking-[0.14em] text-emerald-100/60">Admin control room</p>
+                    <p className="text-[12px] font-[700] uppercase tracking-[0.14em] text-white/60">Admin control room</p>
                     <h2 className="mt-3 text-[32px] font-[700] leading-tight tracking-normal">Policy before payout.</h2>
                   </div>
-                  <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-emerald-400/15 text-emerald-200">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-white/10 text-white/80">
                     <Settings2 size={27} />
                   </div>
                 </div>
@@ -90,7 +90,7 @@ export function EmployersPage() {
                         <span className="text-[13px] font-[700] text-white">{item.value}</span>
                       </div>
                       <div className="h-2 rounded-full bg-white/10">
-                        <div className="h-full w-[72%] rounded-full bg-gradient-to-r from-emerald-300 to-emerald-500" />
+                        <div className="h-full w-[72%] rounded-full bg-gradient-to-r from-[#A5A7FF] to-[#7679FF]" />
                       </div>
                     </div>
                   ))}
@@ -104,30 +104,30 @@ export function EmployersPage() {
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="mb-12 max-w-3xl">
-            <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-emerald-700">Employer workflow</p>
-            <h2 className="mt-4 text-[36px] font-[700] leading-[1] tracking-normal text-slate-950 lg:text-[48px]">
+            <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-[#5659D9]">Employer workflow</p>
+            <h2 className="mt-4 text-[36px] font-[700] leading-[1] tracking-normal text-[#191A2E] lg:text-[48px]">
               A benefit that fits payroll operations.
             </h2>
           </div>
 
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {employerSteps.map((step, index) => (
-              <article key={step.title} className="rounded-[32px] border border-emerald-100 bg-[#F6F9F8] p-6 shadow-[0_12px_34px_rgba(15,23,42,0.035)]">
+              <article key={step.title} className="rounded-[32px] border border-[#E4E4EF] bg-[#F8F9FC] p-6 shadow-[0_12px_34px_rgba(15,23,42,0.035)]">
                 <div className="flex items-center justify-between">
-                  <div className="flex h-13 w-13 h-[52px] w-[52px] items-center justify-center rounded-3xl bg-emerald-100 text-emerald-700">
+                  <div className="flex h-13 w-13 h-[52px] w-[52px] items-center justify-center rounded-3xl bg-[#ECEBFF] text-[#5659D9]">
                     {step.icon}
                   </div>
-                  <span className="text-[12px] font-[700] text-emerald-700">0{index + 1}</span>
+                  <span className="text-[12px] font-[700] text-[#5659D9]">0{index + 1}</span>
                 </div>
-                <h3 className="mt-6 text-[21px] font-[700] tracking-normal text-slate-950">{step.title}</h3>
-                <p className="mt-3 text-[13.5px] leading-[1.75] text-slate-600">{step.copy}</p>
+                <h3 className="mt-6 text-[21px] font-[700] tracking-normal text-[#191A2E]">{step.title}</h3>
+                <p className="mt-3 text-[13.5px] leading-[1.75] text-[#62657A]">{step.copy}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-[#F6F9F8] py-20">
+      <section className="bg-[#F8F9FC] py-20">
         <div className="mx-auto grid max-w-7xl gap-5 px-5 sm:px-6 lg:grid-cols-3">
           <EmployerMetric icon={<WalletCards size={22} />} value="No open-ended credit" label="Requests follow employer policy and salary data." />
           <EmployerMetric icon={<ShieldCheck size={22} />} value="Verified employees" label="KYC, bank and selfie checks support safer access." />
@@ -137,15 +137,15 @@ export function EmployersPage() {
 
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
-          <div className="rounded-[36px] border border-emerald-100 bg-slate-950 p-7 text-white shadow-[0_28px_80px_rgba(6,78,59,0.18)] lg:p-9">
+          <div className="light-feature-panel rounded-[36px] p-7 lg:p-9">
             <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
               <div>
-                <p className="text-[12px] font-[700] uppercase tracking-[0.16em] text-emerald-200/70">Ready for employer onboarding</p>
+                <p className="text-[12px] font-[700] uppercase tracking-[0.16em] text-white/80/70">Ready for employer onboarding</p>
                 <h2 className="mt-3 text-[32px] font-[700] leading-tight tracking-normal lg:text-[44px]">
                   Turn salary access into a controlled workplace benefit.
                 </h2>
               </div>
-              <a href="/#contact" className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-[14px] font-[700] text-slate-950 transition hover:-translate-y-1 hover:bg-emerald-50">
+              <a href="/#contact" className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-[14px] font-[700] text-[#191A2E] transition hover:-translate-y-1 hover:bg-[#F0F0F8]">
                 Talk to MobPae <ArrowRight size={16} />
               </a>
             </div>
@@ -160,12 +160,12 @@ export function EmployersPage() {
 
 function EmployerMetric({ icon, value, label }: { icon: React.ReactNode; value: string; label: string }) {
   return (
-    <div className="rounded-[34px] border border-emerald-100 bg-white p-6 shadow-soft">
-      <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-slate-950 text-white">
+    <div className="rounded-[34px] border border-[#E4E4EF] bg-white p-6 shadow-soft">
+      <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-[#7679FF] text-white">
         {icon}
       </div>
-      <h3 className="mt-6 text-[25px] font-[700] leading-tight tracking-normal text-slate-950">{value}</h3>
-      <p className="mt-3 text-[14px] leading-[1.75] text-slate-600">{label}</p>
+      <h3 className="mt-6 text-[25px] font-[700] leading-tight tracking-normal text-[#191A2E]">{value}</h3>
+      <p className="mt-3 text-[14px] leading-[1.75] text-[#62657A]">{label}</p>
     </div>
   );
 }
