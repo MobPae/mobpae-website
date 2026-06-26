@@ -6,16 +6,17 @@ type BrandLogoProps = {
 
 export function BrandLogo({
   className = "",
-  iconClassName = "h-9 w-9",
+  iconClassName = "h-8",
   wordmarkClassName = "text-[15px]",
 }: BrandLogoProps) {
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
       <img
-        src="/brand/mobpae-icon-color.svg"
+        src="/logo-icon.svg"
         alt=""
         aria-hidden="true"
-        className={`${iconClassName} flex-shrink-0`}
+        className={`${iconClassName} w-auto flex-shrink-0`}
+        style={{ objectFit: "contain" }}
       />
       <span
         className={`${wordmarkClassName} font-[700] leading-none tracking-normal text-[#191A2E]`}
