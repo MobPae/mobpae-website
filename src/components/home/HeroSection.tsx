@@ -1,4 +1,12 @@
-import { ArrowRight, BadgeCheck, CalendarCheck2, Clock3, ShieldCheck, Sparkles, WalletCards } from "lucide-react";
+import {
+  ArrowRight,
+  BadgeCheck,
+  CalendarCheck2,
+  Clock3,
+  ShieldCheck,
+  Sparkles,
+  WalletCards,
+} from "lucide-react";
 import relaxedEmployeeHero from "../../assets/relaxed-employee-hero.png";
 import { useInView } from "../../hooks/useInView";
 
@@ -37,22 +45,37 @@ export function HeroSection() {
             </div>
 
             <h1
-              className={`mt-6 text-[42px] font-[700] leading-[1.02] tracking-normal text-[#191A2E] sm:text-[54px] lg:text-[64px] reveal delay-100 ${heroInView ? "in-view" : ""}`}
+              className={`mt-6 text-[42px] font-[700] leading-[1.02] tracking-normal text-[#191A2E] sm:text-[54px] lg:text-[64px] reveal delay-100 ${
+                heroInView ? "in-view" : ""
+              }`}
             >
               Salary access that feels calm, fast and controlled.
             </h1>
 
-            <p className={`mt-6 max-w-[520px] text-[17px] leading-[1.85] text-[#62657A] reveal delay-200 ${heroInView ? "in-view" : ""}`}>
-              MobPae gives employees a modern mobile way to access earned salary, while employers keep approval, limits, deductions and visibility in one clean workflow.
+            <p
+              className={`mt-6 max-w-[520px] text-[17px] leading-[1.85] text-[#62657A] reveal delay-200 ${
+                heroInView ? "in-view" : ""
+              }`}
+            >
+              MobPae gives employees a modern mobile way to access earned
+              salary, while employers keep approval, limits, deductions and
+              visibility in one clean workflow.
             </p>
 
-            <div className={`mt-8 flex flex-wrap items-center gap-3 reveal delay-300 ${heroInView ? "in-view" : ""}`}>
+            <div
+              className={`mt-8 flex flex-wrap items-center gap-3 reveal delay-300 ${
+                heroInView ? "in-view" : ""
+              }`}
+            >
               <a
                 href="#contact"
                 className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#7679FF] px-6 text-[14px] font-[700] text-white shadow-[0_18px_42px_rgba(118,121,255,0.24)] transition-all hover:-translate-y-1 hover:bg-[#5659D9]"
               >
-                Start employer onboarding
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                Start Employer Onboarding
+                <ArrowRight
+                  size={16}
+                  className="transition-transform group-hover:translate-x-1"
+                />
               </a>
               <a
                 href="#how-it-works"
@@ -62,17 +85,32 @@ export function HeroSection() {
               </a>
             </div>
 
-            <div className={`theme-card-grid mt-9 grid max-w-[590px] grid-cols-3 gap-3 reveal delay-200 ${heroInView ? "in-view" : ""}`}>
+            <div
+              className={`theme-card-grid mt-9 grid max-w-[590px] grid-cols-3 gap-3 reveal delay-200 ${
+                heroInView ? "in-view" : ""
+              }`}
+            >
               {metrics.map((item) => (
-                <div key={item.label} className="rounded-[24px] border border-[#E4E4EF] p-4 shadow-[0_16px_40px_rgba(15,23,42,0.07)] backdrop-blur-xl">
-                  <p className="text-[27px] font-[700] leading-none tracking-normal text-[#191A2E]">{item.value}</p>
-                  <p className="mt-2 text-[12px] font-[700] leading-snug text-[#8D90A3]">{item.label}</p>
+                <div
+                  key={item.label}
+                  className="rounded-[24px] border border-[#E4E4EF] p-4 shadow-[0_16px_40px_rgba(15,23,42,0.07)] backdrop-blur-xl"
+                >
+                  <p className="text-[27px] font-[700] leading-none tracking-normal text-[#191A2E]">
+                    {item.value}
+                  </p>
+                  <p className="mt-2 text-[12px] font-[700] leading-snug text-[#8D90A3]">
+                    {item.label}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className={`relative min-h-[520px] lg:min-h-[650px] reveal-scale delay-150 ${heroInView ? "in-view" : ""}`}>
+          <div
+            className={`relative min-h-[520px] lg:min-h-[650px] reveal-scale delay-150 ${
+              heroInView ? "in-view" : ""
+            }`}
+          >
             <div className="absolute inset-x-0 bottom-4 top-8 rounded-[44px] bg-gradient-to-br from-[#ECEBFF] via-[#E9F6F6] to-[#FDF6EB] shadow-[0_40px_100px_rgba(86,89,217,0.14)]" />
             <div className="absolute inset-x-3 bottom-8 top-0 overflow-hidden rounded-[40px] border border-white/40 bg-white shadow-[0_34px_90px_rgba(15,23,42,0.18)] lg:inset-x-8">
               <img
@@ -88,17 +126,33 @@ export function HeroSection() {
                     <Sparkles size={21} />
                   </div>
                   <div>
-                    <p className="text-[15px] font-[700] text-[#191A2E]">Workday feels lighter</p>
-                    <p className="mt-1 text-[12px] font-[700] leading-snug text-[#8D90A3]">Earned salary access without panic borrowing.</p>
+                    <p className="text-[15px] font-[700] text-[#191A2E]">
+                      Workday feels lighter
+                    </p>
+                    <p className="mt-1 text-[12px] font-[700] leading-snug text-[#8D90A3]">
+                      Earned salary access without panic borrowing.
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="absolute bottom-6 left-0 right-0 mx-auto grid max-w-[560px] grid-cols-3 gap-3 px-6">
-              <HeroSignal icon={<WalletCards size={18} />} label="Advance" value="₹5,000" />
-              <HeroSignal icon={<ShieldCheck size={18} />} label="Policy" value="Secured" />
-              <HeroSignal icon={<CalendarCheck2 size={18} />} label="Recovery" value="Payroll" />
+              <HeroSignal
+                icon={<WalletCards size={18} />}
+                label="Advance"
+                value="₹5,000"
+              />
+              <HeroSignal
+                icon={<ShieldCheck size={18} />}
+                label="Policy"
+                value="Secured"
+              />
+              <HeroSignal
+                icon={<CalendarCheck2 size={18} />}
+                label="Recovery"
+                value="Payroll"
+              />
             </div>
 
             <div className="absolute right-0 top-16 rounded-full border border-white/70 bg-white/90 px-4 py-2 text-[12px] font-[700] text-[#191A2E] shadow-soft backdrop-blur-xl lg:right-2">
@@ -111,14 +165,26 @@ export function HeroSection() {
   );
 }
 
-function HeroSignal({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
+function HeroSignal({
+  icon,
+  label,
+  value,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+}) {
   return (
     <div className="rounded-[24px] border border-white/70 bg-white/90 p-4 shadow-soft backdrop-blur-xl">
       <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-2xl bg-[#ECEBFF] text-[#5659D9]">
         {icon}
       </div>
-      <p className="text-[10px] font-[700] uppercase tracking-[0.12em] text-[#B7B9C7]">{label}</p>
-      <p className="mt-1 text-[15px] font-[700] tracking-normal text-[#191A2E]">{value}</p>
+      <p className="text-[10px] font-[700] uppercase tracking-[0.12em] text-[#B7B9C7]">
+        {label}
+      </p>
+      <p className="mt-1 text-[15px] font-[700] tracking-normal text-[#191A2E]">
+        {value}
+      </p>
     </div>
   );
 }
