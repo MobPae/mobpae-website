@@ -38,47 +38,54 @@ export function HowItWorksSection() {
       className="relative overflow-hidden bg-white py-24"
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-6">
-        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div className={`reveal ${inView ? "in-view" : ""}`}>
-            <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-[#5659D9]">
-              Product flow
-            </p>
+            <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-[#4E32CA]">Operating cycle</p>
             <h2
-              className="mt-5 text-[36px] font-[700] leading-[1.08] tracking-normal text-[#191A2E] lg:text-[48px]"
+              className="mt-5 text-[36px] font-[700] leading-[1.08] tracking-normal text-[#111827] lg:text-[48px]"
             >
-              One request. Three checks. Clean settlement.
+              MobPae is not just a request button. It is a closed money loop.
             </h2>
-            <p className="mt-6 max-w-[420px] text-[16px] leading-[1.85] text-[#62657A]">
-              The flow mirrors how the MVP actually works: employee, employer, admin, disbursal, repayment and settlement all connected.
+            <p className="mt-6 max-w-[420px] text-[16px] leading-[1.85] text-[#6B7280]">
+              Every advance moves through the same controlled cycle: employee request, employer approval, admin disbursal, payroll recovery and employer settlement.
             </p>
+            <div className="mt-8 grid max-w-[500px] grid-cols-2 gap-3">
+              <CycleStat value="₹40,548" label="monthly recovery file" />
+              <CycleStat value="1 link" label="request to settlement" />
+            </div>
           </div>
 
           <div className={`relative reveal-scale delay-150 ${inView ? "in-view" : ""}`}>
-            <div className="absolute left-8 top-0 hidden h-full w-px bg-gradient-to-b from-[#ECEBFF] via-[#A5A7FF] to-[#ECEBFF] md:block" />
-            <div className="theme-card-grid space-y-4">
+            <div className="brand-dark-card rounded-[42px] p-5 sm:p-6 lg:p-7">
+              <div className="grid gap-3 sm:grid-cols-2">
               {steps.map((step, index) => (
-                <div key={step.title} className="group relative rounded-[30px] border border-[#E4E4EF] p-4 shadow-[0_12px_32px_rgba(15,23,42,0.045)] transition-all hover:-translate-y-1 hover:border-[#D4D5E0] hover:shadow-soft md:ml-12">
-                  <div className="absolute -left-[70px] top-6 hidden h-12 w-12 items-center justify-center rounded-2xl border border-[#E4E4EF] bg-white text-[#5659D9] shadow-soft md:flex">
-                    {step.icon}
-                  </div>
-                  <div className="grid gap-4 sm:grid-cols-[1fr_220px] sm:items-center">
-                    <div className="flex items-start gap-4">
-                      <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-[#ECEBFF] text-[#5659D9] md:hidden">
+                <div key={step.title} className={`rounded-[28px] border p-4 ${index === 0 ? "border-white/14 bg-white text-[#111827]" : "border-white/10 bg-white/10 text-white"}`}>
+                  <div className="flex items-start justify-between gap-3">
+                    <div className={`flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl ${index === 0 ? "bg-[#F0EDFF] text-[#5B3CE3]" : "bg-white text-[#5B3CE3]"}`}>
                         {step.icon}
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-3">
-                          <span className="text-[12px] font-[700] text-[#7679FF]">0{index + 1}</span>
-                          <span className="rounded-full bg-white px-3 py-1 text-[10px] font-[700] uppercase tracking-[0.12em] text-[#B7B9C7]">{step.meta}</span>
-                        </div>
-                        <h3 className="mt-3 text-[19px] font-[700] tracking-normal text-[#191A2E]">{step.title}</h3>
-                        <p className="mt-2 text-[13.5px] leading-[1.7] text-[#62657A]">{step.copy}</p>
-                      </div>
                     </div>
-                    <WorkflowMini index={index} />
+                    <span className={`rounded-full px-3 py-1 text-[10px] font-[700] ${index === 0 ? "bg-[#F8F9FC] text-[#8D90A3]" : "bg-white/10 text-white/55"}`}>
+                      0{index + 1}
+                    </span>
                   </div>
+                  <p className={`mt-5 text-[10px] font-[700] uppercase tracking-[0.14em] ${index === 0 ? "text-[#5B3CE3]" : "text-[#B8ACFF]"}`}>{step.meta}</p>
+                  <h3 className={`mt-2 text-[19px] font-[700] tracking-normal ${index === 0 ? "text-[#111827]" : "text-white"}`}>{step.title}</h3>
+                  <p className={`mt-2 min-h-[68px] text-[13.5px] leading-[1.7] ${index === 0 ? "text-[#6B7280]" : "text-white/62"}`}>{step.copy}</p>
+                  <WorkflowMini index={index} dark={index !== 0} />
                 </div>
               ))}
+              </div>
+              <div className="mt-4 rounded-[28px] border border-white/10 bg-white/10 p-4">
+                <div className="flex flex-wrap items-center justify-between gap-4">
+                  <div>
+                    <p className="text-[11px] font-[700] uppercase tracking-[0.16em] text-white/50">Settlement summary</p>
+                    <p className="mt-2 text-[22px] font-[700] text-white">Employer pays admin after payroll recovery</p>
+                  </div>
+                  <a href="#contact" className="inline-flex h-11 items-center justify-center rounded-full bg-white px-5 text-[13px] font-[700] text-[#5B3CE3]">
+                    Discuss setup
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -87,14 +94,23 @@ export function HowItWorksSection() {
   );
 }
 
-function WorkflowMini({ index }: { index: number }) {
+function CycleStat({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="rounded-[24px] border border-[#E5E7EB] bg-[#F8F9FC] p-4">
+      <p className="text-[26px] font-[700] leading-none tracking-normal text-[#111827]">{value}</p>
+      <p className="mt-2 text-[12px] font-[700] text-[#8D90A3]">{label}</p>
+    </div>
+  );
+}
+
+function WorkflowMini({ index, dark = false }: { index: number; dark?: boolean }) {
   if (index === 0) {
     return (
-      <div className="rounded-[24px] bg-white p-4">
+      <div className={`mt-4 rounded-[24px] p-4 ${dark ? "bg-white/10" : "bg-[#F8F9FC]"}`}>
         <p className="text-[10px] font-[700] uppercase tracking-[0.12em] text-[#B7B9C7]">Preview</p>
-        <p className="mt-2 text-[24px] font-[700] tracking-normal text-[#191A2E]">₹5,000</p>
-        <div className="mt-3 h-2 rounded-full bg-[#F0F0F8]">
-          <div className="h-full w-[62%] rounded-full bg-[#7679FF]" />
+        <p className={`mt-2 text-[24px] font-[700] tracking-normal ${dark ? "text-white" : "text-[#111827]"}`}>₹5,000</p>
+        <div className={`mt-3 h-2 rounded-full ${dark ? "bg-white/14" : "bg-white"}`}>
+          <div className="h-full w-[62%] rounded-full bg-[#5B3CE3]" />
         </div>
       </div>
     );
@@ -102,11 +118,11 @@ function WorkflowMini({ index }: { index: number }) {
 
   if (index === 1) {
     return (
-      <div className="rounded-[24px] border border-[#D8D7FF] bg-[#ECEBFF] p-4 text-[#191A2E]">
-        <p className="text-[10px] font-[700] uppercase tracking-[0.12em] text-[#5659D9]">Employer policy</p>
+      <div className={`mt-4 rounded-[24px] border p-4 ${dark ? "border-white/10 bg-white/10 text-white" : "border-[#DED7FF] bg-[#F0EDFF] text-[#111827]"}`}>
+        <p className={`text-[10px] font-[700] uppercase tracking-[0.12em] ${dark ? "text-white/50" : "text-[#4E32CA]"}`}>Employer policy</p>
         <div className="mt-3 grid grid-cols-2 gap-2">
-          <MiniStatus label="Limit" value="10%" />
-          <MiniStatus label="Salary" value="OK" />
+          <MiniStatus label="Limit" value="10%" dark={dark} />
+          <MiniStatus label="Salary" value="OK" dark={dark} />
         </div>
       </div>
     );
@@ -114,14 +130,14 @@ function WorkflowMini({ index }: { index: number }) {
 
   if (index === 2) {
     return (
-      <div className="rounded-[24px] bg-white p-4">
+      <div className={`mt-4 rounded-[24px] p-4 ${dark ? "bg-white/10" : "bg-white"}`}>
         <p className="text-[10px] font-[700] uppercase tracking-[0.12em] text-[#B7B9C7]">Verification queue</p>
         <div className="mt-3 flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#ECEBFF] text-[#5659D9]">
+          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#5B3CE3]">
             <Landmark size={16} />
           </span>
           <div>
-            <p className="text-[13px] font-[700] text-[#191A2E]">KYC + bank</p>
+            <p className={`text-[13px] font-[700] ${dark ? "text-white" : "text-[#111827]"}`}>KYC + bank</p>
             <p className="text-[11px] font-[700] text-[#B7B9C7]">Admin verified</p>
           </div>
         </div>
@@ -130,19 +146,19 @@ function WorkflowMini({ index }: { index: number }) {
   }
 
   return (
-    <div className="rounded-[24px] bg-white p-4">
+    <div className={`mt-4 rounded-[24px] p-4 ${dark ? "bg-white/10" : "bg-white"}`}>
       <p className="text-[10px] font-[700] uppercase tracking-[0.12em] text-[#B7B9C7]">Recovery</p>
-      <p className="mt-2 text-[20px] font-[700] text-[#5659D9]">28 Jun</p>
+      <p className="mt-2 text-[20px] font-[700] text-[#4E32CA]">28 Jun</p>
       <p className="mt-1 text-[11px] font-[700] text-[#B7B9C7]">Payroll deduction</p>
     </div>
   );
 }
 
-function MiniStatus({ label, value }: { label: string; value: string }) {
+function MiniStatus({ label, value, dark = false }: { label: string; value: string; dark?: boolean }) {
   return (
-    <div className="rounded-2xl bg-white px-3 py-2">
+    <div className={`rounded-2xl px-3 py-2 ${dark ? "bg-white/10" : "bg-white"}`}>
       <p className="text-[9px] font-[700] uppercase tracking-[0.12em] text-[#8D90A3]">{label}</p>
-      <p className="mt-1 text-[14px] font-[700]">{value}</p>
+      <p className={`mt-1 text-[14px] font-[700] ${dark ? "text-white" : ""}`}>{value}</p>
     </div>
   );
 }

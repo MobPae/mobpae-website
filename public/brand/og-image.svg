@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 628" width="1200" height="628" role="img" aria-label="MobPae brand artwork">
   <defs>
-    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FFFFFF"/><stop offset="0.52" stop-color="#ECEBFF"/><stop offset="1" stop-color="#E9F6F6"/></linearGradient>
-    <linearGradient id="pill" x1="0" x2="1"><stop stop-color="#7679FF"/><stop offset="1" stop-color="#9FD7DD"/></linearGradient>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FFFFFF"/><stop offset="0.52" stop-color="#F0EDFF"/><stop offset="1" stop-color="#E9F6F6"/></linearGradient>
+    <linearGradient id="pill" x1="0" x2="1"><stop stop-color="#5B3CE3"/><stop offset="1" stop-color="#9FD7DD"/></linearGradient>
   </defs>
   <rect width="1200" height="628" rx="44" fill="url(#bg)"/>
   <circle cx="1008" cy="100" r="163" fill="#FDF6EB" opacity="0.72"/>
   <circle cx="996" cy="540" r="188" fill="#E9F6F6" opacity="0.68"/>
-  <g transform="translate(84 113) scale(2.0933333333333333)"><rect width="100" height="100" rx="22" fill="#7679FF"/><clipPath id="clip-og"><rect width="100" height="100" rx="22"/></clipPath><g clip-path="url(#clip-og)"><path d="M6 100H18L68 0H56L6 100Z" fill="white" opacity="0.92"/><path d="M30 100H42L92 0H80L30 100Z" fill="white" opacity="0.92"/><path d="M54 100H66L100 32V8L54 100Z" fill="white" opacity="0.92"/></g></g>
-  <text x="84" y="389" font-family="Manrope, Inter, sans-serif" font-weight="800" font-size="75" fill="#191A2E">MobPae</text>
-  <text x="84" y="458" font-family="Manrope, Inter, sans-serif" font-weight="600" font-size="33" fill="#62657A">Salary access that feels calm, clear, and controlled.</text>
-  <text x="84" y="515" font-family="Manrope, Inter, sans-serif" font-weight="500" font-size="24" fill="#62657A">Built for employers, trusted by employees.</text>
+  <g transform="translate(84 113) scale(2.0933333333333333)"><rect width="100" height="100" rx="22" fill="#5B3CE3"/><clipPath id="clip-og"><rect width="100" height="100" rx="22"/></clipPath><g clip-path="url(#clip-og)"><path d="M6 100H18L68 0H56L6 100Z" fill="white" opacity="0.92"/><path d="M30 100H42L92 0H80L30 100Z" fill="white" opacity="0.92"/><path d="M54 100H66L100 32V8L54 100Z" fill="white" opacity="0.92"/></g></g>
+  <text x="84" y="389" font-family="Inter, sans-serif" font-weight="800" font-size="75" fill="#111827">MobPae</text>
+  <text x="84" y="458" font-family="Inter, sans-serif" font-weight="600" font-size="33" fill="#6B7280">Salary access that feels calm, clear, and controlled.</text>
+  <text x="84" y="515" font-family="Inter, sans-serif" font-weight="500" font-size="24" fill="#6B7280">Built for employers, trusted by employees.</text>
   <rect x="84" y="553" width="336" height="22" rx="11" fill="url(#pill)"/>
 </svg>

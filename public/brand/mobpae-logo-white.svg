@@ -3,9 +3,9 @@
   <defs><clipPath id="mobpae-logo-clip"><rect width="120" height="120" rx="26" ry="26"/></clipPath></defs>
   <rect width="120" height="120" rx="26" ry="26" fill="#FFFFFF"/>
   <g clip-path="url(#mobpae-logo-clip)">
-    <path d="M7 120H22L82 0H67L7 120Z" fill="#7679FF" opacity="0.92"/>
-    <path d="M36 120H51L111 0H96L36 120Z" fill="#7679FF" opacity="0.92"/>
-    <path d="M65 120H80L120 38V10L65 120Z" fill="#7679FF" opacity="0.92"/>
+    <path d="M7 120H22L82 0H67L7 120Z" fill="#5B3CE3" opacity="0.92"/>
+    <path d="M36 120H51L111 0H96L36 120Z" fill="#5B3CE3" opacity="0.92"/>
+    <path d="M65 120H80L120 38V10L65 120Z" fill="#5B3CE3" opacity="0.92"/>
   </g>
-  <text x="148" y="80" font-family="Manrope, Inter, ui-sans-serif, sans-serif" font-weight="700" font-size="60" fill="#FFFFFF" letter-spacing="0">MobPae</text>
+  <text x="148" y="80" font-family="Inter, ui-sans-serif, sans-serif" font-weight="700" font-size="60" fill="#FFFFFF" letter-spacing="0">MobPae</text>
 </svg>

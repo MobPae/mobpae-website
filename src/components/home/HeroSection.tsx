@@ -1,19 +1,29 @@
 import {
   ArrowRight,
   BadgeCheck,
-  CalendarCheck2,
-  Clock3,
+  Building2,
+  CalendarDays,
+  CheckCircle2,
+  CircleDollarSign,
   ShieldCheck,
   Sparkles,
+  UserRound,
   WalletCards,
 } from "lucide-react";
 import relaxedEmployeeHero from "../../assets/relaxed-employee-hero.png";
 import { useInView } from "../../hooks/useInView";
 
 const metrics = [
-  { value: "₹25K", label: "Policy-led access" },
-  { value: "24h", label: "Approval to payout" },
-  { value: "12x", label: "Yearly advances" },
+  { value: "10%", label: "Policy limit" },
+  { value: "28", label: "Payroll day" },
+  { value: "12x", label: "Yearly access" },
+];
+
+const flow = [
+  { icon: <UserRound size={15} />, label: "Employee requests" },
+  { icon: <Building2 size={15} />, label: "Employer approves" },
+  { icon: <ShieldCheck size={15} />, label: "Admin disburses" },
+  { icon: <CalendarDays size={15} />, label: "Payroll recovers" },
 ];
 
 export function HeroSection() {
@@ -22,141 +32,102 @@ export function HeroSection() {
   return (
     <section
       ref={heroRef as React.RefObject<HTMLElement>}
-      className="relative isolate overflow-hidden bg-[#F8F9FC] pt-12 pb-16 lg:pt-16 lg:pb-24"
+      className="relative isolate overflow-hidden bg-[#FBFBFE] pb-16 pt-10 lg:pb-24 lg:pt-14"
     >
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -left-28 top-0 h-[520px] w-[520px] rounded-full bg-[#ECEBFF]/70 blur-[120px]" />
-        <div className="absolute right-[-18%] top-10 h-[680px] w-[680px] rounded-full bg-[#E9F6F6] blur-[120px]" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(36,38,95,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(36,38,95,0.045)_1px,transparent_1px)] bg-[size:48px_48px]" />
+        <div className="absolute left-[-10%] top-[-18%] h-[520px] w-[520px] rounded-full bg-[#F0EDFF] blur-[120px]" />
+        <div className="absolute right-[-16%] top-[8%] h-[620px] w-[620px] rounded-full bg-[#E9F6F6] blur-[130px]" />
+        <div className="absolute bottom-[-24%] left-[30%] h-[520px] w-[520px] rounded-full bg-[#FDF6EB] blur-[130px]" />
       </div>
 
       <div className="mx-auto max-w-7xl px-5 sm:px-6">
-        <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="relative z-10 max-w-[620px]">
-            <div className={`reveal ${heroInView ? "in-view" : ""}`}>
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#D4D5E0] bg-white/86 px-4 py-2 shadow-[0_16px_42px_rgba(15,23,42,0.07)] backdrop-blur-xl">
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#ECEBFF] text-[#5659D9]">
-                  <BadgeCheck size={13} />
-                </span>
-                <span className="text-[11px] font-[700] uppercase tracking-[0.18em] text-[#191A2E]">
-                  Employer-backed earned salary access
-                </span>
-              </div>
+        <div className="grid gap-5 lg:grid-cols-[1.04fr_0.96fr] lg:items-stretch">
+          <div className={`brand-dark-card min-h-[620px] rounded-[42px] p-6 sm:p-8 lg:p-10 reveal ${heroInView ? "in-view" : ""}`}>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-[11px] font-[700] uppercase tracking-[0.16em] text-white/80">
+                <BadgeCheck size={13} className="text-[#B8ACFF]" />
+                Employer-backed salary access
+              </span>
+              <span className="inline-flex rounded-full bg-[#FDF6EB] px-4 py-2 text-[11px] font-[700] text-[#C7686B]">
+                No loan-like experience
+              </span>
             </div>
 
-            <h1
-              className={`mt-6 text-[42px] font-[700] leading-[1.02] tracking-normal text-[#191A2E] sm:text-[54px] lg:text-[64px] reveal delay-100 ${
-                heroInView ? "in-view" : ""
-              }`}
-            >
-              Salary access that feels calm, fast and controlled.
+            <h1 className="mt-10 max-w-[720px] text-[42px] font-[700] leading-[0.96] tracking-normal text-white sm:text-[58px] lg:text-[76px]">
+              Payday relief, without payroll chaos.
             </h1>
-
-            <p
-              className={`mt-6 max-w-[520px] text-[17px] leading-[1.85] text-[#62657A] reveal delay-200 ${
-                heroInView ? "in-view" : ""
-              }`}
-            >
-              MobPae gives employees a modern mobile way to access earned
-              salary, while employers keep approval, limits, deductions and
-              visibility in one clean workflow.
+            <p className="mt-6 max-w-[610px] text-[16px] leading-[1.8] text-white/70">
+              MobPae gives employees controlled access to earned salary while employers and admins keep approvals, KYC, disbursal, recovery and settlement in one auditable flow.
             </p>
 
-            <div
-              className={`mt-8 flex flex-wrap items-center gap-3 reveal delay-300 ${
-                heroInView ? "in-view" : ""
-              }`}
-            >
+            <div className="mt-8 flex flex-wrap items-center gap-3">
               <a
                 href="#contact"
-                className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#7679FF] px-6 text-[14px] font-[700] text-white shadow-[0_18px_42px_rgba(118,121,255,0.24)] transition-all hover:-translate-y-1 hover:bg-[#5659D9]"
+                className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-[14px] font-[700] text-[#5B3CE3] transition-all hover:-translate-y-1 hover:bg-[#F8F9FC]"
               >
-                Start Employer Onboarding
-                <ArrowRight
-                  size={16}
-                  className="transition-transform group-hover:translate-x-1"
-                />
+                Book a demo
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </a>
               <a
                 href="#how-it-works"
-                className="inline-flex h-12 items-center justify-center rounded-full border border-[#D4D5E0] bg-white/86 px-6 text-[14px] font-[700] text-[#191A2E] shadow-[0_16px_36px_rgba(15,23,42,0.06)] backdrop-blur-xl transition-all hover:-translate-y-1 hover:text-[#191A2E]"
+                className="inline-flex h-12 items-center justify-center rounded-full border border-white/12 bg-white/10 px-6 text-[14px] font-[700] text-white backdrop-blur-xl transition-all hover:-translate-y-1 hover:bg-white/14"
               >
-                View product flow
+                See workflow
               </a>
             </div>
 
-            <div
-              className={`theme-card-grid mt-9 grid max-w-[590px] grid-cols-3 gap-3 reveal delay-200 ${
-                heroInView ? "in-view" : ""
-              }`}
-            >
+            <div className="mt-10 grid gap-3 sm:grid-cols-3">
               {metrics.map((item) => (
-                <div
-                  key={item.label}
-                  className="rounded-[24px] border border-[#E4E4EF] p-4 shadow-[0_16px_40px_rgba(15,23,42,0.07)] backdrop-blur-xl"
-                >
-                  <p className="text-[27px] font-[700] leading-none tracking-normal text-[#191A2E]">
-                    {item.value}
-                  </p>
-                  <p className="mt-2 text-[12px] font-[700] leading-snug text-[#8D90A3]">
-                    {item.label}
-                  </p>
+                <div key={item.label} className="rounded-[24px] border border-white/10 bg-white/10 p-4">
+                  <p className="text-[27px] font-[700] leading-none tracking-normal text-white">{item.value}</p>
+                  <p className="mt-2 text-[12px] font-[700] text-white/55">{item.label}</p>
                 </div>
               ))}
             </div>
+
+            <div className="mt-5 rounded-[28px] border border-white/10 bg-white/10 p-4">
+              <p className="text-[11px] font-[700] uppercase tracking-[0.16em] text-white/50">
+                Actual MVP route
+              </p>
+              <div className="mt-4 grid gap-2 sm:grid-cols-4">
+                {flow.map((step, index) => (
+                  <div key={step.label} className="relative rounded-[20px] bg-white px-3 py-3 text-[#111827]">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-2xl bg-[#F0EDFF] text-[#5B3CE3]">
+                      {step.icon}
+                    </span>
+                    <p className="mt-3 text-[12px] font-[700] leading-tight">{step.label}</p>
+                    <span className="absolute right-3 top-3 text-[10px] font-[700] text-[#B7B9C7]">0{index + 1}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
-          <div
-            className={`relative min-h-[520px] lg:min-h-[650px] reveal-scale delay-150 ${
-              heroInView ? "in-view" : ""
-            }`}
-          >
-            <div className="absolute inset-x-0 bottom-4 top-8 rounded-[44px] bg-gradient-to-br from-[#ECEBFF] via-[#E9F6F6] to-[#FDF6EB] shadow-[0_40px_100px_rgba(86,89,217,0.14)]" />
-            <div className="absolute inset-x-3 bottom-8 top-0 overflow-hidden rounded-[40px] border border-white/40 bg-white shadow-[0_34px_90px_rgba(15,23,42,0.18)] lg:inset-x-8">
+          <div className="grid gap-5">
+            <div className={`relative min-h-[360px] overflow-hidden rounded-[42px] bg-[#E9F6F6] shadow-[0_24px_70px_rgba(17,24,39,0.08)] reveal-scale delay-150 ${heroInView ? "in-view" : ""}`}>
               <img
                 src={relaxedEmployeeHero}
                 alt="Relaxed employee working calmly with MobPae financial wellness support"
                 loading="eager"
-                className="h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-white/82 via-white/18 to-transparent" />
-              <div className="absolute left-6 top-6 max-w-[250px] rounded-[28px] border border-white/70 bg-white/82 p-5 shadow-soft backdrop-blur-xl">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#15121f]/78 via-[#15121f]/8 to-transparent" />
+              <div className="absolute bottom-5 left-5 right-5 rounded-[28px] border border-white/15 bg-white/12 p-5 text-white backdrop-blur-xl">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#ECEBFF] text-[#5659D9]">
-                    <Sparkles size={21} />
-                  </div>
+                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-[#5B3CE3]">
+                    <Sparkles size={20} />
+                  </span>
                   <div>
-                    <p className="text-[15px] font-[700] text-[#191A2E]">
-                      Workday feels lighter
-                    </p>
-                    <p className="mt-1 text-[12px] font-[700] leading-snug text-[#8D90A3]">
-                      Earned salary access without panic borrowing.
-                    </p>
+                    <p className="text-[16px] font-[700]">Employee feels supported</p>
+                    <p className="mt-1 text-[12px] font-[600] text-white/68">No panic borrowing before salary day.</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="absolute bottom-6 left-0 right-0 mx-auto grid max-w-[560px] grid-cols-3 gap-3 px-6">
-              <HeroSignal
-                icon={<WalletCards size={18} />}
-                label="Advance"
-                value="₹5,000"
-              />
-              <HeroSignal
-                icon={<ShieldCheck size={18} />}
-                label="Policy"
-                value="Secured"
-              />
-              <HeroSignal
-                icon={<CalendarCheck2 size={18} />}
-                label="Recovery"
-                value="Payroll"
-              />
-            </div>
-
-            <div className="absolute right-0 top-16 rounded-full border border-white/70 bg-white/90 px-4 py-2 text-[12px] font-[700] text-[#191A2E] shadow-soft backdrop-blur-xl lg:right-2">
-              <Clock3 size={14} className="mr-1 inline" /> calm before payday
+            <div className={`grid gap-5 sm:grid-cols-2 reveal delay-300 ${heroInView ? "in-view" : ""}`}>
+              <SalaryCard />
+              <RecoveryCard />
             </div>
           </div>
         </div>
@@ -165,26 +136,40 @@ export function HeroSection() {
   );
 }
 
-function HeroSignal({
-  icon,
-  label,
-  value,
-}: {
-  icon: React.ReactNode;
-  label: string;
-  value: string;
-}) {
+function SalaryCard() {
   return (
-    <div className="rounded-[24px] border border-white/70 bg-white/90 p-4 shadow-soft backdrop-blur-xl">
-      <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-2xl bg-[#ECEBFF] text-[#5659D9]">
-        {icon}
+    <div className="rounded-[34px] border border-[#DED7FF] bg-white p-5 shadow-soft">
+      <div className="flex items-center justify-between">
+        <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#F0EDFF] text-[#5B3CE3]">
+          <WalletCards size={20} />
+        </span>
+        <span className="rounded-full bg-[#E9F6F6] px-3 py-1 text-[11px] font-[700] text-[#287A68]">Eligible</span>
       </div>
-      <p className="text-[10px] font-[700] uppercase tracking-[0.12em] text-[#B7B9C7]">
-        {label}
-      </p>
-      <p className="mt-1 text-[15px] font-[700] tracking-normal text-[#191A2E]">
-        {value}
-      </p>
+      <p className="mt-5 text-[11px] font-[700] uppercase tracking-[0.16em] text-[#8D90A3]">Available access</p>
+      <p className="mt-2 text-[34px] font-[700] leading-none tracking-normal text-[#111827]">₹5,400</p>
+      <p className="mt-2 text-[13px] font-[600] text-[#6B7280]">from ₹54,000 salary</p>
+      <div className="mt-5 h-2 overflow-hidden rounded-full bg-[#F0EDFF]">
+        <div className="h-full w-[72%] rounded-full bg-[#5B3CE3]" />
+      </div>
+    </div>
+  );
+}
+
+function RecoveryCard() {
+  return (
+    <div className="rounded-[34px] border border-[#F8E3D8] bg-[#FDF6EB] p-5 shadow-soft">
+      <div className="flex items-center justify-between">
+        <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-[#C7686B]">
+          <CircleDollarSign size={20} />
+        </span>
+        <span className="rounded-full bg-white px-3 py-1 text-[11px] font-[700] text-[#C7686B]">Payroll</span>
+      </div>
+      <p className="mt-5 text-[11px] font-[700] uppercase tracking-[0.16em] text-[#8D90A3]">Recovery due</p>
+      <p className="mt-2 text-[34px] font-[700] leading-none tracking-normal text-[#111827]">28 Jun</p>
+      <p className="mt-2 text-[13px] font-[600] text-[#6B7280]">deduction goes to employer settlement</p>
+      <div className="mt-5 flex items-center gap-2 text-[12px] font-[700] text-[#287A68]">
+        <CheckCircle2 size={15} /> audit-ready cycle
+      </div>
     </div>
   );
 }

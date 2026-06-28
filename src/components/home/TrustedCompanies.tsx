@@ -14,7 +14,7 @@ export function TrustedCompanies() {
   return (
     <section className="relative bg-white py-12 overflow-hidden border-b border-[#E5E6EE]">
       <div className="mx-auto max-w-7xl px-6 mb-7">
-        <p className="text-center text-[11px] font-[700] uppercase tracking-[0.22em] text-[#7679FF]">
+        <p className="text-center text-[11px] font-[700] uppercase tracking-[0.22em] text-[#5B3CE3]">
           Trusted by Growing Employers
         </p>
       </div>
@@ -32,7 +32,7 @@ export function TrustedCompanies() {
               key={i}
               className="flex items-center gap-3 px-4 py-2 rounded-full border border-[#E5E6EE] bg-[#ffffff]"
             >
-              <span className="h-2 w-2 rounded-full bg-[#7679FF] opacity-60 flex-shrink-0" />
+              <span className="h-2 w-2 rounded-full bg-[#5B3CE3] opacity-60 flex-shrink-0" />
               <span className="text-[13.5px] font-[600] tracking-tight text-[#8D90A3]">
                 {company}
               </span>
