@@ -18,7 +18,7 @@ export function WhyMobPaeSection() {
               The real problem
             </p>
             <h2
-              className="mt-5 text-[36px] font-[700] leading-[1.08] tracking-normal text-[#111827] lg:text-[48px]"
+              className="mt-5 text-[36px] font-[700] leading-[1.08] tracking-tighter text-[#111827] lg:text-[48px]"
             >
               Financial emergencies do not wait for payroll.
             </h2>
@@ -70,7 +70,7 @@ export function WhyMobPaeSection() {
                     <div className="flex items-start justify-between">
                       <div>
                         <p className="text-[11px] font-[600] text-[#6B7280]">Available limit</p>
-                        <p className="mt-2 text-[34px] font-[700] leading-none tracking-normal">₹8,000</p>
+                        <p className="mt-2 text-[34px] font-[700] leading-none tracking-tighter">₹8,000</p>
                       </div>
                       <span className="rounded-full bg-white px-3 py-1 text-[11px] font-[700] text-[#4E32CA]">Verified</span>
                     </div>
@@ -123,7 +123,7 @@ function VisualCard({
       <div className="flex items-center justify-between">
         <div>
           <p className="text-[12px] font-[700] uppercase tracking-[0.14em] text-[#B7B9C7]">{title}</p>
-          <p className="mt-2 text-[22px] font-[700] tracking-normal text-[#111827]">{amount}</p>
+          <p className="mt-2 text-[22px] font-[700] tracking-tighter text-[#111827]">{amount}</p>
         </div>
         <div className={`flex h-12 w-12 items-center justify-center rounded-2xl ${success ? "bg-[#F0EDFF] text-[#4E32CA]" : "bg-red-50 text-red-500"}`}>
           {icon}

@@ -32,7 +32,7 @@ export function LaunchReadySections() {
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="mb-10 max-w-3xl">
             <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-[#4E32CA]">Who this is for</p>
-            <h2 className="mt-4 text-[36px] font-[700] leading-[1] tracking-normal text-[#111827] lg:text-[48px]">
+            <h2 className="mt-4 text-[36px] font-[700] leading-[1] tracking-tighter text-[#111827] lg:text-[48px]">
               Built for employers with real payroll pressure.
             </h2>
           </div>
@@ -43,7 +43,7 @@ export function LaunchReadySections() {
                 <div className="flex h-13 w-13 h-[52px] w-[52px] items-center justify-center rounded-3xl bg-[#F0EDFF] text-[#4E32CA]">
                   {item.icon}
                 </div>
-                <h3 className="mt-6 text-[21px] font-[700] tracking-normal text-[#111827]">{item.title}</h3>
+                <h3 className="mt-6 text-[21px] font-[700] tracking-tighter text-[#111827]">{item.title}</h3>
                 <p className="mt-3 text-[13.5px] leading-[1.75] text-[#6B7280]">{item.body}</p>
               </article>
             ))}
@@ -56,7 +56,7 @@ export function LaunchReadySections() {
           <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
             <div>
               <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-[#4E32CA]">MVP onboarding</p>
-              <h2 className="mt-4 text-[36px] font-[700] leading-[1] tracking-normal text-[#111827] lg:text-[48px]">
+              <h2 className="mt-4 text-[36px] font-[700] leading-[1] tracking-tighter text-[#111827] lg:text-[48px]">
                 From enquiry to live salary access.
               </h2>
               <p className="mt-5 max-w-[420px] text-[15px] leading-[1.85] text-[#6B7280]">
@@ -87,7 +87,7 @@ export function LaunchReadySections() {
             <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
               <div>
                 <p className="text-[12px] font-[700] uppercase tracking-[0.16em] text-[#4E32CA]">Trust positioning</p>
-                <h2 className="mt-3 text-[34px] font-[700] leading-tight tracking-normal lg:text-[52px]">
+                <h2 className="mt-3 text-[34px] font-[700] leading-tight tracking-tighter lg:text-[52px]">
                   Not a loan-first experience.
                 </h2>
                 <p className="mt-5 max-w-[560px] text-[15px] leading-[1.85] text-[#6B7280]">

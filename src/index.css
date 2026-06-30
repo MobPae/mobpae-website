@@ -10,7 +10,7 @@
   --brand-primary-dark: #4e32ca;
   --brand-primary-light: #f0edff;
   --brand-ink: #15121f;
-  --surface-page: #f8f9fc;
+  --surface-page: #FAF9F6;
   --surface-card: #ffffff;
   --surface-mint: #e9f6f6;
   --surface-lavender: #f0edff;
@@ -650,8 +650,55 @@ strong,
   .premium-trust-row,
   .premium-button::after,
   .premium-stat::after,
-  .premium-product-card::after {
+  .premium-product-card::after,
+  .hero-radial-line {
     animation: none !important;
     transition: none !important;
   }
 }
+
+/* ── Figma Hero: animated radial background lines ── */
+
+.hero-figma-section {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-lines-svg {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
+
+.hero-radial-line {
+  stroke-dasharray: 24px 48px;
+  stroke-dashoffset: 0px;
+  animation: hero-line-flow 1.5s linear infinite;
+  animation-delay: var(--line-delay, 0s);
+  will-change: stroke-dashoffset;
+  opacity: 0.55;
+}
+
+@keyframes hero-line-flow {
+  from {
+    stroke-dashoffset: 0px;
+  }
+  to {
+    stroke-dashoffset: -72px; /* 24px + 48px to loop seamlessly */
+  }
+}
+
+/* Purple accent for "Well-Tuned" */
+.hero-figma-accent {
+  color: #5B3CE3;
+}
+
+/* Figma Hero Title Size Override */
+.figma-hero-title {
+  font-size: clamp(42px, 6.5vw, 86px) !important;
+}
+
+

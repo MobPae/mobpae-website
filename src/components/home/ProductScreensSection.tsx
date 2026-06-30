@@ -65,7 +65,7 @@ export function ProductScreensSection() {
           <p className={`reveal text-[11px] font-[700] uppercase tracking-[0.22em] text-[#4E32CA] ${inView ? "in-view" : ""}`}>
             Inside MobPae
           </p>
-          <h2 className={`reveal delay-100 mt-4 text-[36px] font-[700] leading-[0.98] tracking-normal text-[#111827] lg:text-[48px] ${inView ? "in-view" : ""}`}>
+          <h2 className={`reveal delay-100 mt-4 text-[36px] font-[700] leading-[0.98] tracking-tighter text-[#111827] lg:text-[48px] ${inView ? "in-view" : ""}`}>
             One calm journey from payday pressure to clarity.
           </h2>
           <p className={`reveal delay-200 mx-auto mt-6 max-w-[680px] text-[15px] leading-[1.85] text-[#6B7280] ${inView ? "in-view" : ""}`}>
@@ -133,7 +133,7 @@ export function ProductScreensSection() {
             <div className="brand-dark-card relative z-10 flex flex-col justify-center border-t border-white/10 p-7 text-white lg:border-l lg:border-t-0 lg:p-9">
               <div key={selected.name} className="product-copy-enter">
                 <p className="text-[10px] font-[700] uppercase tracking-[0.2em] text-[#B8ACFF]">{selected.eyebrow}</p>
-                <h3 className="mt-4 text-[32px] font-[700] leading-[1.05] tracking-normal lg:text-[40px]">{selected.name}</h3>
+                <h3 className="mt-4 text-[32px] font-[700] leading-[1.05] tracking-tighter lg:text-[40px]">{selected.name}</h3>
                 <p className="mt-5 text-[14px] leading-[1.8] text-white/70">{selected.description}</p>
                 <div className="mt-7 grid gap-3">
                   {selected.points.map((point) => (
@@ -179,7 +179,7 @@ function ScreenHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
   return (
     <div className="mb-5">
       <p className="text-[9px] font-[700] uppercase tracking-[0.16em] text-[#4E32CA]">{eyebrow}</p>
-      <h4 className="mt-1 text-[24px] font-[700] leading-none tracking-normal text-[#111827]">{title}</h4>
+      <h4 className="mt-1 text-[24px] font-[700] leading-none tracking-tighter text-[#111827]">{title}</h4>
     </div>
   );
 }
@@ -191,7 +191,7 @@ function HomeScreen() {
         <div className="grid h-10 w-10 place-items-center rounded-full bg-[#F0EDFF] text-[#4E32CA]"><UserRound size={18} /></div>
         <div className="min-w-0 flex-1">
           <p className="truncate text-[8px] font-[700] uppercase tracking-[0.14em] text-[#B7B9C7]">Northstar Retail</p>
-          <h4 className="text-[19px] font-[700] leading-none tracking-normal text-[#111827]">Hi, Arjun</h4>
+          <h4 className="text-[19px] font-[700] leading-none tracking-tighter text-[#111827]">Hi, Arjun</h4>
         </div>
         <div className="grid h-10 w-10 place-items-center rounded-2xl bg-white shadow-sm"><Bell size={15} /></div>
       </div>
@@ -240,7 +240,7 @@ function TrackScreen() {
     <div className="product-screen-enter">
       <ScreenHeading eyebrow="History" title="Transactions" />
       <div className="rounded-[26px] border border-[#DED7FF] bg-[#F0EDFF] p-5 text-[#111827] shadow-[0_16px_38px_rgba(91,60,227,0.12)]">
-        <div className="flex items-start justify-between gap-2"><div><p className="text-[10px] font-[600] text-[#6B7280]">Live request · #DEMO</p><p className="mt-3 text-[34px] font-[700] leading-none tracking-normal">₹5,000</p></div><span className="rounded-full bg-white px-3 py-2 text-[10px] font-[700] text-[#4E32CA]">Pending</span></div>
+        <div className="flex items-start justify-between gap-2"><div><p className="text-[10px] font-[600] text-[#6B7280]">Live request · #DEMO</p><p className="mt-3 text-[34px] font-[700] leading-none tracking-tighter">₹5,000</p></div><span className="rounded-full bg-white px-3 py-2 text-[10px] font-[700] text-[#4E32CA]">Pending</span></div>
         <div className="mt-6 flex justify-between text-[10px] font-[700] text-[#6B7280]"><span>Started 17 Jun</span><span>Pays 28 Jun</span></div>
       </div>
       <div className="mt-4 rounded-[22px] border border-[#E5E7EB] bg-white p-4">
@@ -277,7 +277,7 @@ function BrandCard({ label, amount, sub }: { label: string; amount: string; sub:
   return (
     <div className="rounded-[26px] border border-[#DED7FF] bg-[#F0EDFF] p-5 text-[#111827] shadow-[0_16px_38px_rgba(91,60,227,0.12)]">
       <div className="flex items-start justify-between gap-2"><p className="text-[11px] font-[600] text-[#6B7280]">{label}</p><span className="inline-flex items-center gap-1 rounded-full bg-white px-3 py-2 text-[10px] font-[700] text-[#4E32CA]"><ShieldCheck size={12} /> Member</span></div>
-      <p className="mt-5 text-[38px] font-[700] leading-none tracking-normal">{amount}</p>
+      <p className="mt-5 text-[38px] font-[700] leading-none tracking-tighter">{amount}</p>
       <p className="mt-3 text-[12px] font-[600] text-[#6B7280]">{sub}</p>
       <div className="mt-5 h-2 rounded-full bg-white"><div className="h-full w-[86%] rounded-full bg-[#5B3CE3]" /></div>
     </div>

@@ -54,7 +54,7 @@ const trust = [
 export function PremiumCampaign() {
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-[#fbfbfe]">
+      <section className="relative isolate overflow-hidden">
         <div className="pointer-events-none absolute inset-0 -z-10">
           <div className="absolute left-[-18%] top-[-28%] h-[680px] w-[680px] rounded-full bg-[#f0edff] blur-[120px]" />
           <div className="absolute right-[-18%] top-0 h-[620px] w-[620px] rounded-full bg-[#e9f6f6] blur-[130px]" />
@@ -81,7 +81,7 @@ export function PremiumCampaign() {
                     Give salary access the calm it deserves
                   </span>
                 </div>
-                <h1 className="mt-5 text-[46px] font-[700] leading-[0.92] tracking-normal text-white sm:text-[68px] lg:text-[86px]">
+                <h1 className="mt-5 text-[46px] font-[700] leading-[0.92] tracking-tighter text-white sm:text-[68px] lg:text-[86px]">
                   Beating Your{" "}
                   <span className="hero-headline-accent">Month End</span>{" "}
                   Crunch
@@ -95,7 +95,7 @@ export function PremiumCampaign() {
               <div className="mt-9 flex flex-wrap gap-3">
                 <a
                   href="#contact"
-                  className="premium-button group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-[14px] font-[700] text-[#5b3ce3] transition-all hover:-translate-y-1 hover:bg-[#f8f9fc]"
+                  className="premium-button group inline-flex h-12 items-center justify-center gap-2 rounded-full border border-black/[0.04] bg-white/80 backdrop-blur-md px-6 text-[14px] font-[700] text-[#111827] transition-all hover:-translate-y-1 hover:bg-white hover:shadow-[0_8px_20px_rgba(17,24,39,0.08)]"
                 >
                   Book a demo
                   <ArrowRight
@@ -117,7 +117,7 @@ export function PremiumCampaign() {
                     key={label}
                     className="premium-stat rounded-[24px] border border-white/10 bg-white/10 p-4"
                   >
-                    <p className="text-[26px] font-[700] leading-none tracking-normal text-white">
+                    <p className="text-[26px] font-[700] leading-none tracking-tighter text-white">
                       {value}
                     </p>
                     <p className="mt-2 text-[12px] font-[700] leading-snug text-white/50">
@@ -150,7 +150,7 @@ export function PremiumCampaign() {
                   <p className="mt-5 text-[11px] font-[700] uppercase tracking-[0.18em] text-[#8d90a3]">
                     Salary access
                   </p>
-                  <p className="mt-2 text-[36px] font-[700] leading-none tracking-normal text-[#111827]">
+                  <p className="mt-2 text-[36px] font-[700] leading-none tracking-tighter text-[#111827]">
                     Calm
                   </p>
                   <p className="mt-3 text-[13px] font-[600] leading-relaxed text-[#6b7280]">
@@ -167,7 +167,7 @@ export function PremiumCampaign() {
                   <p className="mt-5 text-[11px] font-[700] uppercase tracking-[0.16em] text-[#8d90a3]">
                     Employee feels
                   </p>
-                  <p className="mt-2 text-[30px] font-[700] leading-none tracking-normal text-[#111827]">
+                  <p className="mt-2 text-[30px] font-[700] leading-none tracking-tighter text-[#111827]">
                     ₹5,400
                   </p>
                   <p className="mt-2 text-[13px] font-[600] text-[#6b7280]">
@@ -181,7 +181,7 @@ export function PremiumCampaign() {
                   <p className="mt-5 text-[11px] font-[700] uppercase tracking-[0.16em] text-[#8d90a3]">
                     Employer gets
                   </p>
-                  <p className="mt-2 text-[30px] font-[700] leading-none tracking-normal text-[#111827]">
+                  <p className="mt-2 text-[30px] font-[700] leading-none tracking-tighter text-[#111827]">
                     Control
                   </p>
                   <p className="mt-2 text-[13px] font-[600] text-[#6b7280]">
@@ -198,10 +198,10 @@ export function PremiumCampaign() {
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
             <div>
-              <h2 className="text-[40px] font-[700] leading-none tracking-normal text-[#111827] lg:text-[48px]">
+              <h2 className="text-[40px] font-[700] leading-none tracking-tighter text-[#111827] lg:text-[48px]">
                 Product ecosystem
               </h2>
-              <p className="mt-5 text-[26px] font-[700] leading-[1.08] tracking-normal text-[#111827] lg:text-[34px]">
+              <p className="mt-5 text-[26px] font-[700] leading-[1.08] tracking-tighter text-[#111827] lg:text-[34px]">
                 One premium experience across every salary-access moment.
               </p>
             </div>
@@ -234,7 +234,7 @@ export function PremiumCampaign() {
                   {card.icon}
                 </div>
                 <h3
-                  className={`mt-7 text-[24px] font-[700] tracking-normal ${
+                  className={`mt-7 text-[24px] font-[700] tracking-tighter ${
                     index === 1 ? "text-white" : "text-[#111827]"
                   }`}
                 >
@@ -255,12 +255,12 @@ export function PremiumCampaign() {
 
       <section
         id="workflow"
-        className="relative overflow-hidden bg-[#fbfbfe] py-20 lg:py-24"
+        className="relative overflow-hidden py-20 lg:py-24"
       >
         <div className="pointer-events-none absolute left-[-12%] top-0 h-[520px] w-[520px] rounded-full bg-[#f0edff] blur-[120px]" />
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="mb-8">
-            <h2 className="text-[40px] font-[700] leading-none tracking-normal text-[#111827] lg:text-[48px]">
+            <h2 className="text-[40px] font-[700] leading-none tracking-tighter text-[#111827] lg:text-[48px]">
               Built for confidence
             </h2>
           </div>
@@ -270,7 +270,7 @@ export function PremiumCampaign() {
                 <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-[#b8acff]">
                   MobPae experience
                 </p>
-                <h2 className="mt-5 text-[28px] font-[700] leading-[1.08] tracking-normal text-white lg:text-[38px]">
+                <h2 className="mt-5 text-[28px] font-[700] leading-[1.08] tracking-tighter text-white lg:text-[38px]">
                   A benefit journey people can trust.
                 </h2>
                 <p className="mt-6 text-[15px] leading-[1.85] text-white/65">
@@ -288,7 +288,7 @@ export function PremiumCampaign() {
                 {workflow.map((item, index) => (
                   <div
                     key={item}
-                    className="premium-step flex items-center gap-4 rounded-[26px] border border-[#e5e7eb] bg-[#f8f9fc] p-4"
+                    className="premium-step flex items-center gap-4 rounded-[26px] border border-white/60 bg-white/40 backdrop-blur-xl p-4 shadow-[0_8px_30px_rgba(17,24,39,0.03)]"
                   >
                     <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-white text-[13px] font-[700] text-[#5b3ce3] shadow-soft">
                       0{index + 1}
@@ -314,10 +314,10 @@ export function PremiumCampaign() {
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
             <div>
-              <h2 className="text-[40px] font-[700] leading-none tracking-normal text-[#111827] lg:text-[48px]">
+              <h2 className="text-[40px] font-[700] leading-none tracking-tighter text-[#111827] lg:text-[48px]">
                 Why it matters
               </h2>
-              <p className="mt-5 text-[26px] font-[700] leading-[1.08] tracking-normal text-[#111827] lg:text-[34px]">
+              <p className="mt-5 text-[26px] font-[700] leading-[1.08] tracking-tighter text-[#111827] lg:text-[34px]">
                 Employees need relief. Employers need discipline.
               </p>
               <p className="mt-5 max-w-[620px] text-[15px] leading-[1.85] text-[#6b7280]">
@@ -346,14 +346,14 @@ export function PremiumCampaign() {
         </div>
       </section>
 
-      <section id="pricing" className="bg-[#fbfbfe] py-20 lg:py-24">
+      <section id="pricing" className="py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="grid gap-5 lg:grid-cols-[0.92fr_1.08fr]">
-            <div className="premium-float-card rounded-[42px] border border-[#ded7ff] bg-[#f0edff] p-7 lg:p-9">
-              <h2 className="text-[40px] font-[700] leading-none tracking-normal text-[#111827] lg:text-[48px]">
+            <div className="premium-float-card rounded-[42px] border border-[#ded7ff]/50 bg-[#f0edff]/60 backdrop-blur-2xl p-7 lg:p-9 shadow-[0_32px_80px_rgba(91,60,227,0.06)]">
+              <h2 className="text-[40px] font-[700] leading-none tracking-tighter text-[#111827] lg:text-[48px]">
                 Employee membership
               </h2>
-              <p className="mt-5 text-[26px] font-[700] leading-[1.08] tracking-normal text-[#111827] lg:text-[34px]">
+              <p className="mt-5 text-[26px] font-[700] leading-[1.08] tracking-tighter text-[#111827] lg:text-[34px]">
                 Simple enough to explain in one line.
               </p>
               <p className="mt-5 text-[15px] leading-[1.85] text-[#6b7280]">
@@ -368,7 +368,7 @@ export function PremiumCampaign() {
                   <p className="text-[11px] font-[700] uppercase tracking-[0.2em] text-[#b8acff]">
                     Annual fee
                   </p>
-                  <p className="mt-4 text-[72px] font-[700] leading-none tracking-normal text-white">
+                  <p className="mt-4 text-[72px] font-[700] leading-none tracking-tighter text-white">
                     ₹499
                   </p>
                   <p className="mt-3 text-[14px] font-[600] text-white/58">
@@ -410,7 +410,7 @@ export function PremiumCampaign() {
 function MiniProof({ value, label }: { value: string; label: string }) {
   return (
     <div className="rounded-[22px] border border-white/10 bg-white/10 p-4">
-      <p className="text-[28px] font-[700] leading-none tracking-normal text-white">
+      <p className="text-[28px] font-[700] leading-none tracking-tighter text-white">
         {value}
       </p>
       <p className="mt-2 text-[12px] font-[700] text-white/50">{label}</p>

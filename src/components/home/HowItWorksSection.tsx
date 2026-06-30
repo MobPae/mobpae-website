@@ -42,7 +42,7 @@ export function HowItWorksSection() {
           <div className={`reveal ${inView ? "in-view" : ""}`}>
             <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-[#4E32CA]">Operating cycle</p>
             <h2
-              className="mt-5 text-[36px] font-[700] leading-[1.08] tracking-normal text-[#111827] lg:text-[48px]"
+              className="mt-5 text-[36px] font-[700] leading-[1.08] tracking-tighter text-[#111827] lg:text-[48px]"
             >
               MobPae is not just a request button. It is a closed money loop.
             </h2>
@@ -69,7 +69,7 @@ export function HowItWorksSection() {
                     </span>
                   </div>
                   <p className={`mt-5 text-[10px] font-[700] uppercase tracking-[0.14em] ${index === 0 ? "text-[#5B3CE3]" : "text-[#B8ACFF]"}`}>{step.meta}</p>
-                  <h3 className={`mt-2 text-[19px] font-[700] tracking-normal ${index === 0 ? "text-[#111827]" : "text-white"}`}>{step.title}</h3>
+                  <h3 className={`mt-2 text-[19px] font-[700] tracking-tighter ${index === 0 ? "text-[#111827]" : "text-white"}`}>{step.title}</h3>
                   <p className={`mt-2 min-h-[68px] text-[13.5px] leading-[1.7] ${index === 0 ? "text-[#6B7280]" : "text-white/62"}`}>{step.copy}</p>
                   <WorkflowMini index={index} dark={index !== 0} />
                 </div>
@@ -97,7 +97,7 @@ export function HowItWorksSection() {
 function CycleStat({ value, label }: { value: string; label: string }) {
   return (
     <div className="rounded-[24px] border border-[#E5E7EB] bg-[#F8F9FC] p-4">
-      <p className="text-[26px] font-[700] leading-none tracking-normal text-[#111827]">{value}</p>
+      <p className="text-[26px] font-[700] leading-none tracking-tighter text-[#111827]">{value}</p>
       <p className="mt-2 text-[12px] font-[700] text-[#8D90A3]">{label}</p>
     </div>
   );
@@ -108,7 +108,7 @@ function WorkflowMini({ index, dark = false }: { index: number; dark?: boolean }
     return (
       <div className={`mt-4 rounded-[24px] p-4 ${dark ? "bg-white/10" : "bg-[#F8F9FC]"}`}>
         <p className="text-[10px] font-[700] uppercase tracking-[0.12em] text-[#B7B9C7]">Preview</p>
-        <p className={`mt-2 text-[24px] font-[700] tracking-normal ${dark ? "text-white" : "text-[#111827]"}`}>₹5,000</p>
+        <p className={`mt-2 text-[24px] font-[700] tracking-tighter ${dark ? "text-white" : "text-[#111827]"}`}>₹5,000</p>
         <div className={`mt-3 h-2 rounded-full ${dark ? "bg-white/14" : "bg-white"}`}>
           <div className="h-full w-[62%] rounded-full bg-[#5B3CE3]" />
         </div>

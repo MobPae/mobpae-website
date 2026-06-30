@@ -53,7 +53,7 @@ export function HeroSection() {
               </span>
             </div>
 
-            <h1 className="mt-10 max-w-[720px] text-[42px] font-[700] leading-[0.96] tracking-normal text-white sm:text-[58px] lg:text-[76px]">
+            <h1 className="mt-10 max-w-[720px] text-[42px] font-[700] leading-[0.96] tracking-tighter text-white sm:text-[58px] lg:text-[76px]">
               Payday relief, without payroll chaos.
             </h1>
             <p className="mt-6 max-w-[610px] text-[16px] leading-[1.8] text-white/70">
@@ -79,7 +79,7 @@ export function HeroSection() {
             <div className="mt-10 grid gap-3 sm:grid-cols-3">
               {metrics.map((item) => (
                 <div key={item.label} className="rounded-[24px] border border-white/10 bg-white/10 p-4">
-                  <p className="text-[27px] font-[700] leading-none tracking-normal text-white">{item.value}</p>
+                  <p className="text-[27px] font-[700] leading-none tracking-tighter text-white">{item.value}</p>
                   <p className="mt-2 text-[12px] font-[700] text-white/55">{item.label}</p>
                 </div>
               ))}
@@ -146,7 +146,7 @@ function SalaryCard() {
         <span className="rounded-full bg-[#E9F6F6] px-3 py-1 text-[11px] font-[700] text-[#287A68]">Eligible</span>
       </div>
       <p className="mt-5 text-[11px] font-[700] uppercase tracking-[0.16em] text-[#8D90A3]">Available access</p>
-      <p className="mt-2 text-[34px] font-[700] leading-none tracking-normal text-[#111827]">₹5,400</p>
+      <p className="mt-2 text-[34px] font-[700] leading-none tracking-tighter text-[#111827]">₹5,400</p>
       <p className="mt-2 text-[13px] font-[600] text-[#6B7280]">from ₹54,000 salary</p>
       <div className="mt-5 h-2 overflow-hidden rounded-full bg-[#F0EDFF]">
         <div className="h-full w-[72%] rounded-full bg-[#5B3CE3]" />
@@ -165,7 +165,7 @@ function RecoveryCard() {
         <span className="rounded-full bg-white px-3 py-1 text-[11px] font-[700] text-[#C7686B]">Payroll</span>
       </div>
       <p className="mt-5 text-[11px] font-[700] uppercase tracking-[0.16em] text-[#8D90A3]">Recovery due</p>
-      <p className="mt-2 text-[34px] font-[700] leading-none tracking-normal text-[#111827]">28 Jun</p>
+      <p className="mt-2 text-[34px] font-[700] leading-none tracking-tighter text-[#111827]">28 Jun</p>
       <p className="mt-2 text-[13px] font-[600] text-[#6B7280]">deduction goes to employer settlement</p>
       <div className="mt-5 flex items-center gap-2 text-[12px] font-[700] text-[#287A68]">
         <CheckCircle2 size={15} /> audit-ready cycle

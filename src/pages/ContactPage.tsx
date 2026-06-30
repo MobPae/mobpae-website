@@ -5,7 +5,7 @@ import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
 import { SEO } from "../components/SEO";
 
-const API_BASE = (import.meta.env.VITE_API_BASE_URL as string).replace(/\/api\/v1\/?$/, "");
+const API_BASE = (import.meta.env.VITE_API_BASE_URL as string || "").replace(/\/api\/v1\/?$/, "");
 const defaultMessage = "We want to explore MobPae for our employees.";
 
 type FormState = {
