@@ -1,24 +1,38 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { CareersPage } from "./pages/CareersPage";
-import { ContactPage } from "./pages/ContactPage";
-import { EmployersPage } from "./pages/EmployersPage";
 import { HomePage } from "./pages/HomePage";
 import { NotFoundPage } from "./pages/NotFoundPage";
-import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage";
-import { SecurityPage } from "./pages/SecurityPage";
-import { TermsPage } from "./pages/TermsPage";
+import {
+  AboutPage,
+  BlogPage,
+  CareersPage,
+  ContactPage,
+  EmployeesPage,
+  EmployerBenefitsPage,
+  EmployersPage,
+  FaqsPage,
+  HelpCenterPage,
+  HowItWorksPage,
+  PrivacyPolicyPage,
+  TermsPage,
+} from "./pages/WebsitePages";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/for-employers" element={<EmployersPage />} />
-        <Route path="/security" element={<SecurityPage />} />
+        <Route path="/employers" element={<EmployersPage />} />
+        <Route path="/employers/benefits" element={<EmployerBenefitsPage />} />
+        <Route path="/employees" element={<EmployeesPage />} />
+        <Route path="/how-it-works" element={<HowItWorksPage />} />
+        <Route path="/faqs" element={<FaqsPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/careers" element={<CareersPage />} />
+        <Route path="/blog" element={<BlogPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/help-center" element={<HelpCenterPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/terms" element={<TermsPage />} />
-        <Route path="/careers" element={<CareersPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
