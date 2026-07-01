@@ -1,26 +1,5 @@
-import { Footer } from "../components/Footer";
-import { BenefitsSection } from "../components/home/BenefitsSection";
-import { EnquirySection } from "../components/home/EnquirySection";
-import { FaqSection } from "../components/home/FaqSection";
-import { HeroSection } from "../components/home/HeroSection";
-import { HowItWorksSection } from "../components/home/HowItWorksSection";
-import { TrustedCompanies } from "../components/home/TrustedCompanies";
-import { WhyMobPaeSection } from "../components/home/WhyMobPaeSection";
-import { Navbar } from "../components/Navbar";
+import { LaunchWebsite } from "../components/launch/LaunchWebsite";
 
 export function HomePage() {
-  return (
-    <main className="min-h-screen bg-white">
-      <Navbar />
-      <HeroSection />
-      <TrustedCompanies />
-      <WhyMobPaeSection />
-      <HowItWorksSection />
-      <BenefitsSection />
-      <FaqSection />
-      <EnquirySection />
-
-      <Footer />
-    </main>
-  );
+  return <LaunchWebsite />;
 }
