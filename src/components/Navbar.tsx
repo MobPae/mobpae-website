@@ -1,84 +1,91 @@
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { BrandLogo } from "./BrandLogo";
 
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Why MobPae", href: "#why-mobpae" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Employers", href: "/for-employers" },
+  { label: "Product", href: "/#product" },
+  { label: "How It Works", href: "/#workflow" },
+  { label: "Security", href: "/security" },
+  { label: "Pricing", href: "/#pricing" },
 ];
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  function closeMenu() {
-    setIsOpen(false);
-  }
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-100/80 bg-white/95 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
+    <header
+      className="sticky top-0 z-50 border-b border-[#111827]/5 bg-white/76 backdrop-blur-2xl transition-all duration-300"
+      style={{
+        boxShadow: scrolled ? "0 18px 48px rgba(15, 23, 42, 0.08)" : "none",
+      }}
+    >
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 sm:px-6">
         {/* Logo */}
-        <a href="/" className="flex items-center gap-3 group">
-          <div className="flex h-9 w-9 items-center justify-center rounded-[10px] bg-[#0047AB] text-base font-black text-white shadow-sm">
-            M
-          </div>
-          <div className="text-[22px] font-[800] tracking-[-0.03em] text-slate-950 leading-none">
-            Mob<span className="text-[#0047AB]">Pae</span>
-          </div>
+        <a href="/" className="flex-shrink-0" aria-label="MobPae home">
+          <BrandLogo />
         </a>
 
-        {/* Desktop Nav */}
-        <nav className="hidden items-center gap-8 text-[13.5px] font-[500] text-slate-500 lg:flex">
+        {/* Desktop nav */}
+        <nav className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="transition-colors hover:text-[#0047AB]"
+              className="text-[13px] font-[700] text-[#8D90A3] transition-colors hover:text-[#4E32CA]"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        {/* CTA + Mobile toggle */}
-        <div className="flex items-center gap-3">
+        {/* Desktop CTA */}
+        <div className="hidden items-center gap-3 lg:flex">
           <a
-            href="#contact"
-            className="hidden lg:inline-flex items-center justify-center gap-2 rounded-[10px] bg-[#0047AB] px-5 py-2.5 text-[13px] font-[600] text-white shadow-cobalt transition-all duration-200 hover:bg-[#00358a] hover:-translate-y-px"
+            href="/contact"
+            className="inline-flex items-center justify-center rounded-full bg-[#5B3CE3] px-5 py-2.5 text-[12.5px] font-[600] text-white transition-all hover:-translate-y-0.5 hover:bg-[#4E32CA] hover:shadow-[0_16px_34px_rgba(91,60,227,0.28)]"
           >
-            Contact Us
+            Get Started
           </a>
-
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-500 lg:hidden"
-          >
-            {isOpen ? <X size={18} /> : <Menu size={18} />}
-          </button>
         </div>
+
+        {/* Mobile toggle */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-[#111827]/10 bg-white text-[#6B7280] transition-colors hover:border-[#B8ACFF] lg:hidden"
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <X size={17} /> : <Menu size={17} />}
+        </button>
       </div>
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="border-t border-slate-100 bg-white/98 px-4 py-3 lg:hidden">
-          <nav className="grid gap-1">
+        <div className="border-t border-[#111827]/5 bg-white/96 px-4 py-3 backdrop-blur-2xl lg:hidden">
+          <nav className="grid gap-0.5">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                onClick={closeMenu}
-                className="rounded-lg px-4 py-3 text-[14px] font-[500] text-slate-700 hover:bg-blue-50 hover:text-[#0047AB] transition-colors"
+                onClick={() => setIsOpen(false)}
+                className="rounded-2xl px-4 py-3 text-[14px] font-[700] text-[#111827] transition-colors hover:bg-[#F8F9FC]"
               >
                 {link.label}
               </a>
             ))}
             <a
-              href="#contact"
-              onClick={closeMenu}
-              className="mt-2 flex items-center justify-center rounded-xl bg-[#0047AB] px-4 py-3 text-[14px] font-[600] text-white"
+              href="/contact"
+              onClick={() => setIsOpen(false)}
+              className="mt-2 flex items-center justify-center rounded-2xl bg-[#5B3CE3] px-4 py-3 text-[14px] font-[600] text-white transition-colors hover:bg-[#4E32CA]"
             >
-              Contact Us
+              Get Started
             </a>
           </nav>
         </div>

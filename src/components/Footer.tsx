@@ -1,98 +1,159 @@
-import { Heart, Mail, Phone } from "lucide-react";
+import { Heart, Mail, MapPin, Phone } from "lucide-react";
+import { BrandLogo } from "./BrandLogo";
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-100 bg-white">
+    <footer className="border-t border-[#E5E6EE] bg-white">
       <div className="mx-auto max-w-7xl px-6 py-14">
-        <div className="grid gap-12 md:grid-cols-[1.6fr_1fr_1fr]">
+        <div className="grid gap-12 md:grid-cols-[1.6fr_1fr_1fr_1fr]">
           {/* Brand */}
           <div>
-            {/* Logo */}
-            <div className="flex items-center gap-3 mb-5">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0047AB] shadow-cobalt">
-                {/* MobPae "M" wave icon */}
-                <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
-                  <path
-                    d="M1 14C1 14 4 3 7 8C10 13 11 2 14 8C17 14 21 3 21 3"
-                    stroke="white"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-              <span className="text-[20px] font-[800] tracking-[-0.03em] text-slate-900">
-                MobPae
-              </span>
-            </div>
-
-            <p className="max-w-[320px] text-[13.5px] leading-[1.8] text-slate-500">
+            <BrandLogo
+              className="mb-5"
+              iconClassName="h-10"
+            />
+            <p className="max-w-[300px] text-[13.5px] leading-[1.8] text-[#6B7280]">
               Financial flexibility for employees. Complete visibility and
-              control for employers. Employer-backed salary access for modern
-              workplaces.
+              control for employers.
             </p>
-
-            <div className="mt-5 flex items-center gap-1.5 text-[12.5px] text-slate-400">
+            <div className="mt-5 flex items-center gap-1.5 text-[12px] text-[#B7B9C7]">
               <span>Made with</span>
-              <Heart size={12} className="fill-red-400 text-red-400" />
+              <Heart size={11} className="fill-red-400 text-red-400" />
               <span>in India</span>
             </div>
           </div>
 
           {/* Explore */}
           <div>
-            <h4 className="text-[12px] font-[700] uppercase tracking-[0.15em] text-slate-900 mb-5">
+            <h4 className="text-[11px] font-[700] uppercase tracking-[0.15em] text-[#111827] mb-5">
               Explore
             </h4>
             <div className="flex flex-col gap-3.5 text-[13.5px]">
-              <a href="#why-mobpae" className="text-slate-500 transition hover:text-[#0047AB]">Why MobPae</a>
-              <a href="#how-it-works" className="text-slate-500 transition hover:text-[#0047AB]">How It Works</a>
-              <a href="#benefits" className="text-slate-500 transition hover:text-[#0047AB]">Benefits</a>
-              <a href="#faq" className="text-slate-500 transition hover:text-[#0047AB]">FAQ</a>
-              <a href="/privacy-policy" className="text-slate-500 transition hover:text-[#0047AB]">Privacy Policy</a>
+              <a
+                href="/#why-mobpae"
+                className="text-[#6B7280] transition hover:text-[#5B3CE3]"
+              >
+                Why MobPae
+              </a>
+              <a
+                href="/for-employers"
+                className="text-[#6B7280] transition hover:text-[#5B3CE3]"
+              >
+                For Employers
+              </a>
+              <a
+                href="/security"
+                className="text-[#6B7280] transition hover:text-[#5B3CE3]"
+              >
+                Security
+              </a>
+              <a
+                href="/contact"
+                className="text-[#6B7280] transition hover:text-[#5B3CE3]"
+              >
+                Book Demo
+              </a>
+              <a
+                href="/#how-it-works"
+                className="text-[#6B7280] transition hover:text-[#5B3CE3]"
+              >
+                How It Works
+              </a>
+              <a
+                href="/#benefits"
+                className="text-[#6B7280] transition hover:text-[#5B3CE3]"
+              >
+                Benefits
+              </a>
+              <a
+                href="/#pricing"
+                className="text-[#6B7280] transition hover:text-[#5B3CE3]"
+              >
+                Pricing
+              </a>
+              <a
+                href="/#faq"
+                className="text-[#6B7280] transition hover:text-[#5B3CE3]"
+              >
+                FAQ
+              </a>
+            </div>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h4 className="text-[11px] font-[700] uppercase tracking-[0.15em] text-[#111827] mb-5">
+              Legal
+            </h4>
+            <div className="flex flex-col gap-3.5 text-[13.5px]">
+              <a
+                href="/privacy-policy"
+                className="text-[#6B7280] transition hover:text-[#5B3CE3]"
+              >
+                Privacy Policy
+              </a>
+              <a
+                href="/terms"
+                className="text-[#6B7280] transition hover:text-[#5B3CE3]"
+              >
+                Terms &amp; Conditions
+              </a>
+              <a
+                href="/careers"
+                className="text-[#6B7280] transition hover:text-[#5B3CE3]"
+              >
+                Careers
+              </a>
             </div>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="text-[12px] font-[700] uppercase tracking-[0.15em] text-slate-900 mb-5">
+            <h4 className="text-[11px] font-[700] uppercase tracking-[0.15em] text-[#111827] mb-5">
               Contact
             </h4>
             <div className="flex flex-col gap-3.5">
               <a
                 href="mailto:support@mobpae.com"
-                className="flex items-center gap-3 text-[13.5px] text-slate-500 transition hover:text-[#0047AB] group"
+                className="flex items-center gap-3 text-[13.5px] text-[#6B7280] transition hover:text-[#5B3CE3]"
               >
-                <Mail size={15} className="text-[#0047AB] flex-shrink-0" />
+                <Mail size={14} className="text-[#5B3CE3] flex-shrink-0" />
                 support@mobpae.com
               </a>
-
               <a
                 href="tel:+919227012145"
-                className="flex items-center gap-3 text-[13.5px] text-slate-500 transition hover:text-[#0047AB]"
+                className="flex items-center gap-3 text-[13.5px] text-[#6B7280] transition hover:text-[#5B3CE3]"
               >
-                <Phone size={15} className="text-[#0047AB] flex-shrink-0" />
+                <Phone size={14} className="text-[#5B3CE3] flex-shrink-0" />
                 +91 92270 12145
               </a>
-
+              <div className="flex items-start gap-3 text-[13.5px] text-[#6B7280]">
+                <MapPin
+                  size={14}
+                  className="mt-0.5 flex-shrink-0 text-[#5B3CE3]"
+                />
+                <span>Gujarat, Ahmedabad - 382470</span>
+              </div>
               <a
                 href="https://www.linkedin.com/company/mobpae"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-3 text-[13.5px] text-slate-500 transition hover:text-[#0047AB]"
+                className="flex items-center gap-3 text-[13.5px] text-[#6B7280] transition hover:text-[#5B3CE3]"
               >
-                <span className="flex h-[15px] w-[15px] items-center justify-center rounded-[3px] bg-[#0047AB] text-[8px] font-[800] text-white flex-shrink-0">
+                <span className="flex h-[15px] w-[15px] items-center justify-center rounded-[3px] bg-[#5B3CE3] text-[8px] font-[600] text-white flex-shrink-0">
                   in
                 </span>
                 LinkedIn
               </a>
+              <p className="max-w-[230px] text-[12.5px] leading-[1.7] text-[#B7B9C7]">
+                Employer-backed salary access for Indian workplaces.
+              </p>
             </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-12 border-t border-slate-100 pt-6">
-          <div className="flex flex-col items-center justify-between gap-3 text-[12px] text-slate-400 md:flex-row">
+        <div className="mt-12 border-t border-[#E5E6EE] pt-6">
+          <div className="flex flex-col items-center justify-between gap-3 text-[12px] text-[#B7B9C7] md:flex-row">
             <p>© {new Date().getFullYear()} MobPae. All rights reserved.</p>
             <p>Employer-backed salary access for modern workplaces.</p>
           </div>
