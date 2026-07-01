@@ -40,7 +40,7 @@ const flow = ["Employee request", "Employer approval", "Admin review", "Disbursa
 
 export function TermsPage() {
   return (
-    <main className="min-h-screen bg-[#F8F9FC]">
+    <main className="relative min-h-screen bg-transparent">
       <SEO
         title="Terms of Service"
         description="Review the terms for using MobPae across employee salary access requests, employer approvals, admin operations, disbursal and payroll recovery."
@@ -49,8 +49,6 @@ export function TermsPage() {
       <Navbar />
 
       <section className="relative overflow-hidden border-b border-[#E5E7EB]">
-        <div className="pointer-events-none absolute left-[-12%] top-[-18%] h-[520px] w-[520px] rounded-full bg-[#F0EDFF]/70 blur-[120px]" />
-        <div className="pointer-events-none absolute right-[-10%] top-20 h-[430px] w-[430px] rounded-full bg-[#E9F6F6] blur-[110px]" />
 
         <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">

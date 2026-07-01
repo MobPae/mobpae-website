@@ -3,7 +3,7 @@ import { Loader2, CheckCircle2, Send } from "lucide-react";
 import axios from "axios";
 
 // Strip /api/v1 suffix — employer-enquiries lives at the root path
-const API_BASE = (import.meta.env.VITE_API_BASE_URL as string).replace(/\/api\/v1\/?$/, "");
+const API_BASE = (import.meta.env.VITE_API_BASE_URL as string || "").replace(/\/api\/v1\/?$/, "");
 
 const defaultMessage = "Tell us a little about your requirement";
 
@@ -84,23 +84,23 @@ export function EnquirySection() {
   }
 
   const inputClass =
-    "h-12 w-full rounded-full border border-[#E5E7EB] bg-white px-5 text-[13.5px] text-[#111827] placeholder-[#B7B9C7] outline-none transition focus:border-[#5B3CE3] focus:ring-3 focus:ring-[#F0EDFF]";
+    "h-12 w-full rounded-full border border-black/5 bg-white/50 backdrop-blur-sm px-5 text-[13.5px] text-[#111827] placeholder-[#B7B9C7] outline-none transition hover:bg-white/80 focus:border-[#5B3CE3] focus:ring-3 focus:ring-[#F0EDFF]";
 
   return (
-    <section id="contact" className="relative overflow-hidden bg-white py-20 lg:py-24">
+    <section id="contact" className="relative overflow-hidden py-20 lg:py-24">
 
       {/* Decorative brand glow behind the card */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#5B3CE3]/5 blur-[100px]" />
 
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="mb-8">
-          <h2 className="text-[40px] font-[700] leading-none tracking-normal text-[#111827] lg:text-[48px]">
+          <h2 className="text-[40px] font-[700] leading-none tracking-tighter text-[#111827] lg:text-[48px]">
             Book a demo
           </h2>
         </div>
 
         {/* Two-panel card */}
-        <div className="grid overflow-hidden rounded-[42px] border border-[#E5E7EB] bg-white shadow-[0_28px_90px_rgba(17,24,39,0.12)] lg:grid-cols-[0.95fr_1.35fr]">
+        <div className="grid overflow-hidden rounded-[42px] border border-white/50 bg-white/60 backdrop-blur-3xl shadow-[0_32px_90px_rgba(17,24,39,0.06)] lg:grid-cols-[0.95fr_1.35fr]">
 
           {/* ── LEFT — product context ── */}
           <div className="brand-dark-card relative flex flex-col justify-between overflow-hidden p-8 lg:p-10">
@@ -110,7 +110,7 @@ export function EnquirySection() {
                 Book a demo
               </p>
 
-              <h2 className="text-[28px] font-[700] leading-[1.08] tracking-normal text-white lg:text-[36px]">
+              <h2 className="text-[28px] font-[700] leading-[1.08] tracking-tighter text-white lg:text-[36px]">
                 Make salary access feel like a benefit, not a back-office process.
               </h2>
 
@@ -139,7 +139,7 @@ export function EnquirySection() {
           </div>
 
           {/* ── RIGHT — form ── */}
-          <form onSubmit={submitEnquiry} className="bg-white p-10">
+          <form onSubmit={submitEnquiry} className="bg-white/20 p-10">
             <div className="grid gap-4">
 
               {/* Row 1 */}
@@ -180,7 +180,7 @@ export function EnquirySection() {
                   value={form.message}
                   onChange={updateField}
                   placeholder="Tell us a little about your requirement"
-                  className="w-full rounded-[20px] border border-[#E5E7EB] bg-white px-5 py-3.5 text-[13.5px] text-[#111827] placeholder-[#B7B9C7] outline-none transition focus:border-[#5B3CE3] focus:ring-3 focus:ring-[#F0EDFF] resize-none"
+                  className="w-full rounded-[20px] border border-black/5 bg-white/50 backdrop-blur-sm px-5 py-3.5 text-[13.5px] text-[#111827] placeholder-[#B7B9C7] outline-none transition focus:border-[#5B3CE3] focus:ring-3 focus:ring-[#F0EDFF] resize-none hover:bg-white/80"
                 />
               </Field>
 

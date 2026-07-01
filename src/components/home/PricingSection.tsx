@@ -51,7 +51,7 @@ export function PricingSection() {
           </div>
 
           <h2
-            className="mt-5 text-[36px] font-[700] leading-[1.08] tracking-normal text-[#111827] lg:text-[48px]"
+            className="mt-5 text-[36px] font-[700] leading-[1.08] tracking-tighter text-[#111827] lg:text-[48px]"
           >
             One plan.{" "}
             <span className="text-[#5B3CE3]">Full access.</span>
@@ -83,7 +83,7 @@ export function PricingSection() {
 
               {/* Price */}
               <div className="mt-6 flex items-end gap-3">
-                <span className="text-[56px] font-[700] leading-none tracking-normal text-[#111827] sm:text-[68px]">
+                <span className="text-[56px] font-[700] leading-none tracking-tighter text-[#111827] sm:text-[68px]">
                   ₹499
                 </span>
                 <div className="mb-2 pb-0.5">

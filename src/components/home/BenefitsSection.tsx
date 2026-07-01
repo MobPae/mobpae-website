@@ -15,7 +15,7 @@ export function BenefitsSection() {
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
         <div className={`mx-auto max-w-3xl text-center reveal ${inView ? "in-view" : ""}`}>
           <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-[#4E32CA]">Why teams choose MobPae</p>
-          <h2 className="mt-5 text-[36px] font-[700] leading-[1] tracking-normal text-[#111827] lg:text-[48px]">
+          <h2 className="mt-5 text-[36px] font-[700] leading-[1] tracking-tighter text-[#111827] lg:text-[48px]">
             Built for financial wellness without losing control.
           </h2>
         </div>
@@ -27,7 +27,7 @@ export function BenefitsSection() {
                 <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-[#F0EDFF] text-[#4E32CA]">
                   <Building2 size={24} />
                 </div>
-                <h3 className="mt-6 text-[28px] font-[700] leading-[1.05] tracking-normal text-[#111827]">
+                <h3 className="mt-6 text-[28px] font-[700] leading-[1.05] tracking-tighter text-[#111827]">
                   Employer control center
                 </h3>
                 <p className="mt-4 text-[14px] leading-[1.8] text-[#6B7280]">
@@ -91,7 +91,7 @@ function FeatureTile({ icon, title, copy }: { icon: React.ReactNode; title: stri
       <div className="flex h-13 w-13 h-[52px] w-[52px] items-center justify-center rounded-3xl bg-[#F0EDFF] text-[#4E32CA]">
         {icon}
       </div>
-      <h3 className="mt-5 text-[21px] font-[700] tracking-normal text-[#111827]">{title}</h3>
+      <h3 className="mt-5 text-[21px] font-[700] tracking-tighter text-[#111827]">{title}</h3>
       <p className="mt-3 text-[13.5px] leading-[1.75] text-[#6B7280]">{copy}</p>
     </div>
   );
@@ -106,7 +106,7 @@ function InsightCard({ title, value, label }: { title: string; value: string; la
           <Gauge size={19} />
         </div>
         <p className="mt-5 text-[13px] font-[700] uppercase tracking-[0.12em] text-[#B7B9C7]">{title}</p>
-        <p className="mt-2 text-[34px] font-[700] leading-none tracking-normal text-[#111827]">{value}</p>
+        <p className="mt-2 text-[34px] font-[700] leading-none tracking-tighter text-[#111827]">{value}</p>
         <p className="mt-2 text-[13px] font-[700] text-[#8D90A3]">{label}</p>
       </div>
     </div>

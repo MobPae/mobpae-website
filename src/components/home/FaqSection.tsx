@@ -3,7 +3,7 @@ import { Plus, Minus, Mail, Loader2, CheckCircle2, Send } from "lucide-react";
 import axios from "axios";
 
 // Strip /api/v1 suffix — employer-enquiries lives at the root path
-const API_BASE = (import.meta.env.VITE_API_BASE_URL as string).replace(/\/api\/v1\/?$/, "");
+const API_BASE = (import.meta.env.VITE_API_BASE_URL as string || "").replace(/\/api\/v1\/?$/, "");
 
 const faqs = [
   { q: "What is MobPae?", a: "MobPae is an employer-backed salary access platform that lets employees withdraw a portion of their earned salary before payday — with no credit checks." },
@@ -96,10 +96,10 @@ export function FaqSection() {
   }
 
   const inputClass =
-    "w-full rounded-xl border border-[#E5E6EE] bg-[#F8F9FC] px-4 py-3 text-[13px] text-[#111827] placeholder-[#8D90A3] outline-none transition focus:border-[#5B3CE3] focus:ring-2 focus:ring-[#F0EDFF]";
+    "w-full rounded-xl border border-black/5 bg-white/50 backdrop-blur-sm px-4 py-3 text-[13px] text-[#111827] placeholder-[#8D90A3] outline-none transition hover:bg-white/80 focus:border-[#5B3CE3] focus:ring-2 focus:ring-[#F0EDFF]";
 
   return (
-    <section id="faq" className="relative overflow-hidden bg-[#F8F9FC] py-20">
+    <section id="faq" className="relative overflow-hidden py-20">
 
       {/* Blobs */}
       <div className="pointer-events-none absolute left-0 top-0 h-56 w-56 rounded-full bg-[#5B3CE3]/5 blur-[70px]" />
@@ -113,7 +113,7 @@ export function FaqSection() {
             <span className="h-1.5 w-1.5 rounded-full bg-[#5B3CE3]" />
             <span className="text-[11px] font-[700] uppercase tracking-[0.2em] text-[#5B3CE3]">FAQ & Contact</span>
           </div>
-          <h2 className="mt-5 text-[36px] font-[600] tracking-normal leading-[1.1] text-[#111827] lg:text-[42px]">
+          <h2 className="mt-5 text-[36px] font-[600] tracking-tighter leading-[1.1] text-[#111827] lg:text-[42px]">
             Everything you need to know
           </h2>
           <div className="mt-4 mx-auto h-0.5 w-16 bg-[#5B3CE3]" />
@@ -129,10 +129,11 @@ export function FaqSection() {
               return (
                 <div
                   key={i}
-                  className="overflow-hidden rounded-xl border transition-all duration-200"
+                  className="overflow-hidden rounded-xl border backdrop-blur-md transition-all duration-300"
                   style={{
-                    borderColor: isOpen ? "#F0EDFF" : "#E5E6EE",
-                    background: isOpen ? "#ffffff" : "#ffffff",
+                    borderColor: isOpen ? "rgba(255,255,255,0.8)" : "rgba(255,255,255,0.3)",
+                    background: isOpen ? "rgba(255,255,255,0.7)" : "rgba(255,255,255,0.4)",
+                    boxShadow: isOpen ? "0 8px 30px rgba(17,24,39,0.04)" : "none",
                   }}
                 >
                   <button
@@ -160,7 +161,7 @@ export function FaqSection() {
           <form
             id="contact"
             onSubmit={submitEnquiry}
-            className="rounded-2xl border border-[#F0EDFF] bg-white p-7 shadow-soft lg:sticky lg:top-24"
+            className="rounded-3xl border border-white/50 bg-white/60 backdrop-blur-2xl p-7 shadow-[0_20px_60px_rgba(17,24,39,0.05)] lg:sticky lg:top-24"
           >
             <div className="flex items-center gap-4 mb-6">
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#F7F7FF]">
