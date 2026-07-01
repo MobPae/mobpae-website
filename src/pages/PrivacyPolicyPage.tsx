@@ -30,7 +30,7 @@ const trustPoints = ["KYC and bank data are handled with role-based access", "Sa
 
 export function PrivacyPolicyPage() {
   return (
-    <main className="min-h-screen bg-[#F8F9FC]">
+    <main className="relative min-h-screen bg-transparent">
       <SEO
         title="Privacy Policy"
         description="Learn how MobPae collects, uses and protects employee, employer, salary access, KYC and bank verification data."
@@ -39,8 +39,6 @@ export function PrivacyPolicyPage() {
       <Navbar />
 
       <section className="relative overflow-hidden border-b border-[#E5E7EB]">
-        <div className="pointer-events-none absolute left-[-10%] top-[-20%] h-[460px] w-[460px] rounded-full bg-[#F0EDFF]/70 blur-[120px]" />
-        <div className="pointer-events-none absolute right-[-10%] top-20 h-[420px] w-[420px] rounded-full bg-[#E9F6F6] blur-[110px]" />
 
         <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">

@@ -30,8 +30,21 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-[1.6fr_1fr_1fr_1fr]">
           {/* Brand */}
           <div>
-            <div className="brightness-0 invert mb-6">
-              <BrandLogo iconClassName="h-8" />
+            <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center justify-center w-9 h-9 rounded-full bg-white shadow-sm">
+                <img
+                  src="/logo-icon.svg"
+                  alt="MobPae Icon"
+                  className="h-5 w-auto flex-shrink-0"
+                  style={{ objectFit: "contain" }}
+                />
+              </div>
+              <img
+                src="/logo-wordmark.svg"
+                alt="MobPae"
+                className="h-5 w-auto flex-shrink-0 brightness-0 invert"
+                style={{ objectFit: "contain" }}
+              />
             </div>
             <p className="max-w-[300px] text-[13.5px] leading-[1.8] text-[#8D90A3]">
               Financial flexibility for employees. Complete visibility and
@@ -92,11 +105,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row items-end justify-between gap-6">
-          <div className="text-[80px] md:text-[140px] font-[800] leading-[0.8] tracking-tighter text-white">
-            MobPae
-          </div>
-          <div className="text-right text-[12px] text-[#6B7280] leading-[1.6]">
+        <div className="mt-24 pt-8 border-t border-white/5 flex flex-col items-center justify-center">
+          <div className="text-center text-[12px] text-[#6B7280] leading-[1.6]">
             © {new Date().getFullYear()} MobPae.<br/>All rights reserved.
           </div>
         </div>

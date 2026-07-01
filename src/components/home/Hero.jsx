@@ -6,7 +6,7 @@ import { useMemo } from "react";
  * Each line has a unique angle, length, and staggered animation delay
  * to create a dynamic sunburst/starburst ripple effect.
  */
-function useRadialLines(count = 64) {
+function useRadialLines(count = 36) {
   return useMemo(() => {
     const lines = [];
     const angleStep = 360 / count;
@@ -15,10 +15,10 @@ function useRadialLines(count = 64) {
       const angle = i * angleStep;
       // Vary length so the pattern feels organic and covers full width
       const length = 600 + Math.sin(i * 0.7) * 150 + Math.cos(i * 1.3) * 80;
-      // Inner gap so lines don't crowd the center text
-      const innerRadius = 240 + Math.sin(i * 0.9) * 40;
+      // Inner gap so lines don't crowd the center text (pushed further out)
+      const innerRadius = 420 + Math.sin(i * 0.9) * 50;
       // Stagger delay — spiral wave pattern for "coming outward" feel
-      const delay = (i % 24) * 0.08;
+      const delay = (i % 12) * 0.12;
 
       lines.push({ angle, length, innerRadius, delay, index: i });
     }
@@ -27,7 +27,7 @@ function useRadialLines(count = 64) {
 }
 
 export function Hero() {
-  const lines = useRadialLines(64);
+  const lines = useRadialLines(36);
 
   return (
     <section className="hero-figma-section relative isolate overflow-hidden">

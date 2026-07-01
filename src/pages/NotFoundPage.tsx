@@ -6,7 +6,7 @@ import { SEO } from "../components/SEO";
 
 export function NotFoundPage() {
   return (
-    <main className="min-h-screen bg-[#F8F9FC]">
+    <main className="relative min-h-screen bg-transparent">
       <SEO
         title="Page Not Found"
         description="The MobPae page you are looking for could not be found."
@@ -15,8 +15,6 @@ export function NotFoundPage() {
       <Navbar />
 
       <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute left-[-12%] top-[-18%] h-[520px] w-[520px] rounded-full bg-[#F0EDFF]/70 blur-[120px]" />
-        <div className="pointer-events-none absolute right-[-10%] top-24 h-[460px] w-[460px] rounded-full bg-[#E9F6F6] blur-[110px]" />
 
         <div className="relative mx-auto flex min-h-[72vh] max-w-5xl flex-col items-center justify-center px-5 py-20 text-center sm:px-6">
           <div className="flex h-18 w-18 h-[72px] w-[72px] items-center justify-center rounded-[28px] bg-[#5B3CE3] text-white shadow-[0_22px_54px_rgba(15,23,42,0.24)]">

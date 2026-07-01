@@ -65,17 +65,17 @@ export function PremiumCampaign() {
           <div className="grid gap-5 lg:grid-cols-[1.08fr_0.92fr]">
             <div className="brand-dark-card premium-rise min-h-[680px] rounded-[44px] p-6 sm:p-8 lg:p-10">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="premium-chip inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-[11px] font-[700] uppercase tracking-[0.16em] text-white/75">
+                <span className="premium-chip inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-4 py-2 text-[11px] font-[700] uppercase tracking-[0.16em] text-white/75">
                   <Sparkles size={14} className="text-[#b8acff]" />
                   Built for salary moments
                 </span>
-                <span className="premium-chip inline-flex rounded-full bg-[#fdf6eb] px-4 py-2 text-[11px] font-[700] text-[#c7686b]">
+                <span className="premium-chip inline-flex rounded-full border border-[#f8e3d8] bg-[#fdf6eb] px-4 py-2 text-[11px] font-[700] text-[#c7686b]">
                   Not a loan-first product
                 </span>
               </div>
 
               <div className="premium-copy-enter mt-14 max-w-[780px]">
-                <div className="hero-strapline inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/10 px-4 py-2">
+                <div className="hero-strapline inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-4 py-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#fea1a2] shadow-[0_0_18px_rgba(254,161,162,0.8)]" />
                   <span className="text-[12px] font-[700] uppercase tracking-[0.18em] text-[#d8d2ff]">
                     Give salary access the calm it deserves
@@ -105,7 +105,7 @@ export function PremiumCampaign() {
                 </a>
                 <a
                   href="#workflow"
-                  className="premium-button inline-flex h-12 items-center justify-center rounded-full border border-white/12 bg-white/10 px-6 text-[14px] font-[700] text-white transition-all hover:-translate-y-1 hover:bg-white/15"
+                  className="premium-button inline-flex h-12 items-center justify-center rounded-full border border-white/12 bg-white/5 backdrop-blur-md px-6 text-[14px] font-[700] text-white transition-all hover:-translate-y-1 hover:bg-white/15"
                 >
                   Explore the idea
                 </a>
@@ -115,7 +115,7 @@ export function PremiumCampaign() {
                 {proofPoints.map(([value, label]) => (
                   <div
                     key={label}
-                    className="premium-stat rounded-[24px] border border-white/10 bg-white/10 p-4"
+                    className="premium-stat rounded-[24px] border border-white/10 bg-white/5 backdrop-blur-md p-4 transition-all duration-300 hover:bg-white/10 hover:border-white/20"
                   >
                     <p className="text-[26px] font-[700] leading-none tracking-tighter text-white">
                       {value}
@@ -129,8 +129,8 @@ export function PremiumCampaign() {
             </div>
 
             <div className="grid gap-5">
-              <div className="salary-orbit premium-rise premium-rise-delay relative min-h-[410px] overflow-hidden rounded-[44px] border border-[#ded7ff] bg-[#f7f5ff] shadow-[0_26px_80px_rgba(17,24,39,0.08)]">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(91,60,227,0.22),transparent_32%),radial-gradient(circle_at_15%_15%,rgba(254,161,162,0.18),transparent_24%),radial-gradient(circle_at_82%_18%,rgba(159,215,221,0.34),transparent_28%)]" />
+              <div className="salary-orbit premium-rise premium-rise-delay relative min-h-[410px] overflow-hidden rounded-[44px] border border-white/60 bg-white/40 backdrop-blur-2xl shadow-[0_26px_80px_rgba(17,24,39,0.05)]">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(91,60,227,0.15),transparent_32%),radial-gradient(circle_at_15%_15%,rgba(254,161,162,0.12),transparent_24%),radial-gradient(circle_at_82%_18%,rgba(159,215,221,0.22),transparent_28%)]" />
                 <div className="orbit-ring orbit-ring-one" />
                 <div className="orbit-ring orbit-ring-two" />
                 <div className="orbit-ring orbit-ring-three" />
@@ -143,7 +143,7 @@ export function PremiumCampaign() {
                 <div className="orbit-node orbit-node-three">
                   <Sparkles size={18} />
                 </div>
-                <div className="orbit-core absolute left-1/2 top-1/2 w-[250px] -translate-x-1/2 -translate-y-1/2 rounded-[38px] border border-white/70 bg-white/80 p-6 text-center shadow-[0_28px_80px_rgba(91,60,227,0.18)] backdrop-blur-2xl">
+                <div className="orbit-core absolute left-1/2 top-1/2 w-[250px] -translate-x-1/2 -translate-y-1/2 rounded-[38px] border border-white/80 bg-white/90 p-6 text-center shadow-[0_20px_50px_rgba(91,60,227,0.1)] backdrop-blur-xl">
                   <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-[22px] bg-[#5b3ce3] text-white">
                     <WalletCards size={25} />
                   </div>
@@ -160,7 +160,7 @@ export function PremiumCampaign() {
               </div>
 
               <div className="grid gap-5 sm:grid-cols-2">
-                <div className="premium-float-card rounded-[34px] border border-[#ded7ff] bg-white p-5 shadow-soft">
+                <div className="premium-float-card rounded-[34px] border border-white/60 bg-white/50 backdrop-blur-xl p-5 shadow-[0_12px_40px_rgba(17,24,39,0.03)]">
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#f0edff] text-[#5b3ce3]">
                     <WalletCards size={21} />
                   </div>
@@ -174,7 +174,7 @@ export function PremiumCampaign() {
                     clear available access
                   </p>
                 </div>
-                <div className="premium-float-card rounded-[34px] border border-[#f8e3d8] bg-[#fdf6eb] p-5 shadow-soft">
+                <div className="premium-float-card rounded-[34px] border border-[#f8e3d8]/80 bg-[#fdf6eb]/65 backdrop-blur-xl p-5 shadow-[0_12px_40px_rgba(17,24,39,0.03)]">
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-[#c7686b]">
                     <Landmark size={21} />
                   </div>

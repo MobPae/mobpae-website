@@ -88,7 +88,7 @@ export function ContactPage() {
     "h-13 min-h-[52px] w-full rounded-2xl border border-[#E5E7EB] bg-white px-4 text-[14px] font-[700] text-[#111827] placeholder-[#B7B9C7] outline-none transition focus:border-[#5B3CE3] focus:ring-4 focus:ring-[#F0EDFF]";
 
   return (
-    <main className="min-h-screen bg-[#F8F9FC]">
+    <main className="relative min-h-screen bg-transparent">
       <SEO
         title="Book a Demo"
         description="Contact MobPae to set up employer-backed salary access with controlled approvals, verification, payroll recovery and settlement visibility."
@@ -97,8 +97,6 @@ export function ContactPage() {
       <Navbar />
 
       <section className="relative overflow-hidden border-b border-[#E5E7EB]">
-        <div className="pointer-events-none absolute left-[-12%] top-[-18%] h-[520px] w-[520px] rounded-full bg-[#F0EDFF]/70 blur-[120px]" />
-        <div className="pointer-events-none absolute right-[-10%] top-24 h-[460px] w-[460px] rounded-full bg-[#E9F6F6] blur-[110px]" />
 
         <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">

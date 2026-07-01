@@ -49,7 +49,7 @@ const principles = ["Human before financial", "Simple beats clever", "Trust is a
 
 export function CareersPage() {
   return (
-    <main className="min-h-screen bg-[#F8F9FC]">
+    <main className="relative min-h-screen bg-transparent">
       <SEO
         title="Careers"
         description="Join MobPae to build employer-backed salary access technology that helps employees feel financially calmer before payday."
@@ -58,8 +58,6 @@ export function CareersPage() {
       <Navbar />
 
       <section className="relative overflow-hidden border-b border-[#E5E7EB]">
-        <div className="pointer-events-none absolute left-[-12%] top-[-18%] h-[520px] w-[520px] rounded-full bg-[#F0EDFF]/70 blur-[120px]" />
-        <div className="pointer-events-none absolute right-[-10%] top-24 h-[460px] w-[460px] rounded-full bg-[#E9F6F6] blur-[110px]" />
 
         <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:py-24">
           <div className="grid gap-12 lg:grid-cols-[0.86fr_1.14fr] lg:items-center">
