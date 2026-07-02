@@ -144,6 +144,10 @@ textarea {
   animation-duration: 15s;
 }
 
+.launch-flow-pulse {
+  animation: launch-flow-pulse 4.8s cubic-bezier(0.7, 0, 0.3, 1) infinite;
+}
+
 .launch-section-divider {
   position: relative;
   height: clamp(18px, 2.8vw, 42px);
@@ -192,10 +196,33 @@ textarea {
   }
 }
 
+@keyframes launch-flow-pulse {
+  0% {
+    left: 0%;
+    transform: translate(-50%, -50%) scale(0.72);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    transform: translate(-50%, -50%) scale(0.72);
+    opacity: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .launch-reveal,
   .launch-phone,
-  .launch-wave {
+  .launch-wave,
+  .launch-flow-pulse {
     animation: none;
   }
 }
