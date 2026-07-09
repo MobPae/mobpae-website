@@ -49,14 +49,14 @@ export function TermsPage() {
       <Navbar />
 
       <section className="relative overflow-hidden border-b border-[#E5E7EB]">
-        <div className="pointer-events-none absolute left-[-12%] top-[-18%] h-[520px] w-[520px] rounded-full bg-[#F0EDFF]/70 blur-[120px]" />
+        <div className="pointer-events-none absolute left-[-12%] top-[-18%] h-[520px] w-[520px] rounded-full bg-[#f1f5ff]/70 blur-[120px]" />
         <div className="pointer-events-none absolute right-[-10%] top-20 h-[430px] w-[430px] rounded-full bg-[#E9F6F6] blur-[110px]" />
 
         <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-[#E5E7EB] bg-white/86 px-4 py-2 shadow-[0_16px_42px_rgba(15,23,42,0.07)] backdrop-blur-xl">
-                <FileText size={14} className="text-[#4E32CA]" />
+                <FileText size={14} className="text-[#214be6]" />
                 <span className="text-[11px] font-[700] uppercase tracking-[0.18em] text-[#111827]">Terms of service</span>
               </div>
               <h1 className="mt-6 max-w-[650px] text-[42px] font-[700] leading-[0.96] tracking-normal text-[#111827] sm:text-[60px]">
@@ -102,8 +102,8 @@ export function TermsPage() {
             <article key={section.num} className="rounded-[32px] border border-[#E5E7EB] bg-white p-6 shadow-[0_14px_40px_rgba(15,23,42,0.045)]">
               <div className="grid gap-5 md:grid-cols-[120px_1fr] md:items-start">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#5B3CE3] text-[13px] font-[700] text-white">{section.num}</span>
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F0EDFF] text-[#4E32CA]">{section.icon}</span>
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#315eff] text-[13px] font-[700] text-white">{section.num}</span>
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f1f5ff] text-[#214be6]">{section.icon}</span>
                 </div>
                 <div>
                   <h2 className="text-[24px] font-[700] tracking-normal text-[#111827]">{section.title}</h2>
@@ -116,7 +116,7 @@ export function TermsPage() {
 
         <div className="mt-6 grid gap-5 lg:grid-cols-2">
           <div className="rounded-[34px] border border-[#E5E7EB] bg-white p-6 shadow-soft">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F0EDFF] text-[#4E32CA]">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f1f5ff] text-[#214be6]">
               <LockKeyhole size={21} />
             </div>
             <h2 className="mt-5 text-[24px] font-[700] tracking-normal text-[#111827]">Account safety</h2>
@@ -125,7 +125,7 @@ export function TermsPage() {
             </p>
           </div>
           <div className="rounded-[34px] border border-[#E5E7EB] bg-white p-6 shadow-soft">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F0EDFF] text-[#4E32CA]">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f1f5ff] text-[#214be6]">
               <Landmark size={21} />
             </div>
             <h2 className="mt-5 text-[24px] font-[700] tracking-normal text-[#111827]">Repayment clarity</h2>

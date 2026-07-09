@@ -58,14 +58,14 @@ export function CareersPage() {
       <Navbar />
 
       <section className="relative overflow-hidden border-b border-[#E5E7EB]">
-        <div className="pointer-events-none absolute left-[-12%] top-[-18%] h-[520px] w-[520px] rounded-full bg-[#F0EDFF]/70 blur-[120px]" />
+        <div className="pointer-events-none absolute left-[-12%] top-[-18%] h-[520px] w-[520px] rounded-full bg-[#f1f5ff]/70 blur-[120px]" />
         <div className="pointer-events-none absolute right-[-10%] top-24 h-[460px] w-[460px] rounded-full bg-[#E9F6F6] blur-[110px]" />
 
         <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:py-24">
           <div className="grid gap-12 lg:grid-cols-[0.86fr_1.14fr] lg:items-center">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-[#E5E7EB] bg-white/86 px-4 py-2 shadow-[0_16px_42px_rgba(15,23,42,0.07)] backdrop-blur-xl">
-                <Sparkles size={14} className="text-[#4E32CA]" />
+                <Sparkles size={14} className="text-[#214be6]" />
                 <span className="text-[11px] font-[700] uppercase tracking-[0.18em] text-[#111827]">Careers at MobPae</span>
               </div>
 
@@ -80,7 +80,7 @@ export function CareersPage() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
                   href="#roles"
-                  className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#5B3CE3] px-6 text-[14px] font-[700] text-white shadow-[0_22px_54px_rgba(15,23,42,0.24)] transition-all hover:-translate-y-1 hover:bg-[#4E32CA]"
+                  className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#315eff] px-6 text-[14px] font-[700] text-white shadow-[0_22px_54px_rgba(15,23,42,0.24)] transition-all hover:-translate-y-1 hover:bg-[#214be6]"
                 >
                   Explore roles
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
@@ -95,7 +95,7 @@ export function CareersPage() {
             </div>
 
             <div className="relative min-h-[500px]">
-              <div className="absolute inset-x-0 bottom-4 top-8 rounded-[44px] bg-gradient-to-br from-[#F0EDFF] via-[#E9F6F6] to-[#FDF6EB] shadow-[0_40px_100px_rgba(91,60,227,0.14)]" />
+              <div className="absolute inset-x-0 bottom-4 top-8 rounded-[44px] bg-gradient-to-br from-[#f1f5ff] via-[#E9F6F6] to-[#FDF6EB] shadow-[0_40px_100px_rgba(49,94,255,0.14)]" />
               <div className="absolute inset-x-3 bottom-8 top-0 overflow-hidden rounded-[40px] border border-white/40 bg-white shadow-[0_34px_90px_rgba(15,23,42,0.18)] lg:inset-x-8">
                 <img
                   src={careersTeamHero}
@@ -103,7 +103,7 @@ export function CareersPage() {
                   loading="eager"
                   className="h-full w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#F0EDFF]/35 via-transparent to-white/10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#f1f5ff]/35 via-transparent to-white/10" />
                 <div className="absolute bottom-6 left-6 right-6 rounded-[28px] border border-white/30 bg-white/88 p-5 shadow-soft backdrop-blur-xl">
                   <div className="grid gap-3 sm:grid-cols-3">
                     <HeroMetric value="Small" label="focused team" />
@@ -125,7 +125,7 @@ export function CareersPage() {
           <div className="grid gap-5 lg:grid-cols-3">
             {principles.map((item) => (
               <div key={item} className="rounded-[30px] border border-[#E5E7EB] bg-[#F8F9FC] p-6">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F0EDFF] text-[#4E32CA]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f1f5ff] text-[#214be6]">
                   <Users size={21} />
                 </div>
                 <p className="mt-5 text-[24px] font-[700] leading-tight tracking-normal text-[#111827]">{item}</p>
@@ -139,7 +139,7 @@ export function CareersPage() {
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="mb-10 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
             <div>
-              <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-[#4E32CA]">Open tracks</p>
+              <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-[#214be6]">Open tracks</p>
               <h2 className="mt-4 text-[36px] font-[700] leading-[1] tracking-normal text-[#111827] lg:text-[48px]">
                 Where you can build.
               </h2>
@@ -152,12 +152,12 @@ export function CareersPage() {
           <div className="grid gap-5 md:grid-cols-3">
             {roles.map((role) => (
               <article key={role.name} className="group rounded-[34px] border border-[#E5E7EB] bg-white p-6 shadow-[0_14px_40px_rgba(15,23,42,0.045)] transition-all hover:-translate-y-1 hover:shadow-soft">
-                <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-[#F0EDFF] text-[#4E32CA]">
+                <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-[#f1f5ff] text-[#214be6]">
                   {role.icon}
                 </div>
                 <h3 className="mt-6 text-[24px] font-[700] tracking-normal text-[#111827]">{role.name}</h3>
                 <p className="mt-3 text-[14px] leading-[1.8] text-[#6B7280]">{role.desc}</p>
-                <a href="mailto:careers@mobpae.com" className="mt-6 inline-flex items-center gap-2 text-[13px] font-[700] text-[#4E32CA] transition-all group-hover:gap-3">
+                <a href="mailto:careers@mobpae.com" className="mt-6 inline-flex items-center gap-2 text-[13px] font-[700] text-[#214be6] transition-all group-hover:gap-3">
                   Share your profile <ArrowRight size={15} />
                 </a>
               </article>
@@ -170,7 +170,7 @@ export function CareersPage() {
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
             <div>
-              <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-[#4E32CA]">Why MobPae</p>
+              <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-[#214be6]">Why MobPae</p>
               <h2 className="mt-4 text-[36px] font-[700] leading-[1] tracking-normal text-[#111827] lg:text-[48px]">
                 The work has a human edge.
               </h2>
@@ -182,7 +182,7 @@ export function CareersPage() {
             <div className="grid gap-5 sm:grid-cols-2">
               {benefits.map((benefit) => (
                 <div key={benefit.title} className="rounded-[32px] border border-[#E5E7EB] bg-[#F8F9FC] p-6 shadow-[0_12px_34px_rgba(15,23,42,0.035)]">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#5B3CE3] text-white">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#315eff] text-white">
                     {benefit.icon}
                   </div>
                   <h3 className="mt-5 text-[20px] font-[700] tracking-normal text-[#111827]">{benefit.title}</h3>

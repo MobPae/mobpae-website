@@ -44,14 +44,14 @@ export function EmployersPage() {
       <Navbar />
 
       <section className="relative overflow-hidden border-b border-[#E5E7EB]">
-        <div className="pointer-events-none absolute left-[-12%] top-[-18%] h-[520px] w-[520px] rounded-full bg-[#F0EDFF]/70 blur-[120px]" />
+        <div className="pointer-events-none absolute left-[-12%] top-[-18%] h-[520px] w-[520px] rounded-full bg-[#f1f5ff]/70 blur-[120px]" />
         <div className="pointer-events-none absolute right-[-10%] top-24 h-[460px] w-[460px] rounded-full bg-[#E9F6F6] blur-[110px]" />
 
         <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:py-24">
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-[#E5E7EB] bg-white/86 px-4 py-2 shadow-[0_16px_42px_rgba(15,23,42,0.07)] backdrop-blur-xl">
-                <Building2 size={14} className="text-[#4E32CA]" />
+                <Building2 size={14} className="text-[#214be6]" />
                 <span className="text-[11px] font-[700] uppercase tracking-[0.18em] text-[#111827]">For employers</span>
               </div>
               <h1 className="mt-6 max-w-[690px] text-[42px] font-[700] leading-[0.96] tracking-normal text-[#111827] sm:text-[64px]">
@@ -61,7 +61,7 @@ export function EmployersPage() {
                 MobPae helps employers support employees before payday with policy limits, approvals, verification, payroll recovery and settlement visibility.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <a href="/#contact" className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#5B3CE3] px-6 text-[14px] font-[700] text-white shadow-[0_22px_54px_rgba(15,23,42,0.24)] transition-all hover:-translate-y-1 hover:bg-[#4E32CA]">
+                <a href="/#contact" className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#315eff] px-6 text-[14px] font-[700] text-white shadow-[0_22px_54px_rgba(15,23,42,0.24)] transition-all hover:-translate-y-1 hover:bg-[#214be6]">
                   Request demo <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                 </a>
                 <a href="/security" className="inline-flex h-12 items-center justify-center rounded-full border border-[#E5E7EB] bg-white/86 px-6 text-[14px] font-[700] text-[#111827] shadow-[0_16px_36px_rgba(15,23,42,0.06)] backdrop-blur-xl transition-all hover:-translate-y-1 hover:text-[#111827]">
@@ -90,7 +90,7 @@ export function EmployersPage() {
                         <span className="text-[13px] font-[700] text-white">{item.value}</span>
                       </div>
                       <div className="h-2 rounded-full bg-white/10">
-                        <div className="h-full w-[72%] rounded-full bg-gradient-to-r from-[#B8ACFF] to-[#5B3CE3]" />
+                        <div className="h-full w-[72%] rounded-full bg-gradient-to-r from-[#b6c6ff] to-[#315eff]" />
                       </div>
                     </div>
                   ))}
@@ -104,7 +104,7 @@ export function EmployersPage() {
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="mb-12 max-w-3xl">
-            <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-[#4E32CA]">Employer workflow</p>
+            <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-[#214be6]">Employer workflow</p>
             <h2 className="mt-4 text-[36px] font-[700] leading-[1] tracking-normal text-[#111827] lg:text-[48px]">
               A benefit that fits payroll operations.
             </h2>
@@ -114,10 +114,10 @@ export function EmployersPage() {
             {employerSteps.map((step, index) => (
               <article key={step.title} className="rounded-[32px] border border-[#E5E7EB] bg-[#F8F9FC] p-6 shadow-[0_12px_34px_rgba(15,23,42,0.035)]">
                 <div className="flex items-center justify-between">
-                  <div className="flex h-13 w-13 h-[52px] w-[52px] items-center justify-center rounded-3xl bg-[#F0EDFF] text-[#4E32CA]">
+                  <div className="flex h-13 w-13 h-[52px] w-[52px] items-center justify-center rounded-3xl bg-[#f1f5ff] text-[#214be6]">
                     {step.icon}
                   </div>
-                  <span className="text-[12px] font-[700] text-[#4E32CA]">0{index + 1}</span>
+                  <span className="text-[12px] font-[700] text-[#214be6]">0{index + 1}</span>
                 </div>
                 <h3 className="mt-6 text-[21px] font-[700] tracking-normal text-[#111827]">{step.title}</h3>
                 <p className="mt-3 text-[13.5px] leading-[1.75] text-[#6B7280]">{step.copy}</p>
@@ -161,7 +161,7 @@ export function EmployersPage() {
 function EmployerMetric({ icon, value, label }: { icon: React.ReactNode; value: string; label: string }) {
   return (
     <div className="rounded-[34px] border border-[#E5E7EB] bg-white p-6 shadow-soft">
-      <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-[#5B3CE3] text-white">
+      <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-[#315eff] text-white">
         {icon}
       </div>
       <h3 className="mt-6 text-[25px] font-[700] leading-tight tracking-normal text-[#111827]">{value}</h3>

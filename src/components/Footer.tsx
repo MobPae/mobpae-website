@@ -31,49 +31,49 @@ export function Footer() {
             <div className="flex flex-col gap-3.5 text-[13.5px]">
               <a
                 href="/#why-mobpae"
-                className="text-[#6B7280] transition hover:text-[#5B3CE3]"
+                className="text-[#6B7280] transition hover:text-[#315eff]"
               >
                 Why MobPae
               </a>
               <a
                 href="/for-employers"
-                className="text-[#6B7280] transition hover:text-[#5B3CE3]"
+                className="text-[#6B7280] transition hover:text-[#315eff]"
               >
                 For Employers
               </a>
               <a
                 href="/security"
-                className="text-[#6B7280] transition hover:text-[#5B3CE3]"
+                className="text-[#6B7280] transition hover:text-[#315eff]"
               >
                 Security
               </a>
               <a
                 href="/contact"
-                className="text-[#6B7280] transition hover:text-[#5B3CE3]"
+                className="text-[#6B7280] transition hover:text-[#315eff]"
               >
                 Book Demo
               </a>
               <a
                 href="/#how-it-works"
-                className="text-[#6B7280] transition hover:text-[#5B3CE3]"
+                className="text-[#6B7280] transition hover:text-[#315eff]"
               >
                 How It Works
               </a>
               <a
                 href="/#benefits"
-                className="text-[#6B7280] transition hover:text-[#5B3CE3]"
+                className="text-[#6B7280] transition hover:text-[#315eff]"
               >
                 Benefits
               </a>
               <a
                 href="/#pricing"
-                className="text-[#6B7280] transition hover:text-[#5B3CE3]"
+                className="text-[#6B7280] transition hover:text-[#315eff]"
               >
                 Pricing
               </a>
               <a
                 href="/#faq"
-                className="text-[#6B7280] transition hover:text-[#5B3CE3]"
+                className="text-[#6B7280] transition hover:text-[#315eff]"
               >
                 FAQ
               </a>
@@ -88,19 +88,19 @@ export function Footer() {
             <div className="flex flex-col gap-3.5 text-[13.5px]">
               <a
                 href="/privacy-policy"
-                className="text-[#6B7280] transition hover:text-[#5B3CE3]"
+                className="text-[#6B7280] transition hover:text-[#315eff]"
               >
                 Privacy Policy
               </a>
               <a
                 href="/terms"
-                className="text-[#6B7280] transition hover:text-[#5B3CE3]"
+                className="text-[#6B7280] transition hover:text-[#315eff]"
               >
                 Terms &amp; Conditions
               </a>
               <a
                 href="/careers"
-                className="text-[#6B7280] transition hover:text-[#5B3CE3]"
+                className="text-[#6B7280] transition hover:text-[#315eff]"
               >
                 Careers
               </a>
@@ -115,22 +115,22 @@ export function Footer() {
             <div className="flex flex-col gap-3.5">
               <a
                 href="mailto:support@mobpae.com"
-                className="flex items-center gap-3 text-[13.5px] text-[#6B7280] transition hover:text-[#5B3CE3]"
+                className="flex items-center gap-3 text-[13.5px] text-[#6B7280] transition hover:text-[#315eff]"
               >
-                <Mail size={14} className="text-[#5B3CE3] flex-shrink-0" />
+                <Mail size={14} className="text-[#315eff] flex-shrink-0" />
                 support@mobpae.com
               </a>
               <a
                 href="tel:+919227012145"
-                className="flex items-center gap-3 text-[13.5px] text-[#6B7280] transition hover:text-[#5B3CE3]"
+                className="flex items-center gap-3 text-[13.5px] text-[#6B7280] transition hover:text-[#315eff]"
               >
-                <Phone size={14} className="text-[#5B3CE3] flex-shrink-0" />
+                <Phone size={14} className="text-[#315eff] flex-shrink-0" />
                 +91 92270 12145
               </a>
               <div className="flex items-start gap-3 text-[13.5px] text-[#6B7280]">
                 <MapPin
                   size={14}
-                  className="mt-0.5 flex-shrink-0 text-[#5B3CE3]"
+                  className="mt-0.5 flex-shrink-0 text-[#315eff]"
                 />
                 <span>Gujarat, Ahmedabad - 382470</span>
               </div>
@@ -138,9 +138,9 @@ export function Footer() {
                 href="https://www.linkedin.com/company/mobpae"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-3 text-[13.5px] text-[#6B7280] transition hover:text-[#5B3CE3]"
+                className="flex items-center gap-3 text-[13.5px] text-[#6B7280] transition hover:text-[#315eff]"
               >
-                <span className="flex h-[15px] w-[15px] items-center justify-center rounded-[3px] bg-[#5B3CE3] text-[8px] font-[600] text-white flex-shrink-0">
+                <span className="flex h-[15px] w-[15px] items-center justify-center rounded-[3px] bg-[#315eff] text-[8px] font-[600] text-white flex-shrink-0">
                   in
                 </span>
                 LinkedIn

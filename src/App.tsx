@@ -13,6 +13,7 @@ import {
   HelpCenterPage,
   HowItWorksPage,
   PrivacyPolicyPage,
+  TeamPage,
   TermsPage,
 } from "./pages/WebsitePages";
 
@@ -27,6 +28,8 @@ function App() {
         <Route path="/how-it-works" element={<HowItWorksPage />} />
         <Route path="/faqs" element={<FaqsPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/team" element={<TeamPage />} />
+        <Route path="/teams" element={<TeamPage />} />
         <Route path="/careers" element={<CareersPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/contact" element={<ContactPage />} />

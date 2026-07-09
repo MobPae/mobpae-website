@@ -11,11 +11,11 @@ const FEATURES = [
 
 function Check() {
   return (
-    <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[#5B3CE3]/12">
+    <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[#315eff]/12">
       <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
         <path
           d="M2.5 6.5L5 9L9.5 3.5"
-          stroke="#5B3CE3"
+          stroke="#315eff"
           strokeWidth="1.8"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -36,16 +36,16 @@ export function PricingSection() {
       className="relative overflow-hidden bg-white pt-20 pb-24"
     >
       {/* Glow blobs */}
-      <div className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-[#5B3CE3]/12 blur-[100px]" />
-      <div className="pointer-events-none absolute -right-32 top-1/3 h-72 w-72 rounded-full bg-[#5B3CE3]/8 blur-[90px]" />
+      <div className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-[#315eff]/12 blur-[100px]" />
+      <div className="pointer-events-none absolute -right-32 top-1/3 h-72 w-72 rounded-full bg-[#315eff]/8 blur-[90px]" />
 
       <div className="relative mx-auto max-w-7xl px-6">
 
         {/* Header */}
         <div className={`text-center reveal ${sectionInView ? "in-view" : ""}`}>
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#F0EDFF] bg-[#F7F7FF] px-4 py-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#5B3CE3]" />
-            <span className="text-[11px] font-[700] uppercase tracking-[0.2em] text-[#5B3CE3]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#f1f5ff] bg-[#F7F7FF] px-4 py-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#315eff]" />
+            <span className="text-[11px] font-[700] uppercase tracking-[0.2em] text-[#315eff]">
               Pricing
             </span>
           </div>
@@ -54,7 +54,7 @@ export function PricingSection() {
             className="mt-5 text-[36px] font-[700] leading-[1.08] tracking-normal text-[#111827] lg:text-[48px]"
           >
             One plan.{" "}
-            <span className="text-[#5B3CE3]">Full access.</span>
+            <span className="text-[#315eff]">Full access.</span>
           </h2>
 
           <p className={`mt-4 mx-auto max-w-[440px] text-[15px] leading-[1.8] text-[#8D90A3] reveal delay-150 ${sectionInView ? "in-view" : ""}`}>
@@ -69,14 +69,14 @@ export function PricingSection() {
         >
           <div className="overflow-hidden rounded-[32px] border border-[#E5E7EB] bg-white shadow-[0_32px_90px_rgba(36,38,95,0.16)]">
 
-            <div className="h-[4px] bg-gradient-to-r from-[#B8ACFF] via-[#5B3CE3] to-[#4E32CA]" />
+            <div className="h-[4px] bg-gradient-to-r from-[#b6c6ff] via-[#315eff] to-[#214be6]" />
 
             <div className="px-8 pt-8 pb-9 sm:px-10">
 
               {/* Plan badge */}
               <div className="inline-flex items-center gap-2 rounded-full bg-[#F7F7FF] px-3.5 py-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#5B3CE3]" />
-                <span className="text-[11px] font-[700] uppercase tracking-[0.18em] text-[#5B3CE3]">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#315eff]" />
+                <span className="text-[11px] font-[700] uppercase tracking-[0.18em] text-[#315eff]">
                   MobPae Premium Plan
                 </span>
               </div>
@@ -122,7 +122,7 @@ export function PricingSection() {
               {/* CTA */}
               <a
                 href="#contact"
-                className="mt-6 flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-[#5B3CE3] to-[#4E32CA] py-3.5 text-[14px] font-[600] text-white transition-all hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(91,60,227,0.26)]"
+                className="mt-6 flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-[#315eff] to-[#214be6] py-3.5 text-[14px] font-[600] text-white transition-all hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(49,94,255,0.26)]"
               >
                 Get Started
               </a>
@@ -133,7 +133,7 @@ export function PricingSection() {
         {/* Bottom note */}
         <p className={`mt-10 text-center text-[12.5px] text-[#6B7280] reveal delay-200 ${sectionInView ? "in-view" : ""}`}>
           Employers are billed separately for platform access.{" "}
-          <a href="#contact" className="text-[#5B3CE3] underline underline-offset-3 hover:text-[#9787FF]">
+          <a href="#contact" className="text-[#315eff] underline underline-offset-3 hover:text-[#6f8cff]">
             Contact us
           </a>{" "}
           for employer pricing.

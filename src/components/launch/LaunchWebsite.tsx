@@ -2,13 +2,11 @@ import {
   ArrowRight,
   BadgeCheck,
   BarChart3,
-  Bell,
   BriefcaseBusiness,
   Check,
   CheckCircle2,
   ChevronDown,
   FileCheck2,
-  Globe2,
   Heart,
   HelpCircle,
   Landmark,
@@ -25,7 +23,9 @@ import {
 import { useEffect, useMemo, useState } from "react";
 import type { ReactNode } from "react";
 
-const API_BASE = ((import.meta.env.VITE_API_BASE_URL as string | undefined) || "").replace(/\/api\/v1\/?$/, "");
+const API_BASE = (
+  (import.meta.env.VITE_API_BASE_URL as string | undefined) || ""
+).replace(/\/api\/v1\/?$/, "");
 
 type FormState = {
   companyName: string;
@@ -60,33 +60,7 @@ const navLinks = [
   { label: "How It Works", href: "/how-it-works" },
   { label: "Resources", href: "/help-center", dropdown: true },
   { label: "About Us", href: "/about" },
-];
-
-const ecosystemCards = [
-  {
-    title: "Public Website",
-    copy: "Employers discover MobPae and start the enquiry conversation.",
-    icon: Globe2,
-    color: "#4F7DFF",
-  },
-  {
-    title: "Employer Portal",
-    copy: "Onboard teams, approve requests and track recoveries.",
-    icon: BriefcaseBusiness,
-    color: "#FF8A1F",
-  },
-  {
-    title: "Employee App",
-    copy: "Access, track, repay and manage setup on the go.",
-    icon: Users,
-    color: "#6C4CFF",
-  },
-  {
-    title: "Admin Portal",
-    copy: "Full control, compliance workflows and settlement visibility.",
-    icon: ShieldCheck,
-    color: "#6C4CFF",
-  },
+  { label: "Team", href: "/team" },
 ];
 
 const journey = [
@@ -94,7 +68,7 @@ const journey = [
     label: "Employee raises a request",
     copy: "They see eligibility, timing and repayment before submitting.",
     icon: Users,
-    color: "#6C4CFF",
+    color: "#315eff",
   },
   {
     label: "Employer reviews context",
@@ -144,7 +118,7 @@ const employerBenefits = [
     title: "Reduce salary stress",
     copy: "Give teams a safer path before payday pressure becomes distraction.",
     icon: Users,
-    color: "#CBD4FF",
+    color: "#cbd7ff",
   },
   {
     title: "Cut manual follow-ups",
@@ -168,7 +142,7 @@ const employerBenefits = [
     title: "Clear operating record",
     copy: "Approvals, disbursals, recoveries and settlements stay visible.",
     icon: BarChart3,
-    color: "#AFA4FF",
+    color: "#a9bcff",
   },
 ];
 
@@ -214,10 +188,12 @@ export function LaunchWebsite() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    document.title = "MobPae | Employer-Backed Salary Access";
+    document.title = "MobPae | Your Trusted Financial Partner";
     const description =
-      "MobPae helps employers offer controlled earned salary access with approvals, disbursal tracking and payroll recovery visibility.";
-    let meta = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+      "MobPae helps employers offer responsible earned salary access through approvals, NBFC partnerships, disbursal tracking and payroll-linked recovery visibility.";
+    let meta = document.querySelector<HTMLMetaElement>(
+      'meta[name="description"]'
+    );
     if (!meta) {
       meta = document.createElement("meta");
       meta.name = "description";
@@ -254,7 +230,11 @@ export function LaunchWebsite() {
     });
   }, [activeFaq, query]);
 
-  function updateField(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
+  function updateField(
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) {
     const { name, value } = e.target;
     setForm((prev) => ({
       ...prev,
@@ -269,7 +249,8 @@ export function LaunchWebsite() {
     const nextErrors: FormErrors = {};
     if (!form.companyName.trim()) nextErrors.companyName = "Required";
     if (!form.email.trim()) nextErrors.email = "Required";
-    else if (!/^\S+@\S+\.\S+$/.test(form.email)) nextErrors.email = "Invalid email";
+    else if (!/^\S+@\S+\.\S+$/.test(form.email))
+      nextErrors.email = "Invalid email";
     if (!form.phone.trim()) nextErrors.phone = "Required";
     else if (form.phone.length < 10) nextErrors.phone = "Must be 10 digits";
     if (!form.message.trim()) nextErrors.message = "Required";
@@ -289,11 +270,16 @@ export function LaunchWebsite() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           companyName: form.companyName,
-          contactPerson: form.contactName || form.companyName || "Website employer enquiry",
+          contactPerson:
+            form.contactName || form.companyName || "Website employer enquiry",
           email: form.email,
           phone: form.phone,
-          employeeCount: form.employeeCount ? Number.parseInt(form.employeeCount.replace(/\D/g, ""), 10) || null : null,
-          message: [form.interest, form.message || "Website employer enquiry"].filter(Boolean).join(" - "),
+          employeeCount: form.employeeCount
+            ? Number.parseInt(form.employeeCount.replace(/\D/g, ""), 10) || null
+            : null,
+          message: [form.interest, form.message || "Website employer enquiry"]
+            .filter(Boolean)
+            .join(" - "),
         }),
       });
       if (!response.ok) {
@@ -317,22 +303,26 @@ export function LaunchWebsite() {
   }
 
   return (
-    <main className="launch-site min-h-screen bg-white text-[#0B1026]">
-      <section className="bg-[#070A1E]">
-        <div className="relative overflow-hidden bg-[#070A1E] text-white">
+    <main className="launch-site min-h-screen bg-white text-[#21185F]">
+      <section className="border-b border-[#dce5ff] bg-white">
+        <div className="relative overflow-hidden bg-white text-[#21185F]">
           <HeroAtmosphere />
-          <div className="relative z-10 mx-auto max-w-[1440px] px-5 py-5 sm:px-8 lg:px-12">
-            <header className="flex items-center justify-between">
-              <a href="/" className="flex items-center gap-3" aria-label="MobPae home">
+          <div className="relative z-10 mx-auto max-w-[1240px] px-5 py-5 sm:px-8 lg:px-10">
+            <header className="flex min-h-14 items-center justify-between">
+              <a
+                href="/"
+                className="flex items-center gap-3"
+                aria-label="MobPae home"
+              >
                 <MobPaeLogo />
               </a>
 
-              <nav className="hidden items-center gap-9 lg:flex">
+              <nav className="hidden items-center gap-7 rounded-full border border-[#eef3ff] bg-white/86 px-5 py-3 shadow-[0_16px_42px_rgba(49,94,255,0.06)] backdrop-blur-xl lg:flex">
                 {navLinks.map((link) => (
                   <a
                     key={link.label}
                     href={link.href}
-                    className="inline-flex items-center gap-1 text-[13px] font-[650] text-white/82 transition hover:text-white"
+                    className="inline-flex items-center gap-1 text-[12px] font-[760] text-[#5F657A] transition hover:text-[#315eff]"
                   >
                     {link.label}
                     {link.dropdown && <ChevronDown size={13} />}
@@ -343,7 +333,7 @@ export function LaunchWebsite() {
               <button
                 type="button"
                 onClick={openEnquiry}
-                className="hidden h-12 items-center justify-center rounded-xl bg-[#6C4CFF] px-7 text-[13px] font-[800] text-white shadow-[0_18px_44px_rgba(91,60,227,0.44)] transition hover:-translate-y-0.5 hover:bg-[#5B3CE3] lg:inline-flex"
+                className="hidden h-11 items-center justify-center rounded-full bg-[#315eff] px-6 text-[13px] font-[850] text-white shadow-[0_16px_34px_rgba(49,94,255,0.28)] transition hover:-translate-y-0.5 hover:bg-[#214be6] lg:inline-flex"
               >
                 Book a Demo
               </button>
@@ -351,7 +341,7 @@ export function LaunchWebsite() {
               <button
                 type="button"
                 onClick={() => setMenuOpen((prev) => !prev)}
-                className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/12 bg-white/8 text-white lg:hidden"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[#e2e9ff] bg-white text-[#315eff] shadow-[0_12px_30px_rgba(49,94,255,0.1)] lg:hidden"
                 aria-label="Toggle navigation"
               >
                 {menuOpen ? <X size={18} /> : <Menu size={18} />}
@@ -359,14 +349,14 @@ export function LaunchWebsite() {
             </header>
 
             {menuOpen && (
-              <div className="mt-4 rounded-2xl border border-white/10 bg-white/8 p-3 backdrop-blur-xl lg:hidden">
+              <div className="mt-4 rounded-2xl border border-[#e2e9ff] bg-white/92 p-3 shadow-[0_20px_60px_rgba(49,94,255,0.12)] backdrop-blur-xl lg:hidden">
                 <div className="grid gap-1">
                   {navLinks.map((link) => (
                     <a
                       key={link.label}
                       href={link.href}
                       onClick={() => setMenuOpen(false)}
-                      className="rounded-xl px-4 py-3 text-[14px] font-[700] text-white/82 transition hover:bg-white/8"
+                      className="rounded-xl px-4 py-3 text-[14px] font-[700] text-[#4F5872] transition hover:bg-[#f5f7ff] hover:text-[#315eff]"
                     >
                       {link.label}
                     </a>
@@ -375,50 +365,71 @@ export function LaunchWebsite() {
               </div>
             )}
 
-            <div className="grid min-h-[680px] items-center gap-10 py-12 lg:min-h-[700px] lg:grid-cols-[0.92fr_1.08fr] lg:py-16">
-              <div className="max-w-[720px]">
-                <div className="launch-reveal inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/8 px-4 py-2 text-[12px] font-[700] text-white/82 backdrop-blur-xl">
-                  <Sparkles size={14} className="fill-[#F7A047] text-[#F7A047]" />
+            <div className="launch-hero-stage grid min-h-[650px] items-center gap-12 py-12 sm:py-14 lg:grid-cols-[0.88fr_1.12fr] lg:py-16">
+              <div className="max-w-[700px]">
+                <div className="launch-reveal inline-flex items-center gap-2 rounded-full border border-[#dce5ff] bg-white px-4 py-2 text-[12px] font-[800] text-[#315eff] shadow-[0_12px_34px_rgba(49,94,255,0.08)]">
+                  <Sparkles
+                    size={14}
+                    className="fill-[#F7A047] text-[#F7A047]"
+                  />
                   Employer-backed earned salary access
                 </div>
 
-                <h1 className="launch-reveal mt-7 text-[46px] font-[900] leading-[1.04] tracking-[-0.045em] text-white sm:text-[64px] lg:text-[78px]">
-                  Beating your
+                <h1
+                  className="launch-reveal mt-7 max-w-[720px] text-[38px] leading-[0.98] tracking-normal sm:text-[56px]"
+                  style={{
+                    fontFamily:
+                      '"TASA Orbiter Display SemiBold", "TASA Orbiter Display SemiBold Placeholder", sans-serif',
+                    fontFeatureSettings: "normal",
+                    fontStyle: "normal"
+                  }}
+                >
+                  <span className="text-[#315eff]">Your Trusted</span>
                   <br />
-                  month end{" "}
-                  <span className="bg-gradient-to-r from-[#7B61FF] via-[#E778A8] to-[#F3A34E] bg-clip-text text-transparent">
-                    crunch.
+                  <span
+                    className="text-[#21185F]"
+                    style={{ fontFamily: '"TASA Orbiter Display Black", sans-serif' }}
+                  >
+                    Financial{" "}
+                    Partner.
                   </span>
                 </h1>
 
-                <p className="launch-reveal mt-7 max-w-[620px] text-[16px] font-[500] leading-[1.85] text-white/70">
-                  Offer earned salary access without turning payroll into a support queue. Employees see what they can
-                  access and when it gets recovered; employers keep approval, disbursal and settlement visibility.
+                <p className="launch-reveal mt-7 max-w-[610px] text-[16px] font-[520] leading-[1.78] text-[#5F657A]">
+                  Offer earned salary access without turning payroll into a
+                  support queue. Employees see what they can access and when it
+                  gets recovered; employers keep approval, disbursal and
+                  settlement visibility.
                 </p>
 
-                <div className="launch-reveal mt-10 flex flex-wrap gap-4">
+                <div className="launch-reveal mt-10 flex flex-wrap gap-3">
                   <button
                     type="button"
                     onClick={openEnquiry}
-                    className="inline-flex h-14 items-center gap-4 rounded-xl bg-[#6C4CFF] px-8 text-[14px] font-[900] text-white shadow-[0_18px_48px_rgba(91,60,227,0.48)] transition hover:-translate-y-0.5 hover:bg-[#5B3CE3]"
+                    className="inline-flex h-13 min-h-[52px] items-center gap-3 rounded-full bg-[#315eff] px-7 text-[14px] font-[900] text-white shadow-[0_18px_42px_rgba(49,94,255,0.28)] transition hover:-translate-y-0.5 hover:bg-[#214be6]"
                   >
                     Book a Demo <ArrowRight size={18} />
                   </button>
                   <a
                     href="/employers"
-                    className="inline-flex h-14 items-center gap-4 rounded-xl border border-white/18 px-8 text-[14px] font-[800] text-white transition hover:-translate-y-0.5 hover:bg-white/8"
+                    className="inline-flex h-13 min-h-[52px] items-center gap-3 rounded-full border border-[#dce5ff] bg-white px-7 text-[14px] font-[850] text-[#315eff] shadow-[0_16px_34px_rgba(49,94,255,0.08)] transition hover:-translate-y-0.5 hover:bg-[#f8faff]"
                   >
                     Explore for Employers <ArrowRight size={18} />
                   </a>
                 </div>
 
-                <div className="launch-reveal mt-12 flex flex-wrap gap-3">
-                  {["Approval-led", "Cutoff-aware", "No debt trap", "Clear recovery"].map((item) => (
+                <div className="launch-reveal mt-10 grid max-w-[620px] grid-cols-2 gap-3 sm:grid-cols-4">
+                  {[
+                    "Approval-led",
+                    "Cutoff-aware",
+                    "No debt trap",
+                    "Clear recovery",
+                  ].map((item) => (
                     <span
                       key={item}
-                      className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.07] px-4 py-2 text-[12px] font-[800] text-white/72 backdrop-blur-xl"
+                      className="inline-flex min-h-11 items-center gap-2 rounded-2xl border border-[#e2e9ff] bg-white px-3 text-[12px] font-[820] text-[#4F5872] shadow-[0_10px_26px_rgba(49,94,255,0.05)]"
                     >
-                      <Check size={13} className="text-[#AFA4FF]" />
+                      <Check size={13} className="text-[#a9bcff]" />
                       {item}
                     </span>
                   ))}
@@ -431,17 +442,11 @@ export function LaunchWebsite() {
         </div>
       </section>
 
-      <SectionWaveDivider background="#070A1D" fill="#F8FAFF" />
       <CrunchCalmSection />
-      <SectionWaveDivider background="#F8FAFF" fill="#FBFCFF" flip />
       <EcosystemSection />
-      <SectionWaveDivider background="#FBFCFF" fill="#090B24" flip />
       <ImpactSection />
-      <SectionWaveDivider background="#090B24" fill="#FFFFFF" />
       <JourneySection />
-      <SectionWaveDivider background="#FFFFFF" fill="#080B22" flip />
       <EmployerBenefitsSection />
-      <SectionWaveDivider background="#080B22" fill="#F3F5FF" />
       <EnquiryFaqSection
         query={query}
         setQuery={setQuery}
@@ -469,19 +474,6 @@ export function LaunchWebsite() {
   );
 }
 
-function SectionWaveDivider({ background, fill, flip = false }: { background: string; fill: string; flip?: boolean }) {
-  return (
-    <div className="launch-section-divider" style={{ backgroundColor: background }} aria-hidden="true">
-      <svg className={flip ? "scale-x-[-1]" : ""} viewBox="0 0 1440 42" preserveAspectRatio="none">
-        <path
-          fill={fill}
-          d="M0 18C180 14 308 17 470 20C632 23 790 25 960 20C1130 15 1268 10 1440 15V42H0V18Z"
-        />
-      </svg>
-    </div>
-  );
-}
-
 function EnquiryDialog({
   form,
   errors,
@@ -497,7 +489,11 @@ function EnquiryDialog({
   loading: boolean;
   success: string;
   error: string;
-  updateField: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
+  updateField: (
+    event: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => void;
   submitEnquiry: (event: React.FormEvent) => void;
   onClose: () => void;
 }) {
@@ -506,7 +502,7 @@ function EnquiryDialog({
       <button
         type="button"
         aria-label="Close enquiry form"
-        className="absolute inset-0 cursor-default bg-[#050817]/70 backdrop-blur-md"
+        className="absolute inset-0 cursor-default bg-[#f5f7ff]/82 backdrop-blur-md"
         onClick={onClose}
       />
       <form
@@ -514,22 +510,28 @@ function EnquiryDialog({
         role="dialog"
         aria-modal="true"
         aria-labelledby="enquiry-dialog-title"
-        className="relative max-h-[88vh] w-full max-w-[720px] overflow-y-auto rounded-[30px] border border-white/70 bg-white p-6 shadow-[0_34px_120px_rgba(5,8,23,0.34)] sm:p-8"
+        className="relative max-h-[88vh] w-full max-w-[720px] overflow-y-auto rounded-[30px] border border-[#dce5ff] bg-white p-6 shadow-[0_34px_120px_rgba(49,94,255,0.18)] sm:p-8"
       >
         <div className="flex items-start justify-between gap-5">
           <div>
-            <p className="text-[11px] font-[900] uppercase tracking-[0.22em] text-[#5B3CE3]">Employer Enquiry</p>
-            <h3 id="enquiry-dialog-title" className="mt-3 text-[28px] font-[900] leading-[1.12] tracking-[-0.03em] text-[#0B1026]">
+            <p className="text-[11px] font-[900] uppercase tracking-[0.22em] text-[#315eff]">
+              Employer Enquiry
+            </p>
+            <h3
+              id="enquiry-dialog-title"
+              className="mt-3 text-[28px] font-[900] leading-[1.12] tracking-[-0.03em] text-[#0B1026]"
+            >
               Start with a quick hello.
             </h3>
             <p className="mt-3 max-w-[520px] text-[14px] font-[500] leading-[1.75] text-[#667085]">
-              Share the basics. Our team will contact you to schedule the right conversation before onboarding.
+              Share the basics. Our team will contact you to schedule the right
+              conversation before onboarding.
             </p>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#F2F0FF] text-[#5B3CE3] transition hover:bg-[#E8E4FF]"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#f3f6ff] text-[#315eff] transition hover:bg-[#e8eeff]"
             aria-label="Close enquiry form"
           >
             <X size={18} />
@@ -538,13 +540,33 @@ function EnquiryDialog({
 
         <div className="mt-7 grid gap-5 sm:grid-cols-2">
           <Field label="Company" error={errors.companyName}>
-            <input name="companyName" value={form.companyName} onChange={updateField} placeholder="Northstar Retail" className="launch-input" />
+            <input
+              name="companyName"
+              value={form.companyName}
+              onChange={updateField}
+              placeholder="Northstar Retail"
+              className="launch-input"
+            />
           </Field>
           <Field label="Email" error={errors.email}>
-            <input name="email" type="email" value={form.email} onChange={updateField} placeholder="rohan@company.com" className="launch-input" />
+            <input
+              name="email"
+              type="email"
+              value={form.email}
+              onChange={updateField}
+              placeholder="rohan@company.com"
+              className="launch-input"
+            />
           </Field>
           <Field label="Mobile Number" error={errors.phone}>
-            <input name="phone" value={form.phone} onChange={updateField} placeholder="92270 12145" className="launch-input" inputMode="numeric" />
+            <input
+              name="phone"
+              value={form.phone}
+              onChange={updateField}
+              placeholder="92270 12145"
+              className="launch-input"
+              inputMode="numeric"
+            />
           </Field>
           <div className="sm:col-span-2">
             <Field label="Message" error={errors.message}>
@@ -562,7 +584,10 @@ function EnquiryDialog({
 
         {success && (
           <div className="mt-5 flex items-start gap-3 rounded-2xl border border-emerald-100 bg-emerald-50 px-4 py-3">
-            <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-emerald-600" />
+            <CheckCircle2
+              size={16}
+              className="mt-0.5 shrink-0 text-emerald-600"
+            />
             <p className="text-[13px] font-[700] text-emerald-700">{success}</p>
           </div>
         )}
@@ -575,13 +600,18 @@ function EnquiryDialog({
         <button
           type="submit"
           disabled={loading}
-          className="mt-7 flex h-14 w-full items-center justify-center gap-3 rounded-xl bg-[#6C4CFF] text-[14px] font-[900] text-white shadow-[0_18px_44px_rgba(91,60,227,0.32)] transition hover:bg-[#5B3CE3] disabled:opacity-60"
+          className="mt-7 flex h-14 w-full items-center justify-center gap-3 rounded-xl bg-[#315eff] text-[14px] font-[900] text-white shadow-[0_18px_44px_rgba(49,94,255,0.32)] transition hover:bg-[#315eff] disabled:opacity-60"
         >
-          {loading ? <Loader2 size={16} className="animate-spin" /> : "Submit Employer Enquiry"}
+          {loading ? (
+            <Loader2 size={16} className="animate-spin" />
+          ) : (
+            "Submit Employer Enquiry"
+          )}
           {!loading && <ArrowRight size={17} />}
         </button>
         <p className="mt-4 text-center text-[11px] font-[650] text-[#8A90A3]">
-          One enquiry form. No spam. We contact you to schedule the right conversation.
+          One enquiry form. No spam. We contact you to schedule the right
+          conversation.
         </p>
       </form>
     </div>
@@ -591,194 +621,158 @@ function EnquiryDialog({
 function HeroAtmosphere() {
   return (
     <>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_28%,rgba(91,60,227,0.42),transparent_31%),radial-gradient(circle_at_18%_12%,rgba(203,212,255,0.12),transparent_28%),linear-gradient(135deg,#070A1F_0%,#0C102F_55%,#070A1D_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_18%,rgba(49,94,255,0.12),transparent_30%),radial-gradient(circle_at_18%_12%,rgba(203,212,255,0.22),transparent_28%),linear-gradient(180deg,#FFFFFF_0%,#FFFFFF_72%,#FBFCFF_100%)]" />
       <div
-        className="absolute inset-0 opacity-[0.14]"
+        className="absolute inset-0 opacity-[0.28]"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.75) 1px, transparent 1px)",
+          backgroundImage:
+            "radial-gradient(circle, rgba(49,94,255,0.12) 1px, transparent 1px)",
           backgroundSize: "30px 30px",
         }}
       />
-      <div className="absolute right-[10%] top-[18%] hidden h-[560px] w-[560px] rounded-full border border-[#6C4CFF]/18 lg:block" />
-      <div className="absolute right-[15%] top-[25%] hidden h-[410px] w-[410px] rounded-full border border-dashed border-[#6C4CFF]/32 lg:block" />
+      <div className="absolute bottom-0 left-0 h-24 w-full bg-[linear-gradient(180deg,transparent,#ffffff)]" />
+      <div className="absolute right-[8%] top-[18%] hidden h-[540px] w-[540px] rounded-full border border-[#315eff]/10 lg:block" />
     </>
   );
 }
 
 function HeroProductVisual() {
   return (
-    <div className="relative mx-auto h-[520px] w-full max-w-[650px] sm:h-[590px] lg:h-[620px]">
-      <div className="absolute left-[8%] top-[12%] h-[440px] w-[440px] rounded-full border border-white/14 lg:left-[2%] lg:top-[12%]" />
-      <div className="absolute left-[14%] top-[20%] h-[320px] w-[320px] rounded-full border border-dashed border-[#7B61FF]/30 lg:left-[8%]" />
-      <div className="absolute right-[8%] top-[10%] hidden h-[360px] w-[360px] rounded-full bg-[#6C4CFF]/10 blur-3xl lg:block" />
-      <HeroCrunchRail />
+    <div className="salary-command-center relative mx-auto w-full max-w-[650px]">
+      <div className="salary-beam salary-beam-one" />
+      <div className="salary-beam salary-beam-two" />
 
-      <div className="launch-phone absolute left-1/2 top-[47%] z-20 w-[260px] -translate-x-1/2 -translate-y-1/2 rotate-[8deg] rounded-[38px] border border-white/16 bg-[#12102E] p-4 shadow-[0_42px_110px_rgba(0,0,0,0.74)] sm:w-[292px] lg:left-[31%] lg:top-1/2">
-        <div className="mb-5 flex items-center justify-between px-2 text-[11px] font-[800] text-white/35">
-          <span>9:41</span>
-          <span className="h-5 w-16 rounded-full bg-black/45" />
-          <span>5G</span>
-        </div>
-        <div className="flex items-center justify-between px-2">
+      <div className="salary-dashboard">
+        <div className="salary-dashboard-header">
           <div>
-            <p className="text-[15px] font-[850] text-white">Hello, Rohan 👋</p>
-            <p className="mt-1 text-[11px] font-[650] text-white/42">Available to access</p>
+            <span>Employer Portal</span>
+            <strong>Payroll access control</strong>
           </div>
-          <Bell size={15} className="text-white/50" />
+          <button type="button">Live</button>
         </div>
-        <div className="mt-4 rounded-3xl border border-white/10 bg-[#2F207A]/58 p-5">
-          <p className="text-[36px] font-[900] tracking-tight text-white">₹5,000</p>
-          <p className="mt-1 text-[11px] font-[700] text-white/45">of ₹15,000 limit</p>
-          <div className="mt-4 h-2 rounded-full bg-white/12">
-            <div className="h-full w-1/3 rounded-full bg-[#7B61FF]" />
-          </div>
-        </div>
-        <button className="mt-4 h-12 w-full rounded-2xl bg-[#6C4CFF] text-[13px] font-[900] text-white">
-          Request Advance
-        </button>
-        <div className="mt-6 px-2 pb-4">
-          <p className="text-[10px] font-[900] uppercase tracking-[0.16em] text-white/32">This month activity</p>
-          <PhoneActivity label="Advance Approved" date="12 May 2024" amount="₹5,000" />
-          <PhoneActivity label="Repayment Deducted" date="30 Apr 2024" amount="₹5,000" muted />
-          <a href="#ecosystem" className="mt-2 block text-right text-[11px] font-[800] text-[#A695FF]">
-            View all
-          </a>
-        </div>
-      </div>
 
-      <div className="absolute right-0 top-[76px] z-30 hidden w-[282px] rounded-[28px] border border-white/12 bg-white/[0.09] p-5 text-white shadow-[0_28px_90px_rgba(0,0,0,0.32)] backdrop-blur-2xl lg:block">
-        <div className="flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#6C4CFF] text-white">
-            <ShieldCheck size={20} />
-          </span>
-          <div>
-            <p className="text-[14px] font-[900]">Payroll-safe access</p>
-            <p className="mt-1 text-[11px] font-[650] text-white/48">Every step is visible before payout.</p>
+        <div className="salary-dashboard-grid">
+          <div className="salary-metric salary-metric-primary">
+            <span>Available salary access</span>
+            <strong>₹18.4L</strong>
+            <p>Across approved employees</p>
+          </div>
+          <div className="salary-metric">
+            <span>Pending review</span>
+            <strong>24</strong>
+            <p>Policy-aware requests</p>
+          </div>
+          <div className="salary-metric">
+            <span>Recovery cycle</span>
+            <strong>98%</strong>
+            <p>Mapped to salary date</p>
           </div>
         </div>
-        <div className="mt-5 grid gap-3">
+
+        <div className="salary-flow-card">
           {[
-            ["Request", "Employee sees eligibility"],
-            ["Approval", "Employer policy applies"],
-            ["Recovery", "Cycle mapped to payday"],
-          ].map(([title, copy], index) => (
-            <div key={title} className="flex items-center gap-3 rounded-2xl border border-white/9 bg-white/[0.06] p-3">
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-[11px] font-[900] text-[#5B3CE3]">
-                {index + 1}
-              </span>
-              <span>
-                <span className="block text-[12px] font-[900] text-white">{title}</span>
-                <span className="block text-[10px] font-[650] text-white/45">{copy}</span>
-              </span>
+            ["Request", "Employee confirms eligibility", "01"],
+            ["Approval", "Employer policy applies", "02"],
+            ["Disbursal", "Payout tracked", "03"],
+            ["Recovery", "Payroll cycle closes", "04"],
+          ].map(([title, copy, step]) => (
+            <div key={title} className="salary-flow-row">
+              <span>{step}</span>
+              <div>
+                <strong>{title}</strong>
+                <p>{copy}</p>
+              </div>
+              <CheckCircle2 size={16} />
             </div>
           ))}
         </div>
       </div>
 
-      <div className="absolute bottom-[122px] right-[28px] z-30 hidden w-[250px] rounded-[26px] border border-white/12 bg-[#0B1026]/78 p-5 text-white shadow-[0_28px_90px_rgba(0,0,0,0.34)] backdrop-blur-xl lg:block">
-        <div className="flex items-center justify-between">
-          <p className="text-[11px] font-[900] uppercase tracking-[0.18em] text-white/42">Cycle view</p>
-          <span className="rounded-full bg-[#21C985]/12 px-3 py-1 text-[10px] font-[900] text-[#79E3B2]">Mapped</span>
-        </div>
-        <div className="mt-5 grid gap-4">
-          {[
-            ["Cutoff window", "Policy decides cycle"],
-            ["Payday recovery", "Auto-visible to teams"],
-          ].map(([title, copy]) => (
-            <div key={title} className="flex items-start gap-3">
-              <span className="mt-1 h-2.5 w-2.5 rounded-full bg-[#AFA4FF]" />
-              <span>
-                <span className="block text-[13px] font-[900]">{title}</span>
-                <span className="mt-1 block text-[11px] font-[600] text-white/46">{copy}</span>
-              </span>
-            </div>
-          ))}
-        </div>
+      <div className="salary-floating-card salary-floating-card-right">
+        <span>Employee view</span>
+        <strong>₹5,000</strong>
+        <p>Eligible today with clear recovery</p>
       </div>
-    </div>
-  );
-}
-
-function HeroCrunchRail() {
-  return (
-    <div className="absolute bottom-2 right-0 z-30 hidden w-[360px] rounded-[24px] border border-white/12 bg-[#0A0D27]/76 p-4 shadow-[0_24px_80px_rgba(0,0,0,0.34)] backdrop-blur-xl lg:block">
-      <div className="flex items-center justify-between gap-4 text-[11px] font-[900] uppercase tracking-[0.16em]">
-        <span className="text-[#F3A34E]">Crunch</span>
-        <span className="text-white/36">MobPae</span>
-        <span className="text-[#AFA4FF]">Calm</span>
-      </div>
-      <div className="relative mt-4 h-2 overflow-hidden rounded-full bg-white/10">
-        <div className="absolute inset-y-0 left-0 w-full bg-[linear-gradient(90deg,#F3A34E_0%,#E778A8_34%,#7B61FF_64%,#21C985_100%)] opacity-90" />
-        <span className="launch-flow-pulse absolute top-1/2 h-4 w-4 -translate-y-1/2 rounded-full border-2 border-white bg-[#6C4CFF] shadow-[0_0_28px_rgba(123,97,255,0.78)]" />
-      </div>
-      <p className="mt-4 text-[11px] font-[700] leading-[1.55] text-white/56">
-        Requests, approvals and recovery move through one controlled salary cycle.
-      </p>
     </div>
   );
 }
 
 function CrunchCalmSection() {
-  const beats = [
+  const moments = [
     {
-      title: "Pressure builds",
-      copy: "Employees need help before payday, but ad-hoc advances create confusion.",
-      tone: "from-[#FDF6EB] to-white",
+      label: "Before MobPae",
+      title: "Month-end requests scatter across chats and calls.",
+      copy: "Employees need help, HR needs context, finance needs control and everyone is chasing status.",
       accent: "#F3A34E",
     },
     {
-      title: "MobPae organizes the ask",
-      copy: "Eligibility, approvals and verification move through one controlled path.",
-      tone: "from-[#ECEBFF] to-white",
-      accent: "#6C4CFF",
+      label: "With MobPae",
+      title: "The request becomes a controlled workflow.",
+      copy: "Eligibility, employer policy, approvals and disbursal status move through one visible operating path.",
+      accent: "#315eff",
     },
     {
-      title: "Payroll stays calm",
-      copy: "Recoveries follow cutoff and salary-date logic instead of manual guesswork.",
-      tone: "from-[#E9F6F6] to-white",
+      label: "After Payday",
+      title: "Recovery closes around the payroll rhythm.",
+      copy: "Cutoff dates, salary dates and settlement records stay aligned, so payroll does not become a support queue.",
       accent: "#21C985",
     },
   ];
 
   return (
-    <section className="relative overflow-hidden bg-[#F8FAFF] px-5 py-20 sm:px-8 lg:px-12">
-      <div className="launch-wave absolute -left-28 top-8 h-44 w-[520px] opacity-[0.18]" />
-      <div className="launch-wave launch-wave-reverse absolute -right-28 bottom-4 h-44 w-[520px] opacity-[0.18]" />
-      <div className="relative mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[0.36fr_0.64fr] lg:items-center">
-        <div>
-          <p className="text-[11px] font-[900] uppercase tracking-[0.24em] text-[#5B3CE3]">The MobPae Moment</p>
-          <h2 className="mt-5 max-w-[460px] text-[32px] font-[900] leading-[1.08] tracking-[-0.035em] text-[#0B1026] lg:text-[44px]">
-            Turn month-end panic into a controlled payday rhythm.
-          </h2>
-          <p className="mt-5 max-w-[430px] text-[15px] font-[500] leading-[1.85] text-[#667085]">
-            MobPae is not just a request button. It gives cash-flow pressure a guided path, so employees stay informed
-            and employers stay in control.
+    <section className="relative overflow-hidden border-t border-[#dce5ff] bg-white px-5 py-20 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-[1180px]">
+        <div className="grid gap-10 lg:grid-cols-[0.48fr_0.52fr] lg:items-end">
+          <div>
+            <p className="text-[11px] font-[900] uppercase tracking-[0.24em] text-[#315eff]">
+              The MobPae Moment
+            </p>
+            <h2 className="mt-5 max-w-[580px] text-[32px] font-[900] leading-[1.12] tracking-normal text-[#21185F]">
+              From scattered salary asks to one controlled payday rhythm.
+            </h2>
+          </div>
+          <p className="max-w-[540px] text-[15px] font-[500] leading-[1.85] text-[#667085]">
+            MobPae gives employers a structured way to respond before payday:
+            every request has context, every approval has visibility and every
+            recovery follows the payroll cycle.
           </p>
         </div>
 
-        <div className="relative">
-          <div className="absolute left-[8%] right-[8%] top-1/2 hidden h-px -translate-y-1/2 bg-[linear-gradient(90deg,transparent,#C9BFFF,transparent)] lg:block" />
-          <div className="grid gap-4 md:grid-cols-3">
-            {beats.map((beat, index) => (
-              <article
-                key={beat.title}
-                className={`relative overflow-hidden rounded-[30px] border border-white bg-gradient-to-br ${beat.tone} p-6 shadow-[0_22px_80px_rgba(15,23,42,0.07)]`}
-              >
-                <span
-                  className="flex h-12 w-12 items-center justify-center rounded-2xl text-[13px] font-[900] text-white shadow-[0_16px_34px_rgba(15,23,42,0.16)]"
-                  style={{ backgroundColor: beat.accent }}
-                >
-                  {index + 1}
+        <div className="mt-12 grid border-y border-[#dce5ff] lg:grid-cols-3">
+          {moments.map((moment, index) => (
+            <div
+              key={moment.title}
+              className="relative min-h-[320px] border-b border-[#e2e9ff] p-7 last:border-b-0 lg:border-b-0 lg:border-r lg:last:border-r-0"
+            >
+              <div
+                className="absolute inset-x-7 top-0 h-1.5"
+                style={{ backgroundColor: moment.accent }}
+              />
+              <div className="flex items-start justify-between gap-4">
+                <p className="text-[11px] font-[950] uppercase tracking-[0.18em] text-[#315eff]">
+                  {moment.label}
+                </p>
+                <span className="text-[54px] font-[950] leading-none text-[#d7e0ff]">
+                  0{index + 1}
                 </span>
-                <h3 className="mt-8 text-[18px] font-[900] tracking-[-0.02em] text-[#0B1026]">{beat.title}</h3>
-                <p className="mt-3 text-[13px] font-[600] leading-[1.72] text-[#667085]">{beat.copy}</p>
+              </div>
+              <h3 className="mt-24 max-w-[300px] text-[24px] font-[950] leading-[1.08] text-[#21185F]">
+                {moment.title}
+              </h3>
+              <p className="mt-4 max-w-[320px] text-[14px] font-[600] leading-[1.76] text-[#667085]">
+                {moment.copy}
+              </p>
+              <div className="absolute bottom-7 left-7 right-7 h-1 overflow-hidden rounded-full bg-[#eef3ff]">
                 <div
-                  className="absolute -bottom-14 -right-12 h-32 w-32 rounded-full opacity-[0.15]"
-                  style={{ backgroundColor: beat.accent }}
+                  className="h-full rounded-full"
+                  style={{
+                    width: `${index === 0 ? 34 : index === 1 ? 72 : 100}%`,
+                    backgroundColor: moment.accent,
+                  }}
                 />
-              </article>
-            ))}
-          </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -786,80 +780,128 @@ function CrunchCalmSection() {
 }
 
 function EcosystemSection() {
-  const nodePositions = [
-    "lg:left-8 lg:top-10",
-    "lg:right-8 lg:top-10",
-    "lg:left-8 lg:bottom-10",
-    "lg:right-8 lg:bottom-10",
+  const layers = [
+    {
+      title: "Employer Portal",
+      copy: "Approvals, policy context and payroll visibility stay with the employer.",
+      icon: BriefcaseBusiness,
+      color: "#FF8A1F",
+      action: "Approve",
+    },
+    {
+      title: "Employee App",
+      copy: "Employees see access, status, repayment and pending setup in one place.",
+      icon: Users,
+      color: "#315eff",
+      action: "Access",
+    },
+    {
+      title: "Admin Operations",
+      copy: "Verification, disbursal tracking and settlement checks stay traceable.",
+      icon: ShieldCheck,
+      color: "#315eff",
+      action: "Operate",
+    },
+    {
+      title: "Payroll Recovery",
+      copy: "Recoveries close against cutoff rules, salary dates and settlement records.",
+      icon: FileCheck2,
+      color: "#21C985",
+      action: "Recover",
+    },
   ];
 
   return (
-    <section id="ecosystem" className="relative overflow-hidden bg-[#FBFCFF] px-5 py-20 sm:px-8 lg:px-12">
-      <div className="relative z-10 mx-auto max-w-[1320px]">
-        <div className="grid gap-12 lg:grid-cols-[0.43fr_0.57fr] lg:items-center">
-          <div>
-            <p className="text-[11px] font-[900] uppercase tracking-[0.24em] text-[#5B3CE3]">Product Ecosystem</p>
-            <h2 className="mt-5 max-w-[560px] text-[34px] font-[900] leading-[1.08] tracking-[-0.035em] text-[#0B1026] lg:text-[48px]">
-              One operating layer for the salary-access journey.
-            </h2>
-            <p className="mt-6 max-w-[500px] text-[15px] font-[500] leading-[1.85] text-[#667085]">
-              MobPae connects discovery, employee access, employer approval and admin operations without making teams
-              chase updates across disconnected tools.
+    <section
+      id="ecosystem"
+      className="relative overflow-hidden border-t border-[#dce5ff] bg-white px-5 py-20 sm:px-8 lg:px-12"
+    >
+      <div className="relative z-10 mx-auto max-w-[1180px]">
+        <div className="grid gap-12 lg:grid-cols-[0.36fr_0.64fr] lg:items-start">
+          <div className="lg:sticky lg:top-8">
+            <p className="text-[11px] font-[900] uppercase tracking-[0.24em] text-[#315eff]">
+              Product Ecosystem
             </p>
-
-            <div className="mt-9 grid gap-3">
-              {[
-                ["Public entry point", "Employers can enquire without exposing internal workflows."],
-                ["Employer control", "Requests stay policy-aware and approval-led."],
-                ["Employee clarity", "Every setup, request and recovery status stays visible."],
-                ["Admin oversight", "Verification, disbursal and settlement work from one view."],
-              ].map(([title, copy]) => (
-                <div key={title} className="flex gap-4 rounded-2xl border border-[#E7EAF4] bg-white/70 p-4">
-                  <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#ECEBFF] text-[#5B3CE3]">
-                    <Check size={15} />
-                  </span>
-                  <span>
-                    <span className="block text-[14px] font-[900] text-[#0B1026]">{title}</span>
-                    <span className="mt-1 block text-[12px] font-[600] leading-[1.6] text-[#667085]">{copy}</span>
-                  </span>
-                </div>
-              ))}
-            </div>
+            <h2 className="mt-5 max-w-[440px] text-[32px] font-[900] leading-[1.12] tracking-normal text-[#21185F]">
+              One operating layer, four clear responsibilities.
+            </h2>
+            <p className="mt-6 max-w-[390px] text-[15px] font-[500] leading-[1.85] text-[#667085]">
+              The ecosystem is a simple accountability model: who approves, who
+              accesses, who operates and how payroll recovery closes.
+            </p>
           </div>
 
-          <div className="relative min-h-[620px] overflow-hidden rounded-[36px] border border-[#E4E7F4] bg-[linear-gradient(135deg,#FFFFFF_0%,#F4F2FF_48%,#EEF7FF_100%)] p-6 shadow-[0_26px_90px_rgba(15,23,42,0.08)] lg:p-8">
-            <div className="absolute inset-0 opacity-[0.34]" style={{ backgroundImage: "radial-gradient(circle, rgba(91,60,227,0.18) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
-            <svg className="absolute inset-0 hidden h-full w-full lg:block" viewBox="0 0 760 620" fill="none" aria-hidden="true">
-              <path d="M180 145 C 270 215, 310 250, 380 310 C 460 380, 510 410, 590 485" stroke="#CBD4FF" strokeWidth="2" strokeDasharray="7 8" />
-              <path d="M580 145 C 490 215, 450 250, 380 310 C 300 380, 250 410, 170 485" stroke="#CBD4FF" strokeWidth="2" strokeDasharray="7 8" />
-              <path d="M130 310 C 250 290, 500 290, 630 310" stroke="#D9D5FF" strokeWidth="2" strokeDasharray="7 8" />
-            </svg>
-
-            <div className="absolute left-1/2 top-1/2 z-20 hidden h-[170px] w-[170px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white bg-[#0B1026] text-center shadow-[0_28px_80px_rgba(91,60,227,0.18)] lg:flex">
-              <span>
-                <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-white">
-                  <img src="/brand/mobpae-icon-color.png" alt="" className="h-8 w-8 object-contain" />
-                </span>
-                <span className="mt-4 block text-[18px] font-[900] text-white">MobPae</span>
-                <span className="mt-1 block text-[11px] font-[700] uppercase tracking-[0.18em] text-white/44">Core platform</span>
-              </span>
-            </div>
-
-            <div className="relative z-10 grid gap-4 sm:grid-cols-2 lg:block lg:min-h-[560px]">
-              {ecosystemCards.map(({ icon: Icon, title, copy, color }, index) => (
-                <article
-                  key={title}
-                  className={`rounded-[26px] border border-white/80 bg-white/78 p-5 shadow-[0_20px_60px_rgba(15,23,42,0.07)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:bg-white lg:absolute lg:w-[255px] ${nodePositions[index]}`}
-                >
+          <div className="border-y border-[#dce5ff]">
+            {layers.map(({ title, copy, icon: Icon, color, action }, index) => (
+              <div
+                key={title}
+                className="grid gap-5 border-b border-[#e2e9ff] py-6 last:border-b-0 sm:grid-cols-[88px_1fr_120px] sm:items-center"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="text-[36px] font-[950] leading-none text-[#b7c7ff]">
+                    0{index + 1}
+                  </span>
                   <div
-                    className="flex h-12 w-12 items-center justify-center rounded-2xl text-white shadow-[0_16px_36px_rgba(15,23,42,0.16)]"
+                    className="flex h-12 w-12 items-center justify-center rounded-lg text-white shadow-[0_16px_34px_rgba(49,94,255,0.14)]"
                     style={{ backgroundColor: color }}
                   >
                     <Icon size={22} />
                   </div>
-                  <h3 className="mt-5 text-[17px] font-[900] tracking-[-0.01em] text-[#0B1026]">{title}</h3>
-                  <p className="mt-2 text-[13px] font-[500] leading-[1.65] text-[#667085]">{copy}</p>
-                </article>
+                </div>
+                <div>
+                  <h3 className="text-[22px] font-[950] leading-[1.1] text-[#21185F]">
+                    {title}
+                  </h3>
+                  <p className="mt-2 max-w-[560px] text-[13px] font-[600] leading-[1.7] text-[#667085]">
+                    {copy}
+                  </p>
+                </div>
+                <span className="w-fit justify-self-start rounded-lg bg-[#f5f7ff] px-3 py-2 text-[11px] font-[950] uppercase tracking-[0.14em] text-[#315eff] sm:justify-self-end">
+                  {action}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-12 overflow-hidden border-y border-[#dce5ff] bg-[#fbfcff]">
+          <div
+            className="absolute inset-x-0 bottom-0 hidden h-40 opacity-[0.28] lg:block"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(49,94,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(49,94,255,0.08) 1px, transparent 1px)",
+              backgroundSize: "34px 34px",
+            }}
+          />
+          <div className="relative z-10 grid lg:grid-cols-[0.32fr_0.68fr]">
+            <div className="border-b border-[#dce5ff] p-6 lg:border-b-0 lg:border-r lg:p-8">
+              <p className="text-[11px] font-[900] uppercase tracking-[0.2em] text-[#315eff]">
+                System Shape
+              </p>
+              <h3 className="mt-4 max-w-[300px] text-[28px] font-[950] leading-[1.08] text-[#21185F]">
+                A controlled path from request to recovery.
+              </h3>
+            </div>
+            <div className="grid md:grid-cols-3">
+              {[
+                ["Request clarity", "Employees understand eligibility and repayment before submitting."],
+                ["Approval control", "Employers keep policy context before money moves."],
+                ["Payroll closure", "Recovery follows salary-cycle and settlement logic."],
+              ].map(([title, copy], index) => (
+                <div
+                  key={title}
+                  className="min-h-[190px] border-b border-[#e2e9ff] p-6 last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0"
+                >
+                  <span className="text-[12px] font-[950] uppercase tracking-[0.18em] text-[#b7c7ff]">
+                    0{index + 1}
+                  </span>
+                  <h4 className="mt-12 text-[18px] font-[950] text-[#21185F]">
+                    {title}
+                  </h4>
+                  <p className="mt-3 text-[13px] font-[600] leading-[1.7] text-[#667085]">
+                    {copy}
+                  </p>
+                </div>
               ))}
             </div>
           </div>
@@ -871,29 +913,69 @@ function EcosystemSection() {
 
 function ImpactSection() {
   return (
-    <section className="relative overflow-hidden bg-[#090B24] px-5 py-20 text-white sm:px-8 lg:px-12">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_90%_20%,rgba(91,60,227,0.38),transparent_30%),linear-gradient(135deg,#080A20_0%,#151039_100%)]" />
-      <div className="launch-wave absolute bottom-0 right-0 h-64 w-[620px] opacity-35" />
-      <div className="launch-wave launch-wave-reverse absolute left-[-140px] top-10 h-52 w-[520px] opacity-20" />
-      <div className="relative mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
-        <div>
-          <p className="text-[11px] font-[900] uppercase tracking-[0.24em] text-[#AFA4FF]">Operating Foundation</p>
-          <h2 className="mt-4 max-w-[430px] text-[32px] font-[900] leading-[1.12] tracking-[-0.035em] lg:text-[44px]">
+    <section className="relative overflow-hidden border-t border-[#dce5ff] bg-white px-5 py-20 text-[#21185F] sm:px-8 lg:px-12">
+      <div className="relative mx-auto max-w-[1180px]">
+        <div className="grid gap-10 lg:grid-cols-[0.42fr_0.58fr] lg:items-start">
+          <div className="relative overflow-hidden bg-[#315eff] p-7 text-white sm:p-9">
+            <div
+              className="absolute inset-0 opacity-20"
+              style={{
+                backgroundImage:
+                  "linear-gradient(rgba(255,255,255,0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.35) 1px, transparent 1px)",
+                backgroundSize: "38px 38px",
+              }}
+            />
+            <div className="relative z-10">
+              <p className="text-[11px] font-[900] uppercase tracking-[0.24em] text-white/72">
+                Operating Foundation
+              </p>
+          <h2 className="mt-4 max-w-[430px] text-[32px] font-[900] leading-[1.12] tracking-normal text-white">
             Built for controlled employer rollouts
           </h2>
-          <p className="mt-5 max-w-[360px] text-[15px] font-[500] leading-[1.8] text-white/64">
-            A focused foundation for approvals, verification, disbursal tracking and payroll-cycle recovery before scale.
+          <p className="mt-5 max-w-[360px] text-[15px] font-[500] leading-[1.8] text-white/72">
+            A focused foundation for approvals, verification, disbursal tracking
+            and payroll-cycle recovery before scale.
           </p>
+              <div className="mt-10 grid grid-cols-2 gap-4 border-t border-white/18 pt-6">
+                <div>
+                  <strong className="text-[34px] font-[950] leading-none">4</strong>
+                  <p className="mt-2 text-[12px] font-[750] text-white/70">
+                    control layers
+                  </p>
+                </div>
+                <div>
+                  <strong className="text-[34px] font-[950] leading-none">1</strong>
+                  <p className="mt-2 text-[12px] font-[750] text-white/70">
+                    payroll rhythm
+                  </p>
+                </div>
+              </div>
+            </div>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="border-y border-[#dce5ff]">
           {readinessCards.map(({ title, copy, icon: Icon }) => (
-            <article key={title} className="rounded-[22px] border border-white/10 bg-white/8 p-7 backdrop-blur transition hover:-translate-y-1 hover:bg-white/12">
-              <Icon size={27} className="text-[#C9BFFF]" />
-              <p className="mt-7 text-[18px] font-[900] tracking-[-0.02em] text-white">{title}</p>
-              <p className="mt-3 text-[13px] font-[500] leading-[1.7] text-white/60">{copy}</p>
-            </article>
+            <div
+              key={title}
+                className="grid gap-4 border-b border-[#e2e9ff] py-6 last:border-b-0 sm:grid-cols-[56px_1fr_auto] sm:items-center"
+            >
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#eef3ff] text-[#315eff]">
+                  <Icon size={24} />
+                </div>
+                <div>
+                  <p className="text-[20px] font-[950] tracking-normal text-[#21185F]">
+                    {title}
+                  </p>
+                  <p className="mt-2 max-w-[460px] text-[13px] font-[550] leading-[1.7] text-[#667085]">
+                    {copy}
+                  </p>
+                </div>
+                <span className="w-fit rounded-lg bg-[#f5f7ff] px-3 py-2 text-[11px] font-[950] uppercase tracking-[0.14em] text-[#315eff]">
+                  Controlled
+                </span>
+            </div>
           ))}
+          </div>
         </div>
       </div>
     </section>
@@ -902,34 +984,51 @@ function ImpactSection() {
 
 function JourneySection() {
   return (
-    <section id="journey" className="relative overflow-hidden bg-white px-5 py-20 sm:px-8 lg:px-12">
-      <div className="relative z-10 mx-auto max-w-[1320px]">
-        <div className="grid gap-10 lg:grid-cols-[0.42fr_1fr]">
-          <div>
-            <p className="text-[11px] font-[900] uppercase tracking-[0.24em] text-[#5B3CE3]">How It Works</p>
-            <h2 className="mt-4 max-w-[420px] text-[34px] font-[900] leading-[1.08] tracking-[-0.035em] text-[#0B1026] lg:text-[46px]">
-              Simple for everyone. Powerful for all.
-            </h2>
-          </div>
+    <section
+      id="journey"
+      className="relative overflow-hidden border-t border-[#dce5ff] bg-white px-5 py-20 sm:px-8 lg:px-12"
+    >
+      <div className="relative z-10 mx-auto max-w-[1180px]">
+        <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <h2 className="max-w-[420px] text-[32px] font-[900] leading-[1.12] tracking-normal text-[#21185F]">
+            Simple for everyone. Powerful for all.
+          </h2>
+          <p className="max-w-[420px] text-[15px] font-[520] leading-[1.8] text-[#667085]">
+            The journey is intentionally linear: each handoff has a clear owner,
+            visible status and payroll-aware next step.
+          </p>
+        </div>
 
-          <div className="relative pt-10">
-            <svg className="absolute left-0 right-0 top-20 hidden h-20 w-full lg:block" viewBox="0 0 920 90" fill="none" aria-hidden="true">
-              <path d="M52 44 C 170 8, 248 8, 356 44 S 538 80, 642 44 S 794 8, 880 44" stroke="#CBD4FF" strokeWidth="2" strokeDasharray="6 7" />
-            </svg>
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 overflow-x-auto border-y border-[#dce5ff]">
+          <div className="grid min-w-[900px] grid-cols-4">
               {journey.map(({ icon: Icon, ...item }, index) => (
-                <article key={item.label} className="relative text-center">
-                  <div className="relative z-10 mx-auto flex h-[68px] w-[68px] items-center justify-center rounded-full text-white shadow-[0_18px_42px_rgba(91,60,227,0.22)]" style={{ backgroundColor: item.color }}>
+                <div
+                  key={item.label}
+                  className="relative min-h-[300px] border-r border-[#e2e9ff] p-6 last:border-r-0"
+                >
+                  <div
+                    className="flex h-[58px] w-[58px] items-center justify-center rounded-lg text-white shadow-[0_18px_42px_rgba(49,94,255,0.18)]"
+                    style={{ backgroundColor: item.color }}
+                  >
                     <Icon size={25} />
                   </div>
-                  <span className="mx-auto mt-4 flex h-7 w-7 items-center justify-center rounded-full bg-[#5B3CE3] text-[12px] font-[900] text-white">
-                    {index + 1}
+                  <span className="absolute right-5 top-6 text-[56px] font-[950] leading-none text-[#b7c7ff]">
+                    0{index + 1}
                   </span>
-                  <h3 className="mx-auto mt-6 max-w-[210px] text-[15px] font-[900] leading-[1.35] text-[#0B1026]">{item.label}</h3>
-                  <p className="mx-auto mt-3 max-w-[220px] text-[13px] font-[500] leading-[1.65] text-[#667085]">{item.copy}</p>
-                </article>
+                  <h3 className="mt-20 max-w-[220px] text-[18px] font-[950] leading-[1.25] text-[#21185F]">
+                    {item.label}
+                  </h3>
+                  <p className="mt-3 max-w-[220px] text-[13px] font-[500] leading-[1.65] text-[#667085]">
+                    {item.copy}
+                  </p>
+                  <div className="absolute bottom-0 left-0 h-1.5 w-full bg-[#eef3ff]">
+                    <div
+                      className="h-full"
+                      style={{ width: `${25 * (index + 1)}%`, backgroundColor: item.color }}
+                    />
+                  </div>
+                </div>
               ))}
-            </div>
           </div>
         </div>
       </div>
@@ -939,25 +1038,46 @@ function JourneySection() {
 
 function EmployerBenefitsSection() {
   return (
-    <section id="employer-benefits" className="relative overflow-hidden bg-[#080B22] px-5 py-20 text-white sm:px-8 lg:px-12">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_84%_12%,rgba(91,60,227,0.36),transparent_28%),linear-gradient(135deg,#080B22_0%,#17103A_100%)]" />
-      <div className="launch-wave absolute right-0 top-0 h-80 w-[720px] opacity-25" />
-      <div className="mx-auto max-w-[1320px]">
-        <div className="relative z-10">
-          <p className="text-[11px] font-[900] uppercase tracking-[0.24em] text-[#AFA4FF]">Why Employers Choose MobPae</p>
-          <h2 className="mt-4 max-w-[620px] text-[34px] font-[900] leading-[1.1] tracking-[-0.035em] lg:text-[46px]">
+    <section
+      id="employer-benefits"
+      className="relative overflow-hidden border-t border-[#dce5ff] bg-white px-5 py-20 text-[#21185F] sm:px-8 lg:px-12"
+    >
+      <div className="mx-auto max-w-[1180px]">
+        <div className="relative z-10 grid gap-10 lg:grid-cols-[0.36fr_0.64fr]">
+          <div>
+          <h2 className="max-w-[420px] text-[32px] font-[900] leading-[1.12] tracking-normal">
             More than a benefit. It is a competitive advantage.
           </h2>
+            <p className="mt-5 max-w-[360px] text-[15px] font-[520] leading-[1.8] text-[#667085]">
+              MobPae turns salary access into an operating advantage: fewer
+              manual asks, clearer records and calmer payroll cycles.
+            </p>
+          </div>
 
-          <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-5">
-            {employerBenefits.map(({ icon: Icon, title, copy, color }) => (
-              <article key={title}>
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/12 bg-white/7" style={{ color }}>
+          <div className="border-y border-[#dce5ff]">
+            {employerBenefits.map(({ icon: Icon, title, copy, color }, index) => (
+              <div
+                key={title}
+                className="grid gap-4 border-b border-[#e2e9ff] py-5 last:border-b-0 sm:grid-cols-[80px_1fr_56px] sm:items-center"
+              >
+                <span className="text-[13px] font-[950] uppercase tracking-[0.18em] text-[#a9bcff]">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 className="text-[18px] font-[950] text-[#21185F]">
+                    {title}
+                  </h3>
+                  <p className="mt-2 max-w-[520px] text-[13px] font-[500] leading-[1.7] text-[#667085]">
+                    {copy}
+                  </p>
+                </div>
+                <div
+                  className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#f5f7ff]"
+                  style={{ color }}
+                >
                   <Icon size={24} />
                 </div>
-                <h3 className="mt-7 text-[15px] font-[900] text-white">{title}</h3>
-                <p className="mt-3 text-[13px] font-[500] leading-[1.7] text-white/58">{copy}</p>
-              </article>
+              </div>
             ))}
           </div>
         </div>
@@ -986,25 +1106,26 @@ function EnquiryFaqSection({
   openEnquiry: () => void;
 }) {
   return (
-    <section id="contact" className="relative overflow-hidden bg-[#F3F5FF] px-5 py-16 sm:px-8 lg:px-12">
-      <div className="absolute left-[5%] top-12 h-64 w-64 rounded-full bg-white/75 blur-3xl" />
-      <div className="absolute bottom-6 right-[8%] h-72 w-72 rounded-full bg-[#CBD4FF]/32 blur-3xl" />
-      <div className="relative z-10 mx-auto grid max-w-[1320px] gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch">
-        <div className="flex min-h-full flex-col justify-between overflow-hidden rounded-[32px] bg-[#0B1026] p-7 text-white shadow-[0_24px_90px_rgba(11,16,38,0.2)] sm:p-9">
+    <section
+      id="contact"
+      className="relative overflow-hidden border-t border-[#dce5ff] bg-white px-5 py-16 sm:px-8 lg:px-12"
+    >
+      <div className="relative z-10 mx-auto grid max-w-[1180px] gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch">
+        <div className="flex min-h-full flex-col justify-between overflow-hidden rounded-[28px] border border-[#dce5ff] bg-[#f8faff] p-7 text-[#21185F] shadow-[0_20px_70px_rgba(49,94,255,0.08)] sm:p-9">
           <div>
             <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
               <div>
-                <p className="text-[11px] font-[900] uppercase tracking-[0.24em] text-[#C9BFFF]">
+                <p className="text-[11px] font-[900] uppercase tracking-[0.24em] text-[#315eff]">
                   Ready to empower your team?
                 </p>
-                <p className="mt-2 inline-flex rounded-full bg-white/8 px-3 py-1.5 text-[11px] font-[800] text-white/64">
+                <p className="mt-2 inline-flex rounded-full bg-[#f5f7ff] px-3 py-1.5 text-[11px] font-[800] text-[#315eff]">
                   Employer enquiry · 30 seconds
                 </p>
               </div>
               <button
                 type="button"
                 onClick={openEnquiry}
-                className="inline-flex min-h-[52px] shrink-0 items-center justify-center gap-3 rounded-xl bg-[#6C4CFF] px-7 py-4 text-[14px] font-[900] text-white shadow-[0_18px_44px_rgba(91,60,227,0.44)] transition hover:-translate-y-0.5 hover:bg-[#7B61FF]"
+                className="inline-flex min-h-[52px] shrink-0 items-center justify-center gap-3 rounded-xl bg-[#315eff] px-7 py-4 text-[14px] font-[900] text-white shadow-[0_18px_44px_rgba(49,94,255,0.44)] transition hover:-translate-y-0.5 hover:bg-[#5f82ff]"
               >
                 Book a Demo <ArrowRight size={17} />
               </button>
@@ -1012,8 +1133,9 @@ function EnquiryFaqSection({
             <h2 className="mt-5 max-w-[560px] text-[32px] font-[900] leading-[1.08] tracking-[-0.04em] lg:text-[44px]">
               Let us build a financially stronger tomorrow.
             </h2>
-            <p className="mt-5 max-w-[520px] text-[14px] font-[500] leading-[1.8] text-white/64">
-              Book a quick employer walkthrough. We will understand your payroll cycle, answer questions and schedule the right next step.
+            <p className="mt-5 max-w-[520px] text-[14px] font-[500] leading-[1.8] text-[#667085]">
+              Book a quick employer walkthrough. We will understand your payroll
+              cycle, answer questions and schedule the right next step.
             </p>
           </div>
 
@@ -1023,30 +1145,44 @@ function EnquiryFaqSection({
               ["2", "We align", "Policy, payroll dates and rollout fit."],
               ["3", "Demo call", "Walk through employee and employer flows."],
             ].map(([step, title, copy]) => (
-              <div key={step} className="rounded-2xl border border-white/10 bg-white/[0.06] p-4">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-[12px] font-[900] text-[#5B3CE3]">
+              <div
+                key={step}
+                className="rounded-2xl border border-[#e2e9ff] bg-[#FAF9FF] p-4"
+              >
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-[12px] font-[900] text-[#315eff]">
                   {step}
                 </span>
-                <p className="mt-4 text-[13px] font-[900] text-white">{title}</p>
-                <p className="mt-1 text-[11px] font-[600] leading-[1.55] text-white/50">{copy}</p>
+                <p className="mt-4 text-[13px] font-[900] text-[#21185F]">
+                  {title}
+                </p>
+                <p className="mt-1 text-[11px] font-[600] leading-[1.55] text-[#667085]">
+                  {copy}
+                </p>
               </div>
             ))}
           </div>
 
-          <div className="mt-6 grid gap-3 text-[12px] font-[800] text-white/72 sm:grid-cols-3">
-              {["Tailored demo", "Payroll-aware setup", "Expert Q&A"].map((item) => (
+          <div className="mt-6 grid gap-3 text-[12px] font-[800] text-[#4F5872] sm:grid-cols-3">
+            {["Tailored demo", "Payroll-aware setup", "Expert Q&A"].map(
+              (item) => (
                 <span key={item} className="inline-flex items-center gap-2">
-                  <Check size={14} className="text-[#AFA4FF]" />
+                  <Check size={14} className="text-[#315eff]" />
                   {item}
                 </span>
-              ))}
+              )
+            )}
           </div>
         </div>
 
-        <div id="faq" className="rounded-[32px] border border-white/80 bg-white/88 p-5 shadow-[0_18px_70px_rgba(91,60,227,0.08)] backdrop-blur sm:p-6">
+        <div
+          id="faq"
+          className="rounded-[28px] border border-[#dce5ff] bg-white p-5 shadow-[0_18px_62px_rgba(49,94,255,0.08)] sm:p-6"
+        >
           <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
             <div>
-              <p className="text-[11px] font-[900] uppercase tracking-[0.24em] text-[#5B3CE3]">FAQ</p>
+              <p className="text-[11px] font-[900] uppercase tracking-[0.24em] text-[#315eff]">
+                FAQ
+              </p>
               <h2 className="mt-3 text-[28px] font-[900] leading-[1.08] tracking-[-0.035em] text-[#0B1026] lg:text-[34px]">
                 Everything you need to know.
               </h2>
@@ -1072,7 +1208,9 @@ function EnquiryFaqSection({
                   setOpenFaq(0);
                 }}
                 className={`rounded-full px-3.5 py-2 text-[11px] font-[900] transition ${
-                  activeFaq === category ? "bg-[#5B3CE3] text-white" : "bg-[#F0EDFF] text-[#5B3CE3]"
+                  activeFaq === category
+                    ? "bg-[#315eff] text-white"
+                    : "bg-[#f1f5ff] text-[#315eff]"
                 }`}
               >
                 {category}
@@ -1081,27 +1219,48 @@ function EnquiryFaqSection({
           </div>
 
           <div className="mt-4">
-          {faqs.map((faq, index) => (
-            <div key={faq.q} className="border-b border-[#ECEEF6] last:border-b-0">
-              <button
-                type="button"
-                onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                className="flex w-full items-center justify-between gap-5 px-3 py-4 text-left text-[14px] font-[900] text-[#0B1026]"
+            {faqs.map((faq, index) => (
+              <div
+                key={faq.q}
+                className="border-b border-[#ECEEF6] last:border-b-0"
               >
-                <span>{faq.q}</span>
-                <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${openFaq === index ? "bg-[#5B3CE3] text-white" : "bg-[#F4F5FA] text-[#667085]"}`}>
-                  {openFaq === index ? <Minus size={14} /> : <Plus size={14} />}
-                </span>
-              </button>
-              {openFaq === index && <p className="px-3 pb-5 text-[13px] font-[500] leading-[1.7] text-[#667085]">{faq.a}</p>}
-            </div>
-          ))}
+                <button
+                  type="button"
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="flex w-full items-center justify-between gap-5 px-3 py-4 text-left text-[14px] font-[900] text-[#0B1026]"
+                >
+                  <span>{faq.q}</span>
+                  <span
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${
+                      openFaq === index
+                        ? "bg-[#315eff] text-white"
+                        : "bg-[#F4F5FA] text-[#667085]"
+                    }`}
+                  >
+                    {openFaq === index ? (
+                      <Minus size={14} />
+                    ) : (
+                      <Plus size={14} />
+                    )}
+                  </span>
+                </button>
+                {openFaq === index && (
+                  <p className="px-3 pb-5 text-[13px] font-[500] leading-[1.7] text-[#667085]">
+                    {faq.a}
+                  </p>
+                )}
+              </div>
+            ))}
           </div>
           {faqs.length === 0 && (
             <div className="flex min-h-[220px] flex-col items-center justify-center text-center">
-              <HelpCircle size={32} className="text-[#5B3CE3]" />
-              <p className="mt-4 text-[15px] font-[900] text-[#0B1026]">No matching questions found</p>
-              <p className="mt-2 text-[13px] font-[500] text-[#667085]">Try a different keyword or category.</p>
+              <HelpCircle size={32} className="text-[#315eff]" />
+              <p className="mt-4 text-[15px] font-[900] text-[#0B1026]">
+                No matching questions found
+              </p>
+              <p className="mt-2 text-[13px] font-[500] text-[#667085]">
+                Try a different keyword or category.
+              </p>
             </div>
           )}
         </div>
@@ -1132,6 +1291,7 @@ function LaunchFooter() {
       title: "Company",
       items: [
         ["About Us", "/about"],
+        ["Team", "/team"],
         ["Careers", "/careers"],
         ["Blog", "/blog"],
         ["Contact Us", "/contact"],
@@ -1148,18 +1308,23 @@ function LaunchFooter() {
   ];
 
   return (
-    <footer className="bg-[#080B18] px-5 py-16 text-white sm:px-8 lg:px-12">
+    <footer className="border-t border-[#e2e9ff] bg-white px-5 py-16 text-[#21185F] sm:px-8 lg:px-12">
       <div className="mx-auto max-w-[1320px]">
         <div>
           <div className="grid gap-10 lg:grid-cols-[1.15fr_repeat(4,0.72fr)_1.1fr]">
             <div>
               <MobPaeLogo />
-              <p className="mt-5 max-w-[280px] text-[13px] font-[500] leading-[1.8] text-white/56">
-                An Earned Wage Access platform that empowers employees and transforms workplaces.
+              <p className="mt-5 max-w-[280px] text-[13px] font-[500] leading-[1.8] text-[#667085]">
+                An Earned Wage Access platform that empowers employees and
+                transforms workplaces.
               </p>
               <div className="mt-6 flex gap-3">
                 {["in", "x", "ig"].map((item) => (
-                  <a key={item} href="#contact" className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/8 text-[11px] font-[900] uppercase text-white/62 transition hover:bg-[#5B3CE3] hover:text-white">
+                  <a
+                    key={item}
+                    href="#contact"
+                    className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f5f7ff] text-[11px] font-[900] uppercase text-[#315eff] transition hover:bg-[#315eff] hover:text-white"
+                  >
                     {item}
                   </a>
                 ))}
@@ -1167,10 +1332,16 @@ function LaunchFooter() {
             </div>
             {columns.map(({ title, items }) => (
               <div key={title}>
-                <p className="text-[11px] font-[900] uppercase tracking-[0.18em] text-white/48">{title}</p>
+                <p className="text-[11px] font-[900] uppercase tracking-[0.18em] text-[#315eff]">
+                  {title}
+                </p>
                 <div className="mt-5 grid gap-3">
                   {items.map(([item, href]) => (
-                    <a key={item} href={href} className="text-[13px] font-[600] text-white/52 transition hover:text-white">
+                    <a
+                      key={item}
+                      href={href}
+                      className="text-[13px] font-[600] text-[#667085] transition hover:text-[#315eff]"
+                    >
                       {item}
                     </a>
                   ))}
@@ -1178,20 +1349,34 @@ function LaunchFooter() {
               </div>
             ))}
             <div>
-              <p className="text-[11px] font-[900] uppercase tracking-[0.18em] text-white/48">Contact</p>
-              <div className="mt-5 grid gap-3 text-[13px] font-[600] text-white/52">
-                <a href="mailto:support@mobpae.com" className="transition hover:text-white">support@mobpae.com</a>
+              <p className="text-[11px] font-[900] uppercase tracking-[0.18em] text-[#315eff]">
+                Contact
+              </p>
+              <div className="mt-5 grid gap-3 text-[13px] font-[600] text-[#667085]">
+                <a
+                  href="mailto:support@mobpae.com"
+                  className="transition hover:text-[#315eff]"
+                >
+                  support@mobpae.com
+                </a>
                 <p>Gujarat, Ahmedabad - 382470</p>
-                <a href="/#contact" className="inline-flex items-center gap-2 text-[#C9BFFF] transition hover:text-white">
+                <a
+                  href="/#contact"
+                  className="inline-flex items-center gap-2 text-[#315eff] transition hover:text-[#214be6]"
+                >
                   Book a demo <ArrowRight size={14} />
                 </a>
               </div>
             </div>
           </div>
-          <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6">
-            <p className="text-[12px] font-[500] text-white/38">© {new Date().getFullYear()} MobPae. All rights reserved.</p>
-            <p className="flex items-center gap-1 text-[12px] font-[500] text-white/38">
-              Made with <Heart size={12} className="fill-[#FEA1A2] text-[#FEA1A2]" /> in India
+          <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-[#e2e9ff] pt-6">
+            <p className="text-[12px] font-[500] text-[#8A90A3]">
+              © {new Date().getFullYear()} MobPae. All rights reserved.
+            </p>
+            <p className="flex items-center gap-1 text-[12px] font-[500] text-[#8A90A3]">
+              Made with{" "}
+              <Heart size={12} className="fill-[#FEA1A2] text-[#FEA1A2]" /> in
+              India
             </p>
           </div>
         </div>
@@ -1202,34 +1387,36 @@ function LaunchFooter() {
 
 function MobPaeLogo() {
   return (
-    <span className="inline-flex items-center rounded-full bg-white px-3.5 py-2 shadow-[0_18px_42px_rgba(0,0,0,0.18)]">
+    <span className="inline-flex items-center">
       <img
         src="/brand/mobpae-logo-horizontal.png"
-        alt="MobPae - Beating Your Month-End Crunch"
-        className="h-8 w-auto object-contain"
+        alt="MobPae - Your Trusted Financial Partner."
+        className="h-9 w-auto object-contain"
       />
     </span>
   );
 }
 
-function PhoneActivity({ label, date, amount, muted = false }: { label: string; date: string; amount: string; muted?: boolean }) {
-  return (
-    <div className="mt-4 flex items-center justify-between">
-      <div>
-        <p className="text-[11px] font-[800] text-white/78">{label}</p>
-        <p className="mt-1 text-[9px] font-[600] text-white/32">{date}</p>
-      </div>
-      <p className={`text-[11px] font-[900] ${muted ? "text-white/46" : "text-white"}`}>{amount}</p>
-    </div>
-  );
-}
-
-function Field({ label, error, children }: { label: string; error?: string; children: ReactNode }) {
+function Field({
+  label,
+  error,
+  children,
+}: {
+  label: string;
+  error?: string;
+  children: ReactNode;
+}) {
   return (
     <label className="block">
-      <span className="mb-2 block text-[12px] font-[800] text-[#667085]">{label}</span>
+      <span className="mb-2 block text-[12px] font-[800] text-[#667085]">
+        {label}
+      </span>
       {children}
-      {error && <span className="mt-1 block text-[11px] font-[800] text-red-500">{error}</span>}
+      {error && (
+        <span className="mt-1 block text-[11px] font-[800] text-red-500">
+          {error}
+        </span>
+      )}
     </label>
   );
 }

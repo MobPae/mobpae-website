@@ -56,7 +56,7 @@ export function PremiumCampaign() {
     <>
       <section className="relative isolate overflow-hidden bg-[#fbfbfe]">
         <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute left-[-18%] top-[-28%] h-[680px] w-[680px] rounded-full bg-[#f0edff] blur-[120px]" />
+          <div className="absolute left-[-18%] top-[-28%] h-[680px] w-[680px] rounded-full bg-[#f1f5ff] blur-[120px]" />
           <div className="absolute right-[-18%] top-0 h-[620px] w-[620px] rounded-full bg-[#e9f6f6] blur-[130px]" />
           <div className="absolute bottom-[-28%] left-[35%] h-[540px] w-[540px] rounded-full bg-[#fdf6eb] blur-[130px]" />
         </div>
@@ -66,7 +66,7 @@ export function PremiumCampaign() {
             <div className="brand-dark-card premium-rise min-h-[680px] rounded-[44px] p-6 sm:p-8 lg:p-10">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="premium-chip inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-[11px] font-[700] uppercase tracking-[0.16em] text-white/75">
-                  <Sparkles size={14} className="text-[#b8acff]" />
+                  <Sparkles size={14} className="text-[#b6c6ff]" />
                   Built for salary moments
                 </span>
                 <span className="premium-chip inline-flex rounded-full bg-[#fdf6eb] px-4 py-2 text-[11px] font-[700] text-[#c7686b]">
@@ -82,9 +82,9 @@ export function PremiumCampaign() {
                   </span>
                 </div>
                 <h1 className="mt-5 text-[46px] font-[700] leading-[0.92] tracking-normal text-white sm:text-[68px] lg:text-[86px]">
-                  Beating Your{" "}
-                  <span className="hero-headline-accent">Month End</span>{" "}
-                  Crunch
+                  Your Trusted
+                  <span className="hero-headline-accent">Financial</span>{" "}
+                  Partner.
                 </h1>
                 <p className="mt-7 max-w-[650px] text-[16px] leading-[1.8] text-white/68">
                   A premium employee benefit for earned salary access, built to
@@ -95,7 +95,7 @@ export function PremiumCampaign() {
               <div className="mt-9 flex flex-wrap gap-3">
                 <a
                   href="#contact"
-                  className="premium-button group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-[14px] font-[700] text-[#5b3ce3] transition-all hover:-translate-y-1 hover:bg-[#f8f9fc]"
+                  className="premium-button group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-[14px] font-[700] text-[#315eff] transition-all hover:-translate-y-1 hover:bg-[#f8f9fc]"
                 >
                   Book a demo
                   <ArrowRight
@@ -129,8 +129,8 @@ export function PremiumCampaign() {
             </div>
 
             <div className="grid gap-5">
-              <div className="salary-orbit premium-rise premium-rise-delay relative min-h-[410px] overflow-hidden rounded-[44px] border border-[#ded7ff] bg-[#f7f5ff] shadow-[0_26px_80px_rgba(17,24,39,0.08)]">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(91,60,227,0.22),transparent_32%),radial-gradient(circle_at_15%_15%,rgba(254,161,162,0.18),transparent_24%),radial-gradient(circle_at_82%_18%,rgba(159,215,221,0.34),transparent_28%)]" />
+              <div className="salary-orbit premium-rise premium-rise-delay relative min-h-[410px] overflow-hidden rounded-[44px] border border-[#dce5ff] bg-[#f8faff] shadow-[0_26px_80px_rgba(17,24,39,0.08)]">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(49,94,255,0.22),transparent_32%),radial-gradient(circle_at_15%_15%,rgba(254,161,162,0.18),transparent_24%),radial-gradient(circle_at_82%_18%,rgba(159,215,221,0.34),transparent_28%)]" />
                 <div className="orbit-ring orbit-ring-one" />
                 <div className="orbit-ring orbit-ring-two" />
                 <div className="orbit-ring orbit-ring-three" />
@@ -143,8 +143,8 @@ export function PremiumCampaign() {
                 <div className="orbit-node orbit-node-three">
                   <Sparkles size={18} />
                 </div>
-                <div className="orbit-core absolute left-1/2 top-1/2 w-[250px] -translate-x-1/2 -translate-y-1/2 rounded-[38px] border border-white/70 bg-white/80 p-6 text-center shadow-[0_28px_80px_rgba(91,60,227,0.18)] backdrop-blur-2xl">
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-[22px] bg-[#5b3ce3] text-white">
+                <div className="orbit-core absolute left-1/2 top-1/2 w-[250px] -translate-x-1/2 -translate-y-1/2 rounded-[38px] border border-white/70 bg-white/80 p-6 text-center shadow-[0_28px_80px_rgba(49,94,255,0.18)] backdrop-blur-2xl">
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-[22px] bg-[#315eff] text-white">
                     <WalletCards size={25} />
                   </div>
                   <p className="mt-5 text-[11px] font-[700] uppercase tracking-[0.18em] text-[#8d90a3]">
@@ -160,8 +160,8 @@ export function PremiumCampaign() {
               </div>
 
               <div className="grid gap-5 sm:grid-cols-2">
-                <div className="premium-float-card rounded-[34px] border border-[#ded7ff] bg-white p-5 shadow-soft">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#f0edff] text-[#5b3ce3]">
+                <div className="premium-float-card rounded-[34px] border border-[#dce5ff] bg-white p-5 shadow-soft">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#f1f5ff] text-[#315eff]">
                     <WalletCards size={21} />
                   </div>
                   <p className="mt-5 text-[11px] font-[700] uppercase tracking-[0.16em] text-[#8d90a3]">
@@ -227,8 +227,8 @@ export function PremiumCampaign() {
                 <div
                   className={`flex h-14 w-14 items-center justify-center rounded-3xl ${
                     index === 1
-                      ? "bg-white text-[#5b3ce3]"
-                      : "bg-white text-[#5b3ce3]"
+                      ? "bg-white text-[#315eff]"
+                      : "bg-white text-[#315eff]"
                   }`}
                 >
                   {card.icon}
@@ -257,7 +257,7 @@ export function PremiumCampaign() {
         id="workflow"
         className="relative overflow-hidden bg-[#fbfbfe] py-20 lg:py-24"
       >
-        <div className="pointer-events-none absolute left-[-12%] top-0 h-[520px] w-[520px] rounded-full bg-[#f0edff] blur-[120px]" />
+        <div className="pointer-events-none absolute left-[-12%] top-0 h-[520px] w-[520px] rounded-full bg-[#f1f5ff] blur-[120px]" />
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="mb-8">
             <h2 className="text-[40px] font-[700] leading-none tracking-normal text-[#111827] lg:text-[48px]">
@@ -267,7 +267,7 @@ export function PremiumCampaign() {
           <div className="rounded-[44px] bg-white p-5 shadow-[0_26px_90px_rgba(17,24,39,0.08)] lg:p-7">
             <div className="grid gap-5 lg:grid-cols-[0.92fr_1.08fr]">
               <div className="brand-dark-card rounded-[36px] p-7 lg:p-9">
-                <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-[#b8acff]">
+                <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-[#b6c6ff]">
                   MobPae experience
                 </p>
                 <h2 className="mt-5 text-[28px] font-[700] leading-[1.08] tracking-normal text-white lg:text-[38px]">
@@ -290,7 +290,7 @@ export function PremiumCampaign() {
                     key={item}
                     className="premium-step flex items-center gap-4 rounded-[26px] border border-[#e5e7eb] bg-[#f8f9fc] p-4"
                   >
-                    <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-white text-[13px] font-[700] text-[#5b3ce3] shadow-soft">
+                    <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-white text-[13px] font-[700] text-[#315eff] shadow-soft">
                       0{index + 1}
                     </span>
                     <p className="text-[16px] font-[700] text-[#111827]">
@@ -333,7 +333,7 @@ export function PremiumCampaign() {
                   key={item}
                   className="premium-trust-row flex items-center gap-3 rounded-[24px] border border-[#e5e7eb] bg-[#fbfbfe] p-4"
                 >
-                  <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-2xl bg-[#f0edff] text-[#5b3ce3]">
+                  <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-2xl bg-[#f1f5ff] text-[#315eff]">
                     <CheckCircle2 size={18} />
                   </span>
                   <p className="text-[14px] font-[700] leading-snug text-[#111827]">
@@ -349,7 +349,7 @@ export function PremiumCampaign() {
       <section id="pricing" className="bg-[#fbfbfe] py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="grid gap-5 lg:grid-cols-[0.92fr_1.08fr]">
-            <div className="premium-float-card rounded-[42px] border border-[#ded7ff] bg-[#f0edff] p-7 lg:p-9">
+            <div className="premium-float-card rounded-[42px] border border-[#dce5ff] bg-[#f1f5ff] p-7 lg:p-9">
               <h2 className="text-[40px] font-[700] leading-none tracking-normal text-[#111827] lg:text-[48px]">
                 Employee membership
               </h2>
@@ -365,7 +365,7 @@ export function PremiumCampaign() {
             <div className="brand-dark-card premium-rise rounded-[42px] p-7 lg:p-9">
               <div className="flex flex-wrap items-start justify-between gap-6">
                 <div>
-                  <p className="text-[11px] font-[700] uppercase tracking-[0.2em] text-[#b8acff]">
+                  <p className="text-[11px] font-[700] uppercase tracking-[0.2em] text-[#b6c6ff]">
                     Annual fee
                   </p>
                   <p className="mt-4 text-[72px] font-[700] leading-none tracking-normal text-white">
@@ -377,7 +377,7 @@ export function PremiumCampaign() {
                 </div>
                 <a
                   href="#contact"
-                  className="inline-flex h-12 items-center justify-center rounded-full bg-white px-6 text-[14px] font-[700] text-[#5b3ce3]"
+                  className="inline-flex h-12 items-center justify-center rounded-full bg-white px-6 text-[14px] font-[700] text-[#315eff]"
                 >
                   Start enquiry
                 </a>
@@ -392,7 +392,7 @@ export function PremiumCampaign() {
                     key={item}
                     className="premium-stat rounded-[22px] border border-white/10 bg-white/10 p-4"
                   >
-                    <LockKeyhole size={17} className="text-[#b8acff]" />
+                    <LockKeyhole size={17} className="text-[#b6c6ff]" />
                     <p className="mt-3 text-[12px] font-[700] leading-snug text-white/72">
                       {item}
                     </p>

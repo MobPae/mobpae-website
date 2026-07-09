@@ -39,14 +39,14 @@ export function PrivacyPolicyPage() {
       <Navbar />
 
       <section className="relative overflow-hidden border-b border-[#E5E7EB]">
-        <div className="pointer-events-none absolute left-[-10%] top-[-20%] h-[460px] w-[460px] rounded-full bg-[#F0EDFF]/70 blur-[120px]" />
+        <div className="pointer-events-none absolute left-[-10%] top-[-20%] h-[460px] w-[460px] rounded-full bg-[#f1f5ff]/70 blur-[120px]" />
         <div className="pointer-events-none absolute right-[-10%] top-20 h-[420px] w-[420px] rounded-full bg-[#E9F6F6] blur-[110px]" />
 
         <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-[#E5E7EB] bg-white/86 px-4 py-2 shadow-[0_16px_42px_rgba(15,23,42,0.07)] backdrop-blur-xl">
-                <LockKeyhole size={14} className="text-[#4E32CA]" />
+                <LockKeyhole size={14} className="text-[#214be6]" />
                 <span className="text-[11px] font-[700] uppercase tracking-[0.18em] text-[#111827]">Privacy first</span>
               </div>
               <h1 className="mt-6 max-w-[640px] text-[42px] font-[700] leading-[0.96] tracking-normal text-[#111827] sm:text-[60px]">
@@ -72,7 +72,7 @@ export function PrivacyPolicyPage() {
                 <div className="mt-7 grid gap-3">
                   {trustPoints.map((point) => (
                     <div key={point} className="flex items-start gap-3 rounded-2xl bg-white/8 px-4 py-3">
-                      <FileCheck2 size={16} className="mt-0.5 flex-shrink-0 text-[#B8ACFF]" />
+                      <FileCheck2 size={16} className="mt-0.5 flex-shrink-0 text-[#b6c6ff]" />
                       <p className="text-[13px] font-[700] leading-relaxed text-white/74">{point}</p>
                     </div>
                   ))}
@@ -88,7 +88,7 @@ export function PrivacyPolicyPage() {
           {privacySections.map((section) => (
             <article key={section.title} className="rounded-[32px] border border-[#E5E7EB] bg-white p-6 shadow-[0_14px_40px_rgba(15,23,42,0.045)]">
               <div className="flex items-start gap-4">
-                <div className="flex h-13 w-13 h-[52px] w-[52px] flex-shrink-0 items-center justify-center rounded-3xl bg-[#F0EDFF] text-[#4E32CA]">
+                <div className="flex h-13 w-13 h-[52px] w-[52px] flex-shrink-0 items-center justify-center rounded-3xl bg-[#f1f5ff] text-[#214be6]">
                   {section.icon}
                 </div>
                 <div>
@@ -109,10 +109,10 @@ export function PrivacyPolicyPage() {
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <a href="mailto:privacy@mobpae.com" className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#5B3CE3] px-5 text-[13px] font-[700] text-white transition hover:bg-[#4E32CA]">
+              <a href="mailto:privacy@mobpae.com" className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#315eff] px-5 text-[13px] font-[700] text-white transition hover:bg-[#214be6]">
                 <Mail size={15} /> privacy@mobpae.com
               </a>
-              <a href="tel:+919227012145" className="inline-flex h-12 items-center justify-center rounded-full border border-[#E5E7EB] bg-[#F8F9FC] px-5 text-[13px] font-[700] text-[#111827] transition hover:bg-[#F0EDFF]">
+              <a href="tel:+919227012145" className="inline-flex h-12 items-center justify-center rounded-full border border-[#E5E7EB] bg-[#F8F9FC] px-5 text-[13px] font-[700] text-[#111827] transition hover:bg-[#f1f5ff]">
                 +91 92270 12145
               </a>
             </div>
