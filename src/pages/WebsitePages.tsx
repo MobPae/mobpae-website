@@ -318,52 +318,6 @@ const founderProfiles = [
   },
 ];
 
-const footerColumns = [
-  {
-    title: "For Employers",
-    items: [
-      ["Overview", "/employers"],
-      ["Benefits", "/employers/benefits"],
-      ["Book a Demo", "/#contact"],
-    ],
-  },
-  {
-    title: "For Employees",
-    items: [
-      ["Overview", "/employees"],
-      ["How It Works", "/how-it-works"],
-      ["FAQs", "/faqs"],
-    ],
-  },
-  {
-    title: "Company",
-    items: [
-      ["About Us", "/about"],
-      ["Team", "/team"],
-      ["Careers", "/careers"],
-      ["Blog", "/blog"],
-      ["Contact Us", "/contact"],
-    ],
-  },
-  {
-    title: "Resources",
-    items: [
-      ["Help Center", "/help-center"],
-      ["Privacy Policy", "/privacy-policy"],
-      ["Terms & Conditions", "/terms"],
-    ],
-  },
-];
-
-const siteNavLinks = [
-  ["For Employers", "/employers"],
-  ["For Employees", "/employees"],
-  ["How It Works", "/how-it-works"],
-  ["Resources", "/help-center"],
-  ["About Us", "/about"],
-  ["Team", "/team"],
-];
-
 export function EmployersPage() {
   return (
     <StaticPage
@@ -409,11 +363,14 @@ export function AboutPage() {
   return (
     <StaticShell>
       <section className="relative overflow-hidden bg-white px-5 py-20 sm:px-8 lg:px-12">
-        <div className="absolute inset-0 opacity-[0.35]" style={{
-          backgroundImage:
-            "linear-gradient(rgba(49,94,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(49,94,255,0.07) 1px, transparent 1px)",
-          backgroundSize: "38px 38px",
-        }} />
+        <div
+          className="absolute inset-0 opacity-[0.35]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(49,94,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(49,94,255,0.07) 1px, transparent 1px)",
+            backgroundSize: "38px 38px",
+          }}
+        />
 
         <div className="relative z-10 mx-auto max-w-[1180px]">
           <div className="grid gap-10 lg:grid-cols-[0.58fr_0.42fr] lg:items-end">
@@ -422,16 +379,16 @@ export function AboutPage() {
                 {content.eyebrow}
               </p>
               <h1 className="mt-5 max-w-[820px] text-[42px] font-[900] leading-[1.02] tracking-[-0.05em] text-[#0B1026] lg:text-[68px]">
-              {content.title}
-            </h1>
+                {content.title}
+              </h1>
             </div>
 
             <div className="border-y border-[#dce5ff] bg-white/84 py-6">
               <p className="text-[15px] font-[650] leading-[1.9] text-[#5C647A]">
-                  Our payroll-linked financial wellness ecosystem bridges the
-                  gap between payday and unexpected financial needs without
-                  encouraging debt dependency.
-                </p>
+                Our payroll-linked financial wellness ecosystem bridges the gap
+                between payday and unexpected financial needs without
+                encouraging debt dependency.
+              </p>
             </div>
           </div>
 
@@ -447,8 +404,8 @@ export function AboutPage() {
                 We are not building another casual credit button. MobPae is
                 designed around employer context, transparent status and
                 payroll-linked recovery.
-                </p>
-              </div>
+              </p>
+            </div>
 
             <div className="grid md:grid-cols-3">
               {aboutStakeholders.map(({ title, copy, icon: Icon, tone }) => (
@@ -495,12 +452,12 @@ export function TeamPage() {
         <div className="relative z-10 mx-auto max-w-[1320px]">
           <div className="grid gap-8 border-b border-[#dce5ff] pb-12 lg:grid-cols-[0.5fr_0.5fr] lg:items-end">
             <div>
-            <p className="text-[11px] font-[900] uppercase tracking-[0.24em] text-[#315eff]">
-              Our Team
-            </p>
+              <p className="text-[11px] font-[900] uppercase tracking-[0.24em] text-[#315eff]">
+                Our Team
+              </p>
               <h1 className="mt-5 max-w-[680px] text-[42px] font-[900] leading-[1.02] tracking-[-0.05em] text-[#0B1026] lg:text-[68px]">
-              The people building MobPae.
-            </h1>
+                The people building MobPae.
+              </h1>
             </div>
             <p className="max-w-[520px] text-[16px] font-[600] leading-[1.85] text-[#667085] lg:text-[18px]">
               A focused team combining financial services experience,
@@ -510,44 +467,45 @@ export function TeamPage() {
           </div>
 
           <div className="mt-12 grid gap-8 lg:grid-cols-2">
-            {founderProfiles.map(({ name, role, initials, accent, intro, bio }, index) => (
-              <article
-                key={name}
-                className="grid border-y border-[#dce5ff] bg-white lg:grid-cols-[170px_1fr]"
-              >
-                <div className="relative min-h-[230px] overflow-hidden border-b border-[#dce5ff] p-6 lg:border-b-0 lg:border-r">
-                  <div
-                    className="absolute inset-0 opacity-[0.16]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(rgba(49,94,255,0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(49,94,255,0.35) 1px, transparent 1px)",
-                      backgroundSize: "30px 30px",
-                    }}
-                  />
-                  <div className="relative z-10 flex h-full flex-col gap-8">
-                    <span className="text-[12px] font-[950] uppercase tracking-[0.2em] text-[#8A90A3]">
-                      Founder 0{index + 1}
-                    </span>
+            {founderProfiles.map(
+              ({ name, role, initials, accent, intro, bio }, index) => (
+                <article
+                  key={name}
+                  className="grid border-y border-[#dce5ff] bg-white lg:grid-cols-[170px_1fr]"
+                >
+                  <div className="relative min-h-[230px] overflow-hidden border-b border-[#dce5ff] p-6 lg:border-b-0 lg:border-r">
                     <div
-                      className="flex h-24 w-24 items-center justify-center rounded-lg text-[32px] font-[950] text-white shadow-[0_20px_54px_rgba(49,94,255,0.18)]"
-                      style={{ backgroundColor: accent }}
-                    >
-                      {initials}
+                      className="absolute inset-0 opacity-[0.16]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(rgba(49,94,255,0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(49,94,255,0.35) 1px, transparent 1px)",
+                        backgroundSize: "30px 30px",
+                      }}
+                    />
+                    <div className="relative z-10 flex h-full flex-col gap-8">
+                      <span className="text-[12px] font-[950] uppercase tracking-[0.2em] text-[#8A90A3]">
+                        Founder 0{index + 1}
+                      </span>
+                      <div
+                        className="flex h-24 w-24 items-center justify-center rounded-lg text-[32px] font-[950] text-white shadow-[0_20px_54px_rgba(49,94,255,0.18)]"
+                        style={{ backgroundColor: accent }}
+                      >
+                        {initials}
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="p-6 sm:p-8">
-                  <h2 className="text-[28px] font-[950] tracking-[-0.035em] text-[#0B1026]">
-                    {name}
-                  </h2>
-                  <p className="mt-2 text-[14px] font-[900] uppercase tracking-[0.12em] text-[#315eff]">
-                    {role}
-                  </p>
-                  <p className="mt-6 text-[14px] font-[650] leading-[1.85] text-[#667085]">
-                    {intro}
-                  </p>
-                  <div className="mt-6 grid gap-3 border-t border-[#eef3ff] pt-5">
+                  <div className="p-6 sm:p-8">
+                    <h2 className="text-[28px] font-[950] tracking-[-0.035em] text-[#0B1026]">
+                      {name}
+                    </h2>
+                    <p className="mt-2 text-[14px] font-[900] uppercase tracking-[0.12em] text-[#315eff]">
+                      {role}
+                    </p>
+                    <p className="mt-6 text-[14px] font-[650] leading-[1.85] text-[#667085]">
+                      {intro}
+                    </p>
+                    <div className="mt-6 grid gap-3 border-t border-[#eef3ff] pt-5">
                       {bio.map((paragraph) => (
                         <p
                           key={paragraph}
@@ -556,17 +514,21 @@ export function TeamPage() {
                           {paragraph}
                         </p>
                       ))}
+                    </div>
                   </div>
-                </div>
-              </article>
-            ))}
+                </article>
+              )
+            )}
           </div>
 
           <div className="mt-14 grid gap-5 border-y border-[#dce5ff] py-6 md:grid-cols-3">
             {[
               ["Finance depth", "Banking, MSME advisory and partner strategy."],
               ["Engineering depth", "Secure, scalable product architecture."],
-              ["Operating focus", "Employer, employee and lending workflows aligned."],
+              [
+                "Operating focus",
+                "Employer, employee and lending workflows aligned.",
+              ],
             ].map(([title, copy]) => (
               <div key={title} className="border-l-2 border-[#315eff] pl-4">
                 <p className="text-[15px] font-[950] text-[#21185F]">{title}</p>
@@ -729,50 +691,17 @@ function StaticPage({
 
 function StaticShell({ children }: { children: ReactNode }) {
   return (
-    <div style={{ fontFamily: "Inter, ui-sans-serif, sans-serif", color: "#0B0D12", background: "#fff" }}>
+    <div
+      style={{
+        fontFamily: "Inter, ui-sans-serif, sans-serif",
+        color: "#0B0D12",
+        background: "#fff",
+      }}
+    >
       <SiteNav />
       {children}
       <SiteFooter />
     </div>
-  );
-}
-
-function StaticFooter() {
-  return (
-    <footer className="border-t border-[#e2e9ff] bg-white px-5 py-14 text-[#21185F] sm:px-8 lg:px-12">
-      <div className="mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[1.2fr_repeat(4,0.72fr)]">
-        <div>
-          <span className="inline-flex items-center">
-            <img
-              src="/brand/mobpae-logo-horizontal.png"
-              alt="MobPae -  Your Trusted Financial Partner"
-              className="h-8 w-auto object-contain"
-            />
-          </span>
-          <p className="mt-5 max-w-[300px] text-[13px] font-[500] leading-[1.8] text-[#667085]">
-            Employer-backed earned salary access for modern workplaces.
-          </p>
-        </div>
-        {footerColumns.map(({ title, items }) => (
-          <div key={title}>
-            <p className="text-[11px] font-[900] uppercase tracking-[0.18em] text-[#315eff]">
-              {title}
-            </p>
-            <div className="mt-5 grid gap-3">
-              {items.map(([label, href]) => (
-                <Link
-                  key={label}
-                  to={href}
-                  className="text-[13px] font-[600] text-[#667085] transition hover:text-[#315eff]"
-                >
-                  {label}
-                </Link>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </footer>
   );
 }
 
