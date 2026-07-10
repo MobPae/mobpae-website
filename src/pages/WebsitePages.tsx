@@ -15,6 +15,8 @@ import {
 } from "lucide-react";
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
+import { SiteNav } from "../components/SiteNav";
+import { SiteFooter } from "../components/SiteFooter";
 
 type PageContent = {
   eyebrow: string;
@@ -146,7 +148,7 @@ const pageContent: Record<string, PageContent> = {
     eyebrow: "About MobPae",
     title: "Your Trusted Financial Partner",
     description:
-      "MobPae is a fintech platform that enables salaried employees to access their earned wages before payday through employer-backed approvals and NBFC partnerships. Our payroll-linked financial wellness ecosystem bridges the gap between payday and unexpected financial needs without encouraging debt dependency. The platform creates a win-win model for all stakeholders—employees receive timely liquidity, employers improve retention and productivity through enhanced financial well-being, and NBFCs achieve better portfolio quality by reducing credit risk and NPAs through employer-assisted verification and automated salary deductions. Our vision is to build India's most trusted employer-powered financial wellness ecosystem, enabling responsible financial access while fostering sustainable and inclusive lending.",
+      "MobPae is a fintech platform that enables salaried employees to access their earned wages before payday through employer-backed approvals. Our payroll-linked financial wellness ecosystem bridges the gap between payday and unexpected financial needs without encouraging debt dependency. The platform creates a win-win model for all stakeholders — employees receive timely liquidity, employers improve retention and productivity through enhanced financial well-being, and capital partners benefit from better portfolio quality through employer-assisted verification and automated salary deductions. Our vision is to build India's most trusted employer-powered financial wellness ecosystem, enabling responsible financial access while fostering sustainable and inclusive growth.",
     sections: [
       {
         title: "Why we exist",
@@ -280,7 +282,7 @@ const aboutStakeholders = [
     tone: "bg-[#E9F6F6] text-[#0F766E]",
   },
   {
-    title: "NBFC Partners",
+    title: "Capital Partners",
     copy: "Employer-assisted verification and automated salary deductions to support stronger portfolio quality.",
     icon: Landmark,
     tone: "bg-[#FDF6EB] text-[#B45309]",
@@ -727,38 +729,11 @@ function StaticPage({
 
 function StaticShell({ children }: { children: ReactNode }) {
   return (
-    <main className="min-h-screen bg-[#FBFCFF] text-[#0B1026]">
-      <header className="border-b border-[#ECEEF6] bg-white/86 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-[1320px] items-center justify-between px-5 py-4 sm:px-8 lg:px-12">
-          <Link to="/" aria-label="MobPae home">
-            <img
-              src="/brand/mobpae-logo-horizontal.png"
-              alt="MobPae - Your Trusted Financial Partner."
-              className="h-10 w-auto object-contain"
-            />
-          </Link>
-          <nav className="hidden items-center gap-8 lg:flex">
-            {siteNavLinks.map(([label, href]) => (
-              <Link
-                key={label}
-                to={href}
-                className="text-[13px] font-[750] text-[#252B42] transition hover:text-[#315eff]"
-              >
-                {label}
-              </Link>
-            ))}
-          </nav>
-          <Link
-            to="/#contact"
-            className="hidden h-11 items-center justify-center rounded-xl bg-[#315eff] px-6 text-[13px] font-[900] text-white shadow-[0_18px_44px_rgba(49,94,255,0.28)] sm:inline-flex"
-          >
-            Book a Demo
-          </Link>
-        </div>
-      </header>
+    <div style={{ fontFamily: "Inter, ui-sans-serif, sans-serif", color: "#0B0D12", background: "#fff" }}>
+      <SiteNav />
       {children}
-      <StaticFooter />
-    </main>
+      <SiteFooter />
+    </div>
   );
 }
 

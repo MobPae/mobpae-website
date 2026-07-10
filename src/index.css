@@ -753,3 +753,30 @@ a[href][class*="rounded"] {
     animation: none;
   }
 }
+
+/* ── Site redesign utilities ─────────────────────────────────────────────── */
+
+/* Hide scrollbar while preserving scroll */
+.hide-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+
+/* Hamburger only visible on mobile */
+@media (max-width: 860px) {
+  .nav-hamburger { display: flex !important; }
+}
+
+/* Responsive: collapse 2-col grids to 1-col on mobile */
+@media (max-width: 860px) {
+  .redesign-2col {
+    grid-template-columns: 1fr !important;
+  }
+  .redesign-4col {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .redesign-5col {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .redesign-3col {
+    grid-template-columns: 1fr !important;
+  }
+}
