@@ -68,13 +68,13 @@ export function SiteFooter() {
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "40px clamp(20px,5vw,32px) 0" }}>
 
         {/* Main grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr 1fr", gap: "24px 40px", paddingBottom: 28, borderBottom: "1px solid rgba(255,255,255,0.15)" }}>
+        <div className="footer-grid" style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr 1fr", gap: "24px 40px", paddingBottom: 28, borderBottom: "1px solid rgba(255,255,255,0.15)" }}>
 
           {/* Brand */}
           <div>
-            <div style={{ display: "inline-flex", alignItems: "center", background: "#fff", borderRadius: 8, padding: "6px 12px", marginBottom: 12 }}>
+            <a href="/" style={{ display: "inline-flex", alignItems: "center", background: "#fff", borderRadius: 8, padding: "6px 12px", marginBottom: 12, textDecoration: "none" }}>
               <img src="/brand/mobpae-logo-horizontal.svg" alt="MobPae" style={{ height: 20, width: "auto", display: "block" }} />
-            </div>
+            </a>
             <p style={{ fontSize: 13, color: "rgba(255,255,255,0.7)", lineHeight: 1.65, margin: "0 0 18px", maxWidth: 200 }}>
               Your Trusted Financial Partner. Employer-backed salary access for modern workplaces.
             </p>
@@ -104,17 +104,17 @@ export function SiteFooter() {
           {/* Product */}
           <FooterCol heading="Product">
             <FooterLinks links={[
-              { label: "For Employers",  href: "/#employers"    },
-              { label: "For Employees",  href: "/#employees"    },
-              { label: "How it works",   href: "/#how-it-works" },
-              { label: "Resources",      href: "/product"       },
+              { label: "For Employers",  href: "/employers"    },
+              { label: "For Employees",  href: "/employees"    },
+              { label: "How it works",   href: "/how-it-works" },
+              { label: "Resources",      href: "/product"      },
             ]} />
           </FooterCol>
 
           {/* Company */}
           <FooterCol heading="Company">
             <FooterLinks links={[
-              { label: "About Us",   href: "/#about"   },
+              { label: "About Us",   href: "/about"    },
               { label: "Team",       href: "/team"     },
               { label: "Careers",    href: "/careers"  },
               { label: "Contact Us", href: "/#enquiry" },
@@ -124,6 +124,9 @@ export function SiteFooter() {
           {/* Resources */}
           <FooterCol heading="Resources">
             <FooterLinks links={[
+              { label: "How It Works",       href: "/how-it-works"   },
+              { label: "FAQs",               href: "/faqs"           },
+              { label: "Blog",               href: "/blog"           },
               { label: "Privacy Policy",     href: "/privacy-policy" },
               { label: "Terms & Conditions", href: "/terms"          },
             ]} />

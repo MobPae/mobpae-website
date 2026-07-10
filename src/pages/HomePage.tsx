@@ -105,7 +105,7 @@ function Hero() {
       <div style={{ position:"absolute", bottom:"-15%", left:"-4%", width:400, height:400, background:"radial-gradient(circle,rgba(49,94,255,0.25) 0%,transparent 70%)", pointerEvents:"none" }} />
 
       <div style={{ ...W(1200), position:"relative", zIndex:1 }}>
-        <div style={{ display:"grid", gridTemplateColumns:"1.1fr 0.9fr", gap:"clamp(32px,5vw,60px)", alignItems:"center" }}>
+        <div className="redesign-2col" style={{ display:"grid", gridTemplateColumns:"1.1fr 0.9fr", gap:"clamp(32px,5vw,60px)", alignItems:"center" }}>
 
           {/* ── copy ── */}
           <div>
@@ -222,7 +222,7 @@ function StatsBar() {
   ];
   return (
     <div style={{ background:"#0B1028", padding:"20px 0" }}>
-      <div style={{ ...W(1200), display:"grid", gridTemplateColumns:"repeat(4,1fr)" }}>
+      <div className="redesign-4col" style={{ ...W(1200), display:"grid", gridTemplateColumns:"repeat(4,1fr)" }}>
         {stats.map((s,i) => (
           <div key={s.n} style={{ textAlign:"center", padding:"8px 0", borderRight: i<3 ? "1px solid rgba(255,255,255,0.08)" : "none" }}>
             <p style={{ fontSize:26, fontWeight:700, color:"#93C5FD", margin:"0 0 3px", fontFamily:'"TASA Orbiter Display Medium",sans-serif' }}>{s.n}</p>
@@ -276,7 +276,7 @@ function Features() {
 
   return (
     <section style={{ background:"#fff", padding:"52px 0" }}>
-      <div style={{ ...W(1200), display:"grid", gridTemplateColumns:"0.42fr 0.58fr", gap:"0 72px", alignItems:"start" }}>
+      <div className="redesign-2col" style={{ ...W(1200), display:"grid", gridTemplateColumns:"0.42fr 0.58fr", gap:"0 72px", alignItems:"start" }}>
 
         {/* ── Left: headline anchor ── */}
         <div>
@@ -390,7 +390,7 @@ function HowItWorks() {
 
   return (
     <section id="how-it-works" style={{ background:BG, padding:"52px 0" }}>
-      <div style={{ ...W(1200), display:"grid", gridTemplateColumns:"1fr 0.72fr", gap:"0 56px", alignItems:"start" }}>
+      <div className="redesign-2col" style={{ ...W(1200), display:"grid", gridTemplateColumns:"1fr 0.72fr", gap:"0 56px", alignItems:"start" }}>
 
         {/* ── Left: numbered step list ── */}
         <div>
@@ -457,7 +457,7 @@ function EmployerSection() {
   return (
     <section id="employers" style={{ background:BG, padding:"44px 0" }}>
       <div style={W(1200)}>
-        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:40, alignItems:"center" }}>
+        <div className="redesign-2col" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:40, alignItems:"center" }}>
           {/* mockup */}
           <div style={{ background:"#fff", borderRadius:16, border:`1px solid ${BD}`, padding:22, boxShadow:"0 16px 48px rgba(20,30,60,0.10)" }}>
             <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom:14 }}>
@@ -538,7 +538,7 @@ function SecuritySection() {
             Every layer of MobPae is designed with security, compliance, and data protection as defaults — not afterthoughts.
           </p>
         </div>
-        <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:16 }}>
+        <div className="redesign-3col" style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:16 }}>
           {items.map(i => (
             <div key={i.title} style={{ background:i.bg, borderRadius:16, border:"none", padding:"22px 20px" }}>
               <div style={{ width:36, height:36, borderRadius:8, background:i.color, marginBottom:14, display:"flex", alignItems:"center", justifyContent:"center" }}>
@@ -559,7 +559,7 @@ function About() {
   return (
     <section id="about" style={{ background:"#fff", padding:"44px 0" }}>
       <div style={W(1200)}>
-        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:40, alignItems:"start" }}>
+        <div className="redesign-2col" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:40, alignItems:"start" }}>
           <div>
             <p style={{ fontSize:11.5, fontWeight:700, color:B, textTransform:"uppercase", letterSpacing:"0.08em", margin:"0 0 10px" }}>About us</p>
             <h2 style={{ fontSize:"clamp(26px,3.5vw,40px)", fontWeight:600, letterSpacing:"-0.02em", margin:"0 0 16px", fontFamily:'"TASA Orbiter Display Medium",sans-serif' }}>
@@ -577,7 +577,7 @@ function About() {
               <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M8 3l4 3.5L8 10" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </a>
           </div>
-          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:14 }}>
+          <div className="redesign-2col" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:14 }}>
             {[
               { color:B,    bg:"#EEF2FF", border:"#C7D2FE", title:"Responsible by design",  sub:"Access capped at earned wages only" },
               { color:TEAL, bg:"#F0FDFA", border:"#5EEAD4", title:"Employer-first",           sub:"Every request goes through HR approval" },
@@ -609,7 +609,7 @@ const FAQS = [
 function FaqBlock({ openFaq, setOpenFaq }: { openFaq:number; setOpenFaq:(n:number)=>void }) {
   return (
     <section id="faq" style={{ background:BG, padding:"44px 0" }}>
-      <div style={{ ...W(1200), display:"grid", gridTemplateColumns:"1fr 1.4fr", gap:40, alignItems:"start" }}>
+      <div className="redesign-2col" style={{ ...W(1200), display:"grid", gridTemplateColumns:"1fr 1.4fr", gap:40, alignItems:"start" }}>
         <div>
           <p style={{ fontSize:11.5, fontWeight:700, color:B, textTransform:"uppercase", letterSpacing:"0.08em", margin:"0 0 10px" }}>FAQ</p>
           <h2 style={{ fontSize:"clamp(26px,3.5vw,40px)", fontWeight:600, letterSpacing:"-0.02em", margin:"0 0 14px", fontFamily:'"TASA Orbiter Display Medium",sans-serif' }}>
@@ -664,7 +664,7 @@ function EnquiryBlock({ form, errors, loading, success, error, updateField, subm
   return (
     <section id="enquiry" style={{ background:"#fff", padding:"44px 0" }}>
       <div style={W(1200)}>
-        <div style={{ display:"grid", gridTemplateColumns:"1fr 1.3fr", gap:40, alignItems:"start" }}>
+        <div className="redesign-2col" style={{ display:"grid", gridTemplateColumns:"1fr 1.3fr", gap:40, alignItems:"start" }}>
           {/* left panel */}
           <div style={{ background:"linear-gradient(140deg,#0C1260,#315EFF)", borderRadius:16, padding:"32px 28px", color:"#fff" }}>
             <p style={{ fontSize:11.5, fontWeight:700, color:"#93C5FD", textTransform:"uppercase", letterSpacing:"0.08em", margin:"0 0 10px" }}>Get in touch</p>
@@ -696,7 +696,7 @@ function EnquiryBlock({ form, errors, loading, success, error, updateField, subm
 
           {/* form */}
           <form onSubmit={submitEnquiry} noValidate style={{ background:"#fff", borderRadius:16, border:`1px solid ${BD}`, padding:"28px 24px", boxShadow:"0 12px 40px rgba(20,30,60,0.06)" }}>
-            <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:16, marginBottom:16 }}>
+            <div className="redesign-2col" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:16, marginBottom:16 }}>
               <div>
                 <label style={lbl}>Full name</label>
                 <input name="contactName" value={form.contactName} onChange={updateField} placeholder="Rahul Mehta" style={inp(errors.contactName)}
@@ -723,10 +723,16 @@ function EnquiryBlock({ form, errors, loading, success, error, updateField, subm
                 >
                   <option value="">Select…</option>
                   <option value="Employer">Employer</option>
-
+                  <option value="Employee">Employee</option>
+                  <option value="Capital Partner">Capital Partner</option>
                   <option value="Other">Other</option>
                 </select>
               </div>
+            </div>
+            <div style={{ marginBottom:16 }}>
+              <label style={lbl}>Phone number <span style={{ fontWeight:400, color:"#8A90A0" }}>(optional)</span></label>
+              <input name="phone" type="tel" value={form.phone} onChange={updateField} placeholder="+91 98765 43210" style={inp()}
+                onFocus={e => e.target.style.borderColor=B} onBlur={e => e.target.style.borderColor=BD} />
             </div>
             <div style={{ marginBottom:20 }}>
               <label style={lbl}>Message</label>

@@ -48,7 +48,7 @@ export function SiteNav() {
         </Link>
 
         {/* Desktop nav links */}
-        <nav style={{ display: "flex", alignItems: "center", gap: 4, flex: 1, overflowX: "auto", whiteSpace: "nowrap" }} className="hide-scrollbar">
+        <nav style={{ display: "flex", alignItems: "center", gap: 4, flex: 1, overflowX: "auto", whiteSpace: "nowrap" }} className="hide-scrollbar nav-desktop">
           {NAV_LINKS.map((l) => (
             <a
               key={l.label}
@@ -74,6 +74,7 @@ export function SiteNav() {
         {/* CTA */}
         <a
           href="/#enquiry"
+          className="nav-cta"
           style={{
             flexShrink: 0,
             height: 38,

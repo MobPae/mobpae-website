@@ -42,7 +42,7 @@ export function EmployersPage() {
       {/* ── Hero ──────────────────────────────────────────────────────────────── */}
       <section style={{ background: BG, padding: "clamp(64px,9vw,100px) 0 clamp(48px,6vw,72px)", borderBottom: `1px solid ${BD}` }}>
         <div style={W(1200)}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px,6vw,80px)", alignItems: "center" }}>
+          <div className="redesign-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px,6vw,80px)", alignItems: "center" }}>
             <div>
               <p style={{ fontSize: 11.5, fontWeight: 700, color: B, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 14px" }}>
                 For Employers
@@ -123,7 +123,7 @@ export function EmployersPage() {
             </h2>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+          <div className="redesign-3col" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
             {[
               { title: "No employer cash required",     desc: "Salary access is funded through structured capital partnerships. Your payroll and cash flow are never touched.", accent: B,    accentBg: "#EEF2FF" },
               { title: "Policy-driven auto-approvals",  desc: "Set rules once — eligibility limits, frequency caps, department rules. Approvals run themselves.",              accent: TEAL, accentBg: "#F0FDFA" },
@@ -198,7 +198,7 @@ export function EmployersPage() {
               Built to be trusted.
             </h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
+          <div className="redesign-3col" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
             {[
               { accent: B,    accentBg: "#EEF2FF", title: "Secured capital model",    desc: "Salary access funded through structured partnerships. Your payroll never leaves your control." },
               { accent: TEAL, accentBg: "#F0FDFA", title: "Employer-verified access", desc: "Every employee is authenticated via their employer before access is granted." },
