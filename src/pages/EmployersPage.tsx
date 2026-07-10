@@ -1,171 +1,273 @@
-import { ArrowRight, BarChart3, Building2, ClipboardCheck, Landmark, Settings2, ShieldCheck, Users, WalletCards } from "lucide-react";
-import { Footer } from "../components/Footer";
-import { Navbar } from "../components/Navbar";
-import { SEO } from "../components/SEO";
+import React from "react";
+import { SiteNav } from "../components/SiteNav";
+import { SiteFooter } from "../components/SiteFooter";
 
-const controlItems = [
-  { label: "Advance percentage", value: "10%" },
-  { label: "Maximum advance", value: "₹10,000" },
-  { label: "KYC required", value: "Active" },
-  { label: "Bank verification", value: "Active" },
-];
+const B    = "#315EFF";
+const BH   = "#2A51E0";
+const T1   = "#0B0D12";
+const T2   = "#5B6270";
+const BG   = "#F6F7F9";
+const BD   = "#E6E8EE";
+const TEAL = "#0D9488";
+const PURP = "#7C3AED";
 
-const employerSteps = [
-  {
-    icon: <Building2 size={21} />,
-    title: "Configure policy",
-    copy: "Set salary advance percentage, max limits, approval rules and verification requirements.",
-  },
-  {
-    icon: <Users size={21} />,
-    title: "Invite employees",
-    copy: "Employees complete KYC, bank verification, membership and request salary access from the app.",
-  },
-  {
-    icon: <ClipboardCheck size={21} />,
-    title: "Approve requests",
-    copy: "Employer reviews eligible requests before admin disbursal and payroll recovery.",
-  },
-  {
-    icon: <Landmark size={21} />,
-    title: "Recover in payroll",
-    copy: "Repayment and settlement reporting stays visible across the full workflow.",
-  },
-];
+const W = (maxWidth: number | string): React.CSSProperties => ({
+  maxWidth: typeof maxWidth === "number" ? maxWidth : maxWidth,
+  margin: "0 auto",
+  padding: "0 clamp(20px,5vw,32px)",
+  width: "100%",
+});
+
+function Check() {
+  return (
+    <div style={{ width: 24, height: 24, borderRadius: 6, background: "#EEF2FF", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 2 }}>
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+        <path d="M2 6l3 3 5-5" stroke={B} strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </div>
+  );
+}
 
 export function EmployersPage() {
+  const queue = [
+    { name: "Priya Sharma",  amount: "₹6,000", status: "Auto-approved", blue: true  },
+    { name: "Rahul Mehta",   amount: "₹3,500", status: "Auto-approved", blue: true  },
+    { name: "Anjali Patel",  amount: "₹9,200", status: "Pending review", blue: false },
+  ];
+
   return (
-    <main className="min-h-screen bg-[#F8F9FC]">
-      <SEO
-        title="For Employers"
-        description="Offer MobPae salary access as an employer-backed workplace benefit with policy limits, approvals, verification, payroll recovery and settlement visibility."
-        path="/for-employers"
-      />
-      <Navbar />
+    <div style={{ fontFamily: "Inter, ui-sans-serif, sans-serif", color: T1, background: "#fff" }}>
+      <SiteNav />
 
-      <section className="relative overflow-hidden border-b border-[#E5E7EB]">
-        <div className="pointer-events-none absolute left-[-12%] top-[-18%] h-[520px] w-[520px] rounded-full bg-[#f1f5ff]/70 blur-[120px]" />
-        <div className="pointer-events-none absolute right-[-10%] top-24 h-[460px] w-[460px] rounded-full bg-[#E9F6F6] blur-[110px]" />
-
-        <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:py-24">
-          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+      {/* ── Hero ──────────────────────────────────────────────────────────────── */}
+      <section style={{ background: BG, padding: "clamp(64px,9vw,100px) 0 clamp(48px,6vw,72px)", borderBottom: `1px solid ${BD}` }}>
+        <div style={W(1200)}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px,6vw,80px)", alignItems: "center" }}>
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#E5E7EB] bg-white/86 px-4 py-2 shadow-[0_16px_42px_rgba(15,23,42,0.07)] backdrop-blur-xl">
-                <Building2 size={14} className="text-[#214be6]" />
-                <span className="text-[11px] font-[700] uppercase tracking-[0.18em] text-[#111827]">For employers</span>
-              </div>
-              <h1 className="mt-6 max-w-[690px] text-[42px] font-[700] leading-[0.96] tracking-normal text-[#111827] sm:text-[64px]">
-                Offer salary access without losing control.
-              </h1>
-              <p className="mt-6 max-w-[540px] text-[16px] leading-[1.85] text-[#6B7280]">
-                MobPae helps employers support employees before payday with policy limits, approvals, verification, payroll recovery and settlement visibility.
+              <p style={{ fontSize: 11.5, fontWeight: 700, color: B, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 14px" }}>
+                For Employers
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a href="/#contact" className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#315eff] px-6 text-[14px] font-[700] text-white shadow-[0_22px_54px_rgba(15,23,42,0.24)] transition-all hover:-translate-y-1 hover:bg-[#214be6]">
-                  Request demo <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+              <h1 style={{
+                fontSize: "clamp(32px,5vw,56px)",
+                fontWeight: 600,
+                letterSpacing: "-0.03em",
+                lineHeight: 1.05,
+                color: T1,
+                margin: "0 0 20px",
+                fontFamily: '"TASA Orbiter Display Medium", sans-serif',
+              }}>
+                A financial benefit<br />
+                <span style={{ color: B }}>your team will use.</span>
+              </h1>
+              <p style={{ fontSize: 16, lineHeight: 1.75, color: T2, margin: "0 0 32px", maxWidth: 440 }}>
+                Give employees on-demand salary access — fully employer-controlled, zero cash burden, no payroll disruption.
+              </p>
+              <div style={{ display: "flex", gap: 12 }}>
+                <a
+                  href="/#enquiry"
+                  style={{ height: 46, padding: "0 24px", background: B, color: "#fff", fontSize: 14, fontWeight: 600, borderRadius: 8, display: "inline-flex", alignItems: "center", textDecoration: "none", transition: "background 150ms ease" }}
+                  onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = BH)}
+                  onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = B)}
+                >
+                  Request a demo
                 </a>
-                <a href="/security" className="inline-flex h-12 items-center justify-center rounded-full border border-[#E5E7EB] bg-white/86 px-6 text-[14px] font-[700] text-[#111827] shadow-[0_16px_36px_rgba(15,23,42,0.06)] backdrop-blur-xl transition-all hover:-translate-y-1 hover:text-[#111827]">
-                  View security
+                <a
+                  href="mailto:support@mobpae.com"
+                  style={{ height: 46, padding: "0 24px", background: "#fff", color: T1, fontSize: 14, fontWeight: 600, borderRadius: 8, display: "inline-flex", alignItems: "center", textDecoration: "none", border: `1px solid ${BD}`, transition: "border-color 150ms ease" }}
+                  onMouseEnter={e => ((e.currentTarget as HTMLElement).style.borderColor = B)}
+                  onMouseLeave={e => ((e.currentTarget as HTMLElement).style.borderColor = BD)}
+                >
+                  Talk to us
                 </a>
               </div>
             </div>
 
-            <div className="rounded-[40px] border border-white bg-white/84 p-5 shadow-soft backdrop-blur-xl">
-              <div className="light-feature-panel rounded-[32px] p-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-[12px] font-[700] uppercase tracking-[0.14em] text-white/60">Admin control room</p>
-                    <h2 className="mt-3 text-[32px] font-[700] leading-tight tracking-normal">Policy before payout.</h2>
-                  </div>
-                  <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-white/10 text-white/80">
-                    <Settings2 size={27} />
-                  </div>
-                </div>
-
-                <div className="mt-7 grid gap-3">
-                  {controlItems.map((item) => (
-                    <div key={item.label} className="rounded-2xl bg-white/8 px-4 py-3">
-                      <div className="mb-2 flex items-center justify-between gap-3">
-                        <span className="text-[12px] font-[600] text-white/58">{item.label}</span>
-                        <span className="text-[13px] font-[700] text-white">{item.value}</span>
-                      </div>
-                      <div className="h-2 rounded-full bg-white/10">
-                        <div className="h-full w-[72%] rounded-full bg-gradient-to-r from-[#b6c6ff] to-[#315eff]" />
-                      </div>
-                    </div>
+            {/* Approval queue mockup */}
+            <div style={{ background: "#fff", borderRadius: 16, border: `1px solid ${BD}`, padding: 24, boxShadow: "0 16px 48px rgba(20,30,60,0.09)" }}>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
+                <p style={{ fontSize: 13.5, fontWeight: 700, color: T1, margin: 0 }}>Approval queue</p>
+                <div style={{ display: "flex", gap: 6 }}>
+                  {["1 integration", "Full control"].map(t => (
+                    <span key={t} style={{ fontSize: 11, fontWeight: 600, color: B, background: "#EEF2FF", borderRadius: 6, padding: "3px 9px" }}>{t}</span>
                   ))}
                 </div>
               </div>
+              {queue.map(r => (
+                <div key={r.name} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 0", borderTop: `1px solid ${BD}` }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    <div style={{ width: 36, height: 36, borderRadius: 8, background: r.blue ? "#EEF2FF" : "#F0FDFA", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 700, color: r.blue ? B : TEAL }}>
+                      {r.name.charAt(0)}
+                    </div>
+                    <div>
+                      <p style={{ fontSize: 13.5, fontWeight: 600, color: T1, margin: 0 }}>{r.name}</p>
+                      <p style={{ fontSize: 12, color: T2, margin: "1px 0 0" }}>{r.amount}</p>
+                    </div>
+                  </div>
+                  <span style={{ fontSize: 11.5, fontWeight: 600, color: r.blue ? B : "#8A90A0", background: r.blue ? "#EEF2FF" : BG, borderRadius: 6, padding: "4px 10px" }}>{r.status}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-20">
-        <div className="mx-auto max-w-7xl px-5 sm:px-6">
-          <div className="mb-12 max-w-3xl">
-            <p className="text-[11px] font-[700] uppercase tracking-[0.22em] text-[#214be6]">Employer workflow</p>
-            <h2 className="mt-4 text-[36px] font-[700] leading-[1] tracking-normal text-[#111827] lg:text-[48px]">
-              A benefit that fits payroll operations.
+      {/* ── Benefits ──────────────────────────────────────────────────────────── */}
+      <section style={{ background: "#fff", padding: "clamp(56px,8vw,88px) 0" }}>
+        <div style={W(1200)}>
+          <div style={{ marginBottom: 40 }}>
+            <p style={{ fontSize: 11.5, fontWeight: 700, color: B, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 10px" }}>
+              Why employers choose MobPae
+            </p>
+            <h2 style={{ fontSize: "clamp(26px,3.5vw,40px)", fontWeight: 600, letterSpacing: "-0.02em", margin: 0, fontFamily: '"TASA Orbiter Display Medium", sans-serif' }}>
+              No risk. No overhead. Real impact.
             </h2>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {employerSteps.map((step, index) => (
-              <article key={step.title} className="rounded-[32px] border border-[#E5E7EB] bg-[#F8F9FC] p-6 shadow-[0_12px_34px_rgba(15,23,42,0.035)]">
-                <div className="flex items-center justify-between">
-                  <div className="flex h-13 w-13 h-[52px] w-[52px] items-center justify-center rounded-3xl bg-[#f1f5ff] text-[#214be6]">
-                    {step.icon}
-                  </div>
-                  <span className="text-[12px] font-[700] text-[#214be6]">0{index + 1}</span>
-                </div>
-                <h3 className="mt-6 text-[21px] font-[700] tracking-normal text-[#111827]">{step.title}</h3>
-                <p className="mt-3 text-[13.5px] leading-[1.75] text-[#6B7280]">{step.copy}</p>
-              </article>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+            {[
+              { title: "No employer cash required",     desc: "Salary access is funded through structured capital partnerships. Your payroll and cash flow are never touched.", accent: B,    accentBg: "#EEF2FF" },
+              { title: "Policy-driven auto-approvals",  desc: "Set rules once — eligibility limits, frequency caps, department rules. Approvals run themselves.",              accent: TEAL, accentBg: "#F0FDFA" },
+              { title: "Zero payroll disruption",       desc: "MobPae integrates with your HR system. Recovery happens at payroll — no manual reconciliation.",                accent: PURP, accentBg: "#F5F3FF" },
+              { title: "Full audit trail",              desc: "Every request, approval, disbursal, and recovery is logged. Exportable at any time.",                           accent: B,    accentBg: "#EEF2FF" },
+              { title: "Proven retention benefit",      desc: "Financial stress is a top driver of attrition. Giving employees access to earned wages reduces both.",          accent: TEAL, accentBg: "#F0FDFA" },
+              { title: "Setup in days, not months",     desc: "One integration. Onboarding support included. Your team is live before the next pay cycle.",                    accent: PURP, accentBg: "#F5F3FF" },
+            ].map(b => (
+              <div
+                key={b.title}
+                style={{ padding: "24px", background: b.accentBg, borderRadius: 16, transition: "box-shadow 180ms ease" }}
+                onMouseEnter={e => ((e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px rgba(20,30,60,0.07)")}
+                onMouseLeave={e => ((e.currentTarget as HTMLElement).style.boxShadow = "none")}
+              >
+                <p style={{ fontSize: 15, fontWeight: 600, color: T1, margin: "0 0 8px" }}>{b.title}</p>
+                <p style={{ fontSize: 13.5, lineHeight: 1.65, color: T2, margin: 0 }}>{b.desc}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-[#F8F9FC] py-20">
-        <div className="mx-auto grid max-w-7xl gap-5 px-5 sm:px-6 lg:grid-cols-3">
-          <EmployerMetric icon={<WalletCards size={22} />} value="No open-ended credit" label="Requests follow employer policy and salary data." />
-          <EmployerMetric icon={<ShieldCheck size={22} />} value="Verified employees" label="KYC, bank and selfie checks support safer access." />
-          <EmployerMetric icon={<BarChart3 size={22} />} value="Recoveries visible" label="Disbursal, repayment and settlement stay connected." />
+      {/* ── How it works ──────────────────────────────────────────────────────── */}
+      <section style={{ background: BG, padding: "clamp(56px,8vw,88px) 0" }}>
+        <div style={W(900)}>
+          <div style={{ marginBottom: 40, textAlign: "center" }}>
+            <p style={{ fontSize: 11.5, fontWeight: 700, color: B, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 10px" }}>
+              How it works
+            </p>
+            <h2 style={{ fontSize: "clamp(26px,3.5vw,40px)", fontWeight: 600, letterSpacing: "-0.02em", margin: 0, fontFamily: '"TASA Orbiter Display Medium", sans-serif' }}>
+              Live in four steps.
+            </h2>
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+            {[
+              { n: "01", title: "Sign up & integrate",      desc: "Connect your HR or payroll system via our API or flat-file upload. Takes less than a day." },
+              { n: "02", title: "Set your policy",          desc: "Define eligibility rules, access limits, and approval workflows. You stay in control." },
+              { n: "03", title: "Employees access wages",   desc: "Employees request earned advances through the MobPae app — approved instantly against your policy." },
+              { n: "04", title: "Auto-recovery at payroll", desc: "Accessed amounts are deducted at the next pay cycle. No manual work on your end." },
+            ].map((s, i) => (
+              <div
+                key={s.n}
+                style={{
+                  display: "flex", gap: 24, alignItems: "flex-start",
+                  padding: "24px",
+                  background: "#fff",
+                  borderRadius: i === 0 ? "16px 16px 0 0" : i === 3 ? "0 0 16px 16px" : 0,
+                  border: `1px solid ${BD}`,
+                  borderBottom: i < 3 ? "none" : `1px solid ${BD}`,
+                }}
+              >
+                <span style={{ fontSize: 11, fontWeight: 700, color: B, letterSpacing: "0.1em", minWidth: 28, paddingTop: 3 }}>{s.n}</span>
+                <div>
+                  <p style={{ fontSize: 15, fontWeight: 600, color: T1, margin: "0 0 4px" }}>{s.title}</p>
+                  <p style={{ fontSize: 13.5, lineHeight: 1.65, color: T2, margin: 0 }}>{s.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="bg-white py-20">
-        <div className="mx-auto max-w-7xl px-5 sm:px-6">
-          <div className="light-feature-panel rounded-[36px] p-7 lg:p-9">
-            <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
-              <div>
-                <p className="text-[12px] font-[700] uppercase tracking-[0.16em] text-white/80/70">Ready for employer onboarding</p>
-                <h2 className="mt-3 text-[32px] font-[700] leading-tight tracking-normal lg:text-[44px]">
-                  Turn salary access into a controlled workplace benefit.
-                </h2>
+      {/* ── Security ──────────────────────────────────────────────────────────── */}
+      <section style={{ background: "#0B1028", padding: "clamp(56px,8vw,88px) 0" }}>
+        <div style={W(1200)}>
+          <div style={{ marginBottom: 36 }}>
+            <p style={{ fontSize: 11.5, fontWeight: 700, color: "#93C5FD", textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 10px" }}>
+              Trust & security
+            </p>
+            <h2 style={{ fontSize: "clamp(26px,3.5vw,40px)", fontWeight: 600, letterSpacing: "-0.02em", color: "#fff", margin: 0, fontFamily: '"TASA Orbiter Display Medium", sans-serif' }}>
+              Built to be trusted.
+            </h2>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
+            {[
+              { accent: B,    accentBg: "#EEF2FF", title: "Secured capital model",    desc: "Salary access funded through structured partnerships. Your payroll never leaves your control." },
+              { accent: TEAL, accentBg: "#F0FDFA", title: "Employer-verified access", desc: "Every employee is authenticated via their employer before access is granted." },
+              { accent: PURP, accentBg: "#F5F3FF", title: "Encrypted end-to-end",     desc: "Data encrypted in transit and at rest. Role-based access with full audit logs." },
+            ].map(i => (
+              <div key={i.title} style={{ background: i.accentBg, borderRadius: 16, padding: "24px 22px" }}>
+                <div style={{ width: 36, height: 36, borderRadius: 8, background: i.accent, marginBottom: 14, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2L3 5v4c0 3 2.5 5.5 5 6 2.5-.5 5-3 5-6V5L8 2z" stroke="#fff" strokeWidth="1.5" fill="none" /></svg>
+                </div>
+                <p style={{ fontSize: 15, fontWeight: 700, color: T1, margin: "0 0 8px" }}>{i.title}</p>
+                <p style={{ fontSize: 13.5, color: T2, lineHeight: 1.65, margin: 0 }}>{i.desc}</p>
               </div>
-              <a href="/#contact" className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-[14px] font-[700] text-[#111827] transition hover:-translate-y-1 hover:bg-[#F8F9FC]">
-                Talk to MobPae <ArrowRight size={16} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ───────────────────────────────────────────────────────────────── */}
+      <section style={{ background: "#fff", padding: "clamp(56px,8vw,80px) 0" }}>
+        <div style={W(1200)}>
+          <div style={{
+            display: "flex", alignItems: "center", justifyContent: "space-between",
+            flexWrap: "wrap", gap: 28,
+            padding: "clamp(28px,4vw,48px)",
+            background: BG, borderRadius: 20, border: `1px solid ${BD}`,
+          }}>
+            <div>
+              <p style={{ fontSize: 11.5, fontWeight: 700, color: B, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 8px" }}>
+                Get started
+              </p>
+              <h2 style={{ fontSize: "clamp(22px,2.8vw,32px)", fontWeight: 600, margin: "0 0 16px", letterSpacing: "-0.02em", fontFamily: '"TASA Orbiter Display Medium", sans-serif' }}>
+                Ready to offer salary access to your team?
+              </h2>
+              <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
+                {[
+                  "No cash commitment from your company",
+                  "Setup and onboarding support included",
+                  "Live before your next pay cycle",
+                ].map(p => (
+                  <div key={p} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    <Check />
+                    <p style={{ fontSize: 13.5, color: T2, margin: 0 }}>{p}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div style={{ display: "flex", gap: 12, flexShrink: 0 }}>
+              <a
+                href="/#enquiry"
+                style={{ height: 46, padding: "0 24px", background: B, color: "#fff", fontSize: 14, fontWeight: 600, borderRadius: 8, display: "inline-flex", alignItems: "center", textDecoration: "none", transition: "background 150ms ease" }}
+                onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = BH)}
+                onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = B)}
+              >
+                Request a demo
+              </a>
+              <a
+                href="mailto:support@mobpae.com"
+                style={{ height: 46, padding: "0 24px", background: "#fff", color: T1, fontSize: 14, fontWeight: 600, borderRadius: 8, display: "inline-flex", alignItems: "center", textDecoration: "none", border: `1px solid ${BD}`, transition: "border-color 150ms ease, color 150ms ease" }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = B; (e.currentTarget as HTMLElement).style.color = B; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = BD; (e.currentTarget as HTMLElement).style.color = T1; }}
+              >
+                Talk to us
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      <Footer />
-    </main>
-  );
-}
-
-function EmployerMetric({ icon, value, label }: { icon: React.ReactNode; value: string; label: string }) {
-  return (
-    <div className="rounded-[34px] border border-[#E5E7EB] bg-white p-6 shadow-soft">
-      <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-[#315eff] text-white">
-        {icon}
-      </div>
-      <h3 className="mt-6 text-[25px] font-[700] leading-tight tracking-normal text-[#111827]">{value}</h3>
-      <p className="mt-3 text-[14px] leading-[1.75] text-[#6B7280]">{label}</p>
+      <SiteFooter />
     </div>
   );
 }

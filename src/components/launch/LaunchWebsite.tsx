@@ -190,7 +190,7 @@ export function LaunchWebsite() {
   useEffect(() => {
     document.title = "MobPae | Your Trusted Financial Partner";
     const description =
-      "MobPae helps employers offer responsible earned salary access through approvals, NBFC partnerships, disbursal tracking and payroll-linked recovery visibility.";
+      "MobPae helps employers offer responsible earned salary access through approvals, disbursal tracking and payroll-linked recovery visibility.";
     let meta = document.querySelector<HTMLMetaElement>(
       'meta[name="description"]'
     );

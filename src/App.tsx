@@ -1,21 +1,22 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HomePage } from "./pages/HomePage";
+import { ProductPage } from "./pages/ProductPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import {
-  AboutPage,
   BlogPage,
   CareersPage,
   ContactPage,
   EmployeesPage,
   EmployerBenefitsPage,
-  EmployersPage,
   FaqsPage,
   HelpCenterPage,
-  HowItWorksPage,
   PrivacyPolicyPage,
-  TeamPage,
   TermsPage,
 } from "./pages/WebsitePages";
+import { HowItWorksPage } from "./pages/HowItWorksPage";
+import { EmployersPage } from "./pages/EmployersPage";
+import { TeamPage } from "./pages/TeamPage";
+import { AboutPage } from "./pages/AboutPage";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route path="/help-center" element={<HelpCenterPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/terms" element={<TermsPage />} />
+        <Route path="/product" element={<ProductPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
