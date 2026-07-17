@@ -1,16 +1,12 @@
 import {
   ArrowRight,
   BadgeCheck,
-  BriefcaseBusiness,
-  Building2,
   CheckCircle2,
   FileText,
   HelpCircle,
-  Landmark,
   Mail,
   MapPin,
   ShieldCheck,
-  Sparkles,
   Users,
 } from "lucide-react";
 import type { ReactNode } from "react";
@@ -30,32 +26,6 @@ type PageContent = {
 };
 
 const pageContent: Record<string, PageContent> = {
-  employers: {
-    eyebrow: "For Employers",
-    title: "Offer salary access without disrupting payroll.",
-    description:
-      "MobPae gives employers a controlled way to support teams before payday, with approval visibility and payroll-aware recoveries.",
-    sections: [
-      {
-        title: "Employer-controlled access",
-        body: "Employees can request access to earned salary, but the employer stays in control of approvals, policy context and salary-cycle visibility.",
-        points: [
-          "Request review",
-          "Employee and salary context",
-          "Payroll-aware recovery",
-        ],
-      },
-      {
-        title: "Built for HR and finance teams",
-        body: "The flow reduces manual salary advance requests while giving teams a cleaner operating layer for approvals and recoveries.",
-        points: [
-          "Less manual follow-up",
-          "Clear status tracking",
-          "Audit-friendly history",
-        ],
-      },
-    ],
-  },
   employerBenefits: {
     eyebrow: "Employer Benefits",
     title: "A practical benefit employees actually use.",
@@ -100,30 +70,6 @@ const pageContent: Record<string, PageContent> = {
       },
     ],
   },
-  howItWorks: {
-    eyebrow: "How It Works",
-    title: "Simple for everyone. Powerful for all.",
-    description:
-      "MobPae coordinates employee requests, employer approvals, disbursal visibility and payroll-cycle recovery in one flow.",
-    sections: [
-      {
-        title: "1. Employee requests an advance",
-        body: "An eligible employee requests access to a controlled portion of earned salary.",
-      },
-      {
-        title: "2. Employer approves",
-        body: "The employer reviews the request with policy, salary and history context.",
-      },
-      {
-        title: "3. MobPae disburses",
-        body: "Once approved by operations, the amount is transferred to the employee account.",
-      },
-      {
-        title: "4. Recovery aligns with payroll",
-        body: "Recovery is scheduled around the employer payroll cycle and tracked through settlement.",
-      },
-    ],
-  },
   faqs: {
     eyebrow: "FAQ",
     title: "Everything you need to know.",
@@ -141,22 +87,6 @@ const pageContent: Record<string, PageContent> = {
       {
         title: "Does it affect payroll?",
         body: "MobPae is designed around payroll date and cutoff logic so recoveries can align with the correct salary cycle.",
-      },
-    ],
-  },
-  about: {
-    eyebrow: "About MobPae",
-    title: "Your Trusted Financial Partner",
-    description:
-      "MobPae is a fintech platform that enables salaried employees to access their earned wages before payday through employer-backed approvals. Our payroll-linked financial wellness ecosystem bridges the gap between payday and unexpected financial needs without encouraging debt dependency. The platform creates a win-win model for all stakeholders — employees receive timely liquidity, employers improve retention and productivity through enhanced financial well-being, and capital partners benefit from better portfolio quality through employer-assisted verification and automated salary deductions. Our vision is to build India's most trusted employer-powered financial wellness ecosystem, enabling responsible financial access while fostering sustainable and inclusive growth.",
-    sections: [
-      {
-        title: "Why we exist",
-        body: "Month-end pressure is real. MobPae gives companies a structured way to support people without informal advances or opaque credit.",
-      },
-      {
-        title: "Our approach",
-        body: "We focus on employer policy, transparent workflows, role-based access and payroll-aware recovery.",
       },
     ],
   },
@@ -268,65 +198,6 @@ const pageContent: Record<string, PageContent> = {
   },
 };
 
-const aboutStakeholders = [
-  {
-    title: "Employees",
-    copy: "Timely earned-wage liquidity for real needs, without encouraging debt dependency.",
-    icon: Users,
-    tone: "bg-[#f5f7ff] text-[#315eff]",
-  },
-  {
-    title: "Employers",
-    copy: "A practical wellness benefit that can improve retention, productivity and trust.",
-    icon: BriefcaseBusiness,
-    tone: "bg-[#E9F6F6] text-[#0F766E]",
-  },
-  {
-    title: "Capital Partners",
-    copy: "Employer-assisted verification and automated salary deductions to support stronger portfolio quality.",
-    icon: Landmark,
-    tone: "bg-[#FDF6EB] text-[#B45309]",
-  },
-];
-
-const founderProfiles = [
-  {
-    name: "Luhit Parajuli",
-    role: "Co-Founder & Business Strategy Lead",
-    initials: "LP",
-    accent: "#315eff",
-    intro:
-      "Luhit Parajuli brings over 13 years of corporate experience across banking, business consulting, MSME advisory, and strategic growth initiatives.",
-    bio: [
-      "He has worked with a leading Public Sector Bank, gaining extensive experience in both Liabilities and Asset businesses, while developing deep expertise in financial services and credit assessment.",
-      "Over the years, he has advised numerous MSMEs and startups on business growth, fundraising strategies, government schemes, startup ecosystem opportunities, financial structuring, and organizational development.",
-      "His strong understanding of the financial ecosystem, combined with extensive industry relationships, plays a key role in driving MobPae's vision of improving employee financial wellness through employer-backed solutions.",
-    ],
-  },
-  {
-    name: "Bharati Bhattarai",
-    role: "Co-Founder & Technology Lead",
-    initials: "BB",
-    accent: "#0F766E",
-    intro:
-      "Bharati Bhattarai is a seasoned technology professional with over 8 years of experience in software engineering, product development, platform architecture, and enterprise solutions.",
-    bio: [
-      "Throughout his career, he has worked with leading organizations in the IT industry, building and delivering scalable, secure, and high-performance applications across diverse business domains.",
-      "His expertise spans full-stack development, mobile and web platforms, API ecosystems, and large-scale enterprise systems.",
-      "He leads the platform architecture, security framework, infrastructure, and engineering roadmap, ensuring MobPae remains innovative, scalable, and capable of supporting rapid growth while delivering a seamless experience to employers, employees, and lending partners.",
-    ],
-  },
-];
-
-export function EmployersPage() {
-  return (
-    <StaticPage
-      content={pageContent.employers}
-      icon={<BriefcaseBusiness size={22} />}
-    />
-  );
-}
-
 export function EmployerBenefitsPage() {
   return (
     <StaticPage
@@ -337,210 +208,94 @@ export function EmployerBenefitsPage() {
 }
 
 export function EmployeesPage() {
-  return (
-    <StaticPage content={pageContent.employees} icon={<Users size={22} />} />
-  );
-}
+  const steps = [
+    ["Complete setup", "See KYC, bank and membership status in one place."],
+    ["View available access", "Understand what is available before making a request."],
+    ["Track every status", "Follow approval, transfer and repayment without guessing."],
+  ];
 
-export function HowItWorksPage() {
   return (
-    <StaticPage
-      content={pageContent.howItWorks}
-      icon={<Sparkles size={22} />}
-    />
+    <StaticShell>
+      <section className="bg-[linear-gradient(155deg,#f4f7ff_0%,#fff_62%)] px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
+        <div className="mx-auto grid max-w-[1180px] gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div>
+            <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#eef3ff] text-[#315eff]">
+              <Users size={22} aria-hidden="true" />
+            </span>
+            <p className="mt-7 text-[12px] font-[900] uppercase tracking-[0.2em] text-[#315eff]">
+              For Employees
+            </p>
+            <h1 className="mt-5 max-w-[720px] text-[42px] font-[900] leading-[1.03] tracking-[-0.045em] text-[#0B1026] lg:text-[64px]">
+              Access earned salary with a calmer experience.
+            </h1>
+            <p className="mt-6 max-w-[650px] text-[17px] font-[500] leading-[1.8] text-[#5C647A]">
+              A mobile-first journey for setup, requests, status tracking and repayment visibility—without hidden steps.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to="/#enquiry" className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-[#315eff] px-6 text-[14px] font-[800] text-white no-underline">
+                Bring MobPae to your workplace <ArrowRight size={17} aria-hidden="true" />
+              </Link>
+              <Link to="/how-it-works" className="inline-flex min-h-12 items-center rounded-lg border border-[#d8def0] bg-white px-6 text-[14px] font-[800] text-[#21185F] no-underline">
+                See how it works
+              </Link>
+            </div>
+          </div>
+
+          <div className="mx-auto w-full max-w-[280px]">
+            <p className="m-0 mb-3 text-center text-[11px] font-[800] uppercase tracking-[0.14em] text-[#8A90A3]">
+              The real MobPae employee app
+            </p>
+            <div className="overflow-hidden rounded-[20px] border border-[#dce5ff] shadow-[0_30px_90px_rgba(49,94,255,0.2)]">
+              <img
+                src="/product-shots/dashboard.png"
+                alt="MobPae employee app dashboard showing available salary advance, limit, and recent activity"
+                className="block w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="employee-journey-title" className="px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
+        <div className="mx-auto max-w-[1180px]">
+          <div className="max-w-[700px]">
+            <p className="text-[12px] font-[900] uppercase tracking-[0.2em] text-[#315eff]">The employee journey</p>
+            <h2 id="employee-journey-title" className="mt-3 text-[34px] font-[900] tracking-[-0.035em] text-[#0B1026] lg:text-[46px]">Clear at every step.</h2>
+          </div>
+          <div className="mt-9 grid gap-5 md:grid-cols-3">
+            {steps.map(([title, copy], index) => (
+              <article key={title} className="rounded-2xl border border-[#E6E8F2] bg-white p-7 shadow-[0_18px_60px_rgba(15,23,42,0.045)]">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#eef3ff] text-[13px] font-[900] text-[#315eff]">0{index + 1}</span>
+                <h3 className="mt-8 text-[21px] font-[900] text-[#0B1026]">{title}</h3>
+                <p className="mt-3 text-[14px] font-[500] leading-[1.75] text-[#5C647A]">{copy}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#F6F7F9] px-5 py-16 sm:px-8 lg:px-12">
+        <div className="mx-auto grid max-w-[1180px] gap-6 lg:grid-cols-2">
+          <article className="rounded-2xl border border-[#E6E8F2] bg-white p-7">
+            <ShieldCheck size={24} className="text-[#315eff]" aria-hidden="true" />
+            <h2 className="mt-5 text-[25px] font-[900] text-[#0B1026]">Know what happens next.</h2>
+            <p className="mt-3 text-[14px] leading-[1.75] text-[#5C647A]">Request tracking and repayment visibility keep the experience understandable from start to finish.</p>
+          </article>
+          <article className="rounded-2xl border border-[#E6E8F2] bg-white p-7">
+            <HelpCircle size={24} className="text-[#315eff]" aria-hidden="true" />
+            <h2 className="mt-5 text-[25px] font-[900] text-[#0B1026]">Need help?</h2>
+            <p className="mt-3 text-[14px] leading-[1.75] text-[#5C647A]">Visit the FAQs or contact support for onboarding, account and request questions.</p>
+            <div className="mt-5 flex flex-wrap gap-4"><Link to="/faqs" className="font-[800] text-[#315eff]">Read FAQs →</Link><a href="mailto:support@mobpae.com" className="font-[800] text-[#315eff]">Email support →</a></div>
+          </article>
+        </div>
+      </section>
+    </StaticShell>
   );
 }
 
 export function FaqsPage() {
   return (
     <StaticPage content={pageContent.faqs} icon={<HelpCircle size={22} />} />
-  );
-}
-
-export function AboutPage() {
-  const content = pageContent.about;
-
-  return (
-    <StaticShell>
-      <section className="relative overflow-hidden bg-white px-5 py-20 sm:px-8 lg:px-12">
-        <div
-          className="absolute inset-0 opacity-[0.35]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(49,94,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(49,94,255,0.07) 1px, transparent 1px)",
-            backgroundSize: "38px 38px",
-          }}
-        />
-
-        <div className="relative z-10 mx-auto max-w-[1180px]">
-          <div className="grid gap-10 lg:grid-cols-[0.58fr_0.42fr] lg:items-end">
-            <div>
-              <p className="text-[11px] font-[900] uppercase tracking-[0.24em] text-[#315eff]">
-                {content.eyebrow}
-              </p>
-              <h1 className="mt-5 max-w-[820px] text-[42px] font-[900] leading-[1.02] tracking-[-0.05em] text-[#0B1026] lg:text-[68px]">
-                {content.title}
-              </h1>
-            </div>
-
-            <div className="border-y border-[#dce5ff] bg-white/84 py-6">
-              <p className="text-[15px] font-[650] leading-[1.9] text-[#5C647A]">
-                Our payroll-linked financial wellness ecosystem bridges the gap
-                between payday and unexpected financial needs without
-                encouraging debt dependency.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-14 grid border-y border-[#dce5ff] bg-white lg:grid-cols-[0.34fr_0.66fr]">
-            <div className="border-b border-[#dce5ff] p-7 lg:border-b-0 lg:border-r lg:p-9">
-              <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#315eff] text-white">
-                <Building2 size={22} />
-              </span>
-              <h2 className="mt-8 text-[32px] font-[950] leading-[1.05] text-[#21185F]">
-                A salary-access layer built around trust.
-              </h2>
-              <p className="mt-5 text-[14px] font-[600] leading-[1.8] text-[#667085]">
-                We are not building another casual credit button. MobPae is
-                designed around employer context, transparent status and
-                payroll-linked recovery.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3">
-              {aboutStakeholders.map(({ title, copy, icon: Icon, tone }) => (
-                <div
-                  key={title}
-                  className="min-h-[280px] border-b border-[#e2e9ff] p-7 last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0"
-                >
-                  <div
-                    className={`flex h-12 w-12 items-center justify-center rounded-lg ${tone}`}
-                  >
-                    <Icon size={22} />
-                  </div>
-                  <h3 className="mt-20 text-[20px] font-[950] text-[#0B1026]">
-                    {title}
-                  </h3>
-                  <p className="mt-3 text-[13px] font-[600] leading-[1.75] text-[#667085]">
-                    {copy}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-14 grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-start">
-            <p className="text-[11px] font-[900] uppercase tracking-[0.24em] text-[#315eff]">
-              Operating Belief
-            </p>
-            <p className="max-w-[880px] text-[24px] font-[850] leading-[1.45] tracking-[-0.025em] text-[#111827] lg:text-[34px]">
-              Responsible salary access should feel calm: clear eligibility,
-              visible approvals, traceable disbursal and recovery that respects
-              payroll rhythm.
-            </p>
-          </div>
-        </div>
-      </section>
-    </StaticShell>
-  );
-}
-
-export function TeamPage() {
-  return (
-    <StaticShell>
-      <section className="relative overflow-hidden bg-white px-5 py-20 sm:px-8 lg:px-12">
-        <div className="relative z-10 mx-auto max-w-[1320px]">
-          <div className="grid gap-8 border-b border-[#dce5ff] pb-12 lg:grid-cols-[0.5fr_0.5fr] lg:items-end">
-            <div>
-              <p className="text-[11px] font-[900] uppercase tracking-[0.24em] text-[#315eff]">
-                Our Team
-              </p>
-              <h1 className="mt-5 max-w-[680px] text-[42px] font-[900] leading-[1.02] tracking-[-0.05em] text-[#0B1026] lg:text-[68px]">
-                The people building MobPae.
-              </h1>
-            </div>
-            <p className="max-w-[520px] text-[16px] font-[600] leading-[1.85] text-[#667085] lg:text-[18px]">
-              A focused team combining financial services experience,
-              engineering depth and product operations to build responsible
-              salary access for Indian workplaces.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-8 lg:grid-cols-2">
-            {founderProfiles.map(
-              ({ name, role, initials, accent, intro, bio }, index) => (
-                <article
-                  key={name}
-                  className="grid border-y border-[#dce5ff] bg-white lg:grid-cols-[170px_1fr]"
-                >
-                  <div className="relative min-h-[230px] overflow-hidden border-b border-[#dce5ff] p-6 lg:border-b-0 lg:border-r">
-                    <div
-                      className="absolute inset-0 opacity-[0.16]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(rgba(49,94,255,0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(49,94,255,0.35) 1px, transparent 1px)",
-                        backgroundSize: "30px 30px",
-                      }}
-                    />
-                    <div className="relative z-10 flex h-full flex-col gap-8">
-                      <span className="text-[12px] font-[950] uppercase tracking-[0.2em] text-[#8A90A3]">
-                        Founder 0{index + 1}
-                      </span>
-                      <div
-                        className="flex h-24 w-24 items-center justify-center rounded-lg text-[32px] font-[950] text-white shadow-[0_20px_54px_rgba(49,94,255,0.18)]"
-                        style={{ backgroundColor: accent }}
-                      >
-                        {initials}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="p-6 sm:p-8">
-                    <h2 className="text-[28px] font-[950] tracking-[-0.035em] text-[#0B1026]">
-                      {name}
-                    </h2>
-                    <p className="mt-2 text-[14px] font-[900] uppercase tracking-[0.12em] text-[#315eff]">
-                      {role}
-                    </p>
-                    <p className="mt-6 text-[14px] font-[650] leading-[1.85] text-[#667085]">
-                      {intro}
-                    </p>
-                    <div className="mt-6 grid gap-3 border-t border-[#eef3ff] pt-5">
-                      {bio.map((paragraph) => (
-                        <p
-                          key={paragraph}
-                          className="text-[13px] font-[600] leading-[1.8] text-[#667085]"
-                        >
-                          {paragraph}
-                        </p>
-                      ))}
-                    </div>
-                  </div>
-                </article>
-              )
-            )}
-          </div>
-
-          <div className="mt-14 grid gap-5 border-y border-[#dce5ff] py-6 md:grid-cols-3">
-            {[
-              ["Finance depth", "Banking, MSME advisory and partner strategy."],
-              ["Engineering depth", "Secure, scalable product architecture."],
-              [
-                "Operating focus",
-                "Employer, employee and lending workflows aligned.",
-              ],
-            ].map(([title, copy]) => (
-              <div key={title} className="border-l-2 border-[#315eff] pl-4">
-                <p className="text-[15px] font-[950] text-[#21185F]">{title}</p>
-                <p className="mt-2 text-[13px] font-[600] leading-[1.7] text-[#667085]">
-                  {copy}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    </StaticShell>
   );
 }
 
@@ -605,7 +360,7 @@ export function ContactPage() {
             the same backend flow.
           </p>
           <Link
-            to="/#contact"
+            to="/#enquiry"
             className="mt-8 inline-flex h-[52px] items-center gap-3 rounded-xl bg-[#315eff] px-7 text-[14px] font-[900] text-white shadow-[0_18px_44px_rgba(49,94,255,0.32)]"
           >
             Open Enquiry Form <ArrowRight size={17} />
@@ -693,13 +448,13 @@ function StaticShell({ children }: { children: ReactNode }) {
   return (
     <div
       style={{
-        fontFamily: "Inter, ui-sans-serif, sans-serif",
+        fontFamily: "Manrope, ui-sans-serif, sans-serif",
         color: "#0B0D12",
         background: "#fff",
       }}
     >
       <SiteNav />
-      {children}
+      <main id="main-content">{children}</main>
       <SiteFooter />
     </div>
   );

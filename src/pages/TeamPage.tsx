@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { SiteNav } from "../components/SiteNav";
 import { SiteFooter } from "../components/SiteFooter";
 
@@ -116,7 +117,7 @@ function Avatar({ member }: { member: Member }) {
           fontSize: 48,
           fontWeight: 700,
           color: member.accent,
-          fontFamily: '"TASA Orbiter Display Medium", sans-serif',
+          fontFamily: 'Manrope, ui-sans-serif, sans-serif',
           letterSpacing: "-0.02em",
           opacity: 0.7,
         }}
@@ -132,12 +133,13 @@ export function TeamPage() {
   return (
     <div
       style={{
-        fontFamily: "Inter, ui-sans-serif, sans-serif",
+        fontFamily: "Manrope, ui-sans-serif, sans-serif",
         color: T1,
         background: "#fff",
       }}
     >
       <SiteNav />
+      <main id="main-content">
 
       {/* ── Hero ────────────────────────────────────────────────────────────── */}
       <section
@@ -193,7 +195,7 @@ export function TeamPage() {
               lineHeight: 1.05,
               color: T1,
               margin: "0 0 20px",
-              fontFamily: '"TASA Orbiter Display Medium", sans-serif',
+              fontFamily: 'Manrope, ui-sans-serif, sans-serif',
             }}
           >
             We are the people who
@@ -300,8 +302,8 @@ export function TeamPage() {
             ))}
 
             {/* ── Hiring card ─────────────────────────────────────────────── */}
-            <a
-              href="/careers"
+            <Link
+              to="/careers"
               style={{
                 background: "#fff",
                 borderRadius: 16,
@@ -366,7 +368,7 @@ export function TeamPage() {
                   We're growing. See open roles →
                 </p>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -395,7 +397,7 @@ export function TeamPage() {
                 fontWeight: 600,
                 letterSpacing: "-0.02em",
                 margin: 0,
-                fontFamily: '"TASA Orbiter Display Medium", sans-serif',
+                fontFamily: 'Manrope, ui-sans-serif, sans-serif',
               }}
             >
               The principles we build by.
@@ -450,7 +452,7 @@ export function TeamPage() {
                     letterSpacing: "-0.02em",
                     margin: 0,
                     lineHeight: 1.2,
-                    fontFamily: '"TASA Orbiter Display Medium", sans-serif',
+                    fontFamily: 'Manrope, ui-sans-serif, sans-serif',
                   }}
                 >
                   {p.title}
@@ -503,7 +505,7 @@ export function TeamPage() {
                   letterSpacing: "-0.02em",
                   color: "#fff",
                   margin: "0 0 16px",
-                  fontFamily: '"TASA Orbiter Display Medium", sans-serif',
+                  fontFamily: 'Manrope, ui-sans-serif, sans-serif',
                 }}
               >
                 Finance depth.
@@ -610,7 +612,7 @@ export function TeamPage() {
                   fontWeight: 600,
                   margin: "0 0 8px",
                   letterSpacing: "-0.02em",
-                  fontFamily: '"TASA Orbiter Display Medium", sans-serif',
+                  fontFamily: 'Manrope, ui-sans-serif, sans-serif',
                 }}
               >
                 We're building something early and important.
@@ -621,8 +623,8 @@ export function TeamPage() {
               </p>
             </div>
             <div style={{ display: "flex", gap: 12, flexShrink: 0 }}>
-              <a
-                href="/careers"
+              <Link
+                to="/careers"
                 style={{
                   height: 44,
                   padding: "0 22px",
@@ -644,7 +646,7 @@ export function TeamPage() {
                 }
               >
                 See open roles
-              </a>
+              </Link>
               <a
                 href="mailto:support@mobpae.com"
                 style={{
@@ -677,6 +679,7 @@ export function TeamPage() {
         </div>
       </section>
 
+      </main>
       <SiteFooter />
     </div>
   );

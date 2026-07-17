@@ -18,6 +18,8 @@ import { HowItWorksPage } from "./pages/HowItWorksPage";
 import { EmployersPage } from "./pages/EmployersPage";
 import { TeamPage } from "./pages/TeamPage";
 import { AboutPage } from "./pages/AboutPage";
+import { SEO } from "./components/SEO";
+import { getRouteMeta } from "./seo/routeMeta";
 
 // Scroll to hash on navigation; scroll to top on route change
 function ScrollToHash() {
@@ -42,9 +44,23 @@ function ScrollToHash() {
   return null;
 }
 
+function RouteSEO() {
+  const { pathname } = useLocation();
+  const meta = getRouteMeta(pathname);
+  return (
+    <SEO
+      title={meta.title}
+      description={meta.description}
+      path={meta.canonicalPath}
+      robots={meta.robots}
+    />
+  );
+}
+
 function App() {
   return (
     <BrowserRouter>
+      <RouteSEO />
       <ScrollToHash />
       <Routes>
         <Route path="/" element={<HomePage />} />

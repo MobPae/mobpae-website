@@ -3,18 +3,19 @@ import { Link } from "react-router-dom";
 
 export function NotFoundPage() {
   return (
-    <main className="min-h-screen bg-[#FBFCFF] text-[#0B1026]">
+    <div className="min-h-screen bg-[#FBFCFF] text-[#0B1026]">
+      <a className="skip-link" href="#main-content">Skip to main content</a>
       <header className="border-b border-[#ECEEF6] bg-white/86 backdrop-blur-xl">
         <div className="mx-auto flex max-w-[1320px] items-center justify-between px-5 py-4 sm:px-8 lg:px-12">
           <Link to="/" aria-label="MobPae home">
             <img
-              src="/brand/mobpae-logo-horizontal.png"
-              alt="MobPae - Your Trusted Financial Partner."
+              src="/brand/mobpae-logo-horizontal.svg"
+              alt="MobPae"
               className="h-10 w-auto object-contain"
             />
           </Link>
           <Link
-            to="/#contact"
+            to="/#enquiry"
             className="hidden h-11 items-center justify-center rounded-xl bg-[#315eff] px-6 text-[13px] font-[900] text-white shadow-[0_18px_44px_rgba(49,94,255,0.28)] sm:inline-flex"
           >
             Book a Demo
@@ -22,7 +23,7 @@ export function NotFoundPage() {
         </div>
       </header>
 
-      <section className="mx-auto flex min-h-[72vh] max-w-[900px] flex-col items-center justify-center px-5 py-20 text-center sm:px-8 lg:px-12">
+      <main id="main-content" className="mx-auto flex min-h-[72vh] max-w-[900px] flex-col items-center justify-center px-5 py-20 text-center sm:px-8 lg:px-12">
         <p className="text-[11px] font-[900] uppercase tracking-[0.24em] text-[#315eff]">
           404
         </p>
@@ -39,7 +40,7 @@ export function NotFoundPage() {
         >
           Go Home <ArrowRight size={17} />
         </Link>
-      </section>
-    </main>
+      </main>
+    </div>
   );
 }

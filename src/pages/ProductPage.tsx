@@ -1,5 +1,6 @@
 import { SiteNav } from "../components/SiteNav";
 import { SiteFooter } from "../components/SiteFooter";
+import { Link } from "react-router-dom";
 
 // ── design tokens ─────────────────────────────────────────────────────────────
 const B  = "#315EFF";
@@ -30,15 +31,17 @@ function Pill({ children }: { children: React.ReactNode }) {
 // ── page ──────────────────────────────────────────────────────────────────────
 export function ProductPage() {
   return (
-    <div style={{ fontFamily: "Inter, ui-sans-serif, sans-serif", color: T1, background: "#fff" }}>
+    <div style={{ fontFamily: "Manrope, ui-sans-serif, sans-serif", color: T1, background: "#fff" }}>
       <SiteNav />
-      <ProductHero />
-      <ForEmployeesSection />
-      <ForEmployersSection />
-      <ForNbfcSection />
-      <DisbursementSection />
-      <ComplianceSection />
-      <ProductFinalCta />
+      <main id="main-content">
+        <ProductHero />
+        <ForEmployeesSection />
+        <ForEmployersSection />
+        <ForNbfcSection />
+        <DisbursementSection />
+        <ComplianceSection />
+        <ProductFinalCta />
+      </main>
       <SiteFooter />
     </div>
   );
@@ -50,7 +53,7 @@ function ProductHero() {
     <section style={{ background: "#fff", padding: "clamp(64px,8vw,112px) 0", textAlign: "center" }}>
       <div style={W(900)}>
         <Pill>Product</Pill>
-        <h1 style={{ fontSize: "clamp(40px,5.5vw,68px)", fontWeight: 500, lineHeight: 1.05, letterSpacing: "-0.02em", margin: "20px 0 24px", fontFamily: '"TASA Orbiter Display Medium", sans-serif' }}>
+        <h1 style={{ fontSize: "clamp(40px,5.5vw,68px)", fontWeight: 500, lineHeight: 1.05, letterSpacing: "-0.02em", margin: "20px 0 24px", fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
           One ecosystem.<br />Three stakeholders. One outcome.
         </h1>
         <p style={{ fontSize: 18, lineHeight: 1.7, color: T2, maxWidth: 680, margin: "0 auto" }}>
@@ -71,10 +74,10 @@ function ForEmployeesSection() {
   return (
     <section id="employees" style={{ background: BG, padding: "clamp(48px,7vw,96px) 0" }}>
       <div style={W(1200)}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
+        <div className="product-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
           <div>
             <Pill>For employees</Pill>
-            <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 500, lineHeight: 1.12, letterSpacing: "-0.015em", margin: "16px 0 16px", fontFamily: '"TASA Orbiter Display Medium", sans-serif' }}>
+            <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 500, lineHeight: 1.12, letterSpacing: "-0.015em", margin: "16px 0 16px", fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
               Access wages you've already earned
             </h2>
             <p style={{ fontSize: 15.5, lineHeight: 1.7, color: T2, marginBottom: 24 }}>
@@ -91,6 +94,7 @@ function ForEmployeesSection() {
           </div>
           {/* Pay cycle summary card */}
           <div>
+            <p style={{ fontSize: 12, color: "#596174", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 10px" }}>Illustrative app preview</p>
             <div style={{ background: "#fff", borderRadius: 20, border: `1px solid ${BD}`, padding: 28, boxShadow: "0 24px 60px -20px rgba(20,30,60,0.14)", maxWidth: 360 }}>
               <p style={{ fontSize: 12, color: T3, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 20 }}>This pay cycle</p>
               {[
@@ -103,9 +107,9 @@ function ForEmployeesSection() {
                   <span style={{ fontSize: 15, fontWeight: row.highlight ? 700 : 500, color: row.highlight ? B : T1 }}>{row.value}</span>
                 </div>
               ))}
-              <a href="/#enquiry" style={{ display: "block", marginTop: 20, height: 44, background: B, color: "#fff", fontWeight: 700, fontSize: 14, borderRadius: 8, textAlign: "center", lineHeight: "44px", textDecoration: "none" }}>
+              <Link to="/#enquiry" style={{ display: "block", marginTop: 20, height: 44, background: B, color: "#fff", fontWeight: 700, fontSize: 14, borderRadius: 8, textAlign: "center", lineHeight: "44px", textDecoration: "none" }}>
                 Withdraw now
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -129,9 +133,10 @@ function ForEmployersSection() {
   return (
     <section id="employers" style={{ background: "#fff", padding: "clamp(48px,7vw,96px) 0" }}>
       <div style={W(1200)}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
+        <div className="product-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
           {/* Mockup first */}
           <div>
+            <p style={{ fontSize: 12, color: "#596174", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 10px" }}>Illustrative dashboard preview</p>
             <div style={{ background: "#fff", borderRadius: 20, border: `1px solid ${BD}`, padding: 24, boxShadow: "0 24px 60px -20px rgba(20,30,60,0.14)" }}>
               <p style={{ fontSize: 13, fontWeight: 700, color: T1, margin: "0 0 16px" }}>Approval queue</p>
               {queue.map(r => (
@@ -147,7 +152,7 @@ function ForEmployersSection() {
           </div>
           <div>
             <Pill>For employers</Pill>
-            <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 500, lineHeight: 1.12, letterSpacing: "-0.015em", margin: "16px 0 16px", fontFamily: '"TASA Orbiter Display Medium", sans-serif' }}>
+            <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 500, lineHeight: 1.12, letterSpacing: "-0.015em", margin: "16px 0 16px", fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
               Retention benefit, zero cash burden
             </h2>
             <p style={{ fontSize: 15.5, lineHeight: 1.7, color: T2, marginBottom: 24 }}>
@@ -183,10 +188,10 @@ function ForNbfcSection() {
   return (
     <section id="nbfc" style={{ background: BG, padding: "clamp(48px,7vw,96px) 0" }}>
       <div style={W(1200)}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
+        <div className="product-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
           <div>
             <Pill>For capital partners</Pill>
-            <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 500, lineHeight: 1.12, letterSpacing: "-0.015em", margin: "16px 0 16px", fontFamily: '"TASA Orbiter Display Medium", sans-serif' }}>
+            <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 500, lineHeight: 1.12, letterSpacing: "-0.015em", margin: "16px 0 16px", fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
               Low-risk, short-tenure portfolio
             </h2>
             <p style={{ fontSize: 15.5, lineHeight: 1.7, color: T2, marginBottom: 24 }}>
@@ -203,6 +208,7 @@ function ForNbfcSection() {
           </div>
           {/* Portfolio snapshot card */}
           <div>
+            <p style={{ fontSize: 12, color: "#596174", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 10px" }}>Illustrative portfolio preview</p>
             <div style={{ background: "#fff", borderRadius: 20, border: `1px solid ${BD}`, padding: 28, boxShadow: "0 24px 60px -20px rgba(20,30,60,0.14)", maxWidth: 360 }}>
               <p style={{ fontSize: 12, color: T3, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 20 }}>Portfolio snapshot</p>
               {portfolioRows.map(r => (
@@ -232,12 +238,12 @@ function DisbursementSection() {
     <section id="disbursement" style={{ background: "#fff", padding: "clamp(48px,7vw,96px) 0" }}>
       <div style={W(1200)}>
         <div style={{ textAlign: "center", marginBottom: 48 }}>
-          <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 500, lineHeight: 1.12, letterSpacing: "-0.015em", margin: "0 0 14px", fontFamily: '"TASA Orbiter Display Medium", sans-serif' }}>
+          <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 500, lineHeight: 1.12, letterSpacing: "-0.015em", margin: "0 0 14px", fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
             How disbursement works
           </h2>
           <p style={{ fontSize: 15.5, color: T2, margin: 0 }}>Five transparent steps — from employee request to full settlement.</p>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(5,1fr)", gap: 16 }}>
+        <div className="product-5col" style={{ display: "grid", gridTemplateColumns: "repeat(5,1fr)", gap: 16 }}>
           {steps.map(s => (
             <div key={s.n} style={{ borderRadius: 16, border: `1px solid ${BD}`, padding: "20px 18px", textAlign: "center" }}>
               <div style={{ width: 36, height: 36, borderRadius: "50%", border: `1.5px solid ${B}`, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 14px" }}>
@@ -264,11 +270,11 @@ function ComplianceSection() {
     <section id="compliance" style={{ background: BG, padding: "clamp(48px,7vw,96px) 0" }}>
       <div style={W(900)}>
         <div style={{ textAlign: "center", marginBottom: 48 }}>
-          <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 500, lineHeight: 1.12, letterSpacing: "-0.015em", margin: "0 0 14px", fontFamily: '"TASA Orbiter Display Medium", sans-serif' }}>
+          <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 500, lineHeight: 1.12, letterSpacing: "-0.015em", margin: "0 0 14px", fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
             Built on responsible lending principles
           </h2>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }}>
+        <div className="product-3col" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }}>
           {cards.map(c => (
             <div key={c.title} style={{ background: "#fff", borderRadius: 16, border: `1px solid ${BD}`, padding: "24px 20px" }}>
               <p style={{ fontSize: 15, fontWeight: 700, color: T1, margin: "0 0 10px" }}>{c.title}</p>
@@ -286,20 +292,20 @@ function ProductFinalCta() {
   return (
     <section style={{ background: "linear-gradient(180deg, #F2F5FF 0%, #FFFFFF 100%)", padding: "clamp(64px,8vw,112px) 0", textAlign: "center" }}>
       <div style={W(720)}>
-        <h2 style={{ fontSize: "clamp(32px,4vw,48px)", fontWeight: 500, lineHeight: 1.12, letterSpacing: "-0.015em", margin: "0 0 16px", fontFamily: '"TASA Orbiter Display Medium", sans-serif' }}>
+        <h2 style={{ fontSize: "clamp(32px,4vw,48px)", fontWeight: 500, lineHeight: 1.12, letterSpacing: "-0.015em", margin: "0 0 16px", fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
           Ready to get started?
         </h2>
         <p style={{ fontSize: 16.5, color: T2, marginBottom: 36 }}>
           Talk to our team to see how MobPae fits your payroll cycle and employee count.
         </p>
-        <a
-          href="/#enquiry"
+        <Link
+          to="/#enquiry"
           style={{ display: "inline-flex", alignItems: "center", height: 52, padding: "0 32px", background: B, color: "#fff", fontWeight: 700, fontSize: 15.5, borderRadius: 8, textDecoration: "none", transition: "background 120ms ease, transform 120ms ease" }}
           onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = BH; (e.currentTarget as HTMLElement).style.transform = "scale(1.02)"; }}
           onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = B; (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}
         >
           Request a demo
-        </a>
+        </Link>
       </div>
     </section>
   );

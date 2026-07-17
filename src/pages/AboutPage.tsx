@@ -1,6 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { SiteNav } from "../components/SiteNav";
 import { SiteFooter } from "../components/SiteFooter";
+
+const founders = [
+  { photo: "/team/luhit-parajuli.png", initials: "LP", name: "Luhit Parajuli", role: "Co-Founder & Business Strategy", accent: "#315EFF" },
+  { photo: "/team/jyotirmoy.png", initials: "JU", name: "Jyotirmoy Upadhaya", role: "Co-Founder & Technology Lead", accent: "#315EFF" },
+  { photo: "/team/bharati-bhattarai.png", initials: "BB", name: "Bharati Bhattarai", role: "Admin & Legal Head", accent: "#0D9488" },
+  { photo: null, initials: "AK", name: "Anurag Koirala", role: "Software Development", accent: "#7C3AED" },
+];
 
 // ── Design tokens ─────────────────────────────────────────────────────────────
 const B = "#315EFF";
@@ -24,12 +32,13 @@ export function AboutPage() {
   return (
     <div
       style={{
-        fontFamily: "Inter, ui-sans-serif, sans-serif",
+        fontFamily: "Manrope, ui-sans-serif, sans-serif",
         color: T1,
         background: "#fff",
       }}
     >
       <SiteNav />
+      <main id="main-content">
 
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section
@@ -60,7 +69,7 @@ export function AboutPage() {
               lineHeight: 1.05,
               color: T1,
               margin: "0 0 16px",
-              fontFamily: '"TASA Orbiter Display Medium", sans-serif',
+              fontFamily: 'Manrope, ui-sans-serif, sans-serif',
               maxWidth: 700,
             }}
           >
@@ -115,7 +124,7 @@ export function AboutPage() {
                   fontWeight: 600,
                   letterSpacing: "-0.02em",
                   margin: "0 0 24px",
-                  fontFamily: '"TASA Orbiter Display Medium", sans-serif',
+                  fontFamily: 'Manrope, ui-sans-serif, sans-serif',
                   lineHeight: 1.1,
                 }}
               >
@@ -202,7 +211,7 @@ export function AboutPage() {
                     letterSpacing: "-0.02em",
                     lineHeight: 1.3,
                     margin: "0 0 12px",
-                    fontFamily: '"TASA Orbiter Display Medium", sans-serif',
+                    fontFamily: 'Manrope, ui-sans-serif, sans-serif',
                   }}
                 >
                   Build India's most trusted employer-powered financial wellness
@@ -250,7 +259,7 @@ export function AboutPage() {
                     letterSpacing: "-0.01em",
                     lineHeight: 1.35,
                     margin: "0 0 12px",
-                    fontFamily: '"TASA Orbiter Display Medium", sans-serif',
+                    fontFamily: 'Manrope, ui-sans-serif, sans-serif',
                   }}
                 >
                   68% of Indian salaried workers face a financial crunch before
@@ -298,7 +307,7 @@ export function AboutPage() {
                 fontWeight: 600,
                 letterSpacing: "-0.02em",
                 margin: 0,
-                fontFamily: '"TASA Orbiter Display Medium", sans-serif',
+                fontFamily: 'Manrope, ui-sans-serif, sans-serif',
               }}
             >
               A model built for every stakeholder.
@@ -396,7 +405,7 @@ export function AboutPage() {
                     letterSpacing: "-0.02em",
                     margin: 0,
                     lineHeight: 1.2,
-                    fontFamily: '"TASA Orbiter Display Medium", sans-serif',
+                    fontFamily: 'Manrope, ui-sans-serif, sans-serif',
                   }}
                 >
                   {s.headline}
@@ -499,7 +508,7 @@ export function AboutPage() {
                   fontWeight: 600,
                   letterSpacing: "-0.02em",
                   margin: "0 0 20px",
-                  fontFamily: '"TASA Orbiter Display Medium", sans-serif',
+                  fontFamily: 'Manrope, ui-sans-serif, sans-serif',
                   lineHeight: 1.1,
                 }}
               >
@@ -609,6 +618,102 @@ export function AboutPage() {
         </div>
       </section>
 
+      {/* ── The people ──────────────────────────────────────────────────────── */}
+      <section style={{ background: "#fff", padding: "clamp(56px,8vw,88px) 0" }}>
+        <div style={W(1200)}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "flex-end",
+              justifyContent: "space-between",
+              flexWrap: "wrap",
+              gap: 16,
+              marginBottom: 40,
+            }}
+          >
+            <div>
+              <p
+                style={{
+                  fontSize: 11.5,
+                  fontWeight: 700,
+                  color: B,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.08em",
+                  margin: "0 0 10px",
+                }}
+              >
+                Who's behind it
+              </p>
+              <h2
+                style={{
+                  fontSize: "clamp(26px,3.5vw,40px)",
+                  fontWeight: 600,
+                  letterSpacing: "-0.02em",
+                  margin: 0,
+                  fontFamily: 'Manrope, ui-sans-serif, sans-serif',
+                }}
+              >
+                A small team building something we believe in.
+              </h2>
+            </div>
+            <Link
+              to="/team"
+              style={{
+                fontSize: 14,
+                fontWeight: 700,
+                color: B,
+                textDecoration: "none",
+                whiteSpace: "nowrap",
+              }}
+            >
+              Meet the full team →
+            </Link>
+          </div>
+
+          <div
+            className="redesign-4col"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(4, 1fr)",
+              gap: 20,
+            }}
+          >
+            {founders.map((f) => (
+              <div key={f.name} style={{ textAlign: "center" }}>
+                <div
+                  style={{
+                    width: 84,
+                    height: 84,
+                    margin: "0 auto 14px",
+                    borderRadius: "50%",
+                    overflow: "hidden",
+                    border: `1px solid ${BD}`,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    background: f.photo ? "#fff" : `${f.accent}1A`,
+                  }}
+                >
+                  {f.photo ? (
+                    <img
+                      src={f.photo}
+                      alt={f.name}
+                      style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+                    />
+                  ) : (
+                    <span style={{ fontSize: 22, fontWeight: 700, color: f.accent, fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
+                      {f.initials}
+                    </span>
+                  )}
+                </div>
+                <p style={{ fontSize: 14.5, fontWeight: 600, color: T1, margin: "0 0 3px" }}>{f.name}</p>
+                <p style={{ fontSize: 12.5, color: T2, margin: 0 }}>{f.role}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Numbers / milestones ─────────────────────────────────────────────── */}
       <section style={{ background: T1, padding: "clamp(56px,8vw,80px) 0" }}>
         <div style={W(1200)}>
@@ -641,7 +746,7 @@ export function AboutPage() {
                     color: "#fff",
                     margin: "0 0 6px",
                     letterSpacing: "-0.03em",
-                    fontFamily: '"TASA Orbiter Display Medium", sans-serif',
+                    fontFamily: 'Manrope, ui-sans-serif, sans-serif',
                   }}
                 >
                   {s.n}
@@ -683,7 +788,7 @@ export function AboutPage() {
                 fontWeight: 600,
                 letterSpacing: "-0.02em",
                 margin: 0,
-                fontFamily: '"TASA Orbiter Display Medium", sans-serif',
+                fontFamily: 'Manrope, ui-sans-serif, sans-serif',
               }}
             >
               Our values.
@@ -799,6 +904,7 @@ export function AboutPage() {
         </div>
       </section>
 
+      </main>
       <SiteFooter />
     </div>
   );

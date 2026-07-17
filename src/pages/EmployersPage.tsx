@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { SiteNav } from "../components/SiteNav";
 import { SiteFooter } from "../components/SiteFooter";
 
@@ -36,8 +37,9 @@ export function EmployersPage() {
   ];
 
   return (
-    <div style={{ fontFamily: "Inter, ui-sans-serif, sans-serif", color: T1, background: "#fff" }}>
+    <div style={{ fontFamily: "Manrope, ui-sans-serif, sans-serif", color: T1, background: "#fff" }}>
       <SiteNav />
+      <main id="main-content">
 
       {/* ── Hero ──────────────────────────────────────────────────────────────── */}
       <section style={{ background: BG, padding: "clamp(64px,9vw,100px) 0 clamp(48px,6vw,72px)", borderBottom: `1px solid ${BD}` }}>
@@ -54,7 +56,7 @@ export function EmployersPage() {
                 lineHeight: 1.05,
                 color: T1,
                 margin: "0 0 20px",
-                fontFamily: '"TASA Orbiter Display Medium", sans-serif',
+                fontFamily: 'Manrope, ui-sans-serif, sans-serif',
               }}>
                 A financial benefit<br />
                 <span style={{ color: B }}>your team will use.</span>
@@ -63,14 +65,14 @@ export function EmployersPage() {
                 Give employees on-demand salary access — fully employer-controlled, zero cash burden, no payroll disruption.
               </p>
               <div style={{ display: "flex", gap: 12 }}>
-                <a
-                  href="/#enquiry"
+                <Link
+                  to="/#enquiry"
                   style={{ height: 46, padding: "0 24px", background: B, color: "#fff", fontSize: 14, fontWeight: 600, borderRadius: 8, display: "inline-flex", alignItems: "center", textDecoration: "none", transition: "background 150ms ease" }}
                   onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = BH)}
                   onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = B)}
                 >
                   Request a demo
-                </a>
+                </Link>
                 <a
                   href="mailto:support@mobpae.com"
                   style={{ height: 46, padding: "0 24px", background: "#fff", color: T1, fontSize: 14, fontWeight: 600, borderRadius: 8, display: "inline-flex", alignItems: "center", textDecoration: "none", border: `1px solid ${BD}`, transition: "border-color 150ms ease" }}
@@ -83,7 +85,9 @@ export function EmployersPage() {
             </div>
 
             {/* Approval queue mockup */}
-            <div style={{ background: "#fff", borderRadius: 16, border: `1px solid ${BD}`, padding: 24, boxShadow: "0 16px 48px rgba(20,30,60,0.09)" }}>
+            <div>
+              <p style={{ fontSize: 12, color: T2, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em", margin: "0 0 10px" }}>Illustrative dashboard preview</p>
+              <div style={{ background: "#fff", borderRadius: 16, border: `1px solid ${BD}`, padding: 24, boxShadow: "0 16px 48px rgba(20,30,60,0.09)" }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
                 <p style={{ fontSize: 13.5, fontWeight: 700, color: T1, margin: 0 }}>Approval queue</p>
                 <div style={{ display: "flex", gap: 6 }}>
@@ -106,6 +110,7 @@ export function EmployersPage() {
                   <span style={{ fontSize: 11.5, fontWeight: 600, color: r.blue ? B : "#8A90A0", background: r.blue ? "#EEF2FF" : BG, borderRadius: 6, padding: "4px 10px" }}>{r.status}</span>
                 </div>
               ))}
+              </div>
             </div>
           </div>
         </div>
@@ -118,7 +123,7 @@ export function EmployersPage() {
             <p style={{ fontSize: 11.5, fontWeight: 700, color: B, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 10px" }}>
               Why employers choose MobPae
             </p>
-            <h2 style={{ fontSize: "clamp(26px,3.5vw,40px)", fontWeight: 600, letterSpacing: "-0.02em", margin: 0, fontFamily: '"TASA Orbiter Display Medium", sans-serif' }}>
+            <h2 style={{ fontSize: "clamp(26px,3.5vw,40px)", fontWeight: 600, letterSpacing: "-0.02em", margin: 0, fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
               No risk. No overhead. Real impact.
             </h2>
           </div>
@@ -153,7 +158,7 @@ export function EmployersPage() {
             <p style={{ fontSize: 11.5, fontWeight: 700, color: B, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 10px" }}>
               How it works
             </p>
-            <h2 style={{ fontSize: "clamp(26px,3.5vw,40px)", fontWeight: 600, letterSpacing: "-0.02em", margin: 0, fontFamily: '"TASA Orbiter Display Medium", sans-serif' }}>
+            <h2 style={{ fontSize: "clamp(26px,3.5vw,40px)", fontWeight: 600, letterSpacing: "-0.02em", margin: 0, fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
               Live in four steps.
             </h2>
           </div>
@@ -194,7 +199,7 @@ export function EmployersPage() {
             <p style={{ fontSize: 11.5, fontWeight: 700, color: "#93C5FD", textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 10px" }}>
               Trust & security
             </p>
-            <h2 style={{ fontSize: "clamp(26px,3.5vw,40px)", fontWeight: 600, letterSpacing: "-0.02em", color: "#fff", margin: 0, fontFamily: '"TASA Orbiter Display Medium", sans-serif' }}>
+            <h2 style={{ fontSize: "clamp(26px,3.5vw,40px)", fontWeight: 600, letterSpacing: "-0.02em", color: "#fff", margin: 0, fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
               Built to be trusted.
             </h2>
           </div>
@@ -229,7 +234,7 @@ export function EmployersPage() {
               <p style={{ fontSize: 11.5, fontWeight: 700, color: B, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 8px" }}>
                 Get started
               </p>
-              <h2 style={{ fontSize: "clamp(22px,2.8vw,32px)", fontWeight: 600, margin: "0 0 16px", letterSpacing: "-0.02em", fontFamily: '"TASA Orbiter Display Medium", sans-serif' }}>
+              <h2 style={{ fontSize: "clamp(22px,2.8vw,32px)", fontWeight: 600, margin: "0 0 16px", letterSpacing: "-0.02em", fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
                 Ready to offer salary access to your team?
               </h2>
               <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
@@ -246,14 +251,14 @@ export function EmployersPage() {
               </div>
             </div>
             <div style={{ display: "flex", gap: 12, flexShrink: 0 }}>
-              <a
-                href="/#enquiry"
+              <Link
+                to="/#enquiry"
                 style={{ height: 46, padding: "0 24px", background: B, color: "#fff", fontSize: 14, fontWeight: 600, borderRadius: 8, display: "inline-flex", alignItems: "center", textDecoration: "none", transition: "background 150ms ease" }}
                 onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = BH)}
                 onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = B)}
               >
                 Request a demo
-              </a>
+              </Link>
               <a
                 href="mailto:support@mobpae.com"
                 style={{ height: 46, padding: "0 24px", background: "#fff", color: T1, fontSize: 14, fontWeight: 600, borderRadius: 8, display: "inline-flex", alignItems: "center", textDecoration: "none", border: `1px solid ${BD}`, transition: "border-color 150ms ease, color 150ms ease" }}
@@ -266,6 +271,8 @@ export function EmployersPage() {
           </div>
         </div>
       </section>
+
+      </main>
 
       <SiteFooter />
     </div>

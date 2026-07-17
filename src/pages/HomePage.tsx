@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { SiteNav } from "../components/SiteNav";
 import { SiteFooter } from "../components/SiteFooter";
 
@@ -77,18 +78,19 @@ export function HomePage() {
   }
 
   return (
-    <div style={{ fontFamily:"Inter, ui-sans-serif, sans-serif", color:T1, background:"#fff" }}>
+    <div style={{ fontFamily:"Manrope, ui-sans-serif, sans-serif", color:T1, background:"#fff" }}>
       <SiteNav />
-      <Hero />
-      <StatsBar />
-      <Features />
-      <HowItWorks />
-      <EmployerSection />
-      <SecuritySection />
-      <About />
-      <FaqBlock openFaq={openFaq} setOpenFaq={setOpenFaq} />
-      <EnquiryBlock form={form} errors={errors} loading={loading} success={success} error={error} updateField={updateField} submitEnquiry={submitEnquiry} />
-      <FinalCta />
+      <main id="main-content">
+        <Hero />
+        <StatsBar />
+        <Features />
+        <HowItWorks />
+        <AudiencePaths />
+        <SecuritySection />
+        <FaqBlock openFaq={openFaq} setOpenFaq={setOpenFaq} />
+        <EnquiryBlock form={form} errors={errors} loading={loading} success={success} error={error} updateField={updateField} submitEnquiry={submitEnquiry} />
+        <FinalCta />
+      </main>
       <SiteFooter />
     </div>
   );
@@ -97,7 +99,7 @@ export function HomePage() {
 // ── Hero ──────────────────────────────────────────────────────────────────────
 function Hero() {
   return (
-    <section style={{ background:"linear-gradient(140deg,#0C1260 0%,#1837D4 52%,#315EFF 100%)", padding:"clamp(52px,6vw,84px) 0 clamp(56px,6vw,88px)", position:"relative", overflow:"hidden" }}>
+    <section style={{ background:"linear-gradient(140deg,#0C1260 0%,#1837D4 52%,#315EFF 100%)", padding:"clamp(36px,6vw,84px) 0 clamp(40px,6vw,88px)", position:"relative", overflow:"hidden" }}>
       {/* grid lines */}
       <div style={{ position:"absolute", inset:0, backgroundImage:"linear-gradient(rgba(255,255,255,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.05) 1px,transparent 1px)", backgroundSize:"52px 52px" }} />
       {/* glow orbs */}
@@ -109,23 +111,21 @@ function Hero() {
 
           {/* ── copy ── */}
           <div>
-            <span style={{ display:"inline-flex", alignItems:"center", gap:8, background:"rgba(255,255,255,0.14)", border:"1px solid rgba(255,255,255,0.22)", borderRadius:8, height:30, padding:"0 12px", fontSize:11.5, fontWeight:700, color:"rgba(255,255,255,0.9)", letterSpacing:"0.06em", textTransform:"uppercase", marginBottom:22 }}>
+            <span style={{ display:"inline-flex", alignItems:"center", gap:8, background:"rgba(255,255,255,0.14)", border:"1px solid rgba(255,255,255,0.22)", borderRadius:8, height:30, padding:"0 12px", fontSize:11.5, fontWeight:700, color:"rgba(255,255,255,0.9)", letterSpacing:"0.06em", textTransform:"uppercase", marginBottom:18 }}>
               <span style={{ width:6, height:6, borderRadius:"50%", background:"#93C5FD", display:"inline-block" }} />
               Earned Wage Access · Employer Backed
             </span>
 
-            <h1 style={{ fontSize:"clamp(44px,5.5vw,74px)", fontWeight:600, lineHeight:1.0, letterSpacing:"-0.025em", color:"#fff", margin:"0 0 8px", fontFamily:'"TASA Orbiter Display Medium","TASA Orbiter Display Medium Placeholder",sans-serif' }}>
+            <h1 style={{ fontSize:"clamp(36px,5.5vw,74px)", fontWeight:600, lineHeight:1.04, letterSpacing:"-0.025em", color:"#fff", margin:"0 0 18px", fontFamily:'Manrope, ui-sans-serif, sans-serif' }}>
               Your Trusted
-            </h1>
-            <h1 style={{ fontSize:"clamp(44px,5.5vw,74px)", fontWeight:600, lineHeight:1.0, letterSpacing:"-0.025em", color:"#93C5FD", margin:"0 0 24px", fontFamily:'"TASA Orbiter Display Medium","TASA Orbiter Display Medium Placeholder",sans-serif' }}>
-              Financial Partner.
+              <span style={{ display:"block", color:"#93C5FD", marginTop:6 }}>Financial Partner.</span>
             </h1>
 
-            <p style={{ fontSize:17, lineHeight:1.72, color:"rgba(255,255,255,0.72)", margin:"0 0 28px", maxWidth:480 }}>
+            <p style={{ fontSize:16, lineHeight:1.68, color:"rgba(255,255,255,0.72)", margin:"0 0 20px", maxWidth:480 }}>
               Employer-backed salary access for modern teams. Employees withdraw what they've earned. Employers stay in control. Repayment follows payroll — automatically.
             </p>
 
-            <div style={{ display:"flex", flexWrap:"wrap", gap:8, marginBottom:32 }}>
+            <div style={{ display:"flex", flexWrap:"wrap", gap:8, marginBottom:22 }}>
               {["Employer approved","Auto-recovery","No debt trap","Payroll-linked"].map(t => (
                 <span key={t} style={{ display:"inline-flex", alignItems:"center", gap:6, height:29, padding:"0 11px", background:"rgba(255,255,255,0.10)", border:"1px solid rgba(255,255,255,0.18)", borderRadius:6, fontSize:12, fontWeight:500, color:"rgba(255,255,255,0.85)" }}>
                   <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><circle cx="4.5" cy="4.5" r="3.5" fill="#4ADE80"/></svg>
@@ -153,56 +153,41 @@ function Hero() {
             </div>
           </div>
 
-          {/* ── glass card ── */}
-          <div style={{ position:"relative", display:"flex", justifyContent:"center" }}>
-            {/* main card */}
-            <div style={{ width:"100%", maxWidth:320, background:"rgba(255,255,255,0.10)", backdropFilter:"blur(24px)", WebkitBackdropFilter:"blur(24px)", border:"1px solid rgba(255,255,255,0.22)", borderRadius:20, overflow:"hidden", boxShadow:"0 32px 80px rgba(0,0,0,0.35)" }}>
-              {/* card header */}
-              <div style={{ padding:"22px 22px 18px", borderBottom:"1px solid rgba(255,255,255,0.12)" }}>
-                <p style={{ fontSize:11, fontWeight:700, color:"rgba(255,255,255,0.55)", textTransform:"uppercase", letterSpacing:"0.07em", margin:"0 0 6px" }}>Available to withdraw</p>
-                <p style={{ fontSize:44, fontWeight:600, color:"#fff", margin:"0 0 2px", lineHeight:1, fontFamily:'"TASA Orbiter Display Medium",sans-serif' }}>₹8,400</p>
-                <p style={{ fontSize:12.5, color:"rgba(255,255,255,0.55)", margin:"0 0 14px" }}>of ₹14,200 earned this cycle</p>
-                <div style={{ height:5, background:"rgba(255,255,255,0.15)", borderRadius:3, overflow:"hidden" }}>
-                  <div style={{ height:"100%", width:"59%", background:"#93C5FD", borderRadius:3 }} />
+          {/* ── product screenshot ── */}
+          <div style={{ display:"flex", flexDirection:"column", alignItems:"center" }}>
+            <p style={{ fontSize:11, fontWeight:700, color:"rgba(255,255,255,0.8)", textTransform:"uppercase", letterSpacing:"0.07em", margin:"0 0 14px", textAlign:"center" }}>
+              The real MobPae employee app
+            </p>
+
+            {/* real app screenshot, with floating annotation chips anchored to it */}
+            <div style={{ position:"relative", width:"100%", maxWidth:280 }}>
+              <div style={{ borderRadius:20, overflow:"hidden", border:"1px solid rgba(255,255,255,0.22)", boxShadow:"0 32px 80px rgba(0,0,0,0.35)" }}>
+                <img
+                  src="/product-shots/dashboard.png"
+                  alt="MobPae employee app dashboard showing available salary advance, limit, and recent activity"
+                  style={{ display:"block", width:"100%", height:"auto" }}
+                />
+              </div>
+
+              {/* approved chip */}
+              <div style={{ position:"absolute", top:-12, right:-8, background:"#fff", border:`1px solid ${BD}`, borderRadius:10, padding:"8px 14px", boxShadow:"0 8px 24px rgba(0,0,0,0.18)", display:"flex", alignItems:"center", gap:8, zIndex:2 }}>
+                <div style={{ width:26, height:26, borderRadius:7, background:"#ECFDF5", display:"flex", alignItems:"center", justifyContent:"center" }}>
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2.5 6.5l3 3 5-5.5" stroke="#16A34A" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </div>
+                <div>
+                  <p style={{ fontSize:11.5, fontWeight:700, color:T1, margin:0 }}>Approved</p>
+                  <p style={{ fontSize:10.5, color:"#8A90A0", margin:0 }}>in 12 seconds</p>
                 </div>
               </div>
-              {/* card body */}
-              <div style={{ padding:"16px 22px 20px" }}>
-                {[
-                  { label:"Salary in hand",     value:"₹42,000" },
-                  { label:"Limit (10% free)",   value:"₹4,200"  },
-                  { label:"Repayment date",      value:"Aug 1"   },
-                ].map(r => (
-                  <div key={r.label} style={{ display:"flex", justifyContent:"space-between", padding:"8px 0", borderBottom:"1px solid rgba(255,255,255,0.08)" }}>
-                    <span style={{ fontSize:12.5, color:"rgba(255,255,255,0.5)" }}>{r.label}</span>
-                    <span style={{ fontSize:12.5, fontWeight:600, color:"rgba(255,255,255,0.9)" }}>{r.value}</span>
-                  </div>
-                ))}
-                <a href="#enquiry" style={{ display:"block", marginTop:16, height:42, background:B, color:"#fff", fontWeight:600, fontSize:13.5, borderRadius:8, textAlign:"center", lineHeight:"42px", textDecoration:"none" }}>
-                  Withdraw now
-                </a>
-                <p style={{ fontSize:11, color:"rgba(255,255,255,0.38)", textAlign:"center", marginTop:8 }}>Auto-settles on payday</p>
-              </div>
-            </div>
 
-            {/* approved chip */}
-            <div style={{ position:"absolute", top:-12, right:-8, background:"#fff", border:`1px solid ${BD}`, borderRadius:10, padding:"8px 14px", boxShadow:"0 8px 24px rgba(0,0,0,0.18)", display:"flex", alignItems:"center", gap:8, zIndex:2 }}>
-              <div style={{ width:26, height:26, borderRadius:7, background:"#ECFDF5", display:"flex", alignItems:"center", justifyContent:"center" }}>
-                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2.5 6.5l3 3 5-5.5" stroke="#16A34A" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              </div>
-              <div>
-                <p style={{ fontSize:11.5, fontWeight:700, color:T1, margin:0 }}>Approved</p>
-                <p style={{ fontSize:10.5, color:"#8A90A0", margin:0 }}>in 12 seconds</p>
-              </div>
-            </div>
-
-            {/* earnings chip */}
-            <div style={{ position:"absolute", bottom:-12, left:-10, background:"#fff", border:`1px solid ${BD}`, borderRadius:10, padding:"11px 15px", boxShadow:"0 8px 24px rgba(0,0,0,0.16)", zIndex:2, minWidth:130 }}>
-              <p style={{ fontSize:10, fontWeight:700, color:"#8A90A0", margin:"0 0 8px", textTransform:"uppercase", letterSpacing:"0.06em" }}>Earned this week</p>
-              <div style={{ display:"flex", alignItems:"flex-end", gap:4, height:28 }}>
-                {[0.3,0.5,0.62,0.8,1].map((h,i) => (
-                  <div key={i} style={{ flex:1, height:`${h*100}%`, background:B, borderRadius:3, opacity:0.3+i*0.18 }} />
-                ))}
+              {/* earnings chip */}
+              <div style={{ position:"absolute", bottom:-12, left:-10, background:"#fff", border:`1px solid ${BD}`, borderRadius:10, padding:"11px 15px", boxShadow:"0 8px 24px rgba(0,0,0,0.16)", zIndex:2, minWidth:130 }}>
+                <p style={{ fontSize:10, fontWeight:700, color:"#8A90A0", margin:"0 0 8px", textTransform:"uppercase", letterSpacing:"0.06em" }}>Earned this week</p>
+                <div style={{ display:"flex", alignItems:"flex-end", gap:4, height:28 }}>
+                  {[0.3,0.5,0.62,0.8,1].map((h,i) => (
+                    <div key={i} style={{ flex:1, height:`${h*100}%`, background:B, borderRadius:3, opacity:0.3+i*0.18 }} />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -225,8 +210,8 @@ function StatsBar() {
       <div className="redesign-4col" style={{ ...W(1200), display:"grid", gridTemplateColumns:"repeat(4,1fr)" }}>
         {stats.map((s,i) => (
           <div key={s.n} style={{ textAlign:"center", padding:"8px 0", borderRight: i<3 ? "1px solid rgba(255,255,255,0.08)" : "none" }}>
-            <p style={{ fontSize:26, fontWeight:700, color:"#93C5FD", margin:"0 0 3px", fontFamily:'"TASA Orbiter Display Medium",sans-serif' }}>{s.n}</p>
-            <p style={{ fontSize:12, color:"rgba(255,255,255,0.45)", margin:0 }}>{s.l}</p>
+            <p style={{ fontSize:26, fontWeight:700, color:"#93C5FD", margin:"0 0 3px", fontFamily:'Manrope, ui-sans-serif, sans-serif' }}>{s.n}</p>
+            <p style={{ fontSize:12, color:"rgba(255,255,255,0.76)", margin:0 }}>{s.l}</p>
           </div>
         ))}
       </div>
@@ -283,7 +268,7 @@ function Features() {
           <p style={{ fontSize:11.5, fontWeight:700, color:B, textTransform:"uppercase", letterSpacing:"0.08em", margin:"0 0 10px" }}>
             Why employers choose MobPae
           </p>
-          <h2 style={{ fontSize:"clamp(26px,3.5vw,40px)", fontWeight:600, letterSpacing:"-0.02em", color:T1, margin:"0 0 16px", fontFamily:'"TASA Orbiter Display Medium",sans-serif' }}>
+          <h2 style={{ fontSize:"clamp(26px,3.5vw,40px)", fontWeight:600, letterSpacing:"-0.02em", color:T1, margin:"0 0 16px", fontFamily:'Manrope, ui-sans-serif, sans-serif' }}>
             The MobPae Advantage.
           </h2>
           <p style={{ fontSize:14.5, color:T2, lineHeight:1.72, margin:"0 0 24px", maxWidth:340 }}>
@@ -397,7 +382,7 @@ function HowItWorks() {
           <p style={{ fontSize:11.5, fontWeight:700, color:B, textTransform:"uppercase", letterSpacing:"0.08em", margin:"0 0 10px" }}>
             Process
           </p>
-          <h2 style={{ fontSize:"clamp(26px,3.5vw,40px)", fontWeight:600, letterSpacing:"-0.02em", color:T1, margin:"0 0 28px", fontFamily:'"TASA Orbiter Display Medium",sans-serif' }}>
+          <h2 style={{ fontSize:"clamp(26px,3.5vw,40px)", fontWeight:600, letterSpacing:"-0.02em", color:T1, margin:"0 0 28px", fontFamily:'Manrope, ui-sans-serif, sans-serif' }}>
             Four steps. One clean workflow.
           </h2>
 
@@ -432,11 +417,11 @@ function HowItWorks() {
               <div style={{ position:"absolute", inset:0, backgroundImage:"linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)", backgroundSize:"28px 28px" }} />
               <div style={{ position:"relative", zIndex:1 }}>
                 <div style={{ marginBottom:14 }}>{h.icon}</div>
-                <p style={{ fontSize:"clamp(30px,4vw,44px)", fontWeight:700, color:"#fff", margin:"0 0 2px", lineHeight:1, fontFamily:'"TASA Orbiter Display Medium",sans-serif', letterSpacing:"-0.025em" }}>
+                <p style={{ fontSize:"clamp(30px,4vw,44px)", fontWeight:700, color:"#fff", margin:"0 0 2px", lineHeight:1, fontFamily:'Manrope, ui-sans-serif, sans-serif', letterSpacing:"-0.025em" }}>
                   {h.stat}
                 </p>
                 <p style={{ fontSize:13.5, fontWeight:600, color:"rgba(255,255,255,0.75)", margin:"0 0 8px" }}>{h.label}</p>
-                <p style={{ fontSize:13, color:"rgba(255,255,255,0.5)", margin:0, lineHeight:1.55 }}>{h.sub}</p>
+                <p style={{ fontSize:13, color:"rgba(255,255,255,0.76)", margin:0, lineHeight:1.55 }}>{h.sub}</p>
               </div>
             </div>
           ))}
@@ -447,70 +432,44 @@ function HowItWorks() {
   );
 }
 
-// ── Employer section ──────────────────────────────────────────────────────────
-function EmployerSection() {
-  const queue = [
-    { name:"Priya Sharma",  amount:"₹6,000", status:"Auto-approved", blue:true  },
-    { name:"Rahul Mehta",   amount:"₹3,500", status:"Auto-approved", blue:true  },
-    { name:"Anjali Patel",  amount:"₹9,200", status:"Pending review", blue:false },
+function AudiencePaths() {
+  const paths = [
+    {
+      eyebrow: "For employers",
+      title: "Offer a benefit without adding payroll complexity.",
+      description: "Explore the approval, integration, reporting and recovery experience built for HR and finance teams.",
+      href: "/employers",
+      action: "Explore employer experience",
+    },
+    {
+      eyebrow: "For employees",
+      title: "See the employee journey from setup to repayment.",
+      description: "Preview the mobile-first flow, status visibility and support available throughout the experience.",
+      href: "/employees",
+      action: "Explore employee experience",
+    },
   ];
-  return (
-    <section id="employers" style={{ background:BG, padding:"44px 0" }}>
-      <div style={W(1200)}>
-        <div className="redesign-2col" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:40, alignItems:"center" }}>
-          {/* mockup */}
-          <div style={{ background:"#fff", borderRadius:16, border:`1px solid ${BD}`, padding:22, boxShadow:"0 16px 48px rgba(20,30,60,0.10)" }}>
-            <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom:14 }}>
-              <p style={{ fontSize:13.5, fontWeight:700, color:T1, margin:0 }}>Approval queue</p>
-              <div style={{ display:"flex", gap:6 }}>
-                {["1 integration","Full control"].map(t => (
-                  <span key={t} style={{ fontSize:11, fontWeight:600, color:B, background:"#EEF2FF", borderRadius:6, padding:"3px 9px" }}>{t}</span>
-                ))}
-              </div>
-            </div>
-            {queue.map(r => (
-              <div key={r.name} style={{ display:"flex", alignItems:"center", justifyContent:"space-between", padding:"11px 0", borderTop:`1px solid ${BD}` }}>
-                <div style={{ display:"flex", alignItems:"center", gap:10 }}>
-                  <div style={{ width:34, height:34, borderRadius:8, background:r.blue?"#EEF2FF":"#F0FDFA", display:"flex", alignItems:"center", justifyContent:"center", fontSize:13, fontWeight:700, color:r.blue?B:TEAL }}>
-                    {r.name.charAt(0)}
-                  </div>
-                  <div>
-                    <p style={{ fontSize:13.5, fontWeight:600, color:T1, margin:0 }}>{r.name}</p>
-                    <p style={{ fontSize:12, color:T2, margin:"1px 0 0" }}>{r.amount}</p>
-                  </div>
-                </div>
-                <span style={{ fontSize:11.5, fontWeight:600, color:r.blue?B:"#8A90A0", background:r.blue?"#EEF2FF":BG, borderRadius:6, padding:"4px 10px" }}>{r.status}</span>
-              </div>
-            ))}
-          </div>
 
-          {/* copy */}
-          <div>
-            <p style={{ fontSize:11.5, fontWeight:700, color:B, textTransform:"uppercase", letterSpacing:"0.08em", margin:"0 0 10px" }}>For employers</p>
-            <h2 style={{ fontSize:"clamp(26px,3.5vw,40px)", fontWeight:600, letterSpacing:"-0.02em", margin:"0 0 14px", fontFamily:'"TASA Orbiter Display Medium",sans-serif' }}>
-              Retention without new infrastructure
-            </h2>
-            <p style={{ fontSize:15, lineHeight:1.7, color:T2, marginBottom:22 }}>
-              Give employees a meaningful financial benefit — fully employer-controlled, zero cash burden, no payroll disruption.
-            </p>
-            <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
-              {[
-                { label:"No employer cash required",  sub:"Capital managed entirely outside your books" },
-                { label:"Policy-driven auto-approvals", sub:"Set rules once; approvals run themselves" },
-                { label:"Full audit trail",            sub:"Every request, approval, disbursal logged" },
-              ].map(r => (
-                <div key={r.label} style={{ display:"flex", alignItems:"flex-start", gap:12 }}>
-                  <div style={{ width:24, height:24, borderRadius:6, background:"#EEF2FF", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, marginTop:1 }}>
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke={B} strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                  </div>
-                  <div>
-                    <p style={{ fontSize:13.5, fontWeight:600, color:T1, margin:"0 0 2px" }}>{r.label}</p>
-                    <p style={{ fontSize:12.5, color:T2, margin:0 }}>{r.sub}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+  return (
+    <section aria-labelledby="audience-paths-title" style={{ background:"#fff", padding:"48px 0" }}>
+      <div style={W(1200)}>
+        <div style={{ maxWidth:680, marginBottom:28 }}>
+          <p style={{ fontSize:11.5, fontWeight:700, color:B, textTransform:"uppercase", letterSpacing:"0.08em", margin:"0 0 10px" }}>Choose your path</p>
+          <h2 id="audience-paths-title" style={{ fontSize:"clamp(26px,3.5vw,40px)", fontWeight:600, letterSpacing:"-0.02em", color:T1, margin:0, fontFamily:'Manrope, ui-sans-serif, sans-serif' }}>
+            One platform, two clear experiences.
+          </h2>
+        </div>
+        <div className="redesign-2col" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:18 }}>
+          {paths.map((path, index) => (
+            <article key={path.href} style={{ border:`1px solid ${BD}`, borderRadius:16, padding:"28px 26px", background:index === 0 ? BG : "#F2F6FF" }}>
+              <p style={{ fontSize:12, fontWeight:700, color:B, textTransform:"uppercase", letterSpacing:"0.08em", margin:"0 0 12px" }}>{path.eyebrow}</p>
+              <h3 style={{ fontSize:"clamp(22px,3vw,30px)", lineHeight:1.15, margin:"0 0 12px", color:T1 }}>{path.title}</h3>
+              <p style={{ fontSize:14.5, lineHeight:1.7, color:T2, margin:"0 0 22px" }}>{path.description}</p>
+              <Link to={path.href} style={{ display:"inline-flex", minHeight:44, alignItems:"center", color:B, fontSize:14, fontWeight:700, textDecoration:"none" }}>
+                {path.action} →
+              </Link>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -530,11 +489,11 @@ function SecuritySection() {
         <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-end", marginBottom:28, flexWrap:"wrap", gap:12 }}>
           <div>
             <p style={{ fontSize:11.5, fontWeight:700, color:"#93C5FD", textTransform:"uppercase", letterSpacing:"0.08em", margin:"0 0 8px" }}>Trust &amp; security</p>
-            <h2 style={{ fontSize:"clamp(26px,3.5vw,40px)", fontWeight:600, letterSpacing:"-0.02em", color:"#fff", margin:0, fontFamily:'"TASA Orbiter Display Medium",sans-serif' }}>
+            <h2 style={{ fontSize:"clamp(26px,3.5vw,40px)", fontWeight:600, letterSpacing:"-0.02em", color:"#fff", margin:0, fontFamily:'Manrope, ui-sans-serif, sans-serif' }}>
               Built to be trusted
             </h2>
           </div>
-          <p style={{ fontSize:14.5, color:"rgba(255,255,255,0.5)", maxWidth:360, margin:0, lineHeight:1.6 }}>
+          <p style={{ fontSize:14.5, color:"rgba(255,255,255,0.78)", maxWidth:360, margin:0, lineHeight:1.6 }}>
             Every layer of MobPae is designed with security, compliance, and data protection as defaults — not afterthoughts.
           </p>
         </div>
@@ -548,49 +507,6 @@ function SecuritySection() {
               <p style={{ fontSize:13.5, color:T2, lineHeight:1.65, margin:0 }}>{i.desc}</p>
             </div>
           ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ── About ─────────────────────────────────────────────────────────────────────
-function About() {
-  return (
-    <section id="about" style={{ background:"#fff", padding:"44px 0" }}>
-      <div style={W(1200)}>
-        <div className="redesign-2col" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:40, alignItems:"start" }}>
-          <div>
-            <p style={{ fontSize:11.5, fontWeight:700, color:B, textTransform:"uppercase", letterSpacing:"0.08em", margin:"0 0 10px" }}>About us</p>
-            <h2 style={{ fontSize:"clamp(26px,3.5vw,40px)", fontWeight:600, letterSpacing:"-0.02em", margin:"0 0 16px", fontFamily:'"TASA Orbiter Display Medium",sans-serif' }}>
-              Financial wellness,<br />built into payroll.
-            </h2>
-            <p style={{ fontSize:15.5, lineHeight:1.72, color:T2, margin:"0 0 22px" }}>
-              MobPae connects employees and employers in a single controlled workflow. We believe financial stress is a workplace problem — and solving it starts with giving employees safe, structured access to income they've already earned.
-            </p>
-            <a href="#enquiry"
-              style={{ display:"inline-flex", alignItems:"center", gap:8, height:44, padding:"0 22px", background:B, color:"#fff", fontWeight:600, fontSize:14, borderRadius:8, textDecoration:"none" }}
-              onMouseEnter={e => (e.currentTarget as HTMLElement).style.background=BH}
-              onMouseLeave={e => (e.currentTarget as HTMLElement).style.background=B}
-            >
-              Get started today
-              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M8 3l4 3.5L8 10" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            </a>
-          </div>
-          <div className="redesign-2col" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:14 }}>
-            {[
-              { color:B,    bg:"#EEF2FF", border:"#C7D2FE", title:"Responsible by design",  sub:"Access capped at earned wages only" },
-              { color:TEAL, bg:"#F0FDFA", border:"#5EEAD4", title:"Employer-first",           sub:"Every request goes through HR approval" },
-              { color:PURP, bg:"#F5F3FF", border:"#C4B5FD", title:"Built for scale",          sub:"50 to 50,000 employees, same workflow" },
-              { color:GREE, bg:"#F0FDF4", border:"#86EFAC", title:"Zero debt trap",           sub:"No interest within the free threshold" },
-            ].map(c => (
-              <div key={c.title} style={{ background:c.bg, border:`1.5px solid ${c.border}`, borderRadius:14, padding:"18px 16px" }}>
-                <div style={{ width:8, height:8, borderRadius:"50%", background:c.color, marginBottom:12 }} />
-                <p style={{ fontSize:13.5, fontWeight:700, color:T1, margin:"0 0 5px" }}>{c.title}</p>
-                <p style={{ fontSize:12.5, color:T2, margin:0, lineHeight:1.5 }}>{c.sub}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
@@ -612,7 +528,7 @@ function FaqBlock({ openFaq, setOpenFaq }: { openFaq:number; setOpenFaq:(n:numbe
       <div className="redesign-2col" style={{ ...W(1200), display:"grid", gridTemplateColumns:"1fr 1.4fr", gap:40, alignItems:"start" }}>
         <div>
           <p style={{ fontSize:11.5, fontWeight:700, color:B, textTransform:"uppercase", letterSpacing:"0.08em", margin:"0 0 10px" }}>FAQ</p>
-          <h2 style={{ fontSize:"clamp(26px,3.5vw,40px)", fontWeight:600, letterSpacing:"-0.02em", margin:"0 0 14px", fontFamily:'"TASA Orbiter Display Medium",sans-serif' }}>
+          <h2 style={{ fontSize:"clamp(26px,3.5vw,40px)", fontWeight:600, letterSpacing:"-0.02em", margin:"0 0 14px", fontFamily:'Manrope, ui-sans-serif, sans-serif' }}>
             Common questions
           </h2>
           <p style={{ fontSize:14.5, color:T2, lineHeight:1.7, margin:"0 0 24px" }}>
@@ -629,6 +545,10 @@ function FaqBlock({ openFaq, setOpenFaq }: { openFaq:number; setOpenFaq:(n:numbe
             <div key={f.q} style={{ borderBottom: i<FAQS.length-1 ? `1px solid ${BD}` : "none" }}>
               <button
                 onClick={() => setOpenFaq(openFaq===i ? -1 : i)}
+                aria-label={f.q}
+                aria-expanded={openFaq === i}
+                aria-controls={`faq-answer-${i}`}
+                id={`faq-question-${i}`}
                 style={{ width:"100%", background:"none", border:"none", padding:"16px 20px", display:"flex", justifyContent:"space-between", alignItems:"center", gap:16, cursor:"pointer", textAlign:"left" }}
               >
                 <span style={{ fontSize:14.5, fontWeight:600, color:T1 }}>{f.q}</span>
@@ -637,7 +557,7 @@ function FaqBlock({ openFaq, setOpenFaq }: { openFaq:number; setOpenFaq:(n:numbe
                 </span>
               </button>
               {openFaq===i && (
-                <div style={{ padding:"0 20px 16px" }}>
+                <div id={`faq-answer-${i}`} role="region" aria-labelledby={`faq-question-${i}`} style={{ padding:"0 20px 16px" }}>
                   <p style={{ fontSize:14, color:T2, lineHeight:1.7, margin:0 }}>{f.a}</p>
                 </div>
               )}
@@ -668,7 +588,7 @@ function EnquiryBlock({ form, errors, loading, success, error, updateField, subm
           {/* left panel */}
           <div style={{ background:"linear-gradient(140deg,#0C1260,#315EFF)", borderRadius:16, padding:"32px 28px", color:"#fff" }}>
             <p style={{ fontSize:11.5, fontWeight:700, color:"#93C5FD", textTransform:"uppercase", letterSpacing:"0.08em", margin:"0 0 10px" }}>Get in touch</p>
-            <h2 style={{ fontSize:"clamp(24px,3vw,36px)", fontWeight:600, letterSpacing:"-0.02em", color:"#fff", margin:"0 0 14px", fontFamily:'"TASA Orbiter Display Medium",sans-serif' }}>
+            <h2 style={{ fontSize:"clamp(24px,3vw,36px)", fontWeight:600, letterSpacing:"-0.02em", color:"#fff", margin:"0 0 14px", fontFamily:'Manrope, ui-sans-serif, sans-serif' }}>
               Tell us about your organization
             </h2>
             <p style={{ fontSize:14.5, color:"rgba(255,255,255,0.65)", lineHeight:1.7, margin:"0 0 28px" }}>
@@ -684,40 +604,40 @@ function EnquiryBlock({ form, errors, loading, success, error, updateField, subm
                   <div style={{ width:26, height:26, borderRadius:6, background:"rgba(255,255,255,0.15)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:12, fontWeight:700, color:"#93C5FD", flexShrink:0 }}>{s.n}</div>
                   <div>
                     <p style={{ fontSize:13.5, fontWeight:700, color:"#fff", margin:"0 0 2px" }}>{s.t}</p>
-                    <p style={{ fontSize:12.5, color:"rgba(255,255,255,0.55)", margin:0 }}>{s.s}</p>
+                    <p style={{ fontSize:12.5, color:"rgba(255,255,255,0.78)", margin:0 }}>{s.s}</p>
                   </div>
                 </div>
               ))}
             </div>
             <div style={{ marginTop:28, paddingTop:22, borderTop:"1px solid rgba(255,255,255,0.12)" }}>
-              <p style={{ fontSize:12.5, color:"rgba(255,255,255,0.5)", margin:0 }}>support@mobpae.com · Gujarat, Ahmedabad</p>
+              <p style={{ fontSize:12.5, color:"rgba(255,255,255,0.78)", margin:0 }}>support@mobpae.com · Gujarat, Ahmedabad</p>
             </div>
           </div>
 
           {/* form */}
-          <form onSubmit={submitEnquiry} noValidate style={{ background:"#fff", borderRadius:16, border:`1px solid ${BD}`, padding:"28px 24px", boxShadow:"0 12px 40px rgba(20,30,60,0.06)" }}>
+          <form aria-label="Demo enquiry" onSubmit={submitEnquiry} noValidate style={{ background:"#fff", borderRadius:16, border:`1px solid ${BD}`, padding:"28px 24px", boxShadow:"0 12px 40px rgba(20,30,60,0.06)" }}>
             <div className="redesign-2col" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:16, marginBottom:16 }}>
               <div>
-                <label style={lbl}>Full name</label>
-                <input name="contactName" value={form.contactName} onChange={updateField} placeholder="Rahul Mehta" style={inp(errors.contactName)}
+                <label htmlFor="enquiry-contact-name" style={lbl}>Full name <span aria-hidden="true">*</span></label>
+                <input id="enquiry-contact-name" name="contactName" required aria-invalid={Boolean(errors.contactName)} aria-describedby={errors.contactName ? "enquiry-contact-name-error" : undefined} value={form.contactName} onChange={updateField} placeholder="Rahul Mehta" style={inp(errors.contactName)}
                   onFocus={e => e.target.style.borderColor=B} onBlur={e => e.target.style.borderColor=errors.contactName?"#EF4444":BD} />
-                {errors.contactName && <p style={{ fontSize:11.5, color:"#EF4444", margin:"3px 0 0" }}>{errors.contactName}</p>}
+                {errors.contactName && <p id="enquiry-contact-name-error" role="alert" style={{ fontSize:12, color:"#B91C1C", margin:"3px 0 0" }}>{errors.contactName}</p>}
               </div>
               <div>
-                <label style={lbl}>Work email</label>
-                <input name="email" type="email" value={form.email} onChange={updateField} placeholder="rahul@company.com" style={inp(errors.email)}
+                <label htmlFor="enquiry-email" style={lbl}>Work email <span aria-hidden="true">*</span></label>
+                <input id="enquiry-email" name="email" type="email" required aria-invalid={Boolean(errors.email)} aria-describedby={errors.email ? "enquiry-email-error" : undefined} value={form.email} onChange={updateField} placeholder="rahul@company.com" style={inp(errors.email)}
                   onFocus={e => e.target.style.borderColor=B} onBlur={e => e.target.style.borderColor=errors.email?"#EF4444":BD} />
-                {errors.email && <p style={{ fontSize:11.5, color:"#EF4444", margin:"3px 0 0" }}>{errors.email}</p>}
+                {errors.email && <p id="enquiry-email-error" role="alert" style={{ fontSize:12, color:"#B91C1C", margin:"3px 0 0" }}>{errors.email}</p>}
               </div>
               <div>
-                <label style={lbl}>Company name</label>
-                <input name="companyName" value={form.companyName} onChange={updateField} placeholder="Northstar Retail Pvt Ltd" style={inp(errors.companyName)}
+                <label htmlFor="enquiry-company" style={lbl}>Company name <span aria-hidden="true">*</span></label>
+                <input id="enquiry-company" name="companyName" required aria-invalid={Boolean(errors.companyName)} aria-describedby={errors.companyName ? "enquiry-company-error" : undefined} value={form.companyName} onChange={updateField} placeholder="Northstar Retail Pvt Ltd" style={inp(errors.companyName)}
                   onFocus={e => e.target.style.borderColor=B} onBlur={e => e.target.style.borderColor=errors.companyName?"#EF4444":BD} />
-                {errors.companyName && <p style={{ fontSize:11.5, color:"#EF4444", margin:"3px 0 0" }}>{errors.companyName}</p>}
+                {errors.companyName && <p id="enquiry-company-error" role="alert" style={{ fontSize:12, color:"#B91C1C", margin:"3px 0 0" }}>{errors.companyName}</p>}
               </div>
               <div>
-                <label style={lbl}>I'm reaching out as</label>
-                <select name="interest" value={form.interest} onChange={updateField}
+                <label htmlFor="enquiry-interest" style={lbl}>I'm reaching out as</label>
+                <select id="enquiry-interest" name="interest" value={form.interest} onChange={updateField}
                   style={{ ...inp(), appearance:"none", WebkitAppearance:"none" }}
                   onFocus={e => e.target.style.borderColor=B} onBlur={e => e.target.style.borderColor=BD}
                 >
@@ -730,21 +650,24 @@ function EnquiryBlock({ form, errors, loading, success, error, updateField, subm
               </div>
             </div>
             <div style={{ marginBottom:16 }}>
-              <label style={lbl}>Phone number <span style={{ fontWeight:400, color:"#8A90A0" }}>(optional)</span></label>
-              <input name="phone" type="tel" value={form.phone} onChange={updateField} placeholder="+91 98765 43210" style={inp()}
+              <label htmlFor="enquiry-phone" style={lbl}>Phone number <span style={{ fontWeight:400, color:"#6B7280" }}>(optional)</span></label>
+              <input id="enquiry-phone" name="phone" type="tel" value={form.phone} onChange={updateField} placeholder="+91 98765 43210" style={inp()}
                 onFocus={e => e.target.style.borderColor=B} onBlur={e => e.target.style.borderColor=BD} />
             </div>
             <div style={{ marginBottom:20 }}>
-              <label style={lbl}>Message</label>
-              <textarea name="message" value={form.message} onChange={updateField} rows={4}
+              <label htmlFor="enquiry-message" style={lbl}>Message <span aria-hidden="true">*</span></label>
+              <textarea id="enquiry-message" name="message" required aria-invalid={Boolean(errors.message)} aria-describedby={errors.message ? "enquiry-message-error" : undefined} value={form.message} onChange={updateField} rows={4}
                 placeholder="Tell us what you want to explore for your team…"
                 style={{ ...inp(errors.message), height:"auto", padding:"10px 13px", resize:"vertical" }}
                 onFocus={e => e.target.style.borderColor=B} onBlur={e => e.target.style.borderColor=errors.message?"#EF4444":BD}
               />
-              {errors.message && <p style={{ fontSize:11.5, color:"#EF4444", margin:"3px 0 0" }}>{errors.message}</p>}
+              {errors.message && <p id="enquiry-message-error" role="alert" style={{ fontSize:12, color:"#B91C1C", margin:"3px 0 0" }}>{errors.message}</p>}
             </div>
-            {success && <div style={{ marginBottom:16, padding:"10px 14px", background:"#F0FDF4", border:"1px solid #BBF7D0", borderRadius:8 }}><p style={{ fontSize:13.5, color:"#16A34A", margin:0, fontWeight:600 }}>✓ {success}</p></div>}
-            {error   && <div style={{ marginBottom:16, padding:"10px 14px", background:"#FEF2F2", border:"1px solid #FECACA", borderRadius:8 }}><p style={{ fontSize:13.5, color:"#DC2626", margin:0, fontWeight:600 }}>{error}</p></div>}
+            {success && <div role="status" aria-live="polite" style={{ marginBottom:16, padding:"10px 14px", background:"#F0FDF4", border:"1px solid #BBF7D0", borderRadius:8 }}><p style={{ fontSize:13.5, color:"#15803D", margin:0, fontWeight:600 }}>✓ {success}</p></div>}
+            {error   && <div role="alert" aria-live="assertive" style={{ marginBottom:16, padding:"10px 14px", background:"#FEF2F2", border:"1px solid #FECACA", borderRadius:8 }}><p style={{ fontSize:13.5, color:"#B91C1C", margin:0, fontWeight:600 }}>{error}</p></div>}
+            <p style={{ fontSize:12.5, color:T2, lineHeight:1.6, margin:"0 0 14px" }}>
+              Fields marked * are required. By submitting, you agree that MobPae may use these details to respond to your enquiry. Read our <Link to="/privacy-policy" style={{ color:B, fontWeight:600 }}>Privacy Policy</Link>.
+            </p>
             <button type="submit" disabled={loading}
               style={{ width:"100%", height:48, background:loading?"#6B80CC":B, color:"#fff", fontWeight:700, fontSize:15, borderRadius:8, border:"none", cursor:loading?"not-allowed":"pointer", fontFamily:"inherit", transition:"background 120ms ease" }}
               onMouseEnter={e => { if(!loading)(e.currentTarget as HTMLElement).style.background=BH; }}
@@ -765,7 +688,7 @@ function FinalCta() {
     <section style={{ background:"linear-gradient(140deg,#0C1260 0%,#1837D4 52%,#315EFF 100%)", padding:"clamp(44px,5vw,72px) 0", textAlign:"center", position:"relative", overflow:"hidden" }}>
       <div style={{ position:"absolute", inset:0, backgroundImage:"linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)", backgroundSize:"48px 48px" }} />
       <div style={{ ...W(700), position:"relative", zIndex:1 }}>
-        <h2 style={{ fontSize:"clamp(30px,4vw,50px)", fontWeight:600, lineHeight:1.08, letterSpacing:"-0.022em", color:"#fff", margin:"0 0 14px", fontFamily:'"TASA Orbiter Display Medium",sans-serif' }}>
+        <h2 style={{ fontSize:"clamp(30px,4vw,50px)", fontWeight:600, lineHeight:1.08, letterSpacing:"-0.022em", color:"#fff", margin:"0 0 14px", fontFamily:'Manrope, ui-sans-serif, sans-serif' }}>
           Bring MobPae to your workplace.
         </h2>
         <p style={{ fontSize:16, color:"rgba(255,255,255,0.65)", marginBottom:30 }}>
@@ -779,13 +702,13 @@ function FinalCta() {
           >
             Request a demo
           </a>
-          <a href="/product"
+          <Link to="/product"
             style={{ display:"inline-flex", alignItems:"center", height:48, padding:"0 24px", color:"rgba(255,255,255,0.9)", fontSize:14.5, fontWeight:500, borderRadius:8, textDecoration:"none", border:"1px solid rgba(255,255,255,0.3)", background:"rgba(255,255,255,0.1)", transition:"background 120ms ease" }}
             onMouseEnter={e => (e.currentTarget as HTMLElement).style.background="rgba(255,255,255,0.18)"}
             onMouseLeave={e => (e.currentTarget as HTMLElement).style.background="rgba(255,255,255,0.1)"}
           >
             Learn more
-          </a>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import { SiteNav } from "../components/SiteNav";
 import { SiteFooter } from "../components/SiteFooter";
+import { Link } from "react-router-dom";
 
 const STEPS_EMPLOYER = [
   {
@@ -78,8 +79,9 @@ const BD = "#E6E8EE";
 
 export function HowItWorksPage() {
   return (
-    <div style={{ fontFamily: "Inter, ui-sans-serif, sans-serif", color: T1, background: "#fff", minHeight: "100vh" }}>
+    <div style={{ fontFamily: "Manrope, ui-sans-serif, sans-serif", color: T1, background: "#fff", minHeight: "100vh" }}>
       <SiteNav />
+      <main id="main-content">
 
       {/* Hero */}
       <section style={{ background: "linear-gradient(160deg,#f0f4ff 0%,#fff 55%)", borderBottom: `1px solid ${BD}`, padding: "72px clamp(20px,6vw,80px) 64px" }}>
@@ -93,12 +95,12 @@ export function HowItWorksPage() {
           <p style={{ fontSize: 17, color: T2, lineHeight: 1.7, maxWidth: 560, margin: "0 auto 32px" }}>
             MobPae connects employers and employees on a single platform — making earned salary access transparent, instant, and stress-free.
           </p>
-          <a
-            href="/#enquiry"
+          <Link
+            to="/#enquiry"
             style={{ display: "inline-flex", alignItems: "center", height: 44, padding: "0 24px", background: BLUE, color: "#fff", fontSize: 14, fontWeight: 600, borderRadius: 8, textDecoration: "none" }}
           >
             Request a demo
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -156,9 +158,9 @@ export function HowItWorksPage() {
             ))}
           </div>
           <div style={{ marginTop: 32 }}>
-            <a href="/employers" style={{ color: BLUE, fontSize: 14, fontWeight: 600, textDecoration: "none" }}>
+            <Link to="/employers" style={{ color: BLUE, fontSize: 14, fontWeight: 600, textDecoration: "none" }}>
               Learn more about the employer dashboard →
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -190,9 +192,9 @@ export function HowItWorksPage() {
             ))}
           </div>
           <div style={{ marginTop: 32 }}>
-            <a href="/employees" style={{ color: BLUE, fontSize: 14, fontWeight: 600, textDecoration: "none" }}>
+            <Link to="/employees" style={{ color: BLUE, fontSize: 14, fontWeight: 600, textDecoration: "none" }}>
               Learn more about the employee experience →
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -237,9 +239,9 @@ export function HowItWorksPage() {
             ))}
           </div>
           <div style={{ textAlign: "center", marginTop: 36 }}>
-            <a href="/faqs" style={{ color: BLUE, fontSize: 14, fontWeight: 600, textDecoration: "none" }}>
+            <Link to="/faqs" style={{ color: BLUE, fontSize: 14, fontWeight: 600, textDecoration: "none" }}>
               See all FAQs →
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -253,14 +255,15 @@ export function HowItWorksPage() {
           Join employers who offer their teams responsible, transparent salary access.
         </p>
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-          <a href="/#enquiry" style={{ height: 46, padding: "0 28px", background: "#fff", color: BLUE, fontSize: 14, fontWeight: 600, borderRadius: 8, display: "inline-flex", alignItems: "center", textDecoration: "none" }}>
+          <Link to="/#enquiry" style={{ height: 46, padding: "0 28px", background: "#fff", color: BLUE, fontSize: 14, fontWeight: 600, borderRadius: 8, display: "inline-flex", alignItems: "center", textDecoration: "none" }}>
             Request a demo
-          </a>
-          <a href="/faqs" style={{ height: 46, padding: "0 28px", background: "rgba(255,255,255,0.15)", color: "#fff", fontSize: 14, fontWeight: 600, borderRadius: 8, display: "inline-flex", alignItems: "center", textDecoration: "none", border: "1px solid rgba(255,255,255,0.3)" }}>
+          </Link>
+          <Link to="/faqs" style={{ height: 46, padding: "0 28px", background: "rgba(255,255,255,0.15)", color: "#fff", fontSize: 14, fontWeight: 600, borderRadius: 8, display: "inline-flex", alignItems: "center", textDecoration: "none", border: "1px solid rgba(255,255,255,0.3)" }}>
             Read FAQs
-          </a>
+          </Link>
         </div>
       </section>
+      </main>
 
       <SiteFooter />
     </div>

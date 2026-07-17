@@ -4,12 +4,13 @@ type SEOProps = {
   title: string;
   description: string;
   path?: string;
+  robots?: string;
 };
 
 const siteName = "MobPae";
 const siteUrl = "https://mobpae.com";
 
-export function SEO({ title, description, path = "/" }: SEOProps) {
+export function SEO({ title, description, path = "/", robots = "index, follow" }: SEOProps) {
   useEffect(() => {
     const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
     const canonicalUrl = `${siteUrl}${path}`;
@@ -21,8 +22,9 @@ export function SEO({ title, description, path = "/" }: SEOProps) {
     setMeta("og:url", canonicalUrl, "property");
     setMeta("twitter:title", fullTitle);
     setMeta("twitter:description", description);
+    setMeta("robots", robots);
     setCanonical(canonicalUrl);
-  }, [description, path, title]);
+  }, [description, path, robots, title]);
 
   return null;
 }
