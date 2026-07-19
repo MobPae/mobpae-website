@@ -37,7 +37,7 @@ const unhoverBlue = (e: React.MouseEvent<HTMLAnchorElement>) =>
 function FooterCol({ heading, children }: { heading: string; children: React.ReactNode }) {
   return (
     <div>
-      <p style={{ fontSize: 11, fontWeight: 700, color: "#8A90A3", textTransform: "uppercase", letterSpacing: "0.1em", margin: "0 0 12px" }}>
+      <p style={{ fontSize: 11, fontWeight: 700, color: "#6B7280", textTransform: "uppercase", letterSpacing: "0.1em", margin: "0 0 12px" }}>
         {heading}
       </p>
       {children}
@@ -67,21 +67,27 @@ function FooterLinks({ links }: { links: { label: string; href: string }[] }) {
 export function SiteFooter() {
   return (
     <footer style={{ background: "#fff", fontFamily: "Manrope, ui-sans-serif, sans-serif" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "40px clamp(20px,5vw,32px) 0" }}>
+      <div style={{ maxWidth: 1840, margin: "0 auto", padding: "40px clamp(20px,4vw,48px) 0" }}>
 
         {/* Main grid */}
         <div className="footer-grid" style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr 1fr", gap: "24px 40px", paddingBottom: 28, borderBottom: "1px solid #E6E8EE" }}>
 
           {/* Brand */}
           <div>
-            <Link to="/" style={{ display: "inline-flex", alignItems: "center", marginBottom: 14, textDecoration: "none" }}>
-              <img src="/brand/mobpae-logo-horizontal.svg" alt="MobPae" style={{ height: 30, width: "auto", display: "block" }} />
+            <Link to="/" aria-label="MobPae home" style={{ display: "inline-flex", alignItems: "center", marginBottom: 14, textDecoration: "none" }}>
+              <img
+                src="/logo-horizontal.svg"
+                alt="MobPae"
+                width="177"
+                height="22"
+                style={{ objectFit: "contain", display: "block" }}
+              />
             </Link>
-            <p style={{ fontSize: 13, color: "#5B6270", lineHeight: 1.65, margin: "0 0 18px", maxWidth: 200 }}>
-              Your Trusted Financial Partner. Employer-backed salary access for modern workplaces.
+            <p style={{ fontSize: 13, color: "#5B6270", lineHeight: 1.65, margin: "0 0 18px", whiteSpace: "nowrap" }}>
+              Your Trusted Financial Partner.
             </p>
             {/* Social icons */}
-            <div style={{ display: "flex", gap: 8 }}>
+            <div style={{ display: "flex", gap: 8, marginLeft: -13 }}>
               {[
                 { href: "https://linkedin.com/company/mobpae", label: "LinkedIn",  Icon: IconLinkedIn  },
                 { href: "https://instagram.com/mobpae",        label: "Instagram", Icon: IconInstagram },
@@ -107,6 +113,7 @@ export function SiteFooter() {
           <FooterCol heading="Product">
             <FooterLinks links={[
               { label: "For Employers",  href: "/employers"    },
+              { label: "Employer Benefits", href: "/employers/benefits" },
               { label: "For Employees",  href: "/employees"    },
               { label: "How it works",   href: "/how-it-works" },
               { label: "Product overview", href: "/product"    },
@@ -125,8 +132,8 @@ export function SiteFooter() {
           {/* Resources */}
           <FooterCol heading="Resources">
             <FooterLinks links={[
-              { label: "How It Works",       href: "/how-it-works"   },
               { label: "FAQs",               href: "/faqs"           },
+              { label: "Help Center",        href: "/help-center"    },
               { label: "Privacy Policy",     href: "/privacy-policy" },
               { label: "Terms & Conditions", href: "/terms"          },
             ]} />
@@ -150,9 +157,9 @@ export function SiteFooter() {
                 href="https://linkedin.com/company/mobpae"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ fontSize: 13, color: "#8A90A3", textDecoration: "none", transition: "color 100ms ease" }}
+                style={{ fontSize: 13, color: "#6B7280", textDecoration: "none", transition: "color 100ms ease" }}
                 onMouseEnter={e => (e.currentTarget.style.color = "#315EFF")}
-                onMouseLeave={e => (e.currentTarget.style.color = "#8A90A3")}
+                onMouseLeave={e => (e.currentTarget.style.color = "#6B7280")}
               >
                 LinkedIn →
               </a>
@@ -184,10 +191,10 @@ export function SiteFooter() {
 
         {/* Bottom bar */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8, padding: "14px 0" }}>
-          <p style={{ fontSize: 12, color: "#8A90A3", margin: 0 }}>
+          <p style={{ fontSize: 12, color: "#6B7280", margin: 0 }}>
             © {new Date().getFullYear()} MobPae Services Pvt. Ltd. All rights reserved.
           </p>
-          <p style={{ fontSize: 12, color: "#8A90A3", margin: 0 }}>
+          <p style={{ fontSize: 12, color: "#6B7280", margin: 0 }}>
             Built for responsible salary access.
           </p>
         </div>

@@ -2,17 +2,24 @@ import {
   ArrowRight,
   BadgeCheck,
   CheckCircle2,
+  Clock,
+  FileCheck,
   FileText,
   HelpCircle,
+  Landmark,
   Mail,
   MapPin,
   ShieldCheck,
+  Smartphone,
   Users,
+  Wallet,
 } from "lucide-react";
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { SiteNav } from "../components/SiteNav";
 import { SiteFooter } from "../components/SiteFooter";
+import { HeroPanel, PageHero } from "../components/PageHero";
+import { GridPatternOverlay } from "../components/GridPatternOverlay";
 
 type PageContent = {
   eyebrow: string;
@@ -49,24 +56,6 @@ const pageContent: Record<string, PageContent> = {
           "Recovery reports",
           "Settlement tracking",
         ],
-      },
-    ],
-  },
-  employees: {
-    eyebrow: "For Employees",
-    title: "Access earned salary with a calmer experience.",
-    description:
-      "Employees get a simple mobile-first flow to complete setup, request advances, track repayment and stay informed.",
-    sections: [
-      {
-        title: "Clear before payday access",
-        body: "Employees can see their available access amount, request an advance and track what happens next.",
-        points: ["Available access", "Request tracking", "Repayment schedule"],
-      },
-      {
-        title: "Simple setup journey",
-        body: "KYC, bank account and membership steps are presented clearly so employees know what is pending and what is complete.",
-        points: ["KYC status", "Bank status", "Membership status"],
       },
     ],
   },
@@ -209,73 +198,111 @@ export function EmployerBenefitsPage() {
 
 export function EmployeesPage() {
   const steps = [
-    ["Complete setup", "See KYC, bank and membership status in one place."],
-    ["View available access", "Understand what is available before making a request."],
-    ["Track every status", "Follow approval, transfer and repayment without guessing."],
+    { icon: <Smartphone size={20} aria-hidden="true" />, title: "Complete setup", body: "See KYC, bank and membership status in one place before you request anything." },
+    { icon: <Wallet size={20} aria-hidden="true" />, title: "View available access", body: "Understand exactly what you can request before you commit to it." },
+    { icon: <Clock size={20} aria-hidden="true" />, title: "Track every status", body: "Follow approval, transfer and repayment without guessing where things stand." },
+  ];
+
+  const trust = [
+    { icon: <FileCheck size={20} aria-hidden="true" />, title: "KYC verification", body: "Aadhaar and PAN checks keep your identity verified and your account secure.", tag: "Verified" },
+    { icon: <Landmark size={20} aria-hidden="true" />, title: "Bank-linked transfers", body: "Approved funds move straight to your linked account — no manual steps.", tag: "Direct" },
+    { icon: <ShieldCheck size={20} aria-hidden="true" />, title: "Employer-approved", body: "Every request passes through your employer before funds are released.", tag: "Controlled" },
   ];
 
   return (
     <StaticShell>
-      <section className="bg-[linear-gradient(155deg,#f4f7ff_0%,#fff_62%)] px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
-        <div className="mx-auto grid max-w-[1180px] gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-          <div>
-            <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#eef3ff] text-[#315eff]">
-              <Users size={22} aria-hidden="true" />
-            </span>
-            <p className="mt-7 text-[12px] font-[900] uppercase tracking-[0.2em] text-[#315eff]">
-              For Employees
-            </p>
-            <h1 className="mt-5 max-w-[720px] text-[42px] font-[900] leading-[1.03] tracking-[-0.045em] text-[#0B1026] lg:text-[64px]">
-              Access earned salary with a calmer experience.
-            </h1>
-            <p className="mt-6 max-w-[650px] text-[17px] font-[500] leading-[1.8] text-[#5C647A]">
-              A mobile-first journey for setup, requests, status tracking and repayment visibility—without hidden steps.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/#enquiry" className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-[#315eff] px-6 text-[14px] font-[800] text-white no-underline">
-                Bring MobPae to your workplace <ArrowRight size={17} aria-hidden="true" />
-              </Link>
-              <Link to="/how-it-works" className="inline-flex min-h-12 items-center rounded-lg border border-[#d8def0] bg-white px-6 text-[14px] font-[800] text-[#21185F] no-underline">
-                See how it works
-              </Link>
-            </div>
+      <PageHero
+        eyebrow="For employees"
+        title="Access earned salary with a calmer experience."
+        description="A mobile-first journey for setup, requests, status tracking and repayment visibility — without hidden steps."
+        actions={
+          <>
+            <Link to="/#enquiry" className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-[#315eff] px-6 text-[14px] font-[800] text-white no-underline">
+              Bring MobPae to your workplace <ArrowRight size={17} aria-hidden="true" />
+            </Link>
+            <Link to="/how-it-works" className="inline-flex min-h-12 items-center rounded-lg border border-[#E6E8F2] bg-white px-6 text-[14px] font-[800] text-[#0B1026] no-underline">
+              See how it works
+            </Link>
+          </>
+        }
+      >
+        <HeroPanel>
+          <p className="m-0 mb-3 text-[11px] font-[800] uppercase tracking-[0.14em] text-[#315eff]">
+            The MobPae employee app
+          </p>
+          <div className="mx-auto h-[420px] max-w-[260px] overflow-hidden rounded-[20px] border border-[#E6E8F2] shadow-[0_24px_70px_rgba(17,24,39,0.1)]">
+            <img
+              src="/product-shots/dashboard.png"
+              alt="MobPae employee app dashboard showing available salary advance, limit, and recent activity"
+              className="block h-full w-full object-cover object-top"
+            />
           </div>
+        </HeroPanel>
+      </PageHero>
 
-          <div className="mx-auto w-full max-w-[280px]">
-            <p className="m-0 mb-3 text-center text-[11px] font-[800] uppercase tracking-[0.14em] text-[#8A90A3]">
-              The real MobPae employee app
-            </p>
-            <div className="overflow-hidden rounded-[20px] border border-[#dce5ff] shadow-[0_30px_90px_rgba(49,94,255,0.2)]">
-              <img
-                src="/product-shots/dashboard.png"
-                alt="MobPae employee app dashboard showing available salary advance, limit, and recent activity"
-                className="block w-full h-auto"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section aria-labelledby="employee-journey-title" className="px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
-        <div className="mx-auto max-w-[1180px]">
+      {/* The employee journey */}
+      <section aria-labelledby="employee-journey-title" className="relative overflow-hidden px-5 py-16 sm:px-8 lg:px-12 lg:py-24" style={{ background: "#FAFAFA" }}>
+        <GridPatternOverlay fade={false} />
+        <div className="relative mx-auto max-w-[1840px]">
           <div className="max-w-[700px]">
             <p className="text-[12px] font-[900] uppercase tracking-[0.2em] text-[#315eff]">The employee journey</p>
-            <h2 id="employee-journey-title" className="mt-3 text-[34px] font-[900] tracking-[-0.035em] text-[#0B1026] lg:text-[46px]">Clear at every step.</h2>
+            <h2 id="employee-journey-title" className="mt-3 text-4xl font-[900] leading-[1.05] tracking-[-0.035em] text-[#0B1026] lg:text-6xl">Clear at every step.</h2>
           </div>
           <div className="mt-9 grid gap-5 md:grid-cols-3">
-            {steps.map(([title, copy], index) => (
-              <article key={title} className="rounded-2xl border border-[#E6E8F2] bg-white p-7 shadow-[0_18px_60px_rgba(15,23,42,0.045)]">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#eef3ff] text-[13px] font-[900] text-[#315eff]">0{index + 1}</span>
-                <h3 className="mt-8 text-[21px] font-[900] text-[#0B1026]">{title}</h3>
-                <p className="mt-3 text-[14px] font-[500] leading-[1.75] text-[#5C647A]">{copy}</p>
+            {steps.map((step, index) => (
+              <article
+                key={step.title}
+                className="group rounded-2xl border border-[#E6E8F2] bg-white p-7 shadow-[0_18px_60px_rgba(15,23,42,0.045)] transition-all duration-300 hover:-translate-y-1 hover:border-[#315eff]/40 hover:shadow-[0_28px_60px_-20px_rgba(49,94,255,0.25)]"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#eef3ff] text-[#315eff] ring-1 ring-[#315eff]/15 transition-all duration-300 group-hover:bg-[#315eff] group-hover:text-white">
+                    {step.icon}
+                  </span>
+                  <span className="text-[11px] font-[800] tracking-[0.2em] text-[#6B7280]">0{index + 1}</span>
+                </div>
+                <h3 className="mt-7 text-[19px] font-[900] text-[#0B1026]">{step.title}</h3>
+                <p className="mt-3 text-[14px] font-[500] leading-[1.75] text-[#5C647A]">{step.body}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-[#F6F7F9] px-5 py-16 sm:px-8 lg:px-12">
-        <div className="mx-auto grid max-w-[1180px] gap-6 lg:grid-cols-2">
+      {/* Built around trust */}
+      <section aria-labelledby="employee-trust-title" className="relative overflow-hidden px-5 py-16 sm:px-8 lg:px-12" style={{ background: "#FAFAFA" }}>
+        <GridPatternOverlay fade={false} />
+        <div className="relative mx-auto max-w-[1840px]">
+          <div className="max-w-[700px]">
+            <p className="text-[12px] font-[900] uppercase tracking-[0.2em] text-[#315eff]">Built around trust</p>
+            <h2 id="employee-trust-title" className="mt-3 text-4xl font-[900] leading-[1.05] tracking-[-0.035em] text-[#0B1026] lg:text-6xl">Nothing happens without visibility.</h2>
+          </div>
+          <div className="mt-9 grid gap-5 md:grid-cols-3">
+            {trust.map((item) => (
+              <article
+                key={item.title}
+                className="group rounded-2xl border border-[#E6E8F2] bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#315eff]/40 hover:shadow-[0_28px_60px_-20px_rgba(49,94,255,0.25)]"
+              >
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#eef3ff] text-[#315eff] ring-1 ring-[#315eff]/15 transition-all duration-300 group-hover:bg-[#315eff] group-hover:text-white">
+                  {item.icon}
+                </span>
+                <h3 className="mt-6 text-[17px] font-[900] text-[#0B1026]">{item.title}</h3>
+                <p className="mt-2.5 text-[13.5px] leading-[1.7] text-[#5C647A]">{item.body}</p>
+                <div className="mt-5 border-t border-[#E6E8F2] pt-4">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F5F5F5] px-2.5 py-1 text-[10px] font-[700] uppercase tracking-wider text-[#0B1026]/70">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#315eff]" />
+                    {item.tag}
+                  </span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Support callout */}
+      <section className="relative overflow-hidden px-5 py-16 sm:px-8 lg:px-12" style={{ background: "#FAFAFA" }}>
+        <GridPatternOverlay fade={false} />
+        <div className="relative mx-auto grid max-w-[1840px] gap-6 lg:grid-cols-2">
           <article className="rounded-2xl border border-[#E6E8F2] bg-white p-7">
             <ShieldCheck size={24} className="text-[#315eff]" aria-hidden="true" />
             <h2 className="mt-5 text-[25px] font-[900] text-[#0B1026]">Know what happens next.</h2>
@@ -287,6 +314,27 @@ export function EmployeesPage() {
             <p className="mt-3 text-[14px] leading-[1.75] text-[#5C647A]">Visit the FAQs or contact support for onboarding, account and request questions.</p>
             <div className="mt-5 flex flex-wrap gap-4"><Link to="/faqs" className="font-[800] text-[#315eff]">Read FAQs →</Link><a href="mailto:support@mobpae.com" className="font-[800] text-[#315eff]">Email support →</a></div>
           </article>
+        </div>
+      </section>
+
+      {/* Closing CTA */}
+      <section className="px-5 py-16 sm:px-8 lg:px-12" style={{ background: "#FAFAFA" }}>
+        <div className="relative mx-auto max-w-[1840px] overflow-hidden rounded-[2rem] p-10 shadow-2xl lg:p-16" style={{ background: "#315eff" }}>
+          <GridPatternOverlay opacity={0.6} lineColor="rgba(255,255,255,0.12)" fade={false} />
+          <div className="relative flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
+            <div>
+              <h2 className="text-[28px] font-[900] tracking-[-0.03em] text-white lg:text-[36px]">Ready to bring this to your team?</h2>
+              <p className="mt-3 max-w-[480px] text-[15px] leading-[1.7] text-white/70">Ask your employer to explore MobPae, or see the full approval-to-recovery flow first.</p>
+            </div>
+            <div className="flex flex-shrink-0 flex-wrap gap-3">
+              <Link to="/#enquiry" className="inline-flex h-12 items-center gap-2 rounded-lg bg-white px-6 text-[14px] font-[800] text-[#0B1026] no-underline">
+                Request a demo <ArrowRight size={17} aria-hidden="true" />
+              </Link>
+              <Link to="/how-it-works" className="inline-flex h-12 items-center rounded-lg border border-white/25 bg-white/10 px-6 text-[14px] font-[800] text-white no-underline">
+                See how it works
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </StaticShell>
@@ -323,17 +371,37 @@ export function HelpCenterPage() {
 export function ContactPage() {
   return (
     <StaticShell>
-      <section className="mx-auto grid max-w-[1180px] gap-10 px-5 py-20 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-12">
+      <PageHero
+        eyebrow="Contact Us"
+        title="Let us build a financially stronger workforce."
+        description="Tell us about your team and we will help you understand how MobPae can fit your payroll cycle and employee wellness goals."
+      >
+        <HeroPanel>
+          <div className="grid gap-4">
+            <ContactItem
+              icon={<Mail size={18} />}
+              label="Email"
+              value="support@mobpae.com"
+            />
+            <ContactItem
+              icon={<MapPin size={18} />}
+              label="Address"
+              value="Gujarat, Ahmedabad - 382470"
+            />
+          </div>
+        </HeroPanel>
+      </PageHero>
+
+      <section className="mx-auto grid max-w-[1840px] gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-12">
         <div>
           <p className="text-[11px] font-[900] uppercase tracking-[0.24em] text-[#315eff]">
-            Contact Us
+            Employer enquiry
           </p>
-          <h1 className="mt-5 text-[42px] font-[900] leading-[1.04] tracking-[-0.045em] text-[#0B1026] lg:text-[64px]">
-            Let us build a financially stronger workforce.
-          </h1>
+          <h2 className="mt-5 text-4xl font-[900] leading-[1.05] tracking-[-0.035em] text-[#0B1026] lg:text-6xl">
+            One connected enquiry flow for every employer conversation.
+          </h2>
           <p className="mt-6 max-w-[560px] text-[16px] font-[500] leading-[1.85] text-[#5C647A]">
-            Tell us about your team and we will help you understand how MobPae
-            can fit your payroll cycle and employee wellness goals.
+            Share a few details on the home enquiry form. Our team will review your payroll cycle, approval process and pilot fit before onboarding.
           </p>
 
           <div className="mt-10 grid gap-4">
@@ -395,22 +463,27 @@ function StaticPage({
 }) {
   return (
     <StaticShell>
-      <section className="mx-auto max-w-[1180px] px-5 py-20 sm:px-8 lg:px-12">
-        <div className="max-w-[760px]">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f1f5ff] text-[#315eff]">
+      <PageHero
+        eyebrow={content.eyebrow}
+        title={content.title}
+        description={content.description}
+      >
+        <HeroPanel>
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#EEF2FF] text-[#315eff]">
             {icon}
           </div>
-          <p className="mt-7 text-[11px] font-[900] uppercase tracking-[0.24em] text-[#315eff]">
-            {content.eyebrow}
-          </p>
-          <h1 className="mt-5 text-[42px] font-[900] leading-[1.04] tracking-[-0.045em] text-[#0B1026] lg:text-[64px]">
-            {content.title}
-          </h1>
-          <p className="mt-6 text-[16px] font-[500] leading-[1.85] text-[#5C647A]">
-            {content.description}
-          </p>
-        </div>
+          <div className="mt-7 grid gap-4">
+            {content.sections.slice(0, 2).map((section) => (
+              <div key={section.title} className="border-t border-[#E6E8F2] pt-4">
+                <p className="m-0 text-[15px] font-[900] text-[#0B1026]">{section.title}</p>
+                <p className="m-0 mt-2 text-[13px] font-[500] leading-[1.65] text-[#5C647A]">{section.body}</p>
+              </div>
+            ))}
+          </div>
+        </HeroPanel>
+      </PageHero>
 
+      <section className="mx-auto max-w-[1840px] px-5 py-16 sm:px-8 lg:px-12">
         <div className="mt-14 grid gap-5 md:grid-cols-2">
           {content.sections.map((section) => (
             <article
@@ -450,7 +523,7 @@ function StaticShell({ children }: { children: ReactNode }) {
       style={{
         fontFamily: "Manrope, ui-sans-serif, sans-serif",
         color: "#0B0D12",
-        background: "#fff",
+        background: "#FAFAFA",
       }}
     >
       <SiteNav />
@@ -475,7 +548,7 @@ function ContactItem({
         {icon}
       </span>
       <div>
-        <p className="text-[12px] font-[900] uppercase tracking-[0.12em] text-[#8A90A3]">
+        <p className="text-[12px] font-[900] uppercase tracking-[0.12em] text-[#6B7280]">
           {label}
         </p>
         <p className="mt-1 text-[15px] font-[800] text-[#0B1026]">{value}</p>

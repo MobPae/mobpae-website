@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { SiteNav } from "../components/SiteNav";
 import { SiteFooter } from "../components/SiteFooter";
+import { HeroPanel, PageHero } from "../components/PageHero";
 
 const founders = [
   { photo: "/team/luhit-parajuli.png", initials: "LP", name: "Luhit Parajuli", role: "Co-Founder & Business Strategy", accent: "#315EFF" },
@@ -19,11 +20,12 @@ const BD = "#E6E8EE";
 const TEAL = "#0D9488";
 const PURP = "#7C3AED";
 const GREE = "#059669";
+const PAGE_MAX = 1840;
 
 const W = (maxWidth: number | string): React.CSSProperties => ({
   maxWidth: typeof maxWidth === "number" ? maxWidth : maxWidth,
   margin: "0 auto",
-  padding: "0 clamp(20px,5vw,32px)",
+  padding: "0 clamp(20px,4vw,48px)",
   width: "100%",
 });
 
@@ -41,60 +43,35 @@ export function AboutPage() {
       <main id="main-content">
 
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
-      <section
-        style={{
-          background: "linear-gradient(160deg,#f0f4ff 0%,#fff 55%)",
-          borderBottom: `1px solid ${BD}`,
-          padding: "clamp(64px,9vw,100px) 0 clamp(48px,6vw,72px)",
-        }}
+      <PageHero
+        eyebrow="About MobPae"
+        title="Your Trusted Financial Partner."
+        description="We are building India's most trusted employer-powered financial wellness ecosystem, helping salaried teams access responsible liquidity without encouraging debt dependency."
       >
-        <div style={W(1200)}>
-          <p
-            style={{
-              fontSize: 11.5,
-              fontWeight: 700,
-              color: B,
-              textTransform: "uppercase",
-              letterSpacing: "0.08em",
-              margin: "0 0 14px",
-            }}
-          >
-            About MobPae
+        <HeroPanel>
+          <p style={{ margin: 0, color: B, fontSize: 12, fontWeight: 800, letterSpacing: "0.16em", textTransform: "uppercase" }}>
+            Platform philosophy
           </p>
-          <h1
-            style={{
-              fontSize: "clamp(36px,5.5vw,64px)",
-              fontWeight: 600,
-              letterSpacing: "-0.03em",
-              lineHeight: 1.05,
-              color: T1,
-              margin: "0 0 16px",
-              fontFamily: 'Manrope, ui-sans-serif, sans-serif',
-              maxWidth: 700,
-            }}
-          >
-            Your Trusted Financial Partner.
-          </h1>
-          <p
-            style={{
-              fontSize: 16,
-              lineHeight: 1.7,
-              color: T2,
-              maxWidth: 540,
-              margin: 0,
-            }}
-          >
-            Bridging the gap between payday and the moments that can't wait —
-            without creating debt.
-          </p>
-        </div>
-      </section>
+          <div style={{ marginTop: 22, display: "grid", gap: 16 }}>
+            {[
+              ["Employer-backed", "The employer remains the first decision-maker."],
+              ["Payroll-linked", "Recoveries stay connected to salary cycles."],
+              ["Responsible access", "Liquidity without creating avoidable debt dependency."],
+            ].map(([title, body]) => (
+              <div key={title} style={{ paddingBottom: 16, borderBottom: `1px solid ${BD}` }}>
+                <p style={{ margin: 0, color: T1, fontSize: 15, fontWeight: 800 }}>{title}</p>
+                <p style={{ margin: "5px 0 0", color: T2, fontSize: 13.5, lineHeight: 1.55 }}>{body}</p>
+              </div>
+            ))}
+          </div>
+        </HeroPanel>
+      </PageHero>
 
       {/* ── Who we are ──────────────────────────────────────────────────────── */}
       <section
         style={{ background: "#fff", padding: "clamp(56px,8vw,88px) 0" }}
       >
-        <div style={W(1200)}>
+        <div style={W(PAGE_MAX)}>
           <div
             className="redesign-2col"
             style={{
@@ -120,12 +97,12 @@ export function AboutPage() {
               </p>
               <h2
                 style={{
-                  fontSize: "clamp(26px,3.5vw,40px)",
-                  fontWeight: 600,
+                  fontSize: "clamp(32px,4.5vw,60px)",
+                  fontWeight: 800,
                   letterSpacing: "-0.02em",
                   margin: "0 0 24px",
                   fontFamily: 'Manrope, ui-sans-serif, sans-serif',
-                  lineHeight: 1.1,
+                  lineHeight: 1.05,
                 }}
               >
                 A fintech platform built around payroll, not credit.
@@ -287,7 +264,7 @@ export function AboutPage() {
 
       {/* ── Stakeholders ────────────────────────────────────────────────────── */}
       <section style={{ background: BG, padding: "clamp(56px,8vw,88px) 0" }}>
-        <div style={W(1200)}>
+        <div style={W(PAGE_MAX)}>
           <div style={{ marginBottom: 40 }}>
             <p
               style={{
@@ -303,9 +280,10 @@ export function AboutPage() {
             </p>
             <h2
               style={{
-                fontSize: "clamp(26px,3.5vw,40px)",
-                fontWeight: 600,
+                fontSize: "clamp(32px,4.5vw,60px)",
+                fontWeight: 800,
                 letterSpacing: "-0.02em",
+                lineHeight: 1.05,
                 margin: 0,
                 fontFamily: 'Manrope, ui-sans-serif, sans-serif',
               }}
@@ -479,7 +457,7 @@ export function AboutPage() {
       <section
         style={{ background: "#fff", padding: "clamp(56px,8vw,88px) 0" }}
       >
-        <div style={W(1200)}>
+        <div style={W(PAGE_MAX)}>
           <div
             className="redesign-2col"
             style={{
@@ -504,12 +482,12 @@ export function AboutPage() {
               </p>
               <h2
                 style={{
-                  fontSize: "clamp(26px,3.5vw,40px)",
-                  fontWeight: 600,
+                  fontSize: "clamp(32px,4.5vw,60px)",
+                  fontWeight: 800,
                   letterSpacing: "-0.02em",
                   margin: "0 0 20px",
                   fontFamily: 'Manrope, ui-sans-serif, sans-serif',
-                  lineHeight: 1.1,
+                  lineHeight: 1.05,
                 }}
               >
                 Responsible by design, not by disclaimer.
@@ -620,7 +598,7 @@ export function AboutPage() {
 
       {/* ── The people ──────────────────────────────────────────────────────── */}
       <section style={{ background: "#fff", padding: "clamp(56px,8vw,88px) 0" }}>
-        <div style={W(1200)}>
+        <div style={W(PAGE_MAX)}>
           <div
             style={{
               display: "flex",
@@ -646,9 +624,10 @@ export function AboutPage() {
               </p>
               <h2
                 style={{
-                  fontSize: "clamp(26px,3.5vw,40px)",
-                  fontWeight: 600,
+                  fontSize: "clamp(32px,4.5vw,60px)",
+                  fontWeight: 800,
                   letterSpacing: "-0.02em",
+                  lineHeight: 1.05,
                   margin: 0,
                   fontFamily: 'Manrope, ui-sans-serif, sans-serif',
                 }}
@@ -716,7 +695,7 @@ export function AboutPage() {
 
       {/* ── Numbers / milestones ─────────────────────────────────────────────── */}
       <section style={{ background: T1, padding: "clamp(56px,8vw,80px) 0" }}>
-        <div style={W(1200)}>
+        <div style={W(PAGE_MAX)}>
           <div
             className="redesign-4col"
             style={{
@@ -768,7 +747,7 @@ export function AboutPage() {
 
       {/* ── Values ──────────────────────────────────────────────────────────── */}
       <section style={{ background: BG, padding: "clamp(56px,8vw,88px) 0" }}>
-        <div style={W(1200)}>
+        <div style={W(PAGE_MAX)}>
           <div style={{ marginBottom: 40 }}>
             <p
               style={{
@@ -784,9 +763,10 @@ export function AboutPage() {
             </p>
             <h2
               style={{
-                fontSize: "clamp(26px,3.5vw,40px)",
-                fontWeight: 600,
+                fontSize: "clamp(32px,4.5vw,60px)",
+                fontWeight: 800,
                 letterSpacing: "-0.02em",
+                lineHeight: 1.05,
                 margin: 0,
                 fontFamily: 'Manrope, ui-sans-serif, sans-serif',
               }}

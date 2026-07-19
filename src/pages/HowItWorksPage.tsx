@@ -1,6 +1,20 @@
 import { SiteNav } from "../components/SiteNav";
 import { SiteFooter } from "../components/SiteFooter";
+import { HeroPanel, PageHero } from "../components/PageHero";
+import { GridPatternOverlay } from "../components/GridPatternOverlay";
 import { Link } from "react-router-dom";
+import {
+  ArrowRight,
+  Banknote,
+  Building2,
+  CheckCircle2,
+  ClipboardList,
+  Landmark,
+  Lock,
+  RefreshCw,
+  ShieldCheck,
+  Smartphone,
+} from "lucide-react";
 
 const STEPS_EMPLOYER = [
   {
@@ -71,62 +85,122 @@ const FAQS = [
   },
 ];
 
+const FLOW = [
+  { label: "Employer sets policy", icon: Building2 },
+  { label: "Employee requests", icon: Smartphone },
+  { label: "MobPae reviews", icon: CheckCircle2 },
+  { label: "Funds disbursed", icon: Banknote },
+  { label: "Payroll recovery", icon: RefreshCw },
+];
+
+const TRUST = [
+  { icon: Lock, label: "End-to-end encryption" },
+  { icon: Landmark, label: "NBFC partnership ready" },
+  { icon: ClipboardList, label: "RBI-aligned compliance" },
+  { icon: ShieldCheck, label: "Employer data privacy" },
+];
+
 const T1 = "#0B0D12";
 const T2 = "#5B6270";
 const BLUE = "#315EFF";
-const BG = "#F6F7F9";
 const BD = "#E6E8EE";
+const PAGE_BG = "#FAFAFA";
+const PAGE_MAX = 1840;
+
+const rail: React.CSSProperties = { maxWidth: PAGE_MAX, margin: "0 auto", padding: "0 clamp(20px,4vw,48px)", width: "100%" };
+
+function StepCard({ num, title, body }: { num: string; title: string; body: string }) {
+  return (
+    <div
+      className="group"
+      style={{
+        background: "#fff",
+        borderRadius: 18,
+        padding: "26px 24px",
+        border: `1px solid ${BD}`,
+        transition: "all 300ms ease",
+      }}
+      onMouseEnter={(e) => {
+        (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)";
+        (e.currentTarget as HTMLElement).style.borderColor = "rgba(49,94,255,0.4)";
+        (e.currentTarget as HTMLElement).style.boxShadow = "0 28px 60px -24px rgba(49,94,255,0.28)";
+      }}
+      onMouseLeave={(e) => {
+        (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+        (e.currentTarget as HTMLElement).style.borderColor = BD;
+        (e.currentTarget as HTMLElement).style.boxShadow = "none";
+      }}
+    >
+      <div style={{ fontSize: 13, fontWeight: 800, color: BLUE, letterSpacing: ".08em", marginBottom: 14 }}>{num}</div>
+      <h3 style={{ fontSize: 17, fontWeight: 700, margin: "0 0 10px", lineHeight: 1.35, color: T1 }}>{title}</h3>
+      <p style={{ fontSize: 14, color: T2, lineHeight: 1.65, margin: 0 }}>{body}</p>
+    </div>
+  );
+}
 
 export function HowItWorksPage() {
   return (
-    <div style={{ fontFamily: "Manrope, ui-sans-serif, sans-serif", color: T1, background: "#fff", minHeight: "100vh" }}>
+    <div style={{ fontFamily: "Manrope, ui-sans-serif, sans-serif", color: T1, background: PAGE_BG, minHeight: "100vh" }}>
       <SiteNav />
       <main id="main-content">
 
       {/* Hero */}
-      <section style={{ background: "linear-gradient(160deg,#f0f4ff 0%,#fff 55%)", borderBottom: `1px solid ${BD}`, padding: "72px clamp(20px,6vw,80px) 64px" }}>
-        <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
-          <span style={{ display: "inline-block", background: "#EEF2FF", color: BLUE, fontSize: 12, fontWeight: 600, letterSpacing: ".08em", padding: "4px 12px", borderRadius: 100, marginBottom: 20, textTransform: "uppercase" }}>
-            How It Works
-          </span>
-          <h1 style={{ fontSize: "clamp(32px,5vw,54px)", fontWeight: 700, lineHeight: 1.15, letterSpacing: "-.02em", margin: "0 0 20px" }}>
-            Salary advances that work for<br />everyone
-          </h1>
-          <p style={{ fontSize: 17, color: T2, lineHeight: 1.7, maxWidth: 560, margin: "0 auto 32px" }}>
-            MobPae connects employers and employees on a single platform — making earned salary access transparent, instant, and stress-free.
-          </p>
+      <PageHero
+        eyebrow="How it works"
+        title={
+          <>
+            Salary advances
+            <br />
+            that work for everyone.
+          </>
+        }
+        description="MobPae keeps the flow simple: employees request, employers approve, funds move after verification, and recovery stays linked to payroll."
+        actions={
           <Link
             to="/#enquiry"
-            style={{ display: "inline-flex", alignItems: "center", height: 44, padding: "0 24px", background: BLUE, color: "#fff", fontSize: 14, fontWeight: 600, borderRadius: 8, textDecoration: "none" }}
+            style={{ display: "inline-flex", alignItems: "center", gap: 8, height: 48, padding: "0 24px", background: BLUE, color: "#fff", fontSize: 14, fontWeight: 800, borderRadius: 10, textDecoration: "none" }}
           >
-            Request a demo
+            Request a demo <ArrowRight size={17} aria-hidden="true" />
           </Link>
-        </div>
-      </section>
+        }
+      >
+        <HeroPanel>
+          <div style={{ display: "grid", gap: 14 }}>
+            {["Request", "Employer approval", "Verification", "Disbursal", "Recovery"].map((step, index) => (
+              <div key={step} style={{ display: "grid", gridTemplateColumns: "38px 1fr", gap: 14, alignItems: "center" }}>
+                <span style={{ width: 38, height: 38, borderRadius: "50%", background: index === 1 ? BLUE : "#EEF2FF", color: index === 1 ? "#fff" : BLUE, display: "grid", placeItems: "center", fontSize: 12, fontWeight: 900 }}>
+                  {index + 1}
+                </span>
+                <div>
+                  <p style={{ margin: 0, color: T1, fontSize: 14.5, fontWeight: 800 }}>{step}</p>
+                  <p style={{ margin: "3px 0 0", color: T2, fontSize: 12.5 }}>
+                    {index === 0 ? "Employee starts the flow" : index === 1 ? "Employer remains in control" : index === 2 ? "MobPae validates readiness" : index === 3 ? "Funds move to bank" : "Auto-recovered on payday"}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </HeroPanel>
+      </PageHero>
 
       {/* Flow diagram */}
-      <section style={{ padding: "64px clamp(20px,6vw,80px)", borderBottom: `1px solid ${BD}` }}>
-        <div style={{ maxWidth: 900, margin: "0 auto" }}>
-          <h2 style={{ textAlign: "center", fontSize: 13, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: T2, marginBottom: 32 }}>
+      <section style={{ position: "relative", overflow: "hidden", padding: "64px clamp(20px,6vw,80px)", borderBottom: `1px solid ${BD}` }}>
+        <GridPatternOverlay fade={false} />
+        <div style={{ position: "relative", maxWidth: 1040, margin: "0 auto" }}>
+          <h2 style={{ textAlign: "center", fontSize: 13, fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", color: BLUE, marginBottom: 40 }}>
             The full picture
           </h2>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", flexWrap: "wrap", gap: 0 }}>
-            {[
-              { label: "Employer sets policy", icon: "🏢" },
-              { label: "Employee requests", icon: "📱" },
-              { label: "MobPae reviews", icon: "✅" },
-              { label: "Funds disbursed", icon: "💸" },
-              { label: "Payroll recovery", icon: "🔄" },
-            ].map((step, i, arr) => (
-              <div key={i} style={{ display: "flex", alignItems: "center" }}>
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, padding: "20px 16px" }}>
-                  <div style={{ width: 56, height: 56, borderRadius: "50%", background: "#EEF2FF", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22 }}>
-                    {step.icon}
+          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", flexWrap: "wrap", gap: 0 }}>
+            {FLOW.map((step, i, arr) => (
+              <div key={step.label} style={{ display: "flex", alignItems: "flex-start" }}>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12, padding: "0 18px", width: 116 }}>
+                  <div style={{ width: 56, height: 56, borderRadius: 16, background: "#EEF2FF", display: "flex", alignItems: "center", justifyContent: "center", color: BLUE, border: "1px solid rgba(49,94,255,0.15)" }}>
+                    <step.icon size={24} aria-hidden="true" />
                   </div>
-                  <span style={{ fontSize: 12.5, fontWeight: 500, color: T2, textAlign: "center", maxWidth: 80, lineHeight: 1.4 }}>{step.label}</span>
+                  <span style={{ fontSize: 12.5, fontWeight: 700, color: T1, textAlign: "center", lineHeight: 1.4 }}>{step.label}</span>
                 </div>
                 {i < arr.length - 1 && (
-                  <div style={{ width: 32, height: 2, background: BD, flexShrink: 0 }} />
+                  <div style={{ width: 32, height: 1, background: BD, flexShrink: 0, marginTop: 28 }} />
                 )}
               </div>
             ))}
@@ -135,64 +209,55 @@ export function HowItWorksPage() {
       </section>
 
       {/* For Employers */}
-      <section style={{ padding: "72px clamp(20px,6vw,80px)", background: "#fff" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <div style={{ marginBottom: 48 }}>
-            <span style={{ display: "inline-block", background: "#EEF2FF", color: BLUE, fontSize: 12, fontWeight: 600, letterSpacing: ".08em", padding: "4px 12px", borderRadius: 100, marginBottom: 14, textTransform: "uppercase" }}>
+      <section style={{ position: "relative", overflow: "hidden", padding: "72px clamp(20px,6vw,80px)" }}>
+        <GridPatternOverlay fade={false} />
+        <div style={{ position: "relative", ...rail, padding: 0 }}>
+          <div style={{ marginBottom: 44 }}>
+            <span style={{ display: "inline-block", background: "#EEF2FF", color: BLUE, fontSize: 12, fontWeight: 700, letterSpacing: ".08em", padding: "5px 13px", borderRadius: 100, marginBottom: 16, textTransform: "uppercase" }}>
               For Employers
             </span>
-            <h2 style={{ fontSize: "clamp(26px,3.5vw,38px)", fontWeight: 700, letterSpacing: "-.02em", margin: "0 0 12px" }}>
+            <h2 style={{ fontSize: "clamp(32px,4.5vw,60px)", fontWeight: 800, letterSpacing: "-.02em", lineHeight: 1.05, margin: "0 0 12px" }}>
               Set up in under a day
             </h2>
-            <p style={{ fontSize: 16, color: T2, lineHeight: 1.7, maxWidth: 520, margin: 0 }}>
+            <p style={{ fontSize: 16, color: T2, lineHeight: 1.7, maxWidth: 560, margin: 0 }}>
               No complex integrations required. MobPae connects with your existing payroll and HR data.
             </p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: 24 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: 20 }}>
             {STEPS_EMPLOYER.map((s) => (
-              <div key={s.num} style={{ background: BG, borderRadius: 16, padding: "28px 24px", border: `1px solid ${BD}` }}>
-                <div style={{ fontSize: 13, fontWeight: 700, color: BLUE, letterSpacing: ".06em", marginBottom: 14 }}>{s.num}</div>
-                <h3 style={{ fontSize: 16, fontWeight: 600, margin: "0 0 10px", lineHeight: 1.35 }}>{s.title}</h3>
-                <p style={{ fontSize: 14, color: T2, lineHeight: 1.65, margin: 0 }}>{s.body}</p>
-              </div>
+              <StepCard key={s.num} {...s} />
             ))}
           </div>
           <div style={{ marginTop: 32 }}>
-            <Link to="/employers" style={{ color: BLUE, fontSize: 14, fontWeight: 600, textDecoration: "none" }}>
+            <Link to="/employers" style={{ color: BLUE, fontSize: 14, fontWeight: 700, textDecoration: "none" }}>
               Learn more about the employer dashboard →
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Divider */}
-      <div style={{ borderTop: `1px solid ${BD}` }} />
-
       {/* For Employees */}
-      <section style={{ padding: "72px clamp(20px,6vw,80px)", background: BG }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <div style={{ marginBottom: 48 }}>
-            <span style={{ display: "inline-block", background: "#fff", color: BLUE, fontSize: 12, fontWeight: 600, letterSpacing: ".08em", padding: "4px 12px", borderRadius: 100, border: `1px solid #C7D4FF`, marginBottom: 14, textTransform: "uppercase" }}>
+      <section style={{ position: "relative", overflow: "hidden", padding: "72px clamp(20px,6vw,80px)", borderTop: `1px solid ${BD}` }}>
+        <GridPatternOverlay fade={false} />
+        <div style={{ position: "relative", ...rail, padding: 0 }}>
+          <div style={{ marginBottom: 44 }}>
+            <span style={{ display: "inline-block", background: "#fff", color: BLUE, fontSize: 12, fontWeight: 700, letterSpacing: ".08em", padding: "5px 13px", borderRadius: 100, border: `1px solid rgba(49,94,255,0.2)`, marginBottom: 16, textTransform: "uppercase" }}>
               For Employees
             </span>
-            <h2 style={{ fontSize: "clamp(26px,3.5vw,38px)", fontWeight: 700, letterSpacing: "-.02em", margin: "0 0 12px" }}>
+            <h2 style={{ fontSize: "clamp(32px,4.5vw,60px)", fontWeight: 800, letterSpacing: "-.02em", lineHeight: 1.05, margin: "0 0 12px" }}>
               Your earned salary, on demand
             </h2>
-            <p style={{ fontSize: 16, color: T2, lineHeight: 1.7, maxWidth: 520, margin: 0 }}>
+            <p style={{ fontSize: 16, color: T2, lineHeight: 1.7, maxWidth: 560, margin: 0 }}>
               No credit check. No paperwork. Just access to money you've already earned.
             </p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: 24 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: 20 }}>
             {STEPS_EMPLOYEE.map((s) => (
-              <div key={s.num} style={{ background: "#fff", borderRadius: 16, padding: "28px 24px", border: `1px solid ${BD}` }}>
-                <div style={{ fontSize: 13, fontWeight: 700, color: BLUE, letterSpacing: ".06em", marginBottom: 14 }}>{s.num}</div>
-                <h3 style={{ fontSize: 16, fontWeight: 600, margin: "0 0 10px", lineHeight: 1.35 }}>{s.title}</h3>
-                <p style={{ fontSize: 14, color: T2, lineHeight: 1.65, margin: 0 }}>{s.body}</p>
-              </div>
+              <StepCard key={s.num} {...s} />
             ))}
           </div>
           <div style={{ marginTop: 32 }}>
-            <Link to="/employees" style={{ color: BLUE, fontSize: 14, fontWeight: 600, textDecoration: "none" }}>
+            <Link to="/employees" style={{ color: BLUE, fontSize: 14, fontWeight: 700, textDecoration: "none" }}>
               Learn more about the employee experience →
             </Link>
           </div>
@@ -200,46 +265,45 @@ export function HowItWorksPage() {
       </section>
 
       {/* Security callout */}
-      <section style={{ padding: "64px clamp(20px,6vw,80px)", background: "#fff", borderTop: `1px solid ${BD}`, borderBottom: `1px solid ${BD}` }}>
-        <div style={{ maxWidth: 900, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))", gap: 32, alignItems: "center" }}>
+      <section style={{ padding: "64px clamp(20px,6vw,80px)", borderTop: `1px solid ${BD}` }}>
+        <div style={{ ...rail, padding: 0, display: "grid", gridTemplateColumns: "minmax(0,0.85fr) minmax(0,1.15fr)", gap: 40, alignItems: "center" }} className="redesign-2col">
           <div>
-            <h2 style={{ fontSize: "clamp(22px,3vw,32px)", fontWeight: 700, letterSpacing: "-.02em", margin: "0 0 12px" }}>
+            <h2 style={{ fontSize: "clamp(26px,3vw,38px)", fontWeight: 800, letterSpacing: "-.02em", lineHeight: 1.1, margin: "0 0 12px" }}>
               Built on trust and compliance
             </h2>
             <p style={{ fontSize: 15, color: T2, lineHeight: 1.7, margin: 0 }}>
               MobPae operates with NBFC partnership readiness, RBI-aligned data handling, and end-to-end encryption on all financial data.
             </p>
           </div>
-          {[
-            { icon: "🔒", label: "End-to-end encryption" },
-            { icon: "🏦", label: "NBFC partnership ready" },
-            { icon: "📋", label: "RBI-aligned compliance" },
-            { icon: "🛡️", label: "Employer data privacy" },
-          ].map((item) => (
-            <div key={item.label} style={{ display: "flex", alignItems: "center", gap: 12 }}>
-              <span style={{ fontSize: 24 }}>{item.icon}</span>
-              <span style={{ fontSize: 14, fontWeight: 500, color: T1 }}>{item.label}</span>
-            </div>
-          ))}
+          <div className="redesign-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18 }}>
+            {TRUST.map((item) => (
+              <div key={item.label} style={{ display: "flex", alignItems: "center", gap: 12, background: "#fff", border: `1px solid ${BD}`, borderRadius: 14, padding: "14px 16px" }}>
+                <span style={{ width: 36, height: 36, borderRadius: 10, background: "#EEF2FF", color: BLUE, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <item.icon size={18} aria-hidden="true" />
+                </span>
+                <span style={{ fontSize: 13.5, fontWeight: 700, color: T1 }}>{item.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section style={{ padding: "72px clamp(20px,6vw,80px)", background: BG }}>
-        <div style={{ maxWidth: 720, margin: "0 auto" }}>
-          <h2 style={{ fontSize: "clamp(24px,3vw,36px)", fontWeight: 700, letterSpacing: "-.02em", textAlign: "center", marginBottom: 48 }}>
+      <section style={{ padding: "72px clamp(20px,6vw,80px)", borderTop: `1px solid ${BD}` }}>
+        <div style={{ maxWidth: 760, margin: "0 auto" }}>
+          <h2 style={{ fontSize: "clamp(32px,4.5vw,60px)", fontWeight: 800, letterSpacing: "-.02em", lineHeight: 1.05, textAlign: "center", marginBottom: 44 }}>
             Common questions
           </h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
             {FAQS.map((faq) => (
-              <div key={faq.q} style={{ background: "#fff", borderRadius: 14, padding: "22px 24px", border: `1px solid ${BD}` }}>
-                <h3 style={{ fontSize: 15, fontWeight: 600, margin: "0 0 8px" }}>{faq.q}</h3>
+              <div key={faq.q} style={{ background: "#fff", borderRadius: 16, padding: "22px 24px", border: `1px solid ${BD}` }}>
+                <h3 style={{ fontSize: 15, fontWeight: 700, margin: "0 0 8px" }}>{faq.q}</h3>
                 <p style={{ fontSize: 14, color: T2, lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
               </div>
             ))}
           </div>
           <div style={{ textAlign: "center", marginTop: 36 }}>
-            <Link to="/faqs" style={{ color: BLUE, fontSize: 14, fontWeight: 600, textDecoration: "none" }}>
+            <Link to="/faqs" style={{ color: BLUE, fontSize: 14, fontWeight: 700, textDecoration: "none" }}>
               See all FAQs →
             </Link>
           </div>
@@ -247,20 +311,37 @@ export function HowItWorksPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ padding: "72px clamp(20px,6vw,80px)", background: BLUE, textAlign: "center" }}>
-        <h2 style={{ fontSize: "clamp(26px,4vw,44px)", fontWeight: 700, color: "#fff", letterSpacing: "-.02em", margin: "0 0 16px" }}>
-          Ready to get started?
-        </h2>
-        <p style={{ fontSize: 16, color: "rgba(255,255,255,0.8)", marginBottom: 32, maxWidth: 440, marginLeft: "auto", marginRight: "auto" }}>
-          Join employers who offer their teams responsible, transparent salary access.
-        </p>
-        <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-          <Link to="/#enquiry" style={{ height: 46, padding: "0 28px", background: "#fff", color: BLUE, fontSize: 14, fontWeight: 600, borderRadius: 8, display: "inline-flex", alignItems: "center", textDecoration: "none" }}>
-            Request a demo
-          </Link>
-          <Link to="/faqs" style={{ height: 46, padding: "0 28px", background: "rgba(255,255,255,0.15)", color: "#fff", fontSize: 14, fontWeight: 600, borderRadius: 8, display: "inline-flex", alignItems: "center", textDecoration: "none", border: "1px solid rgba(255,255,255,0.3)" }}>
-            Read FAQs
-          </Link>
+      <section style={{ padding: "clamp(46px,6vw,76px) clamp(20px,4vw,48px)" }}>
+        <div
+          style={{
+            position: "relative",
+            overflow: "hidden",
+            maxWidth: PAGE_MAX,
+            margin: "0 auto",
+            borderRadius: 32,
+            padding: "clamp(40px,6vw,64px)",
+            background: BLUE,
+            textAlign: "center",
+            boxShadow: "0 30px 90px -58px rgba(8,11,22,0.6)",
+          }}
+        >
+          <GridPatternOverlay opacity={0.6} lineColor="rgba(255,255,255,0.12)" fade={false} />
+          <div style={{ position: "relative" }}>
+            <h2 style={{ fontSize: "clamp(32px,4.5vw,60px)", fontWeight: 800, color: "#fff", letterSpacing: "-.02em", lineHeight: 1.05, margin: "0 0 16px" }}>
+              Ready to get started?
+            </h2>
+            <p style={{ fontSize: 16, color: "rgba(255,255,255,0.75)", marginBottom: 32, maxWidth: 440, marginLeft: "auto", marginRight: "auto" }}>
+              Join employers who offer their teams responsible, transparent salary access.
+            </p>
+            <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+              <Link to="/#enquiry" style={{ height: 48, padding: "0 28px", background: "#fff", color: BLUE, fontSize: 14, fontWeight: 800, borderRadius: 10, display: "inline-flex", alignItems: "center", textDecoration: "none" }}>
+                Request a demo
+              </Link>
+              <Link to="/faqs" style={{ height: 48, padding: "0 28px", background: "rgba(255,255,255,0.12)", color: "#fff", fontSize: 14, fontWeight: 800, borderRadius: 10, display: "inline-flex", alignItems: "center", textDecoration: "none", border: "1px solid rgba(255,255,255,0.25)" }}>
+                Read FAQs
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
       </main>

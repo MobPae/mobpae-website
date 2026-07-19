@@ -52,10 +52,20 @@ export function SiteNav() {
         boxShadow: scrolled ? "0 1px 24px rgba(20,30,60,0.07)" : "none",
         }}
       >
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(20px,5vw,32px)", width: "100%", display: "flex", alignItems: "center", gap: 32 }}>
+      <div style={{ maxWidth: 1840, margin: "0 auto", padding: "0 clamp(20px,4vw,48px)", width: "100%", display: "flex", alignItems: "center", gap: 32 }}>
         {/* Logo */}
-        <Link to="/" style={{ flexShrink: 0, display: "flex", alignItems: "center", textDecoration: "none" }}>
-          <img src="/brand/mobpae-logo-horizontal.svg" alt="MobPae" style={{ height: 28, width: "auto" }} />
+        <Link
+          to="/"
+          aria-label="MobPae home"
+          style={{ flexShrink: 0, display: "flex", alignItems: "center", textDecoration: "none", minWidth: 148 }}
+        >
+          <img
+            src="/logo-horizontal.svg"
+            alt="MobPae"
+            width="193"
+            height="24"
+            style={{ objectFit: "contain", display: "block" }}
+          />
         </Link>
 
         {/* Desktop nav links */}
@@ -144,7 +154,7 @@ export function SiteNav() {
           background: "rgba(255,255,255,0.97)",
           backdropFilter: "blur(18px)",
           borderBottom: "1px solid #E6E8EE",
-          padding: "12px clamp(20px,5vw,32px) 16px",
+          padding: "12px clamp(20px,4vw,48px) 16px",
           display: "flex", flexDirection: "column", gap: 4,
           boxShadow: "0 12px 40px rgba(20,30,60,0.08)",
         }}>

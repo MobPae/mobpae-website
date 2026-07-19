@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { SiteNav } from "../components/SiteNav";
 import { SiteFooter } from "../components/SiteFooter";
+import { HeroPanel, PageHero } from "../components/PageHero";
 
 // ── Design tokens ─────────────────────────────────────────────────────────────
 const B = "#315EFF";
@@ -12,12 +13,12 @@ const BG = "#F6F7F9";
 const BD = "#E6E8EE";
 const TEAL = "#0D9488";
 const PURP = "#7C3AED";
-const GREE = "#059669";
+const PAGE_MAX = 1840;
 
 const W = (maxWidth: number | string): React.CSSProperties => ({
   maxWidth: typeof maxWidth === "number" ? maxWidth : maxWidth,
   margin: "0 auto",
-  padding: "0 clamp(20px,5vw,32px)",
+  padding: "0 clamp(20px,4vw,48px)",
   width: "100%",
 });
 
@@ -142,84 +143,35 @@ export function TeamPage() {
       <main id="main-content">
 
       {/* ── Hero ────────────────────────────────────────────────────────────── */}
-      <section
-        style={{
-          background: BG,
-          padding: "clamp(64px,9vw,100px) 0 clamp(48px,6vw,72px)",
-          textAlign: "center",
-        }}
-      >
-        <div style={W(720)}>
-          {/* Badge */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              marginBottom: 24,
-            }}
-          >
-            <span
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 6,
-                height: 32,
-                padding: "0 14px",
-                background: "#fff",
-                border: `1px solid ${BD}`,
-                borderRadius: 99,
-                fontSize: 12,
-                fontWeight: 600,
-                color: T2,
-                boxShadow: "0 1px 4px rgba(20,30,60,0.06)",
-              }}
-            >
-              <span
-                style={{
-                  width: 7,
-                  height: 7,
-                  borderRadius: "50%",
-                  background: GREE,
-                  display: "inline-block",
-                }}
-              />
-              We're hiring!
-            </span>
-          </div>
-
-          <h1
-            style={{
-              fontSize: "clamp(36px,5.5vw,64px)",
-              fontWeight: 600,
-              letterSpacing: "-0.03em",
-              lineHeight: 1.05,
-              color: T1,
-              margin: "0 0 20px",
-              fontFamily: 'Manrope, ui-sans-serif, sans-serif',
-            }}
-          >
-            We are the people who
+      <PageHero
+        eyebrow="Team"
+        title={
+          <>
+            The people building
             <br />
-            make up <span style={{ color: B }}>MobPae</span>
-          </h1>
-
-          <p
-            style={{
-              fontSize: "clamp(15px,1.8vw,17px)",
-              lineHeight: 1.75,
-              color: T2,
-              margin: 0,
-            }}
-          >
-            Our philosophy is simple — hire great people and give them the
-            resources and trust to do their best work.
+            MobPae.
+          </>
+        }
+        description="A small founding team combining financial services, platform engineering, legal operations and product execution for India's employer-powered wellness market."
+      >
+        <HeroPanel>
+          <p style={{ margin: 0, color: B, fontSize: 12, fontWeight: 800, letterSpacing: "0.16em", textTransform: "uppercase" }}>
+            Operating principles
           </p>
-        </div>
-      </section>
+          <div style={{ display: "grid", gap: 12, marginTop: 22 }}>
+            {["Financial discipline", "Product clarity", "Employer trust", "Responsible access"].map((item) => (
+              <div key={item} style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 0", borderTop: `1px solid ${BD}` }}>
+                <span style={{ width: 9, height: 9, borderRadius: "50%", background: "#315EFF", boxShadow: "0 0 0 5px rgba(49,94,255,0.16)" }} />
+                <span style={{ color: T1, fontSize: 14, fontWeight: 800 }}>{item}</span>
+              </div>
+            ))}
+          </div>
+        </HeroPanel>
+      </PageHero>
 
       {/* ── Team grid ───────────────────────────────────────────────────────── */}
       <section style={{ background: BG, padding: "0 0 clamp(64px,9vw,100px)" }}>
-        <div style={W(1200)}>
+        <div style={W(PAGE_MAX)}>
           <div
             className="redesign-4col"
             style={{
@@ -377,7 +329,7 @@ export function TeamPage() {
       <section
         style={{ background: "#fff", padding: "clamp(56px,8vw,88px) 0" }}
       >
-        <div style={W(1200)}>
+        <div style={W(PAGE_MAX)}>
           <div style={{ marginBottom: 40 }}>
             <p
               style={{
@@ -393,9 +345,10 @@ export function TeamPage() {
             </p>
             <h2
               style={{
-                fontSize: "clamp(26px,3.5vw,40px)",
-                fontWeight: 600,
+                fontSize: "clamp(32px,4.5vw,60px)",
+                fontWeight: 800,
                 letterSpacing: "-0.02em",
+                lineHeight: 1.05,
                 margin: 0,
                 fontFamily: 'Manrope, ui-sans-serif, sans-serif',
               }}
@@ -475,7 +428,7 @@ export function TeamPage() {
 
       {/* ── DNA strip (dark) ────────────────────────────────────────────────── */}
       <section style={{ background: T1, padding: "clamp(48px,7vw,80px) 0" }}>
-        <div style={W(1200)}>
+        <div style={W(PAGE_MAX)}>
           <div
             className="redesign-2col"
             style={{
@@ -500,9 +453,10 @@ export function TeamPage() {
               </p>
               <h2
                 style={{
-                  fontSize: "clamp(26px,3.5vw,40px)",
-                  fontWeight: 600,
+                  fontSize: "clamp(32px,4.5vw,60px)",
+                  fontWeight: 800,
                   letterSpacing: "-0.02em",
+                  lineHeight: 1.05,
                   color: "#fff",
                   margin: "0 0 16px",
                   fontFamily: 'Manrope, ui-sans-serif, sans-serif',
@@ -579,7 +533,7 @@ export function TeamPage() {
       <section
         style={{ background: "#fff", padding: "clamp(56px,8vw,80px) 0" }}
       >
-        <div style={W(1200)}>
+        <div style={W(PAGE_MAX)}>
           <div
             style={{
               display: "flex",
@@ -608,10 +562,11 @@ export function TeamPage() {
               </p>
               <h2
                 style={{
-                  fontSize: "clamp(22px,2.8vw,32px)",
-                  fontWeight: 600,
+                  fontSize: "clamp(26px,3vw,38px)",
+                  fontWeight: 800,
                   margin: "0 0 8px",
                   letterSpacing: "-0.02em",
+                  lineHeight: 1.1,
                   fontFamily: 'Manrope, ui-sans-serif, sans-serif',
                 }}
               >

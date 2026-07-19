@@ -8,9 +8,7 @@ import { EmployeesPage } from "./WebsitePages";
 afterEach(cleanup);
 
 async function expectNoAxeViolations() {
-  const results = await axe.run(document.body, {
-    rules: { "color-contrast": { enabled: false } },
-  });
+  const results = await axe.run(document.body);
   expect(results.violations.map(({ id, nodes }) => ({ id, nodes: nodes.length }))).toEqual([]);
 }
 

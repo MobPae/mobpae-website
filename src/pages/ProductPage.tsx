@@ -1,5 +1,6 @@
 import { SiteNav } from "../components/SiteNav";
 import { SiteFooter } from "../components/SiteFooter";
+import { HeroPanel, PageHero } from "../components/PageHero";
 import { Link } from "react-router-dom";
 
 // ── design tokens ─────────────────────────────────────────────────────────────
@@ -11,11 +12,12 @@ const T3 = "#8A90A0";
 const BG = "#F6F7F9";
 const BD = "#E6E8EE";
 const BT = "rgba(49,94,255,0.08)";
+const PAGE_MAX = 1840;
 
 const W = (maxWidth: number | string, extraStyle?: React.CSSProperties): React.CSSProperties => ({
   maxWidth: typeof maxWidth === "number" ? maxWidth : maxWidth,
   margin: "0 auto",
-  padding: `0 clamp(20px,5vw,32px)`,
+  padding: `0 clamp(20px,4vw,48px)`,
   width: "100%",
   ...extraStyle,
 });
@@ -50,17 +52,55 @@ export function ProductPage() {
 // ── 1. Hero ───────────────────────────────────────────────────────────────────
 function ProductHero() {
   return (
-    <section style={{ background: "#fff", padding: "clamp(64px,8vw,112px) 0", textAlign: "center" }}>
-      <div style={W(900)}>
-        <Pill>Product</Pill>
-        <h1 style={{ fontSize: "clamp(40px,5.5vw,68px)", fontWeight: 500, lineHeight: 1.05, letterSpacing: "-0.02em", margin: "20px 0 24px", fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
-          One ecosystem.<br />Three stakeholders. One outcome.
-        </h1>
-        <p style={{ fontSize: 18, lineHeight: 1.7, color: T2, maxWidth: 680, margin: "0 auto" }}>
-          MobPae connects employees and employers in a single controlled workflow — from request to disbursal to settlement, with full visibility at every step.
+    <PageHero
+      tone="dark"
+      eyebrow="Product ecosystem"
+      title={
+        <>
+          One ecosystem.
+          <br />
+          Three stakeholders.
+          <br />
+          One outcome.
+        </>
+      }
+      description="MobPae connects employees, employers and lending partners in a controlled workflow — from request to approval, disbursal, recovery and settlement."
+    >
+      <HeroPanel tone="dark">
+        <p style={{ margin: 0, color: "#CBD4FF", fontSize: 12, fontWeight: 800, letterSpacing: "0.16em", textTransform: "uppercase" }}>
+          Connected workflow
         </p>
-      </div>
-    </section>
+        <div style={{ display: "grid", gap: 14, marginTop: 22 }}>
+          {[
+            ["Employee app", "Requests, setup, repayment visibility"],
+            ["Employer portal", "Approval, policy context, team controls"],
+            ["Admin console", "Verification, disbursal, settlement"],
+          ].map(([title, body], index) => (
+            <div
+              key={title}
+              style={{
+                display: "grid",
+                gridTemplateColumns: "42px 1fr",
+                gap: 14,
+                alignItems: "center",
+                padding: 16,
+                borderRadius: 18,
+                background: "rgba(255,255,255,0.08)",
+                border: "1px solid rgba(255,255,255,0.1)",
+              }}
+            >
+              <div style={{ width: 42, height: 42, borderRadius: "50%", background: index === 1 ? "#315EFF" : "rgba(255,255,255,0.12)", display: "grid", placeItems: "center", color: "#fff", fontWeight: 900 }}>
+                0{index + 1}
+              </div>
+              <div>
+                <p style={{ margin: 0, color: "#fff", fontSize: 15, fontWeight: 800 }}>{title}</p>
+                <p style={{ margin: "4px 0 0", color: "rgba(255,255,255,0.62)", fontSize: 13.5, lineHeight: 1.5 }}>{body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </HeroPanel>
+    </PageHero>
   );
 }
 
@@ -73,11 +113,11 @@ function ForEmployeesSection() {
   ];
   return (
     <section id="employees" style={{ background: BG, padding: "clamp(48px,7vw,96px) 0" }}>
-      <div style={W(1200)}>
+      <div style={W(PAGE_MAX)}>
         <div className="product-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
           <div>
             <Pill>For employees</Pill>
-            <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 500, lineHeight: 1.12, letterSpacing: "-0.015em", margin: "16px 0 16px", fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
+            <h2 style={{ fontSize: "clamp(32px,4.5vw,60px)", fontWeight: 800, lineHeight: 1.05, letterSpacing: "-0.02em", margin: "16px 0 16px", fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
               Access wages you've already earned
             </h2>
             <p style={{ fontSize: 15.5, lineHeight: 1.7, color: T2, marginBottom: 24 }}>
@@ -132,7 +172,7 @@ function ForEmployersSection() {
   ];
   return (
     <section id="employers" style={{ background: "#fff", padding: "clamp(48px,7vw,96px) 0" }}>
-      <div style={W(1200)}>
+      <div style={W(PAGE_MAX)}>
         <div className="product-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
           {/* Mockup first */}
           <div>
@@ -152,7 +192,7 @@ function ForEmployersSection() {
           </div>
           <div>
             <Pill>For employers</Pill>
-            <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 500, lineHeight: 1.12, letterSpacing: "-0.015em", margin: "16px 0 16px", fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
+            <h2 style={{ fontSize: "clamp(32px,4.5vw,60px)", fontWeight: 800, lineHeight: 1.05, letterSpacing: "-0.02em", margin: "16px 0 16px", fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
               Retention benefit, zero cash burden
             </h2>
             <p style={{ fontSize: 15.5, lineHeight: 1.7, color: T2, marginBottom: 24 }}>
@@ -187,11 +227,11 @@ function ForNbfcSection() {
   ];
   return (
     <section id="nbfc" style={{ background: BG, padding: "clamp(48px,7vw,96px) 0" }}>
-      <div style={W(1200)}>
+      <div style={W(PAGE_MAX)}>
         <div className="product-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
           <div>
             <Pill>For capital partners</Pill>
-            <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 500, lineHeight: 1.12, letterSpacing: "-0.015em", margin: "16px 0 16px", fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
+            <h2 style={{ fontSize: "clamp(32px,4.5vw,60px)", fontWeight: 800, lineHeight: 1.05, letterSpacing: "-0.02em", margin: "16px 0 16px", fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
               Low-risk, short-tenure portfolio
             </h2>
             <p style={{ fontSize: 15.5, lineHeight: 1.7, color: T2, marginBottom: 24 }}>
@@ -236,9 +276,9 @@ function DisbursementSection() {
   ];
   return (
     <section id="disbursement" style={{ background: "#fff", padding: "clamp(48px,7vw,96px) 0" }}>
-      <div style={W(1200)}>
+      <div style={W(PAGE_MAX)}>
         <div style={{ textAlign: "center", marginBottom: 48 }}>
-          <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 500, lineHeight: 1.12, letterSpacing: "-0.015em", margin: "0 0 14px", fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
+          <h2 style={{ fontSize: "clamp(32px,4.5vw,60px)", fontWeight: 800, lineHeight: 1.05, letterSpacing: "-0.02em", margin: "0 0 14px", fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
             How disbursement works
           </h2>
           <p style={{ fontSize: 15.5, color: T2, margin: 0 }}>Five transparent steps — from employee request to full settlement.</p>
@@ -268,9 +308,9 @@ function ComplianceSection() {
   ];
   return (
     <section id="compliance" style={{ background: BG, padding: "clamp(48px,7vw,96px) 0" }}>
-      <div style={W(900)}>
+      <div style={W(PAGE_MAX)}>
         <div style={{ textAlign: "center", marginBottom: 48 }}>
-          <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 500, lineHeight: 1.12, letterSpacing: "-0.015em", margin: "0 0 14px", fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
+          <h2 style={{ fontSize: "clamp(32px,4.5vw,60px)", fontWeight: 800, lineHeight: 1.05, letterSpacing: "-0.02em", margin: "0 0 14px", fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
             Built on responsible lending principles
           </h2>
         </div>
@@ -291,8 +331,8 @@ function ComplianceSection() {
 function ProductFinalCta() {
   return (
     <section style={{ background: "linear-gradient(180deg, #F2F5FF 0%, #FFFFFF 100%)", padding: "clamp(64px,8vw,112px) 0", textAlign: "center" }}>
-      <div style={W(720)}>
-        <h2 style={{ fontSize: "clamp(32px,4vw,48px)", fontWeight: 500, lineHeight: 1.12, letterSpacing: "-0.015em", margin: "0 0 16px", fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
+      <div style={W(PAGE_MAX)}>
+        <h2 style={{ fontSize: "clamp(32px,4.5vw,60px)", fontWeight: 800, lineHeight: 1.05, letterSpacing: "-0.02em", margin: "0 0 16px", fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
           Ready to get started?
         </h2>
         <p style={{ fontSize: 16.5, color: T2, marginBottom: 36 }}>

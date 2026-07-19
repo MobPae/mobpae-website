@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { SiteNav } from "../components/SiteNav";
 import { SiteFooter } from "../components/SiteFooter";
+import { HeroPanel, PageHero } from "../components/PageHero";
 
 const B    = "#315EFF";
 const BH   = "#2A51E0";
@@ -11,11 +12,12 @@ const BG   = "#F6F7F9";
 const BD   = "#E6E8EE";
 const TEAL = "#0D9488";
 const PURP = "#7C3AED";
+const PAGE_MAX = 1840;
 
 const W = (maxWidth: number | string): React.CSSProperties => ({
   maxWidth: typeof maxWidth === "number" ? maxWidth : maxWidth,
   margin: "0 auto",
-  padding: "0 clamp(20px,5vw,32px)",
+  padding: "0 clamp(20px,4vw,48px)",
   width: "100%",
 });
 
@@ -42,88 +44,60 @@ export function EmployersPage() {
       <main id="main-content">
 
       {/* ── Hero ──────────────────────────────────────────────────────────────── */}
-      <section style={{ background: BG, padding: "clamp(64px,9vw,100px) 0 clamp(48px,6vw,72px)", borderBottom: `1px solid ${BD}` }}>
-        <div style={W(1200)}>
-          <div className="redesign-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px,6vw,80px)", alignItems: "center" }}>
-            <div>
-              <p style={{ fontSize: 11.5, fontWeight: 700, color: B, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 14px" }}>
-                For Employers
-              </p>
-              <h1 style={{
-                fontSize: "clamp(32px,5vw,56px)",
-                fontWeight: 600,
-                letterSpacing: "-0.03em",
-                lineHeight: 1.05,
-                color: T1,
-                margin: "0 0 20px",
-                fontFamily: 'Manrope, ui-sans-serif, sans-serif',
-              }}>
-                A financial benefit<br />
-                <span style={{ color: B }}>your team will use.</span>
-              </h1>
-              <p style={{ fontSize: 16, lineHeight: 1.75, color: T2, margin: "0 0 32px", maxWidth: 440 }}>
-                Give employees on-demand salary access — fully employer-controlled, zero cash burden, no payroll disruption.
-              </p>
-              <div style={{ display: "flex", gap: 12 }}>
-                <Link
-                  to="/#enquiry"
-                  style={{ height: 46, padding: "0 24px", background: B, color: "#fff", fontSize: 14, fontWeight: 600, borderRadius: 8, display: "inline-flex", alignItems: "center", textDecoration: "none", transition: "background 150ms ease" }}
-                  onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = BH)}
-                  onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = B)}
-                >
-                  Request a demo
-                </Link>
-                <a
-                  href="mailto:support@mobpae.com"
-                  style={{ height: 46, padding: "0 24px", background: "#fff", color: T1, fontSize: 14, fontWeight: 600, borderRadius: 8, display: "inline-flex", alignItems: "center", textDecoration: "none", border: `1px solid ${BD}`, transition: "border-color 150ms ease" }}
-                  onMouseEnter={e => ((e.currentTarget as HTMLElement).style.borderColor = B)}
-                  onMouseLeave={e => ((e.currentTarget as HTMLElement).style.borderColor = BD)}
-                >
-                  Talk to us
-                </a>
-              </div>
-            </div>
-
-            {/* Approval queue mockup */}
-            <div>
-              <p style={{ fontSize: 12, color: T2, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em", margin: "0 0 10px" }}>Illustrative dashboard preview</p>
-              <div style={{ background: "#fff", borderRadius: 16, border: `1px solid ${BD}`, padding: 24, boxShadow: "0 16px 48px rgba(20,30,60,0.09)" }}>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
-                <p style={{ fontSize: 13.5, fontWeight: 700, color: T1, margin: 0 }}>Approval queue</p>
-                <div style={{ display: "flex", gap: 6 }}>
-                  {["1 integration", "Full control"].map(t => (
-                    <span key={t} style={{ fontSize: 11, fontWeight: 600, color: B, background: "#EEF2FF", borderRadius: 6, padding: "3px 9px" }}>{t}</span>
-                  ))}
+      <PageHero
+        eyebrow="For employers"
+        title={
+          <>
+            A financial benefit
+            <br />
+            your team will use.
+          </>
+        }
+        description="Give employees on-demand salary access with employer-controlled approval, payroll-linked recovery, and clear visibility across the cycle."
+        actions={
+          <>
+            <Link
+              to="/#enquiry"
+              style={{ height: 48, padding: "0 24px", background: B, color: "#fff", fontSize: 14, fontWeight: 800, borderRadius: 10, display: "inline-flex", alignItems: "center", textDecoration: "none" }}
+            >
+              Request a demo
+            </Link>
+            <a
+              href="mailto:support@mobpae.com"
+              style={{ height: 48, padding: "0 24px", background: "#fff", color: T1, fontSize: 14, fontWeight: 800, borderRadius: 10, display: "inline-flex", alignItems: "center", textDecoration: "none", border: `1px solid ${BD}` }}
+            >
+              Talk to us
+            </a>
+          </>
+        }
+      >
+        <HeroPanel>
+          <p style={{ fontSize: 12, color: B, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.14em", margin: "0 0 18px" }}>Approval queue</p>
+          {queue.map(r => (
+            <div key={r.name} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 14, padding: "14px 0", borderTop: `1px solid ${BD}` }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                <div style={{ width: 38, height: 38, borderRadius: 12, background: r.blue ? "#EEF2FF" : "#F0FDFA", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 800, color: r.blue ? B : TEAL }}>
+                  {r.name.charAt(0)}
+                </div>
+                <div>
+                  <p style={{ fontSize: 14, fontWeight: 800, color: T1, margin: 0 }}>{r.name}</p>
+                  <p style={{ fontSize: 12.5, color: T2, margin: "3px 0 0" }}>{r.amount}</p>
                 </div>
               </div>
-              {queue.map(r => (
-                <div key={r.name} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 0", borderTop: `1px solid ${BD}` }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                    <div style={{ width: 36, height: 36, borderRadius: 8, background: r.blue ? "#EEF2FF" : "#F0FDFA", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 700, color: r.blue ? B : TEAL }}>
-                      {r.name.charAt(0)}
-                    </div>
-                    <div>
-                      <p style={{ fontSize: 13.5, fontWeight: 600, color: T1, margin: 0 }}>{r.name}</p>
-                      <p style={{ fontSize: 12, color: T2, margin: "1px 0 0" }}>{r.amount}</p>
-                    </div>
-                  </div>
-                  <span style={{ fontSize: 11.5, fontWeight: 600, color: r.blue ? B : "#8A90A0", background: r.blue ? "#EEF2FF" : BG, borderRadius: 6, padding: "4px 10px" }}>{r.status}</span>
-                </div>
-              ))}
-              </div>
+              <span style={{ fontSize: 11.5, fontWeight: 800, color: r.blue ? B : TEAL, background: r.blue ? "#EEF2FF" : "#F0FDFA", borderRadius: 999, padding: "6px 10px", whiteSpace: "nowrap" }}>{r.status}</span>
             </div>
-          </div>
-        </div>
-      </section>
+          ))}
+        </HeroPanel>
+      </PageHero>
 
       {/* ── Benefits ──────────────────────────────────────────────────────────── */}
       <section style={{ background: "#fff", padding: "clamp(56px,8vw,88px) 0" }}>
-        <div style={W(1200)}>
+        <div style={W(PAGE_MAX)}>
           <div style={{ marginBottom: 40 }}>
             <p style={{ fontSize: 11.5, fontWeight: 700, color: B, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 10px" }}>
               Why employers choose MobPae
             </p>
-            <h2 style={{ fontSize: "clamp(26px,3.5vw,40px)", fontWeight: 600, letterSpacing: "-0.02em", margin: 0, fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
+            <h2 style={{ fontSize: "clamp(32px,4.5vw,60px)", fontWeight: 800, letterSpacing: "-0.02em", lineHeight: 1.05, margin: 0, fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
               No risk. No overhead. Real impact.
             </h2>
           </div>
@@ -153,12 +127,12 @@ export function EmployersPage() {
 
       {/* ── How it works ──────────────────────────────────────────────────────── */}
       <section style={{ background: BG, padding: "clamp(56px,8vw,88px) 0" }}>
-        <div style={W(900)}>
+        <div style={W(PAGE_MAX)}>
           <div style={{ marginBottom: 40, textAlign: "center" }}>
             <p style={{ fontSize: 11.5, fontWeight: 700, color: B, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 10px" }}>
               How it works
             </p>
-            <h2 style={{ fontSize: "clamp(26px,3.5vw,40px)", fontWeight: 600, letterSpacing: "-0.02em", margin: 0, fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
+            <h2 style={{ fontSize: "clamp(32px,4.5vw,60px)", fontWeight: 800, letterSpacing: "-0.02em", lineHeight: 1.05, margin: 0, fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
               Live in four steps.
             </h2>
           </div>
@@ -194,12 +168,12 @@ export function EmployersPage() {
 
       {/* ── Security ──────────────────────────────────────────────────────────── */}
       <section style={{ background: "#0B1028", padding: "clamp(56px,8vw,88px) 0" }}>
-        <div style={W(1200)}>
+        <div style={W(PAGE_MAX)}>
           <div style={{ marginBottom: 36 }}>
             <p style={{ fontSize: 11.5, fontWeight: 700, color: "#93C5FD", textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 10px" }}>
               Trust & security
             </p>
-            <h2 style={{ fontSize: "clamp(26px,3.5vw,40px)", fontWeight: 600, letterSpacing: "-0.02em", color: "#fff", margin: 0, fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
+            <h2 style={{ fontSize: "clamp(32px,4.5vw,60px)", fontWeight: 800, letterSpacing: "-0.02em", lineHeight: 1.05, color: "#fff", margin: 0, fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
               Built to be trusted.
             </h2>
           </div>
@@ -223,7 +197,7 @@ export function EmployersPage() {
 
       {/* ── CTA ───────────────────────────────────────────────────────────────── */}
       <section style={{ background: "#fff", padding: "clamp(56px,8vw,80px) 0" }}>
-        <div style={W(1200)}>
+        <div style={W(PAGE_MAX)}>
           <div style={{
             display: "flex", alignItems: "center", justifyContent: "space-between",
             flexWrap: "wrap", gap: 28,
@@ -234,7 +208,7 @@ export function EmployersPage() {
               <p style={{ fontSize: 11.5, fontWeight: 700, color: B, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 8px" }}>
                 Get started
               </p>
-              <h2 style={{ fontSize: "clamp(22px,2.8vw,32px)", fontWeight: 600, margin: "0 0 16px", letterSpacing: "-0.02em", fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
+              <h2 style={{ fontSize: "clamp(26px,3vw,38px)", fontWeight: 800, margin: "0 0 16px", letterSpacing: "-0.02em", lineHeight: 1.1, fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
                 Ready to offer salary access to your team?
               </h2>
               <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
