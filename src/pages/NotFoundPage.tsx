@@ -17,7 +17,7 @@ export function NotFoundPage() {
           actions={
             <Link
               to="/"
-              className="inline-flex h-[52px] items-center gap-3 rounded-xl bg-[#315eff] px-7 text-[14px] font-[900] text-white shadow-[0_18px_44px_rgba(49,94,255,0.28)]"
+              className="inline-flex h-[52px] items-center gap-3 rounded-xl bg-[#0057ff] px-7 text-[14px] font-[900] text-white shadow-[0_18px_44px_rgba(0, 87, 255,0.28)]"
             >
               Go Home <ArrowRight size={17} />
             </Link>

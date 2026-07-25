@@ -4,14 +4,12 @@ import { SiteNav } from "../components/SiteNav";
 import { SiteFooter } from "../components/SiteFooter";
 import { HeroPanel, PageHero } from "../components/PageHero";
 
-const B    = "#315EFF";
-const BH   = "#2A51E0";
+const B    = "#0057FF";
+const BH   = "#0047D8";
 const T1   = "#0B0D12";
 const T2   = "#5B6270";
-const BG   = "#F6F7F9";
+const BG   = "#F8F7F4";
 const BD   = "#E6E8EE";
-const TEAL = "#0D9488";
-const PURP = "#7C3AED";
 const PAGE_MAX = 1840;
 
 const W = (maxWidth: number | string): React.CSSProperties => ({
@@ -20,6 +18,15 @@ const W = (maxWidth: number | string): React.CSSProperties => ({
   padding: "0 clamp(20px,4vw,48px)",
   width: "100%",
 });
+
+const sectionTitleStyle: React.CSSProperties = {
+  fontSize: "clamp(26px,2.8vw,38px)",
+  fontWeight: 400,
+  letterSpacing: "-0.03em",
+  lineHeight: 1.12,
+  margin: 0,
+  fontFamily: "Inter, ui-sans-serif, sans-serif",
+};
 
 function Check() {
   return (
@@ -39,7 +46,7 @@ export function EmployersPage() {
   ];
 
   return (
-    <div style={{ fontFamily: "Manrope, ui-sans-serif, sans-serif", color: T1, background: "#fff" }}>
+    <div style={{ fontFamily: "Inter, ui-sans-serif, sans-serif", color: T1, background: "#fff" }}>
       <SiteNav />
       <main id="main-content">
 
@@ -48,7 +55,7 @@ export function EmployersPage() {
         eyebrow="For employers"
         title={
           <>
-            A financial benefit
+            A financial benefit{" "}
             <br />
             your team will use.
           </>
@@ -58,13 +65,13 @@ export function EmployersPage() {
           <>
             <Link
               to="/#enquiry"
-              style={{ height: 48, padding: "0 24px", background: B, color: "#fff", fontSize: 14, fontWeight: 800, borderRadius: 10, display: "inline-flex", alignItems: "center", textDecoration: "none" }}
+              style={{ height: 48, padding: "0 24px", background: B, color: "#fff", fontSize: 14, fontWeight: 400, borderRadius: 10, display: "inline-flex", alignItems: "center", textDecoration: "none" }}
             >
               Request a demo
             </Link>
             <a
               href="mailto:support@mobpae.com"
-              style={{ height: 48, padding: "0 24px", background: "#fff", color: T1, fontSize: 14, fontWeight: 800, borderRadius: 10, display: "inline-flex", alignItems: "center", textDecoration: "none", border: `1px solid ${BD}` }}
+              style={{ height: 48, padding: "0 24px", background: "#fff", color: T1, fontSize: 14, fontWeight: 400, borderRadius: 10, display: "inline-flex", alignItems: "center", textDecoration: "none", border: `1px solid ${BD}` }}
             >
               Talk to us
             </a>
@@ -72,19 +79,19 @@ export function EmployersPage() {
         }
       >
         <HeroPanel>
-          <p style={{ fontSize: 12, color: B, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.14em", margin: "0 0 18px" }}>Approval queue</p>
+          <p style={{ fontSize: 12, color: B, fontWeight: 400, textTransform: "uppercase", letterSpacing: "0.14em", margin: "0 0 18px" }}>Approval queue</p>
           {queue.map(r => (
             <div key={r.name} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 14, padding: "14px 0", borderTop: `1px solid ${BD}` }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                <div style={{ width: 38, height: 38, borderRadius: 12, background: r.blue ? "#EEF2FF" : "#F0FDFA", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 800, color: r.blue ? B : TEAL }}>
+                <div style={{ width: 38, height: 38, borderRadius: 12, background: "#EEF2FF", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 400, color: B }}>
                   {r.name.charAt(0)}
                 </div>
                 <div>
-                  <p style={{ fontSize: 14, fontWeight: 800, color: T1, margin: 0 }}>{r.name}</p>
+                  <p style={{ fontSize: 14, fontWeight: 400, color: T1, margin: 0 }}>{r.name}</p>
                   <p style={{ fontSize: 12.5, color: T2, margin: "3px 0 0" }}>{r.amount}</p>
                 </div>
               </div>
-              <span style={{ fontSize: 11.5, fontWeight: 800, color: r.blue ? B : TEAL, background: r.blue ? "#EEF2FF" : "#F0FDFA", borderRadius: 999, padding: "6px 10px", whiteSpace: "nowrap" }}>{r.status}</span>
+              <span style={{ fontSize: 11.5, fontWeight: 400, color: B, background: "#EEF2FF", borderRadius: 999, padding: "6px 10px", whiteSpace: "nowrap" }}>{r.status}</span>
             </div>
           ))}
         </HeroPanel>
@@ -94,10 +101,10 @@ export function EmployersPage() {
       <section style={{ background: "#fff", padding: "clamp(56px,8vw,88px) 0" }}>
         <div style={W(PAGE_MAX)}>
           <div style={{ marginBottom: 40 }}>
-            <p style={{ fontSize: 11.5, fontWeight: 700, color: B, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 10px" }}>
+            <p style={{ fontSize: 11.5, fontWeight: 400, color: B, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 10px" }}>
               Why employers choose MobPae
             </p>
-            <h2 style={{ fontSize: "clamp(32px,4.5vw,60px)", fontWeight: 800, letterSpacing: "-0.02em", lineHeight: 1.05, margin: 0, fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
+            <h2 style={sectionTitleStyle}>
               No risk. No overhead. Real impact.
             </h2>
           </div>
@@ -105,11 +112,11 @@ export function EmployersPage() {
           <div className="redesign-3col" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
             {[
               { title: "No employer cash required",     desc: "Salary access is funded through structured capital partnerships. Your payroll and cash flow are never touched.", accent: B,    accentBg: "#EEF2FF" },
-              { title: "Policy-driven auto-approvals",  desc: "Set rules once — eligibility limits, frequency caps, department rules. Approvals run themselves.",              accent: TEAL, accentBg: "#F0FDFA" },
-              { title: "Zero payroll disruption",       desc: "MobPae integrates with your HR system. Recovery happens at payroll — no manual reconciliation.",                accent: PURP, accentBg: "#F5F3FF" },
+              { title: "Policy-driven auto-approvals",  desc: "Set rules once — eligibility limits, frequency caps, department rules. Approvals run themselves.",              accent: B, accentBg: "#EEF2FF" },
+              { title: "Zero payroll disruption",       desc: "MobPae integrates with your HR system. Recovery happens at payroll — no manual reconciliation.",                accent: B, accentBg: "#EEF2FF" },
               { title: "Full audit trail",              desc: "Every request, approval, disbursal, and recovery is logged. Exportable at any time.",                           accent: B,    accentBg: "#EEF2FF" },
-              { title: "Proven retention benefit",      desc: "Financial stress is a top driver of attrition. Giving employees access to earned wages reduces both.",          accent: TEAL, accentBg: "#F0FDFA" },
-              { title: "Setup in days, not months",     desc: "One integration. Onboarding support included. Your team is live before the next pay cycle.",                    accent: PURP, accentBg: "#F5F3FF" },
+              { title: "Proven retention benefit",      desc: "Financial stress is a top driver of attrition. Giving employees access to earned wages reduces both.",          accent: B, accentBg: "#EEF2FF" },
+              { title: "Setup in days, not months",     desc: "One integration. Onboarding support included. Your team is live before the next pay cycle.",                    accent: B, accentBg: "#EEF2FF" },
             ].map(b => (
               <div
                 key={b.title}
@@ -117,7 +124,7 @@ export function EmployersPage() {
                 onMouseEnter={e => ((e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px rgba(20,30,60,0.07)")}
                 onMouseLeave={e => ((e.currentTarget as HTMLElement).style.boxShadow = "none")}
               >
-                <p style={{ fontSize: 15, fontWeight: 600, color: T1, margin: "0 0 8px" }}>{b.title}</p>
+                <p style={{ fontSize: 15, fontWeight: 400, color: T1, margin: "0 0 8px" }}>{b.title}</p>
                 <p style={{ fontSize: 13.5, lineHeight: 1.65, color: T2, margin: 0 }}>{b.desc}</p>
               </div>
             ))}
@@ -129,10 +136,10 @@ export function EmployersPage() {
       <section style={{ background: BG, padding: "clamp(56px,8vw,88px) 0" }}>
         <div style={W(PAGE_MAX)}>
           <div style={{ marginBottom: 40, textAlign: "center" }}>
-            <p style={{ fontSize: 11.5, fontWeight: 700, color: B, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 10px" }}>
+            <p style={{ fontSize: 11.5, fontWeight: 400, color: B, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 10px" }}>
               How it works
             </p>
-            <h2 style={{ fontSize: "clamp(32px,4.5vw,60px)", fontWeight: 800, letterSpacing: "-0.02em", lineHeight: 1.05, margin: 0, fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
+            <h2 style={sectionTitleStyle}>
               Live in four steps.
             </h2>
           </div>
@@ -155,9 +162,9 @@ export function EmployersPage() {
                   borderBottom: i < 3 ? "none" : `1px solid ${BD}`,
                 }}
               >
-                <span style={{ fontSize: 11, fontWeight: 700, color: B, letterSpacing: "0.1em", minWidth: 28, paddingTop: 3 }}>{s.n}</span>
+                <span style={{ fontSize: 11, fontWeight: 400, color: B, letterSpacing: "0.1em", minWidth: 28, paddingTop: 3 }}>{s.n}</span>
                 <div>
-                  <p style={{ fontSize: 15, fontWeight: 600, color: T1, margin: "0 0 4px" }}>{s.title}</p>
+                  <p style={{ fontSize: 15, fontWeight: 400, color: T1, margin: "0 0 4px" }}>{s.title}</p>
                   <p style={{ fontSize: 13.5, lineHeight: 1.65, color: T2, margin: 0 }}>{s.desc}</p>
                 </div>
               </div>
@@ -167,27 +174,27 @@ export function EmployersPage() {
       </section>
 
       {/* ── Security ──────────────────────────────────────────────────────────── */}
-      <section style={{ background: "#0B1028", padding: "clamp(56px,8vw,88px) 0" }}>
+      <section style={{ background: BG, padding: "clamp(56px,8vw,88px) 0" }}>
         <div style={W(PAGE_MAX)}>
           <div style={{ marginBottom: 36 }}>
-            <p style={{ fontSize: 11.5, fontWeight: 700, color: "#93C5FD", textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 10px" }}>
+            <p style={{ fontSize: 11.5, fontWeight: 400, color: B, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 10px" }}>
               Trust & security
             </p>
-            <h2 style={{ fontSize: "clamp(32px,4.5vw,60px)", fontWeight: 800, letterSpacing: "-0.02em", lineHeight: 1.05, color: "#fff", margin: 0, fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
+            <h2 style={{ fontSize: "clamp(26px,2.8vw,38px)", fontWeight: 400, letterSpacing: "-0.03em", lineHeight: 1.12, color: T1, margin: 0, fontFamily: 'Inter, ui-sans-serif, sans-serif' }}>
               Built to be trusted.
             </h2>
           </div>
           <div className="redesign-3col" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
             {[
               { accent: B,    accentBg: "#EEF2FF", title: "Secured capital model",    desc: "Salary access funded through structured partnerships. Your payroll never leaves your control." },
-              { accent: TEAL, accentBg: "#F0FDFA", title: "Employer-verified access", desc: "Every employee is authenticated via their employer before access is granted." },
-              { accent: PURP, accentBg: "#F5F3FF", title: "Encrypted end-to-end",     desc: "Data encrypted in transit and at rest. Role-based access with full audit logs." },
+              { accent: B, accentBg: "#EEF2FF", title: "Employer-verified access", desc: "Every employee is authenticated via their employer before access is granted." },
+              { accent: B, accentBg: "#EEF2FF", title: "Encrypted end-to-end",     desc: "Data encrypted in transit and at rest. Role-based access with full audit logs." },
             ].map(i => (
               <div key={i.title} style={{ background: i.accentBg, borderRadius: 16, padding: "24px 22px" }}>
                 <div style={{ width: 36, height: 36, borderRadius: 8, background: i.accent, marginBottom: 14, display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2L3 5v4c0 3 2.5 5.5 5 6 2.5-.5 5-3 5-6V5L8 2z" stroke="#fff" strokeWidth="1.5" fill="none" /></svg>
                 </div>
-                <p style={{ fontSize: 15, fontWeight: 700, color: T1, margin: "0 0 8px" }}>{i.title}</p>
+                <p style={{ fontSize: 15, fontWeight: 400, color: T1, margin: "0 0 8px" }}>{i.title}</p>
                 <p style={{ fontSize: 13.5, color: T2, lineHeight: 1.65, margin: 0 }}>{i.desc}</p>
               </div>
             ))}
@@ -205,10 +212,10 @@ export function EmployersPage() {
             background: BG, borderRadius: 20, border: `1px solid ${BD}`,
           }}>
             <div>
-              <p style={{ fontSize: 11.5, fontWeight: 700, color: B, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 8px" }}>
+              <p style={{ fontSize: 11.5, fontWeight: 400, color: B, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 8px" }}>
                 Get started
               </p>
-              <h2 style={{ fontSize: "clamp(26px,3vw,38px)", fontWeight: 800, margin: "0 0 16px", letterSpacing: "-0.02em", lineHeight: 1.1, fontFamily: 'Manrope, ui-sans-serif, sans-serif' }}>
+              <h2 style={{ ...sectionTitleStyle, fontSize: "clamp(24px,2.6vw,36px)", margin: "0 0 16px" }}>
                 Ready to offer salary access to your team?
               </h2>
               <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
@@ -227,7 +234,7 @@ export function EmployersPage() {
             <div style={{ display: "flex", gap: 12, flexShrink: 0 }}>
               <Link
                 to="/#enquiry"
-                style={{ height: 46, padding: "0 24px", background: B, color: "#fff", fontSize: 14, fontWeight: 600, borderRadius: 8, display: "inline-flex", alignItems: "center", textDecoration: "none", transition: "background 150ms ease" }}
+                style={{ height: 46, padding: "0 24px", background: B, color: "#fff", fontSize: 14, fontWeight: 400, borderRadius: 8, display: "inline-flex", alignItems: "center", textDecoration: "none", transition: "background 150ms ease" }}
                 onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = BH)}
                 onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = B)}
               >
@@ -235,7 +242,7 @@ export function EmployersPage() {
               </Link>
               <a
                 href="mailto:support@mobpae.com"
-                style={{ height: 46, padding: "0 24px", background: "#fff", color: T1, fontSize: 14, fontWeight: 600, borderRadius: 8, display: "inline-flex", alignItems: "center", textDecoration: "none", border: `1px solid ${BD}`, transition: "border-color 150ms ease, color 150ms ease" }}
+                style={{ height: 46, padding: "0 24px", background: "#fff", color: T1, fontSize: 14, fontWeight: 400, borderRadius: 8, display: "inline-flex", alignItems: "center", textDecoration: "none", border: `1px solid ${BD}`, transition: "border-color 150ms ease, color 150ms ease" }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = B; (e.currentTarget as HTMLElement).style.color = B; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = BD; (e.currentTarget as HTMLElement).style.color = T1; }}
               >

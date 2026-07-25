@@ -102,9 +102,9 @@ const TRUST = [
 
 const T1 = "#0B0D12";
 const T2 = "#5B6270";
-const BLUE = "#315EFF";
+const BLUE = "#0057FF";
 const BD = "#E6E8EE";
-const PAGE_BG = "#FAFAFA";
+const PAGE_BG = "#F8F7F4";
 const PAGE_MAX = 1840;
 
 const rail: React.CSSProperties = { maxWidth: PAGE_MAX, margin: "0 auto", padding: "0 clamp(20px,4vw,48px)", width: "100%" };
@@ -122,8 +122,8 @@ function StepCard({ num, title, body }: { num: string; title: string; body: stri
       }}
       onMouseEnter={(e) => {
         (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)";
-        (e.currentTarget as HTMLElement).style.borderColor = "rgba(49,94,255,0.4)";
-        (e.currentTarget as HTMLElement).style.boxShadow = "0 28px 60px -24px rgba(49,94,255,0.28)";
+        (e.currentTarget as HTMLElement).style.borderColor = "rgba(0, 87, 255,0.4)";
+        (e.currentTarget as HTMLElement).style.boxShadow = "0 28px 60px -24px rgba(0, 87, 255,0.28)";
       }}
       onMouseLeave={(e) => {
         (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
@@ -131,8 +131,8 @@ function StepCard({ num, title, body }: { num: string; title: string; body: stri
         (e.currentTarget as HTMLElement).style.boxShadow = "none";
       }}
     >
-      <div style={{ fontSize: 13, fontWeight: 800, color: BLUE, letterSpacing: ".08em", marginBottom: 14 }}>{num}</div>
-      <h3 style={{ fontSize: 17, fontWeight: 700, margin: "0 0 10px", lineHeight: 1.35, color: T1 }}>{title}</h3>
+      <div style={{ fontSize: 13, fontWeight: 400, color: BLUE, letterSpacing: ".08em", marginBottom: 14 }}>{num}</div>
+      <h3 style={{ fontSize: 17, fontWeight: 400, margin: "0 0 10px", lineHeight: 1.35, color: T1 }}>{title}</h3>
       <p style={{ fontSize: 14, color: T2, lineHeight: 1.65, margin: 0 }}>{body}</p>
     </div>
   );
@@ -140,7 +140,7 @@ function StepCard({ num, title, body }: { num: string; title: string; body: stri
 
 export function HowItWorksPage() {
   return (
-    <div style={{ fontFamily: "Manrope, ui-sans-serif, sans-serif", color: T1, background: PAGE_BG, minHeight: "100vh" }}>
+    <div className="how-works-page zigzag-page" style={{ fontFamily: "Inter, ui-sans-serif, sans-serif", color: T1, background: PAGE_BG, minHeight: "100vh" }}>
       <SiteNav />
       <main id="main-content">
 
@@ -149,7 +149,7 @@ export function HowItWorksPage() {
         eyebrow="How it works"
         title={
           <>
-            Salary advances
+            Salary advances{" "}
             <br />
             that work for everyone.
           </>
@@ -158,7 +158,7 @@ export function HowItWorksPage() {
         actions={
           <Link
             to="/#enquiry"
-            style={{ display: "inline-flex", alignItems: "center", gap: 8, height: 48, padding: "0 24px", background: BLUE, color: "#fff", fontSize: 14, fontWeight: 800, borderRadius: 10, textDecoration: "none" }}
+            style={{ display: "inline-flex", alignItems: "center", gap: 8, height: 48, padding: "0 24px", background: BLUE, color: "#fff", fontSize: 14, fontWeight: 400, borderRadius: 10, textDecoration: "none" }}
           >
             Request a demo <ArrowRight size={17} aria-hidden="true" />
           </Link>
@@ -168,11 +168,11 @@ export function HowItWorksPage() {
           <div style={{ display: "grid", gap: 14 }}>
             {["Request", "Employer approval", "Verification", "Disbursal", "Recovery"].map((step, index) => (
               <div key={step} style={{ display: "grid", gridTemplateColumns: "38px 1fr", gap: 14, alignItems: "center" }}>
-                <span style={{ width: 38, height: 38, borderRadius: "50%", background: index === 1 ? BLUE : "#EEF2FF", color: index === 1 ? "#fff" : BLUE, display: "grid", placeItems: "center", fontSize: 12, fontWeight: 900 }}>
+                <span style={{ width: 38, height: 38, borderRadius: "50%", background: index === 1 ? BLUE : "#EEF2FF", color: index === 1 ? "#fff" : BLUE, display: "grid", placeItems: "center", fontSize: 12, fontWeight: 400 }}>
                   {index + 1}
                 </span>
                 <div>
-                  <p style={{ margin: 0, color: T1, fontSize: 14.5, fontWeight: 800 }}>{step}</p>
+                  <p style={{ margin: 0, color: T1, fontSize: 14.5, fontWeight: 400 }}>{step}</p>
                   <p style={{ margin: "3px 0 0", color: T2, fontSize: 12.5 }}>
                     {index === 0 ? "Employee starts the flow" : index === 1 ? "Employer remains in control" : index === 2 ? "MobPae validates readiness" : index === 3 ? "Funds move to bank" : "Auto-recovered on payday"}
                   </p>
@@ -184,20 +184,20 @@ export function HowItWorksPage() {
       </PageHero>
 
       {/* Flow diagram */}
-      <section style={{ position: "relative", overflow: "hidden", padding: "64px clamp(20px,6vw,80px)", borderBottom: `1px solid ${BD}` }}>
+      <section className="zigzag-surface" style={{ position: "relative", overflow: "hidden", padding: "64px clamp(20px,6vw,80px)", borderBottom: `1px solid ${BD}` }}>
         <GridPatternOverlay fade={false} />
         <div style={{ position: "relative", maxWidth: 1040, margin: "0 auto" }}>
-          <h2 style={{ textAlign: "center", fontSize: 13, fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", color: BLUE, marginBottom: 40 }}>
+          <h2 style={{ textAlign: "center", fontSize: 13, fontWeight: 400, letterSpacing: ".1em", textTransform: "uppercase", color: BLUE, marginBottom: 40 }}>
             The full picture
           </h2>
           <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", flexWrap: "wrap", gap: 0 }}>
             {FLOW.map((step, i, arr) => (
               <div key={step.label} style={{ display: "flex", alignItems: "flex-start" }}>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12, padding: "0 18px", width: 116 }}>
-                  <div style={{ width: 56, height: 56, borderRadius: 16, background: "#EEF2FF", display: "flex", alignItems: "center", justifyContent: "center", color: BLUE, border: "1px solid rgba(49,94,255,0.15)" }}>
+              <div style={{ width: 56, height: 56, borderRadius: 16, background: "#EEF2FF", display: "flex", alignItems: "center", justifyContent: "center", color: BLUE, border: "1px solid rgba(0,87,255,0.15)" }}>
                     <step.icon size={24} aria-hidden="true" />
                   </div>
-                  <span style={{ fontSize: 12.5, fontWeight: 700, color: T1, textAlign: "center", lineHeight: 1.4 }}>{step.label}</span>
+                  <span style={{ fontSize: 12.5, fontWeight: 400, color: T1, textAlign: "center", lineHeight: 1.4 }}>{step.label}</span>
                 </div>
                 {i < arr.length - 1 && (
                   <div style={{ width: 32, height: 1, background: BD, flexShrink: 0, marginTop: 28 }} />
@@ -213,10 +213,10 @@ export function HowItWorksPage() {
         <GridPatternOverlay fade={false} />
         <div style={{ position: "relative", ...rail, padding: 0 }}>
           <div style={{ marginBottom: 44 }}>
-            <span style={{ display: "inline-block", background: "#EEF2FF", color: BLUE, fontSize: 12, fontWeight: 700, letterSpacing: ".08em", padding: "5px 13px", borderRadius: 100, marginBottom: 16, textTransform: "uppercase" }}>
+            <span style={{ display: "inline-block", background: "#EEF2FF", color: BLUE, fontSize: 12, fontWeight: 400, letterSpacing: ".08em", padding: "5px 13px", borderRadius: 100, marginBottom: 16, textTransform: "uppercase" }}>
               For Employers
             </span>
-            <h2 style={{ fontSize: "clamp(32px,4.5vw,60px)", fontWeight: 800, letterSpacing: "-.02em", lineHeight: 1.05, margin: "0 0 12px" }}>
+            <h2 style={{ fontSize: "clamp(24px,2.35vw,34px)", fontWeight: 400, letterSpacing: "-.02em", lineHeight: 1.1, margin: "0 0 12px" }}>
               Set up in under a day
             </h2>
             <p style={{ fontSize: 16, color: T2, lineHeight: 1.7, maxWidth: 560, margin: 0 }}>
@@ -229,7 +229,7 @@ export function HowItWorksPage() {
             ))}
           </div>
           <div style={{ marginTop: 32 }}>
-            <Link to="/employers" style={{ color: BLUE, fontSize: 14, fontWeight: 700, textDecoration: "none" }}>
+            <Link to="/employers" style={{ color: BLUE, fontSize: 14, fontWeight: 400, textDecoration: "none" }}>
               Learn more about the employer dashboard →
             </Link>
           </div>
@@ -237,14 +237,14 @@ export function HowItWorksPage() {
       </section>
 
       {/* For Employees */}
-      <section style={{ position: "relative", overflow: "hidden", padding: "72px clamp(20px,6vw,80px)", borderTop: `1px solid ${BD}` }}>
+      <section className="zigzag-surface zigzag-surface--employees" style={{ position: "relative", overflow: "hidden", padding: "72px clamp(20px,6vw,80px)", borderTop: `1px solid ${BD}` }}>
         <GridPatternOverlay fade={false} />
         <div style={{ position: "relative", ...rail, padding: 0 }}>
           <div style={{ marginBottom: 44 }}>
-            <span style={{ display: "inline-block", background: "#fff", color: BLUE, fontSize: 12, fontWeight: 700, letterSpacing: ".08em", padding: "5px 13px", borderRadius: 100, border: `1px solid rgba(49,94,255,0.2)`, marginBottom: 16, textTransform: "uppercase" }}>
+            <span style={{ display: "inline-block", background: "#fff", color: BLUE, fontSize: 12, fontWeight: 400, letterSpacing: ".08em", padding: "5px 13px", borderRadius: 100, border: `1px solid rgba(0,87,255,0.2)`, marginBottom: 16, textTransform: "uppercase" }}>
               For Employees
             </span>
-            <h2 style={{ fontSize: "clamp(32px,4.5vw,60px)", fontWeight: 800, letterSpacing: "-.02em", lineHeight: 1.05, margin: "0 0 12px" }}>
+            <h2 style={{ fontSize: "clamp(24px,2.35vw,34px)", fontWeight: 400, letterSpacing: "-.02em", lineHeight: 1.1, margin: "0 0 12px" }}>
               Your earned salary, on demand
             </h2>
             <p style={{ fontSize: 16, color: T2, lineHeight: 1.7, maxWidth: 560, margin: 0 }}>
@@ -257,7 +257,7 @@ export function HowItWorksPage() {
             ))}
           </div>
           <div style={{ marginTop: 32 }}>
-            <Link to="/employees" style={{ color: BLUE, fontSize: 14, fontWeight: 700, textDecoration: "none" }}>
+            <Link to="/employees" style={{ color: BLUE, fontSize: 14, fontWeight: 400, textDecoration: "none" }}>
               Learn more about the employee experience →
             </Link>
           </div>
@@ -268,7 +268,7 @@ export function HowItWorksPage() {
       <section style={{ padding: "64px clamp(20px,6vw,80px)", borderTop: `1px solid ${BD}` }}>
         <div style={{ ...rail, padding: 0, display: "grid", gridTemplateColumns: "minmax(0,0.85fr) minmax(0,1.15fr)", gap: 40, alignItems: "center" }} className="redesign-2col">
           <div>
-            <h2 style={{ fontSize: "clamp(26px,3vw,38px)", fontWeight: 800, letterSpacing: "-.02em", lineHeight: 1.1, margin: "0 0 12px" }}>
+            <h2 style={{ fontSize: "clamp(24px,2.4vw,34px)", fontWeight: 400, letterSpacing: "-.02em", lineHeight: 1.14, margin: "0 0 12px" }}>
               Built on trust and compliance
             </h2>
             <p style={{ fontSize: 15, color: T2, lineHeight: 1.7, margin: 0 }}>
@@ -281,7 +281,7 @@ export function HowItWorksPage() {
                 <span style={{ width: 36, height: 36, borderRadius: 10, background: "#EEF2FF", color: BLUE, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                   <item.icon size={18} aria-hidden="true" />
                 </span>
-                <span style={{ fontSize: 13.5, fontWeight: 700, color: T1 }}>{item.label}</span>
+                <span style={{ fontSize: 13.5, fontWeight: 400, color: T1 }}>{item.label}</span>
               </div>
             ))}
           </div>
@@ -291,19 +291,19 @@ export function HowItWorksPage() {
       {/* FAQ */}
       <section style={{ padding: "72px clamp(20px,6vw,80px)", borderTop: `1px solid ${BD}` }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
-          <h2 style={{ fontSize: "clamp(32px,4.5vw,60px)", fontWeight: 800, letterSpacing: "-.02em", lineHeight: 1.05, textAlign: "center", marginBottom: 44 }}>
+          <h2 style={{ fontSize: "clamp(24px,2.35vw,34px)", fontWeight: 400, letterSpacing: "-.02em", lineHeight: 1.1, textAlign: "center", marginBottom: 44 }}>
             Common questions
           </h2>
           <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
             {FAQS.map((faq) => (
               <div key={faq.q} style={{ background: "#fff", borderRadius: 16, padding: "22px 24px", border: `1px solid ${BD}` }}>
-                <h3 style={{ fontSize: 15, fontWeight: 700, margin: "0 0 8px" }}>{faq.q}</h3>
+                <h3 style={{ fontSize: 15, fontWeight: 400, margin: "0 0 8px" }}>{faq.q}</h3>
                 <p style={{ fontSize: 14, color: T2, lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
               </div>
             ))}
           </div>
           <div style={{ textAlign: "center", marginTop: 36 }}>
-            <Link to="/faqs" style={{ color: BLUE, fontSize: 14, fontWeight: 700, textDecoration: "none" }}>
+            <Link to="/faqs" style={{ color: BLUE, fontSize: 14, fontWeight: 400, textDecoration: "none" }}>
               See all FAQs →
             </Link>
           </div>
@@ -327,17 +327,17 @@ export function HowItWorksPage() {
         >
           <GridPatternOverlay opacity={0.6} lineColor="rgba(255,255,255,0.12)" fade={false} />
           <div style={{ position: "relative" }}>
-            <h2 style={{ fontSize: "clamp(32px,4.5vw,60px)", fontWeight: 800, color: "#fff", letterSpacing: "-.02em", lineHeight: 1.05, margin: "0 0 16px" }}>
+            <h2 style={{ fontSize: "clamp(24px,2.35vw,34px)", fontWeight: 400, color: "#fff", letterSpacing: "-.02em", lineHeight: 1.1, margin: "0 0 16px" }}>
               Ready to get started?
             </h2>
             <p style={{ fontSize: 16, color: "rgba(255,255,255,0.75)", marginBottom: 32, maxWidth: 440, marginLeft: "auto", marginRight: "auto" }}>
               Join employers who offer their teams responsible, transparent salary access.
             </p>
             <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-              <Link to="/#enquiry" style={{ height: 48, padding: "0 28px", background: "#fff", color: BLUE, fontSize: 14, fontWeight: 800, borderRadius: 10, display: "inline-flex", alignItems: "center", textDecoration: "none" }}>
+              <Link to="/#enquiry" style={{ height: 48, padding: "0 28px", background: "#fff", color: BLUE, fontSize: 14, fontWeight: 400, borderRadius: 10, display: "inline-flex", alignItems: "center", textDecoration: "none" }}>
                 Request a demo
               </Link>
-              <Link to="/faqs" style={{ height: 48, padding: "0 28px", background: "rgba(255,255,255,0.12)", color: "#fff", fontSize: 14, fontWeight: 800, borderRadius: 10, display: "inline-flex", alignItems: "center", textDecoration: "none", border: "1px solid rgba(255,255,255,0.25)" }}>
+              <Link to="/faqs" style={{ height: 48, padding: "0 28px", background: "rgba(255,255,255,0.12)", color: "#fff", fontSize: 14, fontWeight: 400, borderRadius: 10, display: "inline-flex", alignItems: "center", textDecoration: "none", border: "1px solid rgba(255,255,255,0.25)" }}>
                 Read FAQs
               </Link>
             </div>
