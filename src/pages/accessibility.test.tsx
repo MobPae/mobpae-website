@@ -19,7 +19,7 @@ describe("public page accessibility", () => {
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
     expect(screen.getByRole("main")).toHaveAttribute("id", "main-content");
     expect(screen.getByLabelText(/Full name/)).toBeRequired();
-    expect(screen.getByLabelText(/Work email/)).toBeRequired();
+    expect(screen.getByLabelText(/Email/)).toBeRequired();
     expect(screen.getByLabelText(/Company name/)).toBeRequired();
     expect(screen.getByLabelText(/Message/)).toBeRequired();
     await expectNoAxeViolations();

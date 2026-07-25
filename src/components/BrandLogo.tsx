@@ -10,7 +10,7 @@ export function BrandLogo({
   return (
     <span className={`inline-flex items-center ${className}`}>
       <img
-        src="/logo-horizontal.svg"
+        src="/logo-horizontal.png"
         alt="MobPae"
         className={`${iconClassName} w-auto flex-shrink-0`}
         style={{ objectFit: "contain" }}

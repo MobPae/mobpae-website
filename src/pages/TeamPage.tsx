@@ -5,14 +5,12 @@ import { SiteFooter } from "../components/SiteFooter";
 import { HeroPanel, PageHero } from "../components/PageHero";
 
 // ── Design tokens ─────────────────────────────────────────────────────────────
-const B = "#315EFF";
-const BH = "#2A51E0";
+const B = "#0057FF";
+const BH = "#0047D8";
 const T1 = "#0B0D12";
 const T2 = "#5B6270";
-const BG = "#F6F7F9";
+const BG = "#F8F7F4";
 const BD = "#E6E8EE";
-const TEAL = "#0D9488";
-const PURP = "#7C3AED";
 const PAGE_MAX = 1840;
 
 const W = (maxWidth: number | string): React.CSSProperties => ({
@@ -54,7 +52,7 @@ const TEAM: Member[] = [
     photo: "/team/bharati-bhattarai.png",
     name: "Bharati Bhattarai",
     role: "Admin & Legal Head",
-    accent: TEAL,
+    accent: B,
     bio: "7+ years in administration, legal compliance, and corporate governance. Keeps MobPae's regulatory foundations solid and operations running smoothly.",
   },
   {
@@ -62,7 +60,7 @@ const TEAM: Member[] = [
     photo: null,
     name: "Anurag Koirala",
     role: "Software Development",
-    accent: PURP,
+    accent: B,
     bio: "1+ years in software development and designing.",
   },
 ];
@@ -115,10 +113,10 @@ function Avatar({ member }: { member: Member }) {
     >
       <span
         style={{
-          fontSize: 48,
-          fontWeight: 700,
+          fontSize: 42,
+          fontWeight: 400,
           color: member.accent,
-          fontFamily: 'Manrope, ui-sans-serif, sans-serif',
+          fontFamily: 'Inter, ui-sans-serif, sans-serif',
           letterSpacing: "-0.02em",
           opacity: 0.7,
         }}
@@ -134,7 +132,7 @@ export function TeamPage() {
   return (
     <div
       style={{
-        fontFamily: "Manrope, ui-sans-serif, sans-serif",
+        fontFamily: "Inter, ui-sans-serif, sans-serif",
         color: T1,
         background: "#fff",
       }}
@@ -147,7 +145,7 @@ export function TeamPage() {
         eyebrow="Team"
         title={
           <>
-            The people building
+            The people building{" "}
             <br />
             MobPae.
           </>
@@ -155,14 +153,14 @@ export function TeamPage() {
         description="A small founding team combining financial services, platform engineering, legal operations and product execution for India's employer-powered wellness market."
       >
         <HeroPanel>
-          <p style={{ margin: 0, color: B, fontSize: 12, fontWeight: 800, letterSpacing: "0.16em", textTransform: "uppercase" }}>
+          <p style={{ margin: 0, color: B, fontSize: 12, fontWeight: 400, letterSpacing: "0.16em", textTransform: "uppercase" }}>
             Operating principles
           </p>
           <div style={{ display: "grid", gap: 12, marginTop: 22 }}>
             {["Financial discipline", "Product clarity", "Employer trust", "Responsible access"].map((item) => (
               <div key={item} style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 0", borderTop: `1px solid ${BD}` }}>
-                <span style={{ width: 9, height: 9, borderRadius: "50%", background: "#315EFF", boxShadow: "0 0 0 5px rgba(49,94,255,0.16)" }} />
-                <span style={{ color: T1, fontSize: 14, fontWeight: 800 }}>{item}</span>
+                <span style={{ width: 9, height: 9, borderRadius: "50%", background: "#0057FF", boxShadow: "0 0 0 5px rgba(0, 87, 255,0.16)" }} />
+                <span style={{ color: T1, fontSize: 14, fontWeight: 400 }}>{item}</span>
               </div>
             ))}
           </div>
@@ -220,7 +218,7 @@ export function TeamPage() {
                   <p
                     style={{
                       fontSize: 16,
-                      fontWeight: 600,
+                      fontWeight: 400,
                       color: T1,
                       margin: "0 0 3px",
                       letterSpacing: "-0.01em",
@@ -231,7 +229,7 @@ export function TeamPage() {
                   <p
                     style={{
                       fontSize: 12,
-                      fontWeight: 600,
+                      fontWeight: 400,
                       color: m.accent,
                       margin: "0 0 10px",
                       letterSpacing: "0.01em",
@@ -302,7 +300,7 @@ export function TeamPage() {
                 <p
                   style={{
                     fontSize: 14,
-                    fontWeight: 600,
+                    fontWeight: 400,
                     color: T1,
                     margin: "0 0 4px",
                   }}
@@ -334,7 +332,7 @@ export function TeamPage() {
             <p
               style={{
                 fontSize: 11.5,
-                fontWeight: 700,
+                fontWeight: 400,
                 color: B,
                 textTransform: "uppercase",
                 letterSpacing: "0.08em",
@@ -345,12 +343,12 @@ export function TeamPage() {
             </p>
             <h2
               style={{
-                fontSize: "clamp(32px,4.5vw,60px)",
-                fontWeight: 800,
-                letterSpacing: "-0.02em",
-                lineHeight: 1.05,
+                fontSize: "clamp(24px,2.35vw,34px)",
+                fontWeight: 400,
+                letterSpacing: "-0.025em",
+                lineHeight: 1.12,
                 margin: 0,
-                fontFamily: 'Manrope, ui-sans-serif, sans-serif',
+                fontFamily: 'Inter, ui-sans-serif, sans-serif',
               }}
             >
               The principles we build by.
@@ -391,7 +389,7 @@ export function TeamPage() {
                 <span
                   style={{
                     fontSize: 11,
-                    fontWeight: 700,
+                    fontWeight: 400,
                     color: B,
                     letterSpacing: "0.1em",
                   }}
@@ -400,12 +398,12 @@ export function TeamPage() {
                 </span>
                 <h3
                   style={{
-                    fontSize: 18,
-                    fontWeight: 600,
+                    fontSize: 17,
+                    fontWeight: 400,
                     letterSpacing: "-0.02em",
                     margin: 0,
                     lineHeight: 1.2,
-                    fontFamily: 'Manrope, ui-sans-serif, sans-serif',
+                    fontFamily: 'Inter, ui-sans-serif, sans-serif',
                   }}
                 >
                   {p.title}
@@ -426,23 +424,27 @@ export function TeamPage() {
         </div>
       </section>
 
-      {/* ── DNA strip (dark) ────────────────────────────────────────────────── */}
-      <section style={{ background: T1, padding: "clamp(48px,7vw,80px) 0" }}>
+      {/* ── DNA strip ───────────────────────────────────────────────────────── */}
+      <section style={{ background: "#fff", padding: "clamp(44px,6vw,72px) 0" }}>
         <div style={W(PAGE_MAX)}>
           <div
             className="redesign-2col"
             style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
-              gap: "clamp(32px,5vw,80px)",
+              gap: "clamp(28px,4vw,64px)",
               alignItems: "center",
+              border: "1px solid rgba(0, 87, 255,0.12)",
+              borderRadius: 20,
+              background: "#F8FAFF",
+              padding: "clamp(24px,3vw,40px)",
             }}
           >
             <div>
               <p
                 style={{
                   fontSize: 11.5,
-                  fontWeight: 700,
+                  fontWeight: 400,
                   color: B,
                   textTransform: "uppercase",
                   letterSpacing: "0.08em",
@@ -453,38 +455,38 @@ export function TeamPage() {
               </p>
               <h2
                 style={{
-                  fontSize: "clamp(32px,4.5vw,60px)",
-                  fontWeight: 800,
-                  letterSpacing: "-0.02em",
-                  lineHeight: 1.05,
-                  color: "#fff",
-                  margin: "0 0 16px",
-                  fontFamily: 'Manrope, ui-sans-serif, sans-serif',
+                  fontSize: "clamp(20px,1.55vw,25px)",
+                  fontWeight: 400,
+                  letterSpacing: "-0.012em",
+                  lineHeight: 1.24,
+                  color: T1,
+                  margin: "0 0 14px",
+                  fontFamily: 'Inter, ui-sans-serif, sans-serif',
                 }}
               >
-                Finance depth.
+                Finance depth.{" "}
                 <br />
                 Engineering rigour.
               </h2>
-              <p
-                style={{
-                  fontSize: 15,
-                  lineHeight: 1.75,
-                  color: "rgba(255,255,255,0.5)",
+                <p
+                  style={{
+                    fontSize: 14.5,
+                    lineHeight: 1.68,
+                  color: T2,
                   margin: 0,
                 }}
               >
                 We came from industries where getting things wrong costs people
-                real money. That shapes everything — from how we architect the
+                real money. That shapes everything, from how we architect the
                 platform to how we onboard an employer.
               </p>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               {[
-                ["Banking & financial services", "🏦"],
-                ["Scalable engineering platforms", "⚙️"],
-                ["MSME & employer advisory", "🤝"],
-                ["Responsible product design", "🎯"],
+                ["Banking & financial services", "01"],
+                ["Scalable engineering platforms", "02"],
+                ["MSME & employer advisory", "03"],
+                ["Responsible product design", "04"],
               ].map(([label, icon]) => (
                 <div
                   key={label}
@@ -493,31 +495,31 @@ export function TeamPage() {
                     alignItems: "center",
                     gap: 14,
                     padding: "13px 18px",
-                    background: "rgba(255,255,255,0.04)",
+                    background: "#F8FAFF",
                     borderRadius: 10,
-                    border: "1px solid rgba(255,255,255,0.08)",
+                    border: `1px solid ${BD}`,
                     transition:
                       "background 150ms ease, border-color 150ms ease",
                   }}
                   onMouseEnter={(e) => {
                     (e.currentTarget as HTMLElement).style.background =
-                      "rgba(49,94,255,0.12)";
+                      "#F2F6FF";
                     (e.currentTarget as HTMLElement).style.borderColor =
-                      "rgba(49,94,255,0.3)";
+                      "rgba(0, 87, 255,0.22)";
                   }}
                   onMouseLeave={(e) => {
                     (e.currentTarget as HTMLElement).style.background =
-                      "rgba(255,255,255,0.04)";
+                      "#F8FAFF";
                     (e.currentTarget as HTMLElement).style.borderColor =
-                      "rgba(255,255,255,0.08)";
+                      BD;
                   }}
                 >
-                  <span style={{ fontSize: 16 }}>{icon}</span>
+                  <span style={{ minWidth: 28, fontSize: 11, letterSpacing: "0.1em", color: B }}>{icon}</span>
                   <span
                     style={{
                       fontSize: 14,
-                      color: "rgba(255,255,255,0.75)",
-                      fontWeight: 500,
+                      color: T1,
+                      fontWeight: 400,
                     }}
                   >
                     {label}
@@ -551,7 +553,7 @@ export function TeamPage() {
               <p
                 style={{
                   fontSize: 11.5,
-                  fontWeight: 700,
+                  fontWeight: 400,
                   color: B,
                   textTransform: "uppercase",
                   letterSpacing: "0.08em",
@@ -562,12 +564,12 @@ export function TeamPage() {
               </p>
               <h2
                 style={{
-                  fontSize: "clamp(26px,3vw,38px)",
-                  fontWeight: 800,
+                  fontSize: "clamp(24px,2.6vw,34px)",
+                  fontWeight: 400,
                   margin: "0 0 8px",
                   letterSpacing: "-0.02em",
                   lineHeight: 1.1,
-                  fontFamily: 'Manrope, ui-sans-serif, sans-serif',
+                  fontFamily: 'Inter, ui-sans-serif, sans-serif',
                 }}
               >
                 We're building something early and important.
@@ -586,7 +588,7 @@ export function TeamPage() {
                   background: B,
                   color: "#fff",
                   fontSize: 14,
-                  fontWeight: 600,
+                  fontWeight: 400,
                   borderRadius: 8,
                   display: "inline-flex",
                   alignItems: "center",
@@ -610,7 +612,7 @@ export function TeamPage() {
                   background: "#fff",
                   color: T1,
                   fontSize: 14,
-                  fontWeight: 600,
+                  fontWeight: 400,
                   borderRadius: 8,
                   display: "inline-flex",
                   alignItems: "center",

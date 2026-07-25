@@ -1,18 +1,29 @@
 import {
   ArrowRight,
   BadgeCheck,
+  Building2,
   CheckCircle2,
   Clock,
+  Compass,
   FileCheck,
   FileText,
+  FormInput,
+  Grid3X3,
   HelpCircle,
   Landmark,
+  Layers,
+  LockKeyhole,
   Mail,
   MapPin,
+  MousePointer2,
+  Palette,
   ShieldCheck,
+  SlidersHorizontal,
   Smartphone,
-  Users,
+  Sparkles,
+  Type,
   Wallet,
+  Zap,
 } from "lucide-react";
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
@@ -125,7 +136,7 @@ const pageContent: Record<string, PageContent> = {
     sections: [
       {
         title: "For employees",
-        body: "Complete KYC, add bank account details, activate membership and track salary advance requests from the employee app.",
+        body: "Complete KYC, add bank account details, pay the platform fee after employer approval and track salary advance requests from the employee app.",
       },
       {
         title: "For employers",
@@ -198,7 +209,7 @@ export function EmployerBenefitsPage() {
 
 export function EmployeesPage() {
   const steps = [
-    { icon: <Smartphone size={20} aria-hidden="true" />, title: "Complete setup", body: "See KYC, bank and membership status in one place before you request anything." },
+    { icon: <Smartphone size={20} aria-hidden="true" />, title: "Complete setup", body: "See KYC, bank and platform fee status in one place before you request anything." },
     { icon: <Wallet size={20} aria-hidden="true" />, title: "View available access", body: "Understand exactly what you can request before you commit to it." },
     { icon: <Clock size={20} aria-hidden="true" />, title: "Track every status", body: "Follow approval, transfer and repayment without guessing where things stand." },
   ];
@@ -217,7 +228,7 @@ export function EmployeesPage() {
         description="A mobile-first journey for setup, requests, status tracking and repayment visibility — without hidden steps."
         actions={
           <>
-            <Link to="/#enquiry" className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-[#315eff] px-6 text-[14px] font-[800] text-white no-underline">
+            <Link to="/#enquiry" className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-[#0057ff] px-6 text-[14px] font-[800] text-white no-underline">
               Bring MobPae to your workplace <ArrowRight size={17} aria-hidden="true" />
             </Link>
             <Link to="/how-it-works" className="inline-flex min-h-12 items-center rounded-lg border border-[#E6E8F2] bg-white px-6 text-[14px] font-[800] text-[#0B1026] no-underline">
@@ -227,7 +238,7 @@ export function EmployeesPage() {
         }
       >
         <HeroPanel>
-          <p className="m-0 mb-3 text-[11px] font-[800] uppercase tracking-[0.14em] text-[#315eff]">
+          <p className="m-0 mb-3 text-[11px] font-[800] uppercase tracking-[0.14em] text-[#0057ff]">
             The MobPae employee app
           </p>
           <div className="mx-auto h-[420px] max-w-[260px] overflow-hidden rounded-[20px] border border-[#E6E8F2] shadow-[0_24px_70px_rgba(17,24,39,0.1)]">
@@ -245,17 +256,17 @@ export function EmployeesPage() {
         <GridPatternOverlay fade={false} />
         <div className="relative mx-auto max-w-[1840px]">
           <div className="max-w-[700px]">
-            <p className="text-[12px] font-[900] uppercase tracking-[0.2em] text-[#315eff]">The employee journey</p>
+            <p className="text-[12px] font-[900] uppercase tracking-[0.2em] text-[#0057ff]">The employee journey</p>
             <h2 id="employee-journey-title" className="mt-3 text-4xl font-[900] leading-[1.05] tracking-[-0.035em] text-[#0B1026] lg:text-6xl">Clear at every step.</h2>
           </div>
           <div className="mt-9 grid gap-5 md:grid-cols-3">
             {steps.map((step, index) => (
               <article
                 key={step.title}
-                className="group rounded-2xl border border-[#E6E8F2] bg-white p-7 shadow-[0_18px_60px_rgba(15,23,42,0.045)] transition-all duration-300 hover:-translate-y-1 hover:border-[#315eff]/40 hover:shadow-[0_28px_60px_-20px_rgba(49,94,255,0.25)]"
+                className="group rounded-2xl border border-[#E6E8F2] bg-white p-7 shadow-[0_18px_60px_rgba(15,23,42,0.045)] transition-all duration-300 hover:-translate-y-1 hover:border-[#0057ff]/40 hover:shadow-[0_28px_60px_-20px_rgba(0, 87, 255,0.25)]"
               >
                 <div className="flex items-center justify-between">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#eef3ff] text-[#315eff] ring-1 ring-[#315eff]/15 transition-all duration-300 group-hover:bg-[#315eff] group-hover:text-white">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#eef3ff] text-[#0057ff] ring-1 ring-[#0057ff]/15 transition-all duration-300 group-hover:bg-[#0057ff] group-hover:text-white">
                     {step.icon}
                   </span>
                   <span className="text-[11px] font-[800] tracking-[0.2em] text-[#6B7280]">0{index + 1}</span>
@@ -273,23 +284,23 @@ export function EmployeesPage() {
         <GridPatternOverlay fade={false} />
         <div className="relative mx-auto max-w-[1840px]">
           <div className="max-w-[700px]">
-            <p className="text-[12px] font-[900] uppercase tracking-[0.2em] text-[#315eff]">Built around trust</p>
+            <p className="text-[12px] font-[900] uppercase tracking-[0.2em] text-[#0057ff]">Built around trust</p>
             <h2 id="employee-trust-title" className="mt-3 text-4xl font-[900] leading-[1.05] tracking-[-0.035em] text-[#0B1026] lg:text-6xl">Nothing happens without visibility.</h2>
           </div>
           <div className="mt-9 grid gap-5 md:grid-cols-3">
             {trust.map((item) => (
               <article
                 key={item.title}
-                className="group rounded-2xl border border-[#E6E8F2] bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#315eff]/40 hover:shadow-[0_28px_60px_-20px_rgba(49,94,255,0.25)]"
+                className="group rounded-2xl border border-[#E6E8F2] bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#0057ff]/40 hover:shadow-[0_28px_60px_-20px_rgba(0, 87, 255,0.25)]"
               >
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#eef3ff] text-[#315eff] ring-1 ring-[#315eff]/15 transition-all duration-300 group-hover:bg-[#315eff] group-hover:text-white">
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#eef3ff] text-[#0057ff] ring-1 ring-[#0057ff]/15 transition-all duration-300 group-hover:bg-[#0057ff] group-hover:text-white">
                   {item.icon}
                 </span>
                 <h3 className="mt-6 text-[17px] font-[900] text-[#0B1026]">{item.title}</h3>
                 <p className="mt-2.5 text-[13.5px] leading-[1.7] text-[#5C647A]">{item.body}</p>
                 <div className="mt-5 border-t border-[#E6E8F2] pt-4">
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F5F5F5] px-2.5 py-1 text-[10px] font-[700] uppercase tracking-wider text-[#0B1026]/70">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#315eff]" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#0057ff]" />
                     {item.tag}
                   </span>
                 </div>
@@ -304,22 +315,22 @@ export function EmployeesPage() {
         <GridPatternOverlay fade={false} />
         <div className="relative mx-auto grid max-w-[1840px] gap-6 lg:grid-cols-2">
           <article className="rounded-2xl border border-[#E6E8F2] bg-white p-7">
-            <ShieldCheck size={24} className="text-[#315eff]" aria-hidden="true" />
+            <ShieldCheck size={24} className="text-[#0057ff]" aria-hidden="true" />
             <h2 className="mt-5 text-[25px] font-[900] text-[#0B1026]">Know what happens next.</h2>
             <p className="mt-3 text-[14px] leading-[1.75] text-[#5C647A]">Request tracking and repayment visibility keep the experience understandable from start to finish.</p>
           </article>
           <article className="rounded-2xl border border-[#E6E8F2] bg-white p-7">
-            <HelpCircle size={24} className="text-[#315eff]" aria-hidden="true" />
+            <HelpCircle size={24} className="text-[#0057ff]" aria-hidden="true" />
             <h2 className="mt-5 text-[25px] font-[900] text-[#0B1026]">Need help?</h2>
             <p className="mt-3 text-[14px] leading-[1.75] text-[#5C647A]">Visit the FAQs or contact support for onboarding, account and request questions.</p>
-            <div className="mt-5 flex flex-wrap gap-4"><Link to="/faqs" className="font-[800] text-[#315eff]">Read FAQs →</Link><a href="mailto:support@mobpae.com" className="font-[800] text-[#315eff]">Email support →</a></div>
+            <div className="mt-5 flex flex-wrap gap-4"><Link to="/faqs" className="font-[800] text-[#0057ff]">Read FAQs →</Link><a href="mailto:support@mobpae.com" className="font-[800] text-[#0057ff]">Email support →</a></div>
           </article>
         </div>
       </section>
 
       {/* Closing CTA */}
       <section className="px-5 py-16 sm:px-8 lg:px-12" style={{ background: "#FAFAFA" }}>
-        <div className="relative mx-auto max-w-[1840px] overflow-hidden rounded-[2rem] p-10 shadow-2xl lg:p-16" style={{ background: "#315eff" }}>
+        <div className="relative mx-auto max-w-[1840px] overflow-hidden rounded-[2rem] p-10 shadow-2xl lg:p-16" style={{ background: "#0057ff" }}>
           <GridPatternOverlay opacity={0.6} lineColor="rgba(255,255,255,0.12)" fade={false} />
           <div className="relative flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
             <div>
@@ -348,8 +359,273 @@ export function FaqsPage() {
 }
 
 export function CareersPage() {
+  const focusAreas = [
+    {
+      area: "Product Engineering",
+      title: "Frontend and platform engineers",
+      location: "Ahmedabad / remote-friendly",
+      type: "Exploratory",
+      body: "Build secure, responsive product surfaces across employee, employer and admin workflows.",
+    },
+    {
+      area: "Design Systems",
+      title: "Product designers and UI engineers",
+      location: "Remote-friendly",
+      type: "Exploratory",
+      body: "Shape a premium fintech experience with clear interaction patterns, accessibility and motion craft.",
+    },
+    {
+      area: "Operations",
+      title: "Employer success and support",
+      location: "India",
+      type: "Exploratory",
+      body: "Help employers onboard, coordinate payroll-linked recoveries and support employee financial wellness.",
+    },
+    {
+      area: "Risk and Finance",
+      title: "Credit operations and partnerships",
+      location: "India",
+      type: "Exploratory",
+      body: "Work on employer-backed verification, partner reporting and responsible access controls.",
+    },
+    {
+      area: "Growth",
+      title: "Founding go-to-market generalist",
+      location: "India",
+      type: "Exploratory",
+      body: "Turn employer conversations into pilots with thoughtful positioning, documentation and follow-through.",
+    },
+    {
+      area: "Partnerships",
+      title: "NBFC and payroll partnerships",
+      location: "India",
+      type: "Exploratory",
+      body: "Build trusted partner relationships across lending, payroll and employer financial wellness programs.",
+    },
+  ];
+
   return (
-    <StaticPage content={pageContent.careers} icon={<Users size={22} />} />
+    <StaticShell>
+      <section className="careers-hero">
+        <div className="site-rail careers-hero__content">
+          <h1>Work at MobPae</h1>
+          <p>
+            Help build employer-powered salary access for the modern Indian workforce.
+            We are looking for people who care about trust, speed and responsible fintech.
+          </p>
+        </div>
+      </section>
+
+      <section className="careers-section">
+        <div className="site-rail">
+          <div className="career-card-grid">
+            {focusAreas.map((role) => (
+              <a
+                key={role.title}
+                className="career-card"
+                href={`mailto:support@mobpae.com?subject=${encodeURIComponent(role.title)}`}
+              >
+                <span className="career-card__tag">{role.area}</span>
+                <h2>{role.title}</h2>
+                <p className="career-card__meta">{role.location} · {role.type}</p>
+                <p>{role.body}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    </StaticShell>
+  );
+}
+
+export function StyleGuidePage() {
+  const sections = [
+    "Typography",
+    "Colors",
+    "Buttons",
+    "Cards",
+    "Forms",
+    "Grids",
+    "Spacing",
+    "Tabs",
+    "Motion",
+  ];
+
+  const colors = [
+    { name: "Primary Blue", value: "#0057FF", text: "#fff" },
+    { name: "Deep Ink", value: "#0B1026", text: "#fff" },
+    { name: "Soft Blue", value: "#CBD4FF", text: "#0B1026" },
+    { name: "Page", value: "#F6F9FB", text: "#0B1026" },
+    { name: "Action Blue", value: "#0057FF", text: "#fff" },
+    { name: "Blue Tint", value: "#EEF3FF", text: "#0B1026" },
+  ];
+
+  const typeScale = [
+    { name: "Display", size: "72 / 88", copy: "Beating your month end crunch" },
+    { name: "Section", size: "42 / 60", copy: "One platform. Every stakeholder." },
+    { name: "Card title", size: "20 / 28", copy: "Employer-backed access" },
+    { name: "Body", size: "15 / 26", copy: "A calm, readable paragraph for product explanations." },
+    { name: "Label", size: "12 / 16", copy: "EMPLOYER APPROVED" },
+  ];
+
+  return (
+    <StaticShell>
+      <section className="style-guide-page">
+        <aside className="style-guide-nav" aria-label="Style guide sections">
+          <img src="/brand/mobpae-icon-color.png" alt="" />
+          <p>MobPae System</p>
+          <nav>
+            {sections.map((section) => (
+              <a key={section} href={`#${section.toLowerCase()}`}>{section}</a>
+            ))}
+          </nav>
+        </aside>
+
+        <div className="style-guide-content">
+          <header className="style-guide-hero">
+            <p className="eyebrow">Style guide</p>
+            <h1>The MobPae website design system.</h1>
+            <p>
+              A compact reference for the typography, colors, components and motion language
+              used across the MobPae marketing website.
+            </p>
+          </header>
+
+          <StyleSection id="typography" eyebrow="01" title="Typography" icon={<Type size={20} />}>
+            <div className="style-type-list">
+              {typeScale.map((item) => (
+                <article key={item.name}>
+                  <span>{item.name}</span>
+                  <strong>{item.copy}</strong>
+                  <small>{item.size}px · Inter</small>
+                </article>
+              ))}
+            </div>
+          </StyleSection>
+
+          <StyleSection id="colors" eyebrow="02" title="Colors" icon={<Palette size={20} />}>
+            <div className="style-color-grid">
+              {colors.map((color) => (
+                <article key={color.name} style={{ background: color.value, color: color.text }}>
+                  <span>{color.name}</span>
+                  <strong>{color.value}</strong>
+                </article>
+              ))}
+            </div>
+          </StyleSection>
+
+          <StyleSection id="buttons" eyebrow="03" title="Buttons" icon={<MousePointer2 size={20} />}>
+            <div className="style-button-row">
+              <a className="btn-primary" href="#buttons">Request Demo <ArrowRight size={17} /></a>
+              <a className="btn-secondary" href="#buttons">Learn More</a>
+              <button className="style-button-ghost" type="button">Cancel</button>
+              <button className="style-button-disabled" type="button" disabled>Not available</button>
+            </div>
+          </StyleSection>
+
+          <StyleSection id="cards" eyebrow="04" title="Cards" icon={<Layers size={20} />}>
+            <div className="style-card-grid">
+              {[
+                { icon: <ShieldCheck size={20} />, title: "Trust surface", body: "Used for security, compliance and employer confidence messaging." },
+                { icon: <Wallet size={20} />, title: "Product surface", body: "Used for employee salary access, repayments and activity previews." },
+                { icon: <Building2 size={20} />, title: "Employer surface", body: "Used for HR, payroll and approval workflows." },
+              ].map((card) => (
+                <article key={card.title} className="style-demo-card">
+                  <span>{card.icon}</span>
+                  <h3>{card.title}</h3>
+                  <p>{card.body}</p>
+                </article>
+              ))}
+            </div>
+          </StyleSection>
+
+          <StyleSection id="forms" eyebrow="05" title="Forms" icon={<FormInput size={20} />}>
+            <div className="style-form-demo">
+              <label>
+                Email
+                <input type="email" placeholder="name@company.com" />
+              </label>
+              <label>
+                Company size
+                <select defaultValue="">
+                  <option value="" disabled>Select range</option>
+                  <option>1 - 50 employees</option>
+                  <option>51 - 250 employees</option>
+                  <option>250+ employees</option>
+                </select>
+              </label>
+              <label className="style-form-demo__wide">
+                Message
+                <textarea placeholder="Tell us about your payroll cycle" />
+              </label>
+            </div>
+          </StyleSection>
+
+          <StyleSection id="grids" eyebrow="06" title="Grids" icon={<Grid3X3 size={20} />}>
+            <div className="style-grid-demo" aria-hidden="true">
+              {Array.from({ length: 12 }, (_, index) => (
+                <span key={index}>0{index + 1}</span>
+              ))}
+            </div>
+          </StyleSection>
+
+          <StyleSection id="spacing" eyebrow="07" title="Spacing" icon={<Compass size={20} />}>
+            <div className="style-spacing-demo" aria-label="Spacing scale">
+              {[8, 12, 16, 24, 32, 48].map((space) => (
+                <div key={space}>
+                  <span>{space}px</span>
+                  <strong style={{ width: `${space * 3}px` }} />
+                </div>
+              ))}
+            </div>
+          </StyleSection>
+
+          <StyleSection id="tabs" eyebrow="08" title="Tabs" icon={<SlidersHorizontal size={20} />}>
+            <div className="style-tabs-demo" role="tablist" aria-label="Demo tabs">
+              <button type="button" className="is-active" role="tab" aria-selected="true">Employers</button>
+              <button type="button" role="tab" aria-selected="false">Employees</button>
+              <button type="button" role="tab" aria-selected="false">NBFCs</button>
+            </div>
+          </StyleSection>
+
+          <StyleSection id="motion" eyebrow="09" title="Motion" icon={<Sparkles size={20} />}>
+            <div className="style-motion-demo">
+              <div><Sparkles size={20} /><span>Soft reveal</span></div>
+              <div><Zap size={20} /><span>Button lift</span></div>
+              <div><Compass size={20} /><span>Calm drift</span></div>
+              <div><LockKeyhole size={20} /><span>Reduced motion safe</span></div>
+            </div>
+          </StyleSection>
+        </div>
+      </section>
+    </StaticShell>
+  );
+}
+
+function StyleSection({
+  id,
+  eyebrow,
+  title,
+  icon,
+  children,
+}: {
+  id: string;
+  eyebrow: string;
+  title: string;
+  icon: ReactNode;
+  children: ReactNode;
+}) {
+  return (
+    <section id={id} className="style-section">
+      <div className="style-section__header">
+        <span>{eyebrow}</span>
+        <div>
+          <span className="style-section__icon">{icon}</span>
+          <h2>{title}</h2>
+        </div>
+      </div>
+      <div className="style-section__body">{children}</div>
+    </section>
   );
 }
 
@@ -394,7 +670,7 @@ export function ContactPage() {
 
       <section className="mx-auto grid max-w-[1840px] gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-12">
         <div>
-          <p className="text-[11px] font-[900] uppercase tracking-[0.24em] text-[#315eff]">
+          <p className="text-[11px] font-[900] uppercase tracking-[0.24em] text-[#0057ff]">
             Employer enquiry
           </p>
           <h2 className="mt-5 text-4xl font-[900] leading-[1.05] tracking-[-0.035em] text-[#0B1026] lg:text-6xl">
@@ -418,8 +694,8 @@ export function ContactPage() {
           </div>
         </div>
 
-        <div className="rounded-[30px] border border-[#E6E8F2] bg-white p-8 shadow-[0_28px_90px_rgba(49,94,255,0.13)]">
-          <p className="text-[13px] font-[900] text-[#315eff]">Book a Demo</p>
+        <div className="rounded-[30px] border border-[#E6E8F2] bg-white p-8 shadow-[0_28px_90px_rgba(0, 87, 255,0.13)]">
+          <p className="text-[13px] font-[900] text-[#0057ff]">Book a Demo</p>
           <h2 className="mt-3 text-[28px] font-[900] tracking-[-0.03em] text-[#0B1026]">
             Use the enquiry form on the home page.
           </h2>
@@ -429,7 +705,7 @@ export function ContactPage() {
           </p>
           <Link
             to="/#enquiry"
-            className="mt-8 inline-flex h-[52px] items-center gap-3 rounded-xl bg-[#315eff] px-7 text-[14px] font-[900] text-white shadow-[0_18px_44px_rgba(49,94,255,0.32)]"
+            className="mt-8 inline-flex h-[52px] items-center gap-3 rounded-xl bg-[#0057ff] px-7 text-[14px] font-[900] text-white shadow-[0_18px_44px_rgba(0, 87, 255,0.32)]"
           >
             Open Enquiry Form <ArrowRight size={17} />
           </Link>
@@ -469,7 +745,7 @@ function StaticPage({
         description={content.description}
       >
         <HeroPanel>
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#EEF2FF] text-[#315eff]">
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#EEF2FF] text-[#0057ff]">
             {icon}
           </div>
           <div className="mt-7 grid gap-4">
@@ -503,7 +779,7 @@ function StaticPage({
                       key={point}
                       className="flex items-center gap-3 text-[13px] font-[800] text-[#252B42]"
                     >
-                      <CheckCircle2 size={16} className="text-[#315eff]" />
+                      <CheckCircle2 size={16} className="text-[#0057ff]" />
                       {point}
                     </div>
                   ))}
@@ -521,7 +797,7 @@ function StaticShell({ children }: { children: ReactNode }) {
   return (
     <div
       style={{
-        fontFamily: "Manrope, ui-sans-serif, sans-serif",
+        fontFamily: "Inter, ui-sans-serif, sans-serif",
         color: "#0B0D12",
         background: "#FAFAFA",
       }}
@@ -544,7 +820,7 @@ function ContactItem({
 }) {
   return (
     <div className="flex gap-4 rounded-2xl border border-[#E6E8F2] bg-white p-5">
-      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#f1f5ff] text-[#315eff]">
+      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#f1f5ff] text-[#0057ff]">
         {icon}
       </span>
       <div>

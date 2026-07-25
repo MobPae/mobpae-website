@@ -42,7 +42,7 @@ const routeMeta: Record<string, RouteMeta> = {
     canonicalPath: "/faqs",
   },
   "/about": {
-    title: "About MobPae | Employer-Powered Financial Wellness",
+    title: "Our Story | MobPae",
     description: "Learn about MobPae's approach to employer-backed salary access and responsible workplace financial wellness.",
     canonicalPath: "/about",
   },
@@ -62,6 +62,18 @@ const routeMeta: Record<string, RouteMeta> = {
     title: "Careers at MobPae",
     description: "Explore opportunities to build employer-backed financial wellness products with the MobPae team.",
     canonicalPath: "/careers",
+  },
+  "/style-guide": {
+    title: "MobPae Website Style Guide",
+    description: "A design-system reference for MobPae's website typography, colors, components, grids and motion.",
+    canonicalPath: "/style-guide",
+    robots: "noindex, follow",
+  },
+  "/admin/style-guide": {
+    title: "MobPae Website Style Guide",
+    description: "A design-system reference for MobPae's website typography, colors, components, grids and motion.",
+    canonicalPath: "/style-guide",
+    robots: "noindex, follow",
   },
   "/contact": {
     title: "Contact MobPae",
