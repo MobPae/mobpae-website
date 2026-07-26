@@ -30,7 +30,6 @@ import { Link } from "react-router-dom";
 import { SiteNav } from "../components/SiteNav";
 import { SiteFooter } from "../components/SiteFooter";
 import { HeroPanel, PageHero } from "../components/PageHero";
-import { GridPatternOverlay } from "../components/GridPatternOverlay";
 
 type PageContent = {
   eyebrow: string;
@@ -228,20 +227,20 @@ export function EmployeesPage() {
         description="A mobile-first journey for setup, requests, status tracking and repayment visibility — without hidden steps."
         actions={
           <>
-            <Link to="/#enquiry" className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-[#0057ff] px-6 text-[14px] font-[800] text-white no-underline">
+            <Link to="/#enquiry" className="premium-button">
               Bring MobPae to your workplace <ArrowRight size={17} aria-hidden="true" />
             </Link>
-            <Link to="/how-it-works" className="inline-flex min-h-12 items-center rounded-lg border border-[#E6E8F2] bg-white px-6 text-[14px] font-[800] text-[#0B1026] no-underline">
+            <Link to="/how-it-works" className="premium-button premium-button--ghost">
               See how it works
             </Link>
           </>
         }
       >
         <HeroPanel>
-          <p className="m-0 mb-3 text-[11px] font-[800] uppercase tracking-[0.14em] text-[#0057ff]">
+          <p className="eyebrow" style={{ marginBottom: 12 }}>
             The MobPae employee app
           </p>
-          <div className="mx-auto h-[420px] max-w-[260px] overflow-hidden rounded-[20px] border border-[#E6E8F2] shadow-[0_24px_70px_rgba(17,24,39,0.1)]">
+          <div className="mx-auto h-[420px] max-w-[260px] overflow-hidden rounded-[20px] shadow-[0_24px_70px_rgba(17,24,39,0.1)]" style={{ border: "1px solid var(--mp-border)" }}>
             <img
               src="/product-shots/dashboard.png"
               alt="MobPae employee app dashboard showing available salary advance, limit, and recent activity"
@@ -252,27 +251,23 @@ export function EmployeesPage() {
       </PageHero>
 
       {/* The employee journey */}
-      <section aria-labelledby="employee-journey-title" className="relative overflow-hidden px-5 py-16 sm:px-8 lg:px-12 lg:py-24" style={{ background: "#FAFAFA" }}>
-        <GridPatternOverlay fade={false} />
-        <div className="relative mx-auto max-w-[1840px]">
-          <div className="max-w-[700px]">
-            <p className="text-[12px] font-[900] uppercase tracking-[0.2em] text-[#0057ff]">The employee journey</p>
-            <h2 id="employee-journey-title" className="mt-3 text-4xl font-[900] leading-[1.05] tracking-[-0.035em] text-[#0B1026] lg:text-6xl">Clear at every step.</h2>
+      <section aria-labelledby="employee-journey-title" className="section-shell section-shell--soft">
+        <div className="site-rail">
+          <div className="section-heading">
+            <p className="eyebrow">The employee journey</p>
+            <h2 id="employee-journey-title">Clear at every step.</h2>
           </div>
           <div className="mt-9 grid gap-5 md:grid-cols-3">
             {steps.map((step, index) => (
-              <article
-                key={step.title}
-                className="group rounded-2xl border border-[#E6E8F2] bg-white p-7 shadow-[0_18px_60px_rgba(15,23,42,0.045)] transition-all duration-300 hover:-translate-y-1 hover:border-[#0057ff]/40 hover:shadow-[0_28px_60px_-20px_rgba(0, 87, 255,0.25)]"
-              >
+              <article key={step.title} className="premium-card">
                 <div className="flex items-center justify-between">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#eef3ff] text-[#0057ff] ring-1 ring-[#0057ff]/15 transition-all duration-300 group-hover:bg-[#0057ff] group-hover:text-white">
+                  <span className="icon-bubble">
                     {step.icon}
                   </span>
-                  <span className="text-[11px] font-[800] tracking-[0.2em] text-[#6B7280]">0{index + 1}</span>
+                  <span style={{ fontSize: 11, letterSpacing: "0.2em", color: "var(--mp-muted)" }}>0{index + 1}</span>
                 </div>
-                <h3 className="mt-7 text-[19px] font-[900] text-[#0B1026]">{step.title}</h3>
-                <p className="mt-3 text-[14px] font-[500] leading-[1.75] text-[#5C647A]">{step.body}</p>
+                <h3>{step.title}</h3>
+                <p>{step.body}</p>
               </article>
             ))}
           </div>
@@ -280,27 +275,26 @@ export function EmployeesPage() {
       </section>
 
       {/* Built around trust */}
-      <section aria-labelledby="employee-trust-title" className="relative overflow-hidden px-5 py-16 sm:px-8 lg:px-12" style={{ background: "#FAFAFA" }}>
-        <GridPatternOverlay fade={false} />
-        <div className="relative mx-auto max-w-[1840px]">
-          <div className="max-w-[700px]">
-            <p className="text-[12px] font-[900] uppercase tracking-[0.2em] text-[#0057ff]">Built around trust</p>
-            <h2 id="employee-trust-title" className="mt-3 text-4xl font-[900] leading-[1.05] tracking-[-0.035em] text-[#0B1026] lg:text-6xl">Nothing happens without visibility.</h2>
+      <section aria-labelledby="employee-trust-title" className="section-shell section-shell--white">
+        <div className="site-rail">
+          <div className="section-heading">
+            <p className="eyebrow">Built around trust</p>
+            <h2 id="employee-trust-title">Nothing happens without visibility.</h2>
           </div>
           <div className="mt-9 grid gap-5 md:grid-cols-3">
             {trust.map((item) => (
-              <article
-                key={item.title}
-                className="group rounded-2xl border border-[#E6E8F2] bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#0057ff]/40 hover:shadow-[0_28px_60px_-20px_rgba(0, 87, 255,0.25)]"
-              >
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#eef3ff] text-[#0057ff] ring-1 ring-[#0057ff]/15 transition-all duration-300 group-hover:bg-[#0057ff] group-hover:text-white">
+              <article key={item.title} className="premium-card">
+                <span className="icon-bubble">
                   {item.icon}
                 </span>
-                <h3 className="mt-6 text-[17px] font-[900] text-[#0B1026]">{item.title}</h3>
-                <p className="mt-2.5 text-[13.5px] leading-[1.7] text-[#5C647A]">{item.body}</p>
-                <div className="mt-5 border-t border-[#E6E8F2] pt-4">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F5F5F5] px-2.5 py-1 text-[10px] font-[700] uppercase tracking-wider text-[#0B1026]/70">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#0057ff]" />
+                <h3 style={{ fontSize: 17, marginTop: 20 }}>{item.title}</h3>
+                <p style={{ fontSize: 13.5 }}>{item.body}</p>
+                <div className="mt-5" style={{ borderTop: "1px solid var(--mp-border)", paddingTop: 16 }}>
+                  <span
+                    className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1"
+                    style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: "0.08em", background: "var(--mp-page)", color: "var(--mp-ink)" }}
+                  >
+                    <span className="h-1.5 w-1.5 rounded-full" style={{ background: "var(--mp-blue)" }} />
                     {item.tag}
                   </span>
                 </div>
@@ -311,37 +305,36 @@ export function EmployeesPage() {
       </section>
 
       {/* Support callout */}
-      <section className="relative overflow-hidden px-5 py-16 sm:px-8 lg:px-12" style={{ background: "#FAFAFA" }}>
-        <GridPatternOverlay fade={false} />
-        <div className="relative mx-auto grid max-w-[1840px] gap-6 lg:grid-cols-2">
-          <article className="rounded-2xl border border-[#E6E8F2] bg-white p-7">
-            <ShieldCheck size={24} className="text-[#0057ff]" aria-hidden="true" />
-            <h2 className="mt-5 text-[25px] font-[900] text-[#0B1026]">Know what happens next.</h2>
-            <p className="mt-3 text-[14px] leading-[1.75] text-[#5C647A]">Request tracking and repayment visibility keep the experience understandable from start to finish.</p>
+      <section className="section-shell section-shell--soft" style={{ paddingTop: 0 }}>
+        <div className="site-rail grid gap-6 lg:grid-cols-2">
+          <article className="premium-card">
+            <ShieldCheck size={24} style={{ color: "var(--mp-blue)" }} aria-hidden="true" />
+            <h2 style={{ fontSize: 25, marginTop: 20 }}>Know what happens next.</h2>
+            <p>Request tracking and repayment visibility keep the experience understandable from start to finish.</p>
           </article>
-          <article className="rounded-2xl border border-[#E6E8F2] bg-white p-7">
-            <HelpCircle size={24} className="text-[#0057ff]" aria-hidden="true" />
-            <h2 className="mt-5 text-[25px] font-[900] text-[#0B1026]">Need help?</h2>
-            <p className="mt-3 text-[14px] leading-[1.75] text-[#5C647A]">Visit the FAQs or contact support for onboarding, account and request questions.</p>
-            <div className="mt-5 flex flex-wrap gap-4"><Link to="/faqs" className="font-[800] text-[#0057ff]">Read FAQs →</Link><a href="mailto:support@mobpae.com" className="font-[800] text-[#0057ff]">Email support →</a></div>
+          <article className="premium-card">
+            <HelpCircle size={24} style={{ color: "var(--mp-blue)" }} aria-hidden="true" />
+            <h2 style={{ fontSize: 25, marginTop: 20 }}>Need help?</h2>
+            <p>Visit the FAQs or contact support for onboarding, account and request questions.</p>
+            <div className="mt-5 flex flex-wrap gap-4">
+              <Link to="/faqs" className="text-link">Read FAQs →</Link>
+              <a href="mailto:support@mobpae.com" className="text-link">Email support →</a>
+            </div>
           </article>
         </div>
       </section>
 
       {/* Closing CTA */}
-      <section className="px-5 py-16 sm:px-8 lg:px-12" style={{ background: "#FAFAFA" }}>
-        <div className="relative mx-auto max-w-[1840px] overflow-hidden rounded-[2rem] p-10 shadow-2xl lg:p-16" style={{ background: "#0057ff" }}>
-          <GridPatternOverlay opacity={0.6} lineColor="rgba(255,255,255,0.12)" fade={false} />
-          <div className="relative flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
+      <section className="final-cta">
+        <div className="site-rail">
+          <div className="final-cta__card">
+            <h2>Ready to bring this to your team?</h2>
+            <p>Ask your employer to explore MobPae, or see the full approval-to-recovery flow first.</p>
             <div>
-              <h2 className="text-[28px] font-[900] tracking-[-0.03em] text-white lg:text-[36px]">Ready to bring this to your team?</h2>
-              <p className="mt-3 max-w-[480px] text-[15px] leading-[1.7] text-white/70">Ask your employer to explore MobPae, or see the full approval-to-recovery flow first.</p>
-            </div>
-            <div className="flex flex-shrink-0 flex-wrap gap-3">
-              <Link to="/#enquiry" className="inline-flex h-12 items-center gap-2 rounded-lg bg-white px-6 text-[14px] font-[800] text-[#0B1026] no-underline">
+              <Link to="/#enquiry" className="premium-button premium-button--light">
                 Request a demo <ArrowRight size={17} aria-hidden="true" />
               </Link>
-              <Link to="/how-it-works" className="inline-flex h-12 items-center rounded-lg border border-white/25 bg-white/10 px-6 text-[14px] font-[800] text-white no-underline">
+              <Link to="/how-it-works" className="premium-button premium-button--dark-ghost">
                 See how it works
               </Link>
             </div>
@@ -453,17 +446,17 @@ export function StyleGuidePage() {
 
   const colors = [
     { name: "Primary Blue", value: "#0057FF", text: "#fff" },
-    { name: "Deep Ink", value: "#0B1026", text: "#fff" },
-    { name: "Soft Blue", value: "#CBD4FF", text: "#0B1026" },
-    { name: "Page", value: "#F6F9FB", text: "#0B1026" },
-    { name: "Action Blue", value: "#0057FF", text: "#fff" },
-    { name: "Blue Tint", value: "#EEF3FF", text: "#0B1026" },
+    { name: "Blue 700", value: "#0047D8", text: "#fff" },
+    { name: "Ink", value: "#07111F", text: "#fff" },
+    { name: "Muted", value: "#657386", text: "#fff" },
+    { name: "Page", value: "#F8F7F4", text: "#07111F" },
+    { name: "Soft Blue", value: "#EAF1FF", text: "#07111F" },
   ];
 
   const typeScale = [
-    { name: "Display", size: "72 / 88", copy: "Beating your month end crunch" },
-    { name: "Section", size: "42 / 60", copy: "One platform. Every stakeholder." },
-    { name: "Card title", size: "20 / 28", copy: "Employer-backed access" },
+    { name: "Display", size: "34 / 58", copy: "Beating your month end crunch" },
+    { name: "Section", size: "25 / 34", copy: "One platform. Every stakeholder." },
+    { name: "Card title", size: "20 / 26", copy: "Employer-backed access" },
     { name: "Body", size: "15 / 26", copy: "A calm, readable paragraph for product explanations." },
     { name: "Label", size: "12 / 16", copy: "EMPLOYER APPROVED" },
   ];
@@ -668,47 +661,46 @@ export function ContactPage() {
         </HeroPanel>
       </PageHero>
 
-      <section className="mx-auto grid max-w-[1840px] gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-12">
-        <div>
-          <p className="text-[11px] font-[900] uppercase tracking-[0.24em] text-[#0057ff]">
-            Employer enquiry
-          </p>
-          <h2 className="mt-5 text-4xl font-[900] leading-[1.05] tracking-[-0.035em] text-[#0B1026] lg:text-6xl">
-            One connected enquiry flow for every employer conversation.
-          </h2>
-          <p className="mt-6 max-w-[560px] text-[16px] font-[500] leading-[1.85] text-[#5C647A]">
-            Share a few details on the home enquiry form. Our team will review your payroll cycle, approval process and pilot fit before onboarding.
-          </p>
+      <section className="section-shell section-shell--white">
+        <div className="site-rail grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <p className="eyebrow">
+              Employer enquiry
+            </p>
+            <h2 style={{ fontSize: "clamp(25px, 2.25vw, 34px)" }}>
+              One connected enquiry flow for every employer conversation.
+            </h2>
+            <p className="mt-6 max-w-[560px]" style={{ fontSize: 16, lineHeight: 1.85, color: "var(--mp-muted)" }}>
+              Share a few details on the home enquiry form. Our team will review your payroll cycle, approval process and pilot fit before onboarding.
+            </p>
 
-          <div className="mt-10 grid gap-4">
-            <ContactItem
-              icon={<Mail size={18} />}
-              label="Email"
-              value="support@mobpae.com"
-            />
-            <ContactItem
-              icon={<MapPin size={18} />}
-              label="Address"
-              value="Gujarat, Ahmedabad - 382470"
-            />
+            <div className="mt-10 grid gap-4">
+              <ContactItem
+                icon={<Mail size={18} />}
+                label="Email"
+                value="support@mobpae.com"
+              />
+              <ContactItem
+                icon={<MapPin size={18} />}
+                label="Address"
+                value="Gujarat, Ahmedabad - 382470"
+              />
+            </div>
           </div>
-        </div>
 
-        <div className="rounded-[30px] border border-[#E6E8F2] bg-white p-8 shadow-[0_28px_90px_rgba(0, 87, 255,0.13)]">
-          <p className="text-[13px] font-[900] text-[#0057ff]">Book a Demo</p>
-          <h2 className="mt-3 text-[28px] font-[900] tracking-[-0.03em] text-[#0B1026]">
-            Use the enquiry form on the home page.
-          </h2>
-          <p className="mt-4 text-[14px] font-[500] leading-[1.75] text-[#667085]">
-            MobPae keeps one connected enquiry form so every website lead enters
-            the same backend flow.
-          </p>
-          <Link
-            to="/#enquiry"
-            className="mt-8 inline-flex h-[52px] items-center gap-3 rounded-xl bg-[#0057ff] px-7 text-[14px] font-[900] text-white shadow-[0_18px_44px_rgba(0, 87, 255,0.32)]"
-          >
-            Open Enquiry Form <ArrowRight size={17} />
-          </Link>
+          <div className="premium-card">
+            <p className="eyebrow" style={{ marginBottom: 4 }}>Book a Demo</p>
+            <h2 style={{ fontSize: 28 }}>
+              Use the enquiry form on the home page.
+            </h2>
+            <p className="mt-4" style={{ fontSize: 14, lineHeight: 1.75, color: "var(--mp-muted)" }}>
+              MobPae keeps one connected enquiry form so every website lead enters
+              the same backend flow.
+            </p>
+            <Link to="/#enquiry" className="premium-button mt-8">
+              Open Enquiry Form <ArrowRight size={17} />
+            </Link>
+          </div>
         </div>
       </section>
     </StaticShell>
@@ -745,48 +737,48 @@ function StaticPage({
         description={content.description}
       >
         <HeroPanel>
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#EEF2FF] text-[#0057ff]">
+          <div className="icon-bubble">
             {icon}
           </div>
           <div className="mt-7 grid gap-4">
             {content.sections.slice(0, 2).map((section) => (
-              <div key={section.title} className="border-t border-[#E6E8F2] pt-4">
-                <p className="m-0 text-[15px] font-[900] text-[#0B1026]">{section.title}</p>
-                <p className="m-0 mt-2 text-[13px] font-[500] leading-[1.65] text-[#5C647A]">{section.body}</p>
+              <div key={section.title} style={{ borderTop: "1px solid var(--mp-border)", paddingTop: 16 }}>
+                <p className="m-0" style={{ fontSize: 15, color: "var(--mp-ink)" }}>{section.title}</p>
+                <p className="m-0 mt-2" style={{ fontSize: 13, lineHeight: 1.65, color: "var(--mp-muted)" }}>{section.body}</p>
               </div>
             ))}
           </div>
         </HeroPanel>
       </PageHero>
 
-      <section className="mx-auto max-w-[1840px] px-5 py-16 sm:px-8 lg:px-12">
-        <div className="mt-14 grid gap-5 md:grid-cols-2">
-          {content.sections.map((section) => (
-            <article
-              key={section.title}
-              className="rounded-[26px] border border-[#E6E8F2] bg-white p-7 shadow-[0_18px_60px_rgba(15,23,42,0.045)]"
-            >
-              <h2 className="text-[20px] font-[900] tracking-[-0.02em] text-[#0B1026]">
-                {section.title}
-              </h2>
-              <p className="mt-4 text-[14px] font-[500] leading-[1.8] text-[#667085]">
-                {section.body}
-              </p>
-              {section.points && (
-                <div className="mt-6 grid gap-3">
-                  {section.points.map((point) => (
-                    <div
-                      key={point}
-                      className="flex items-center gap-3 text-[13px] font-[800] text-[#252B42]"
-                    >
-                      <CheckCircle2 size={16} className="text-[#0057ff]" />
-                      {point}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </article>
-          ))}
+      <section className="section-shell section-shell--white">
+        <div className="site-rail">
+          <div className="grid gap-5 md:grid-cols-2">
+            {content.sections.map((section) => (
+              <article key={section.title} className="premium-card">
+                <h2 style={{ margin: 0, fontSize: 20, letterSpacing: "-0.02em", color: "var(--mp-ink)" }}>
+                  {section.title}
+                </h2>
+                <p className="mt-4" style={{ fontSize: 14, lineHeight: 1.8, color: "var(--mp-muted)" }}>
+                  {section.body}
+                </p>
+                {section.points && (
+                  <div className="mt-6 grid gap-3">
+                    {section.points.map((point) => (
+                      <div
+                        key={point}
+                        className="flex items-center gap-3"
+                        style={{ fontSize: 13, color: "var(--mp-ink)" }}
+                      >
+                        <CheckCircle2 size={16} style={{ color: "var(--mp-blue)" }} />
+                        {point}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
         </div>
       </section>
     </StaticShell>
@@ -795,13 +787,7 @@ function StaticPage({
 
 function StaticShell({ children }: { children: ReactNode }) {
   return (
-    <div
-      style={{
-        fontFamily: "Inter, ui-sans-serif, sans-serif",
-        color: "#0B0D12",
-        background: "#FAFAFA",
-      }}
-    >
+    <div className="marketing-site">
       <SiteNav />
       <main id="main-content">{children}</main>
       <SiteFooter />
@@ -819,15 +805,15 @@ function ContactItem({
   value: string;
 }) {
   return (
-    <div className="flex gap-4 rounded-2xl border border-[#E6E8F2] bg-white p-5">
-      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#f1f5ff] text-[#0057ff]">
+    <div className="flex gap-4 rounded-2xl p-5" style={{ border: "1px solid var(--mp-border)", background: "#fff" }}>
+      <span className="icon-bubble" style={{ width: 44, height: 44, flexShrink: 0 }}>
         {icon}
       </span>
       <div>
-        <p className="text-[12px] font-[900] uppercase tracking-[0.12em] text-[#6B7280]">
+        <p className="m-0" style={{ fontSize: 12, textTransform: "uppercase", letterSpacing: "0.12em", color: "var(--mp-muted)" }}>
           {label}
         </p>
-        <p className="mt-1 text-[15px] font-[800] text-[#0B1026]">{value}</p>
+        <p className="mt-1" style={{ fontSize: 15, color: "var(--mp-ink)" }}>{value}</p>
       </div>
     </div>
   );

@@ -1,7 +1,6 @@
 import { SiteNav } from "../components/SiteNav";
 import { SiteFooter } from "../components/SiteFooter";
 import { HeroPanel, PageHero } from "../components/PageHero";
-import { GridPatternOverlay } from "../components/GridPatternOverlay";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -100,11 +99,11 @@ const TRUST = [
   { icon: ShieldCheck, label: "Employer data privacy" },
 ];
 
-const T1 = "#0B0D12";
-const T2 = "#5B6270";
-const BLUE = "#0057FF";
-const BD = "#E6E8EE";
-const PAGE_BG = "#F8F7F4";
+const T1 = "var(--mp-ink)";
+const T2 = "var(--mp-muted)";
+const BLUE = "var(--mp-blue)";
+const BD = "var(--mp-border)";
+const PAGE_BG = "var(--mp-page)";
 const PAGE_MAX = 1840;
 
 const rail: React.CSSProperties = { maxWidth: PAGE_MAX, margin: "0 auto", padding: "0 clamp(20px,4vw,48px)", width: "100%" };
@@ -140,7 +139,7 @@ function StepCard({ num, title, body }: { num: string; title: string; body: stri
 
 export function HowItWorksPage() {
   return (
-    <div className="how-works-page zigzag-page" style={{ fontFamily: "Inter, ui-sans-serif, sans-serif", color: T1, background: PAGE_BG, minHeight: "100vh" }}>
+    <div className="how-works-page" style={{ fontFamily: "Inter, ui-sans-serif, sans-serif", color: T1, background: PAGE_BG, minHeight: "100vh" }}>
       <SiteNav />
       <main id="main-content">
 
@@ -184,8 +183,7 @@ export function HowItWorksPage() {
       </PageHero>
 
       {/* Flow diagram */}
-      <section className="zigzag-surface" style={{ position: "relative", overflow: "hidden", padding: "64px clamp(20px,6vw,80px)", borderBottom: `1px solid ${BD}` }}>
-        <GridPatternOverlay fade={false} />
+      <section style={{ position: "relative", overflow: "hidden", padding: "64px clamp(20px,6vw,80px)", borderBottom: `1px solid ${BD}` }}>
         <div style={{ position: "relative", maxWidth: 1040, margin: "0 auto" }}>
           <h2 style={{ textAlign: "center", fontSize: 13, fontWeight: 400, letterSpacing: ".1em", textTransform: "uppercase", color: BLUE, marginBottom: 40 }}>
             The full picture
@@ -210,7 +208,6 @@ export function HowItWorksPage() {
 
       {/* For Employers */}
       <section style={{ position: "relative", overflow: "hidden", padding: "72px clamp(20px,6vw,80px)" }}>
-        <GridPatternOverlay fade={false} />
         <div style={{ position: "relative", ...rail, padding: 0 }}>
           <div style={{ marginBottom: 44 }}>
             <span style={{ display: "inline-block", background: "#EEF2FF", color: BLUE, fontSize: 12, fontWeight: 400, letterSpacing: ".08em", padding: "5px 13px", borderRadius: 100, marginBottom: 16, textTransform: "uppercase" }}>
@@ -237,8 +234,7 @@ export function HowItWorksPage() {
       </section>
 
       {/* For Employees */}
-      <section className="zigzag-surface zigzag-surface--employees" style={{ position: "relative", overflow: "hidden", padding: "72px clamp(20px,6vw,80px)", borderTop: `1px solid ${BD}` }}>
-        <GridPatternOverlay fade={false} />
+      <section style={{ position: "relative", overflow: "hidden", padding: "72px clamp(20px,6vw,80px)", borderTop: `1px solid ${BD}` }}>
         <div style={{ position: "relative", ...rail, padding: 0 }}>
           <div style={{ marginBottom: 44 }}>
             <span style={{ display: "inline-block", background: "#fff", color: BLUE, fontSize: 12, fontWeight: 400, letterSpacing: ".08em", padding: "5px 13px", borderRadius: 100, border: `1px solid rgba(0,87,255,0.2)`, marginBottom: 16, textTransform: "uppercase" }}>
@@ -325,7 +321,6 @@ export function HowItWorksPage() {
             boxShadow: "0 30px 90px -58px rgba(8,11,22,0.6)",
           }}
         >
-          <GridPatternOverlay opacity={0.6} lineColor="rgba(255,255,255,0.12)" fade={false} />
           <div style={{ position: "relative" }}>
             <h2 style={{ fontSize: "clamp(24px,2.35vw,34px)", fontWeight: 400, color: "#fff", letterSpacing: "-.02em", lineHeight: 1.1, margin: "0 0 16px" }}>
               Ready to get started?

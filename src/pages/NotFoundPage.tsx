@@ -6,7 +6,7 @@ import { SiteNav } from "../components/SiteNav";
 
 export function NotFoundPage() {
   return (
-    <div className="min-h-screen bg-[#FBFCFF] text-[#0B1026]">
+    <div className="min-h-screen" style={{ background: "var(--mp-page)", color: "var(--mp-ink)" }}>
       <SiteNav />
 
       <main id="main-content">
@@ -15,10 +15,7 @@ export function NotFoundPage() {
           title="This page moved."
           description="The page you are looking for does not exist yet or may have been renamed."
           actions={
-            <Link
-              to="/"
-              className="inline-flex h-[52px] items-center gap-3 rounded-xl bg-[#0057ff] px-7 text-[14px] font-[900] text-white shadow-[0_18px_44px_rgba(0, 87, 255,0.28)]"
-            >
+            <Link to="/" className="premium-button">
               Go Home <ArrowRight size={17} />
             </Link>
           }

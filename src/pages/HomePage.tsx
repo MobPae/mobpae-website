@@ -19,10 +19,9 @@ import { Link } from "react-router-dom";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteNav } from "../components/SiteNav";
 
-const API_BASE = ((import.meta.env.VITE_API_BASE_URL as string | undefined) || "").replace(
-  /\/api\/v1\/?$/,
-  "",
-);
+const API_BASE = (
+  (import.meta.env.VITE_API_BASE_URL as string | undefined) || ""
+).replace(/\/api\/v1\/?$/, "");
 
 type FormState = {
   contactName: string;
@@ -42,30 +41,33 @@ const initialForm: FormState = {
   message: "",
 };
 
+const heroStats = [
+  { value: "< 2 wks", label: "Employer go-live time" },
+  { value: "60 sec", label: "Employee request time" },
+  { value: "₹0", label: "Employer capital required" },
+  { value: "100%", label: "HR-controlled approvals" },
+];
+
 const ecosystemSurfaces = [
   {
     icon: MessageSquare,
-    label: "Website",
     title: "Public Website",
-    body: "Clear employer enquiry and product education.",
+    flowStep: "Where the enquiry starts.",
   },
   {
     icon: Users,
-    label: "Employer",
     title: "Employer Portal",
-    body: "Approval context, policy control, and recovery visibility.",
+    flowStep: "Where the employer approves.",
   },
   {
     icon: WalletCards,
-    label: "Employee",
     title: "Employee App",
-    body: "Setup, requests, repayment status, and platform fee flow.",
+    flowStep: "Where the employee requests.",
   },
   {
     icon: Landmark,
-    label: "Admin",
     title: "Admin Console",
-    body: "Verification, disbursal, settlement, and audit operations.",
+    flowStep: "Where it's verified and settled.",
   },
 ];
 
@@ -203,7 +205,9 @@ export function HomePage() {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
 
-  function updateField(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+  function updateField(
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
     const { name, value } = event.target;
     setForm((previous) => ({ ...previous, [name]: value }));
     if (errors[name as keyof FormState]) {
@@ -216,7 +220,8 @@ export function HomePage() {
     if (!form.contactName.trim()) nextErrors.contactName = "Required";
     if (!form.companyName.trim()) nextErrors.companyName = "Required";
     if (!form.email.trim()) nextErrors.email = "Required";
-    else if (!/^\S+@\S+\.\S+$/.test(form.email.trim())) nextErrors.email = "Invalid email";
+    else if (!/^\S+@\S+\.\S+$/.test(form.email.trim()))
+      nextErrors.email = "Invalid email";
     if (!form.message.trim()) nextErrors.message = "Required";
     setErrors(nextErrors);
     return Object.keys(nextErrors).length === 0;
@@ -292,59 +297,71 @@ function HeroSection() {
           </span>
           <h1>Your Trusted Financial Partner.</h1>
           <p>
-            MobPae helps salaried employees access earned wages before payday through employer-backed
-            approvals, NBFC partnerships, and payroll-linked recovery.
+            MobPae helps salaried employees access earned wages before payday
+            through employer-backed approvals, partner lenders, and
+            payroll-linked recovery.
           </p>
           <div className="home-hero__actions">
             <Link to="/#enquiry" className="premium-button">
               Request Demo <ArrowRight size={18} aria-hidden="true" />
             </Link>
-            <Link to="/how-it-works" className="premium-button premium-button--ghost">
+            <Link
+              to="/how-it-works"
+              className="premium-button premium-button--ghost"
+            >
               See How It Works
             </Link>
           </div>
-          <div className="home-hero__proof" aria-label="MobPae platform proof points">
-            {["Employer approved", "Payroll linked", "NBFC-ready", "Audit-ready"].map((item) => (
-              <span key={item}>
-                <Check size={14} aria-hidden="true" /> {item}
-              </span>
+          <div
+            className="home-hero__proof"
+            aria-label="MobPae platform proof points"
+          >
+            {["Employer approved", "Payroll linked", "Audit-ready"].map(
+              (item) => (
+                <span key={item}>
+                  <Check size={14} aria-hidden="true" /> {item}
+                </span>
+              )
+            )}
+          </div>
+          <div
+            className="home-hero__stats"
+            aria-label="MobPae platform metrics"
+          >
+            {heroStats.map((stat) => (
+              <div key={stat.label}>
+                <strong>{stat.value}</strong>
+                <span>{stat.label}</span>
+              </div>
             ))}
           </div>
         </div>
 
-        <div className="hero-product-stage" aria-label="MobPae salary access workflow preview">
-          <div className="hero-card-glow hero-card-glow--blue" aria-hidden="true" />
-          <div className="hero-card-glow hero-card-glow--soft-blue" aria-hidden="true" />
-          <div className="hero-object-card hero-object-card--back" aria-hidden="true">
-            <span>Payroll linked</span>
-            <strong>28 Jul</strong>
-          </div>
-          <div className="hero-object-card hero-object-card--front">
-            <div className="hero-object-card__brand">
-              <img src="/brand/mobpae-icon-color.png" alt="" width="36" height="36" />
-              <span>MobPae Access</span>
+        <div
+          className="hero-product-stage"
+          aria-label="MobPae employee app preview"
+        >
+          <div
+            className="hero-card-glow hero-card-glow--blue"
+            aria-hidden="true"
+          />
+          <div
+            className="hero-card-glow hero-card-glow--soft-blue"
+            aria-hidden="true"
+          />
+          <div className="hero-shot">
+            <img
+              src="/product-shots/dashboard.png"
+              alt="MobPae employee app dashboard showing available salary advance, limit, and recent activity"
+            />
+            <div className="hero-object-pill hero-shot__pill--top">
+              <ShieldCheck size={18} aria-hidden="true" />
+              Employer verified
             </div>
-            <p>Available before payday</p>
-            <strong>₹5,000</strong>
-            <div className="hero-object-card__meter">
-              <span />
+            <div className="hero-object-pill hero-shot__pill--bottom">
+              <CalendarClock size={18} aria-hidden="true" />
+              Payday aware
             </div>
-            <div className="hero-object-card__rows">
-              <span>
-                Employer approval <b>Ready</b>
-              </span>
-              <span>
-                Recovery cycle <b>Salary linked</b>
-              </span>
-            </div>
-          </div>
-          <div className="hero-object-pill hero-object-pill--left">
-            <ShieldCheck size={18} aria-hidden="true" />
-            Employer verified
-          </div>
-          <div className="hero-object-pill hero-object-pill--right">
-            <CalendarClock size={18} aria-hidden="true" />
-            Payday aware
           </div>
         </div>
       </div>
@@ -376,24 +393,28 @@ function FeatureGrid() {
 
 function EcosystemSection() {
   return (
-    <section className="section-shell section-shell--white ecosystem-features" id="product">
+    <section
+      className="section-shell section-shell--white ecosystem-features"
+      id="product"
+    >
       <div className="site-rail ecosystem-features__layout">
-        <div className="ecosystem-product-visual" aria-label="MobPae product surfaces">
-          <div className="ecosystem-product-visual__screen">
-            <span>MobPae</span>
-            <strong>Salary access workflow</strong>
-            <div className="ecosystem-product-visual__flow">
-              <span>Request</span>
-              <span>Approve</span>
-              <span>Disburse</span>
-              <span>Recover</span>
-            </div>
-          </div>
-          <div className="ecosystem-product-visual__card ecosystem-product-visual__card--one">
-            Employer approved
-          </div>
-          <div className="ecosystem-product-visual__card ecosystem-product-visual__card--two">
-            Payroll linked
+        <div className="ecosystem-flow-visual">
+          <div
+            className="workflow-summary__card workflow-summary__card--blue"
+            aria-label="MobPae's four connected surfaces"
+          >
+            {ecosystemSurfaces.map((surface, index) => (
+              <article className="workflow-preview-step" key={surface.title}>
+                <span className="workflow-preview-step__number">
+                  {index + 1}
+                </span>
+                <IconBubble icon={surface.icon} />
+                <div>
+                  <h3>{surface.title}</h3>
+                  <p>{surface.flowStep}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
 
@@ -401,37 +422,15 @@ function EcosystemSection() {
           <p className="eyebrow">Product ecosystem</p>
           <h2>Four surfaces. One payroll-aware flow.</h2>
           <p className="ecosystem-features__intro">
-            MobPae is not a disconnected set of dashboards. It is a single operating
-            layer where enquiry, approval, disbursal, recovery, and settlement move
-            with the same source of truth.
+            MobPae is not a disconnected set of dashboards. It is a single
+            operating layer where enquiry, approval, disbursal, recovery, and
+            settlement move with the same source of truth.
           </p>
 
-          <div className="ecosystem-left-panel" aria-label="MobPae connected product surfaces">
-            <div className="ecosystem-surface-rail">
-              {ecosystemSurfaces.map((surface) => (
-                <span className="ecosystem-surface-chip" key={surface.title}>
-                  <surface.icon size={16} aria-hidden="true" />
-                  {surface.label}
-                </span>
-              ))}
-            </div>
-
-            <div className="ecosystem-surface-stack">
-              {ecosystemSurfaces.map((surface) => (
-                <article className="ecosystem-surface" key={surface.title}>
-                  <div className="ecosystem-surface__icon">
-                    <surface.icon size={18} aria-hidden="true" />
-                  </div>
-                  <div>
-                    <h3>{surface.title}</h3>
-                    <p>{surface.body}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          <div className="ecosystem-sync-list" aria-label="What stays connected in MobPae">
+          <div
+            className="ecosystem-sync-list"
+            aria-label="What stays connected in MobPae"
+          >
             {ecosystemSyncPoints.map((point) => (
               <article className="ecosystem-sync-item" key={point.label}>
                 <span />
@@ -456,17 +455,34 @@ function WorkflowSection() {
           <p className="eyebrow">How it works</p>
           <h2>Salary advances that work for everyone.</h2>
           <p>
-            MobPae keeps the flow simple: employees request, employers approve, funds move after
-            verification, and recovery stays linked to payroll.
+            MobPae keeps the flow simple: employees request, employers approve,
+            funds move after verification, and recovery stays linked to payroll.
           </p>
           <div className="workflow-summary__actions">
             <Link to="/how-it-works" className="premium-button">
               View full workflow <ArrowRight size={17} aria-hidden="true" />
             </Link>
           </div>
+          <ul className="workflow-summary__highlights">
+            <li>
+              <Check size={14} aria-hidden="true" /> No manual reconciliation,
+              ever
+            </li>
+            <li>
+              <Check size={14} aria-hidden="true" /> Every approval and
+              disbursal logged
+            </li>
+            <li>
+              <Check size={14} aria-hidden="true" /> Recovery aligned to your
+              payroll cutoff
+            </li>
+          </ul>
         </div>
 
-        <div className="workflow-summary__card" aria-label="MobPae workflow summary">
+        <div
+          className="workflow-summary__card"
+          aria-label="MobPae workflow summary"
+        >
           {workflowPreview.map((step, index) => (
             <article className="workflow-preview-step" key={step.title}>
               <span className="workflow-preview-step__number">{index + 1}</span>
@@ -537,7 +553,9 @@ function EnquirySection({
   loading: boolean;
   success: string;
   error: string;
-  updateField: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  updateField: (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
   submitEnquiry: (event: FormEvent<HTMLFormElement>) => void;
 }) {
   return (
@@ -547,17 +565,19 @@ function EnquirySection({
           <p className="eyebrow">Employer enquiry</p>
           <h2>Let’s build a financially stronger workforce.</h2>
           <p>
-            Share the basics and our team will schedule a focused call for your payroll, HR, and
-            employee wellness requirements.
+            Share the basics and our team will schedule a focused call for your
+            payroll, HR, and employee wellness requirements.
           </p>
           <ul>
-            {["Tailored demo for your organization", "Payroll cycle and approval discussion", "Implementation path for MVP rollout"].map(
-              (item) => (
-                <li key={item}>
-                  <Check size={16} aria-hidden="true" /> {item}
-                </li>
-              ),
-            )}
+            {[
+              "Tailored demo for your organization",
+              "Payroll cycle and approval discussion",
+              "Implementation path for MVP rollout",
+            ].map((item) => (
+              <li key={item}>
+                <Check size={16} aria-hidden="true" /> {item}
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -616,12 +636,20 @@ function EnquirySection({
               required
             />
           </Field>
-          {success ? <p className="form-status form-status--success">{success}</p> : null}
-          {error ? <p className="form-status form-status--error">{error}</p> : null}
+          {success ? (
+            <p className="form-status form-status--success">{success}</p>
+          ) : null}
+          {error ? (
+            <p className="form-status form-status--error">{error}</p>
+          ) : null}
           <button type="submit" className="premium-button" disabled={loading}>
-            {loading ? "Submitting..." : "Submit Enquiry"} <ArrowRight size={18} aria-hidden="true" />
+            {loading ? "Submitting..." : "Submit Enquiry"}{" "}
+            <ArrowRight size={18} aria-hidden="true" />
           </button>
-          <small>We respect your privacy. Your information is used only to contact you about MobPae.</small>
+          <small>
+            We respect your privacy. Your information is used only to contact
+            you about MobPae.
+          </small>
         </form>
       </div>
     </section>
@@ -641,7 +669,10 @@ function FaqSection({
         <div className="section-heading">
           <p className="eyebrow">FAQ</p>
           <h2>Everything you need to know.</h2>
-          <p>Clear answers for employers evaluating salary access as a responsible workplace benefit.</p>
+          <p>
+            Clear answers for employers evaluating salary access as a
+            responsible workplace benefit.
+          </p>
           <Link to="/faqs" className="text-link">
             View all FAQs <ArrowRight size={17} aria-hidden="true" />
           </Link>
@@ -679,14 +710,21 @@ function FinalCta() {
           <p className="eyebrow">Ready to empower your team?</p>
           <h2>Beating Your Month End Crunch.</h2>
           <p>
-            Give employees a calmer way to handle salary gaps while keeping approval, recovery, and
-            settlement workflows structured for employers.
+            Give employees a calmer way to handle salary gaps while keeping
+            approval, recovery, and settlement workflows structured for
+            employers.
           </p>
           <div>
-            <Link to="/#enquiry" className="premium-button premium-button--light">
+            <Link
+              to="/#enquiry"
+              className="premium-button premium-button--light"
+            >
               Request Demo <ArrowRight size={18} aria-hidden="true" />
             </Link>
-            <Link to="/product" className="premium-button premium-button--dark-ghost">
+            <Link
+              to="/product"
+              className="premium-button premium-button--dark-ghost"
+            >
               Explore Product
             </Link>
           </div>

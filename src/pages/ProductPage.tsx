@@ -4,13 +4,13 @@ import { HeroPanel, PageHero } from "../components/PageHero";
 import { Link } from "react-router-dom";
 
 // ── design tokens ─────────────────────────────────────────────────────────────
-const B  = "#0057FF";
-const BH = "#0047D8";
-const T1 = "#0B0D12";
-const T2 = "#5B6270";
+const B  = "var(--mp-blue)";
+const BH = "var(--mp-blue-700)";
+const T1 = "var(--mp-ink)";
+const T2 = "var(--mp-muted)";
 const T3 = "#8A90A0";
-const BG = "#F8F7F4";
-const BD = "#E6E8EE";
+const BG = "var(--mp-page)";
+const BD = "var(--mp-border)";
 const BT = "rgba(0,87,255,0.08)";
 const PAGE_MAX = 1840;
 
@@ -121,7 +121,7 @@ function ForEmployeesSection() {
     "Repayment happens automatically from your next salary. No manual payments.",
   ];
   return (
-    <section id="employees" className="zigzag-surface zigzag-surface--employees" style={{ background: BG, padding: "clamp(48px,7vw,96px) 0" }}>
+    <section id="employees" style={{ background: BG, padding: "clamp(48px,7vw,96px) 0" }}>
       <div style={W(PAGE_MAX)}>
         <div className="product-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
           <div>

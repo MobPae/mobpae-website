@@ -1,4 +1,5 @@
 import {
+  ArrowRight,
   Building2,
   CalendarClock,
   Landmark,
@@ -6,8 +7,36 @@ import {
   Sparkles,
   WalletCards,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteNav } from "../components/SiteNav";
+
+const team = [
+  {
+    initials: "LP",
+    photo: "/team/luhit-parajuli.png",
+    name: "Luhit Parajuli",
+    role: "Co-Founder & Business Strategy",
+  },
+  {
+    initials: "JU",
+    photo: "/team/jyotirmoy.png",
+    name: "Jyotirmoy Upadhaya",
+    role: "Co-Founder & Technology Lead",
+  },
+  {
+    initials: "BB",
+    photo: "/team/bharati-bhattarai.png",
+    name: "Bharati Bhattarai",
+    role: "Admin & Legal Head",
+  },
+  {
+    initials: "JB",
+    photo: "/team/junu.png",
+    name: "Junu Bhattarai",
+    role: "HR & Digital Marketing Lead",
+  },
+];
 
 const model = [
   {
@@ -117,6 +146,35 @@ export function AboutPage() {
                 ))}
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="story-led-team">
+          <div className="site-rail">
+            <div className="story-led-section-head">
+              <p className="eyebrow">The people</p>
+              <h2>Meet our team.</h2>
+            </div>
+
+            <div className="story-led-team__grid">
+              {team.map((member) => (
+                <article className="story-led-team__item" key={member.name}>
+                  <div className="story-led-team__avatar">
+                    {member.photo ? (
+                      <img src={member.photo} alt={member.name} />
+                    ) : (
+                      <span>{member.initials}</span>
+                    )}
+                  </div>
+                  <h3>{member.name}</h3>
+                  <p>{member.role}</p>
+                </article>
+              ))}
+            </div>
+
+            <Link to="/team" className="text-link story-led-team__link">
+              Meet the full team <ArrowRight size={16} aria-hidden="true" />
+            </Link>
           </div>
         </section>
 

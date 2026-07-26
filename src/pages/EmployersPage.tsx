@@ -4,12 +4,12 @@ import { SiteNav } from "../components/SiteNav";
 import { SiteFooter } from "../components/SiteFooter";
 import { HeroPanel, PageHero } from "../components/PageHero";
 
-const B    = "#0057FF";
-const BH   = "#0047D8";
-const T1   = "#0B0D12";
-const T2   = "#5B6270";
-const BG   = "#F8F7F4";
-const BD   = "#E6E8EE";
+const B    = "var(--mp-blue)";
+const BH   = "var(--mp-blue-700)";
+const T1   = "var(--mp-ink)";
+const T2   = "var(--mp-muted)";
+const BG   = "var(--mp-page)";
+const BD   = "var(--mp-border)";
 const PAGE_MAX = 1840;
 
 const W = (maxWidth: number | string): React.CSSProperties => ({

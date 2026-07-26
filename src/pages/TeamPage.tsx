@@ -5,12 +5,12 @@ import { SiteFooter } from "../components/SiteFooter";
 import { HeroPanel, PageHero } from "../components/PageHero";
 
 // ── Design tokens ─────────────────────────────────────────────────────────────
-const B = "#0057FF";
-const BH = "#0047D8";
-const T1 = "#0B0D12";
-const T2 = "#5B6270";
-const BG = "#F8F7F4";
-const BD = "#E6E8EE";
+const B = "var(--mp-blue)";
+const BH = "var(--mp-blue-700)";
+const T1 = "var(--mp-ink)";
+const T2 = "var(--mp-muted)";
+const BG = "var(--mp-page)";
+const BD = "var(--mp-border)";
 const PAGE_MAX = 1840;
 
 const W = (maxWidth: number | string): React.CSSProperties => ({
@@ -56,12 +56,12 @@ const TEAM: Member[] = [
     bio: "7+ years in administration, legal compliance, and corporate governance. Keeps MobPae's regulatory foundations solid and operations running smoothly.",
   },
   {
-    initials: "AK",
-    photo: null,
-    name: "Anurag Koirala",
-    role: "Software Development",
+    initials: "JB",
+    photo: "/team/junu.png",
+    name: "Junu Bhattarai",
+    role: "HR & Digital Marketing Lead",
     accent: B,
-    bio: "1+ years in software development and designing.",
+    bio: "Leads HR operations and digital marketing, connecting MobPae's people processes with how the product reaches employers and employees.",
   },
 ];
 
@@ -171,10 +171,10 @@ export function TeamPage() {
       <section style={{ background: BG, padding: "0 0 clamp(64px,9vw,100px)" }}>
         <div style={W(PAGE_MAX)}>
           <div
-            className="redesign-4col"
+            className="redesign-3col"
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(4, 1fr)",
+              gridTemplateColumns: "repeat(3, 1fr)",
               gap: 24,
             }}
           >
@@ -290,7 +290,7 @@ export function TeamPage() {
                   justifyContent: "center",
                   color: "#fff",
                   fontSize: 28,
-                  fontWeight: 300,
+                  fontWeight: 400,
                   lineHeight: 1,
                 }}
               >

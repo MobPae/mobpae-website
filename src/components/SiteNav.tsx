@@ -22,10 +22,6 @@ export function SiteNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [location.pathname, location.hash]);
-
   return (
     <>
       <a className="skip-link" href="#main-content">
@@ -75,11 +71,11 @@ export function SiteNav() {
         {menuOpen ? (
           <nav id="mobile-navigation" className="site-nav__mobile" aria-label="Mobile navigation">
             {NAV_LINKS.map((link) => (
-              <Link key={link.href} to={link.href}>
+              <Link key={link.href} to={link.href} onClick={() => setMenuOpen(false)}>
                 {link.label}
               </Link>
             ))}
-            <Link to="/#enquiry" className="site-nav__mobile-cta">
+            <Link to="/#enquiry" className="site-nav__mobile-cta" onClick={() => setMenuOpen(false)}>
               Request Demo
             </Link>
           </nav>
