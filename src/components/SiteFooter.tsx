@@ -80,6 +80,8 @@ export function SiteFooter() {
                 alt="MobPae"
                 width="168"
                 height="40"
+                loading="lazy"
+                decoding="async"
               />
             </Link>
             <p>

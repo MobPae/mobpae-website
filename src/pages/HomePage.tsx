@@ -19,9 +19,10 @@ import { Link } from "react-router-dom";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteNav } from "../components/SiteNav";
 
-const API_BASE = (
-  (import.meta.env.VITE_API_BASE_URL as string | undefined) || ""
-).replace(/\/api\/v1\/?$/, "");
+// TEMPORARY: re-enable once the backend is deployed (see submitEnquiry below).
+// const API_BASE = (
+//   (import.meta.env.VITE_API_BASE_URL as string | undefined) || ""
+// ).replace(/\/api\/v1\/?$/, "");
 
 type FormState = {
   contactName: string;
@@ -235,7 +236,12 @@ export function HomePage() {
     setError("");
 
     try {
-      const response = await fetch(`${API_BASE}/employer-enquiries`, {
+      // TEMPORARY: the backend (POST ${API_BASE}/employer-enquiries) isn't
+      // deployed yet, so enquiries are emailed directly via a Vercel
+      // serverless function (api/enquiry.ts) instead, so we don't miss them.
+      // Once the backend is live, delete api/enquiry.ts and swap this block
+      // back for the commented-out backend call below.
+      const response = await fetch("/api/enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -243,10 +249,23 @@ export function HomePage() {
           contactPerson: form.contactName.trim(),
           email: form.email.trim().toLowerCase(),
           phone: form.phone.trim() || null,
-          employeeCount: null,
           message: form.message.trim(),
         }),
       });
+
+      // ── Backend call (restore once the backend is deployed) ──────────
+      // const response = await fetch(`${API_BASE}/employer-enquiries`, {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({
+      //     companyName: form.companyName.trim(),
+      //     contactPerson: form.contactName.trim(),
+      //     email: form.email.trim().toLowerCase(),
+      //     phone: form.phone.trim() || null,
+      //     employeeCount: null,
+      //     message: form.message.trim(),
+      //   }),
+      // });
 
       if (!response.ok) throw new Error("Failed to submit enquiry");
       setSuccess("Enquiry submitted. Our team will contact you shortly.");
@@ -353,6 +372,9 @@ function HeroSection() {
             <img
               src="/product-shots/dashboard.png"
               alt="MobPae employee app dashboard showing available salary advance, limit, and recent activity"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
             />
             <div className="hero-object-pill hero-shot__pill--top">
               <ShieldCheck size={18} aria-hidden="true" />
@@ -504,17 +526,17 @@ function TestimonialsSection() {
     {
       quote:
         "The strongest part of MobPae is that the employer remains in control. It feels like a benefit, not a credit product running outside HR.",
-      role: "HR leader, retail workforce",
+      role: "",
     },
     {
       quote:
         "Payroll date visibility solves a real confusion point. Employees understand when repayment happens before they request money.",
-      role: "Finance operations manager",
+      role: "",
     },
     {
       quote:
         "The product is practical because it speaks to all three sides: employee need, employer approval, and capital risk quality.",
-      role: "Fintech advisor",
+      role: "",
     },
   ];
 

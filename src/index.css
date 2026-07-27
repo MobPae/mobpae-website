@@ -1166,6 +1166,20 @@ svg {
   box-shadow: 0 0 0 4px rgba(0, 87, 255, 0.12);
 }
 
+.form-field input:hover,
+.form-field textarea:hover {
+  border-color: rgba(8, 31, 57, 0.14);
+}
+
+.form-field input:-webkit-autofill,
+.form-field input:-webkit-autofill:hover,
+.form-field input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--mp-ink);
+  -webkit-box-shadow: 0 0 0 1000px #fff inset;
+  box-shadow: 0 0 0 1000px #fff inset;
+  transition: background-color 600000s ease-in-out 0s;
+}
+
 .form-field small,
 .form-status--error {
   color: #dc2626;
@@ -1774,6 +1788,10 @@ svg {
     font-size: clamp(23px, 6vw, 30px);
     letter-spacing: -0.02em;
     line-height: 1.14;
+  }
+
+  .story-led-section-head {
+    grid-template-columns: 1fr;
   }
 
   .story-led-model__item {

@@ -245,6 +245,9 @@ export function EmployeesPage() {
               src="/product-shots/dashboard.png"
               alt="MobPae employee app dashboard showing available salary advance, limit, and recent activity"
               className="block h-full w-full object-cover object-top"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
             />
           </div>
         </HeroPanel>
@@ -390,7 +393,7 @@ export function CareersPage() {
     },
     {
       area: "Partnerships",
-      title: "NBFC and payroll partnerships",
+      title: "Capital partner and payroll partnerships",
       location: "India",
       type: "Exploratory",
       body: "Build trusted partner relationships across lending, payroll and employer financial wellness programs.",
@@ -465,7 +468,7 @@ export function StyleGuidePage() {
     <StaticShell>
       <section className="style-guide-page">
         <aside className="style-guide-nav" aria-label="Style guide sections">
-          <img src="/brand/mobpae-icon-color.png" alt="" />
+          <img src="/brand/mobpae-icon-color.png" alt="" loading="lazy" decoding="async" />
           <p>MobPae System</p>
           <nav>
             {sections.map((section) => (
@@ -577,7 +580,7 @@ export function StyleGuidePage() {
             <div className="style-tabs-demo" role="tablist" aria-label="Demo tabs">
               <button type="button" className="is-active" role="tab" aria-selected="true">Employers</button>
               <button type="button" role="tab" aria-selected="false">Employees</button>
-              <button type="button" role="tab" aria-selected="false">NBFCs</button>
+              <button type="button" role="tab" aria-selected="false">Partners</button>
             </div>
           </StyleSection>
 

@@ -94,7 +94,7 @@ const FLOW = [
 
 const TRUST = [
   { icon: Lock, label: "End-to-end encryption" },
-  { icon: Landmark, label: "NBFC partnership ready" },
+  { icon: Landmark, label: "Capital partner ready" },
   { icon: ClipboardList, label: "RBI-aligned compliance" },
   { icon: ShieldCheck, label: "Employer data privacy" },
 ];
@@ -268,7 +268,7 @@ export function HowItWorksPage() {
               Built on trust and compliance
             </h2>
             <p style={{ fontSize: 15, color: T2, lineHeight: 1.7, margin: 0 }}>
-              MobPae operates with NBFC partnership readiness, RBI-aligned data handling, and end-to-end encryption on all financial data.
+              MobPae operates with capital partnership readiness, RBI-aligned data handling, and end-to-end encryption on all financial data.
             </p>
           </div>
           <div className="redesign-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18 }}>

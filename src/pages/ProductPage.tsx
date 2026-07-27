@@ -48,7 +48,7 @@ export function ProductPage() {
         <ProductHero />
         <ForEmployeesSection />
         <ForEmployersSection />
-        <ForNbfcSection />
+        <ForCapitalPartnersSection />
         <DisbursementSection />
         <ComplianceSection />
         <ProductFinalCta />
@@ -223,7 +223,7 @@ function ForEmployersSection() {
 }
 
 // ── 4. For Capital Partners ───────────────────────────────────────────────────
-function ForNbfcSection() {
+function ForCapitalPartnersSection() {
   const points = [
     "Short-tenure exposure: average duration under 30 days, reducing portfolio risk.",
     "Employer-verified employees — salary confirmation before disbursal, not after.",
@@ -235,7 +235,7 @@ function ForNbfcSection() {
     { label: "Repayment method",       value: "Payroll deduction" },
   ];
   return (
-    <section id="nbfc" style={{ background: BG, padding: "clamp(48px,7vw,96px) 0" }}>
+    <section id="capital-partners" style={{ background: BG, padding: "clamp(48px,7vw,96px) 0" }}>
       <div style={W(PAGE_MAX)}>
         <div className="product-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
           <div>

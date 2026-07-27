@@ -51,7 +51,7 @@ const model = [
   },
   {
     icon: Landmark,
-    title: "NBFC partners",
+    title: "Capital partners",
     body: "Better context through employer-assisted verification.",
   },
 ];
@@ -82,6 +82,9 @@ export function AboutPage() {
               <img
                 src="/about/mobpae-story-visual.png"
                 alt="A salaried employee in a calm office with payroll and employer approval visuals"
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
               />
               <figcaption>
                 Employer-powered salary access, designed around real payroll cycles.
@@ -94,7 +97,7 @@ export function AboutPage() {
           <div className="site-rail story-led-strip__grid">
             <h2>Built around the real salary cycle.</h2>
             <p>
-              Employer-backed approvals, NBFC partnerships and payroll-linked recovery create a
+              Employer-backed approvals, capital partnerships and payroll-linked recovery create a
               controlled financial wellness layer for salaried teams.
             </p>
           </div>
@@ -161,7 +164,12 @@ export function AboutPage() {
                 <article className="story-led-team__item" key={member.name}>
                   <div className="story-led-team__avatar">
                     {member.photo ? (
-                      <img src={member.photo} alt={member.name} />
+                      <img
+                        src={member.photo}
+                        alt={member.name}
+                        loading="lazy"
+                        decoding="async"
+                      />
                     ) : (
                       <span>{member.initials}</span>
                     )}

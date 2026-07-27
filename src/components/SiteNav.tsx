@@ -36,6 +36,8 @@ export function SiteNav() {
               width="156"
               height="45"
               className="site-nav__brand-image"
+              loading="eager"
+              decoding="async"
             />
           </Link>
 
