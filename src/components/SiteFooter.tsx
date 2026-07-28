@@ -10,26 +10,25 @@ function LinkedInIcon() {
 
 function InstagramIcon() {
   return (
-    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
-function XIcon() {
-  return (
-    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
-      <path d="M18.244 2H21.5l-7.5 8.57L22.75 22h-6.844l-5.36-7.02L4.36 22H1.1l8.03-9.17L1.5 2h7.02l4.84 6.42L18.244 2Zm-1.2 18h1.9L7.03 4H5l12.044 16Z" />
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+      <rect
+        x="3"
+        y="3"
+        width="18"
+        height="18"
+        rx="5"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2" />
+      <circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" />
     </svg>
   );
 }
 
 const socialLinks = [
   { label: "LinkedIn", href: "https://linkedin.com/company/mobpae", Icon: LinkedInIcon, color: "#0A66C2" },
-  { label: "Instagram", href: "", Icon: InstagramIcon, color: "#E4405F" },
-  { label: "X (Twitter)", href: "", Icon: XIcon, color: "#000000" },
+  { label: "Instagram", href: "https://www.instagram.com/mobpae/", Icon: InstagramIcon, color: "#E4405F" },
 ];
 
 const footerColumns = [
@@ -63,7 +62,6 @@ const footerColumns = [
       { label: "Help Center", href: "/help-center" },
       { label: "Privacy Policy", href: "/privacy-policy" },
       { label: "Terms & Conditions", href: "/terms" },
-      { label: "404 Page", href: "/404" },
     ],
   },
 ];
@@ -76,10 +74,10 @@ export function SiteFooter() {
           <div className="site-footer__brand">
             <Link to="/" aria-label="MobPae home" className="site-footer__logo">
               <img
-                src="/brand/mobpae-logo-horizontal.png"
+                src="/brand/mobpae-logo.svg"
                 alt="MobPae"
-                width="168"
-                height="40"
+                width="176"
+                height="53"
                 loading="lazy"
                 decoding="async"
               />
@@ -89,24 +87,18 @@ export function SiteFooter() {
               liquidity, payroll clarity, and workforce wellbeing.
             </p>
             <div className="site-footer__socials" aria-label="Social links">
-              {socialLinks.map(({ label, href, Icon, color }) =>
-                href ? (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`MobPae on ${label}`}
-                    style={{ color }}
-                  >
-                    <Icon />
-                  </a>
-                ) : (
-                  <span key={label} aria-hidden="true" style={{ color }}>
-                    <Icon />
-                  </span>
-                )
-              )}
+              {socialLinks.map(({ label, href, Icon, color }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`MobPae on ${label}`}
+                  style={{ color }}
+                >
+                  <Icon />
+                </a>
+              ))}
             </div>
           </div>
 

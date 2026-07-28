@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 400" role="img" aria-label="MobPae">
+  <title>MobPae</title>
+  <!-- Icon: two rounded squares that pinch inward at center, forming diamond negative space -->
+  <g>
+    <!-- Left shape (theme blue) -->
+    <path fill="#0057ff" d="M 80 60 L 160 60 A 40 40 0 0 1 200 100 L 140 200 L 200 300 A 40 40 0 0 1 160 340 L 80 340 A 40 40 0 0 1 40 300 L 40 100 A 40 40 0 0 1 80 60 Z"/>
+    <!-- Right shape (light sky blue) -->
+    <path fill="#8ac9f4" d="M 320 60 L 240 60 A 40 40 0 0 0 200 100 L 260 200 L 200 300 A 40 40 0 0 0 240 340 L 320 340 A 40 40 0 0 0 360 300 L 360 100 A 40 40 0 0 0 320 60 Z"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="430" y="270"
+        font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+        font-size="220" font-weight="400" fill="#0b2c73"
+        letter-spacing="-4">MobPae</text>
+</svg>

@@ -70,24 +70,34 @@ export function AboutPage() {
       <main id="main-content">
         <section className="story-led-hero">
           <div className="site-rail story-led-hero__grid">
-            <div className="story-led-hero__copy">
-              <p className="eyebrow">Our Story</p>
-              <h1>Built for the salary gap.</h1>
-              <p>
-                MobPae exists for the space between salary earned and salary paid.
-              </p>
-            </div>
-
             <figure className="story-led-media">
-              <img
-                src="/about/mobpae-story-visual.png"
-                alt="A salaried employee in a calm office with payroll and employer approval visuals"
-                loading="eager"
-                decoding="async"
-                fetchPriority="high"
-              />
+              <picture>
+                <source
+                  media="(max-width: 720px)"
+                  srcSet="/about/our-story-cover-mobile.png"
+                />
+                <source
+                  type="image/webp"
+                  srcSet="/about/our-story-cover.webp"
+                />
+                <img
+                  src="/about/our-story-cover.png"
+                  alt="MobPae story visual for employer-powered financial wellness"
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
+                />
+              </picture>
+              <div className="story-led-hero__copy">
+                <h1>Built for the salary gap between paydays.</h1>
+                <p>
+                  MobPae exists for the space between salary earned and salary
+                  paid.
+                </p>
+              </div>
               <figcaption>
-                Employer-powered salary access, designed around real payroll cycles.
+                Employer-powered salary access, designed around real payroll
+                cycles.
               </figcaption>
             </figure>
           </div>
@@ -97,8 +107,9 @@ export function AboutPage() {
           <div className="site-rail story-led-strip__grid">
             <h2>Built around the real salary cycle.</h2>
             <p>
-              Employer-backed approvals, capital partnerships and payroll-linked recovery create a
-              controlled financial wellness layer for salaried teams.
+              Employer-backed approvals, capital partnerships and payroll-linked
+              recovery create a controlled financial wellness layer for salaried
+              teams.
             </p>
           </div>
         </section>
@@ -142,7 +153,9 @@ export function AboutPage() {
 
             <div className="story-led-vision__copy">
               <p className="eyebrow">Our vision</p>
-              <h2>Building India’s employer-powered financial wellness ecosystem.</h2>
+              <h2>
+                Building India’s employer-powered financial wellness ecosystem.
+              </h2>
               <div className="story-led-principles">
                 {principles.map((principle) => (
                   <span key={principle}>{principle}</span>
@@ -185,7 +198,6 @@ export function AboutPage() {
             </Link>
           </div>
         </section>
-
       </main>
       <SiteFooter />
     </div>

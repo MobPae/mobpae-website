@@ -16,6 +16,7 @@ import {
 import type { ChangeEvent, CSSProperties, FormEvent, ReactNode } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { AppPreview } from "../components/AppPreview";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteNav } from "../components/SiteNav";
 
@@ -369,13 +370,11 @@ function HeroSection() {
             aria-hidden="true"
           />
           <div className="hero-shot">
-            <img
-              src="/product-shots/dashboard.png"
-              alt="MobPae employee app dashboard showing available salary advance, limit, and recent activity"
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-            />
+            <AppPreview priority />
+            <span className="sr-only">
+              MobPae employee app dashboard showing available salary advance,
+              limit, and recent activity
+            </span>
             <div className="hero-object-pill hero-shot__pill--top">
               <ShieldCheck size={18} aria-hidden="true" />
               Employer verified
@@ -526,17 +525,17 @@ function TestimonialsSection() {
     {
       quote:
         "The strongest part of MobPae is that the employer remains in control. It feels like a benefit, not a credit product running outside HR.",
-      role: "",
+      role: "Employer-first design",
     },
     {
       quote:
         "Payroll date visibility solves a real confusion point. Employees understand when repayment happens before they request money.",
-      role: "",
+      role: "Payroll-aware recovery",
     },
     {
       quote:
         "The product is practical because it speaks to all three sides: employee need, employer approval, and capital risk quality.",
-      role: "",
+      role: "Three-sided trust",
     },
   ];
 

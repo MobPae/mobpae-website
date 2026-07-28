@@ -107,7 +107,7 @@ function Avatar({ member }: { member: Member }) {
       style={{
         width: "100%",
         height: "100%",
-        background: `linear-gradient(135deg, ${member.accent}22 0%, ${member.accent}44 100%)`,
+        background: "#eef8ff",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -155,14 +155,14 @@ export function TeamPage() {
         description="A small founding team combining financial services, platform engineering, legal operations and product execution for India's employer-powered wellness market."
       >
         <HeroPanel>
-          <p style={{ margin: 0, color: B, fontSize: 12, fontWeight: 400, letterSpacing: "0.16em", textTransform: "uppercase" }}>
+          <p style={{ margin: 0, color: "var(--mp-sky)", fontSize: 12, fontWeight: 400, letterSpacing: "0.16em", textTransform: "uppercase" }}>
             Operating principles
           </p>
           <div style={{ display: "grid", gap: 12, marginTop: 22 }}>
             {["Financial discipline", "Product clarity", "Employer trust", "Responsible access"].map((item) => (
-              <div key={item} style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 0", borderTop: `1px solid ${BD}` }}>
-                <span style={{ width: 9, height: 9, borderRadius: "50%", background: "#0057FF", boxShadow: "0 0 0 5px rgba(0, 87, 255,0.16)" }} />
-                <span style={{ color: T1, fontSize: 14, fontWeight: 400 }}>{item}</span>
+              <div key={item} style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 0", borderTop: "1px solid rgba(255,255,255,0.15)" }}>
+                <span style={{ width: 9, height: 9, borderRadius: "50%", background: "#0057ff", boxShadow: "0 0 0 5px rgba(138, 201, 244, 0.34)" }} />
+                <span style={{ color: "#fff", fontSize: 14, fontWeight: 400 }}>{item}</span>
               </div>
             ))}
           </div>
@@ -438,7 +438,7 @@ export function TeamPage() {
               alignItems: "center",
               border: "1px solid rgba(0, 87, 255,0.12)",
               borderRadius: 20,
-              background: "#F8FAFF",
+              background: "#eef8ff",
               padding: "clamp(24px,3vw,40px)",
             }}
           >
@@ -497,7 +497,7 @@ export function TeamPage() {
                     alignItems: "center",
                     gap: 14,
                     padding: "13px 18px",
-                    background: "#F8FAFF",
+                    background: "#eef8ff",
                     borderRadius: 10,
                     border: `1px solid ${BD}`,
                     transition:
@@ -505,13 +505,13 @@ export function TeamPage() {
                   }}
                   onMouseEnter={(e) => {
                     (e.currentTarget as HTMLElement).style.background =
-                      "#F2F6FF";
+                      "#e9f6ff";
                     (e.currentTarget as HTMLElement).style.borderColor =
                       "rgba(0, 87, 255,0.22)";
                   }}
                   onMouseLeave={(e) => {
                     (e.currentTarget as HTMLElement).style.background =
-                      "#F8FAFF";
+                      "#eef8ff";
                     (e.currentTarget as HTMLElement).style.borderColor =
                       BD;
                   }}

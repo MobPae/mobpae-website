@@ -31,10 +31,10 @@ export function SiteNav() {
         <div className="site-nav__rail">
           <Link to="/" aria-label="MobPae home" className="site-nav__brand">
             <img
-              src="/brand/mobpae-logo-nav.png"
+              src="/brand/mobpae-logo.svg"
               alt="MobPae"
-              width="156"
-              height="45"
+              width="168"
+              height="50"
               className="site-nav__brand-image"
               loading="eager"
               decoding="async"

@@ -63,18 +63,6 @@ const routeMeta: Record<string, RouteMeta> = {
     description: "Explore opportunities to build employer-backed financial wellness products with the MobPae team.",
     canonicalPath: "/careers",
   },
-  "/style-guide": {
-    title: "MobPae Website Style Guide",
-    description: "A design-system reference for MobPae's website typography, colors, components, grids and motion.",
-    canonicalPath: "/style-guide",
-    robots: "noindex, follow",
-  },
-  "/admin/style-guide": {
-    title: "MobPae Website Style Guide",
-    description: "A design-system reference for MobPae's website typography, colors, components, grids and motion.",
-    canonicalPath: "/style-guide",
-    robots: "noindex, follow",
-  },
   "/contact": {
     title: "Contact MobPae",
     description: "Contact MobPae to discuss employer onboarding, employee support or a product demonstration.",

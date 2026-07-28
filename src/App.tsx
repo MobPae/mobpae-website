@@ -14,7 +14,6 @@ const EmployerBenefitsPage = lazy(() => import("./pages/WebsitePages").then((m) 
 const EmployeesPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.EmployeesPage })));
 const FaqsPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.FaqsPage })));
 const CareersPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.CareersPage })));
-const StyleGuidePage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.StyleGuidePage })));
 const BlogPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.BlogPage })));
 const HelpCenterPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.HelpCenterPage })));
 const ContactPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.ContactPage })));
@@ -146,8 +145,6 @@ function App() {
           <Route path="/team" element={<TeamPage />} />
           <Route path="/teams" element={<Navigate to="/team" replace />} />
           <Route path="/careers" element={<CareersPage />} />
-          <Route path="/style-guide" element={<StyleGuidePage />} />
-          <Route path="/admin/style-guide" element={<StyleGuidePage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/help-center" element={<HelpCenterPage />} />

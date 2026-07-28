@@ -29,6 +29,7 @@ import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { SiteNav } from "../components/SiteNav";
 import { SiteFooter } from "../components/SiteFooter";
+import { AppPreview } from "../components/AppPreview";
 import { HeroPanel, PageHero } from "../components/PageHero";
 
 type PageContent = {
@@ -136,14 +137,29 @@ const pageContent: Record<string, PageContent> = {
       {
         title: "For employees",
         body: "Complete KYC, add bank account details, pay the platform fee after employer approval and track salary advance requests from the employee app.",
+        points: [
+          "Complete setup once",
+          "See request and repayment status",
+          "Pay only after employer approval",
+        ],
       },
       {
         title: "For employers",
         body: "Review employee requests, approve eligible advances and coordinate recoveries with your payroll cycle.",
+        points: [
+          "Review requests with salary context",
+          "Track recovery and settlement status",
+          "Keep payroll teams in control",
+        ],
       },
       {
         title: "Need help?",
         body: "Email support@mobpae.com and our team will respond.",
+        points: [
+          "Share your company name",
+          "Mention employee code or request ID",
+          "Include screenshots only when needed",
+        ],
       },
     ],
   },
@@ -156,14 +172,29 @@ const pageContent: Record<string, PageContent> = {
       {
         title: "Information we collect",
         body: "We may collect company name, contact name, email address, phone number, employee count and message details when you submit an enquiry.",
+        points: [
+          "Website enquiry details",
+          "Contact and company context",
+          "Messages shared with our team",
+        ],
       },
       {
         title: "How we use information",
         body: "We use submitted information to contact you, understand your requirements, provide product information and improve our services.",
+        points: [
+          "Respond to employer enquiries",
+          "Prepare demo and onboarding conversations",
+          "Improve website and product communication",
+        ],
       },
       {
         title: "Data protection",
         body: "We take reasonable steps to protect submitted information from unauthorized access, misuse or disclosure.",
+        points: [
+          "Limited access to enquiry data",
+          "Operational use only",
+          "No public resale of submitted details",
+        ],
       },
       {
         title: "Contact",
@@ -180,14 +211,29 @@ const pageContent: Record<string, PageContent> = {
       {
         title: "Website use",
         body: "The content on this website is provided for general product information and may be updated without prior notice.",
+        points: [
+          "Informational website content",
+          "Product details may evolve",
+          "Pilot terms are confirmed separately",
+        ],
       },
       {
         title: "Enquiries",
         body: "Submitting an enquiry does not create a contract or guarantee service availability. Our team may contact you to understand your requirements.",
+        points: [
+          "Employer fit is reviewed first",
+          "Implementation depends on onboarding readiness",
+          "Commercial terms are shared during discussion",
+        ],
       },
       {
         title: "Limitation",
         body: "MobPae is not liable for losses arising from website misuse, temporary unavailability or reliance on general website content.",
+        points: [
+          "Use the official contact channels",
+          "Do not submit false information",
+          "Do not misuse website forms",
+        ],
       },
       {
         title: "Contact",
@@ -208,53 +254,108 @@ export function EmployerBenefitsPage() {
 
 export function EmployeesPage() {
   const steps = [
-    { icon: <Smartphone size={20} aria-hidden="true" />, title: "Complete setup", body: "See KYC, bank and platform fee status in one place before you request anything." },
-    { icon: <Wallet size={20} aria-hidden="true" />, title: "View available access", body: "Understand exactly what you can request before you commit to it." },
-    { icon: <Clock size={20} aria-hidden="true" />, title: "Track every status", body: "Follow approval, transfer and repayment without guessing where things stand." },
+    {
+      icon: <Smartphone size={20} aria-hidden="true" />,
+      title: "Complete setup",
+      body: "See KYC, bank and platform fee status in one place before you request anything.",
+    },
+    {
+      icon: <Wallet size={20} aria-hidden="true" />,
+      title: "View available access",
+      body: "Understand exactly what you can request before you commit to it.",
+    },
+    {
+      icon: <Clock size={20} aria-hidden="true" />,
+      title: "Track every status",
+      body: "Follow approval, transfer and repayment without guessing where things stand.",
+    },
   ];
 
   const trust = [
-    { icon: <FileCheck size={20} aria-hidden="true" />, title: "KYC verification", body: "Aadhaar and PAN checks keep your identity verified and your account secure.", tag: "Verified" },
-    { icon: <Landmark size={20} aria-hidden="true" />, title: "Bank-linked transfers", body: "Approved funds move straight to your linked account — no manual steps.", tag: "Direct" },
-    { icon: <ShieldCheck size={20} aria-hidden="true" />, title: "Employer-approved", body: "Every request passes through your employer before funds are released.", tag: "Controlled" },
+    {
+      icon: <FileCheck size={20} aria-hidden="true" />,
+      title: "KYC verification",
+      body: "Aadhaar and PAN checks keep your identity verified and your account secure.",
+      tag: "Verified",
+    },
+    {
+      icon: <Landmark size={20} aria-hidden="true" />,
+      title: "Bank-linked transfers",
+      body: "Approved funds move straight to your linked account — no manual steps.",
+      tag: "Direct",
+    },
+    {
+      icon: <ShieldCheck size={20} aria-hidden="true" />,
+      title: "Employer-approved",
+      body: "Every request passes through your employer before funds are released.",
+      tag: "Controlled",
+    },
   ];
 
   return (
     <StaticShell>
       <PageHero
         eyebrow="For employees"
-        title="Access earned salary with a calmer experience."
-        description="A mobile-first journey for setup, requests, status tracking and repayment visibility — without hidden steps."
+        title="One app for setup, access and repayment clarity."
+        description="Employees get a focused mobile experience for KYC, bank readiness, advance requests, platform fee status, repayment visibility and every approval update."
         actions={
           <>
             <Link to="/#enquiry" className="premium-button">
-              Bring MobPae to your workplace <ArrowRight size={17} aria-hidden="true" />
+              Bring MobPae to your workplace{" "}
+              <ArrowRight size={17} aria-hidden="true" />
             </Link>
-            <Link to="/how-it-works" className="premium-button premium-button--ghost">
+            <Link
+              to="/how-it-works"
+              className="premium-button premium-button--ghost"
+            >
               See how it works
             </Link>
           </>
         }
       >
         <HeroPanel>
-          <p className="eyebrow" style={{ marginBottom: 12 }}>
-            The MobPae employee app
-          </p>
-          <div className="mx-auto h-[420px] max-w-[260px] overflow-hidden rounded-[20px] shadow-[0_24px_70px_rgba(17,24,39,0.1)]" style={{ border: "1px solid var(--mp-border)" }}>
-            <img
-              src="/product-shots/dashboard.png"
-              alt="MobPae employee app dashboard showing available salary advance, limit, and recent activity"
-              className="block h-full w-full object-cover object-top"
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-            />
+          <div className="employee-app-showcase employee-app-showcase--hero">
+            <div className="employee-app-showcase__header">
+              <p className="eyebrow">The MobPae employee app</p>
+              <p>
+                A clear view of eligibility, request status and salary-cycle
+                repayment.
+              </p>
+            </div>
+            <div className="employee-app-showcase__stage">
+              <div className="employee-app-showcase__chip employee-app-showcase__chip--left">
+                <span>01</span>
+                Setup ready
+              </div>
+              <AppPreview className="employee-app-showcase__device" priority />
+              <div className="employee-app-showcase__chip employee-app-showcase__chip--right">
+                <span>02</span>
+                Payday aware
+              </div>
+            </div>
+            <div className="employee-app-showcase__metrics">
+              <div>
+                <span>Request</span>
+                <strong>Trackable</strong>
+              </div>
+              <div>
+                <span>Recovery</span>
+                <strong>Payroll-linked</strong>
+              </div>
+            </div>
+            <span className="sr-only">
+              MobPae employee app dashboard showing available salary advance,
+              limit, and recent activity
+            </span>
           </div>
         </HeroPanel>
       </PageHero>
 
       {/* The employee journey */}
-      <section aria-labelledby="employee-journey-title" className="section-shell section-shell--soft">
+      <section
+        aria-labelledby="employee-journey-title"
+        className="section-shell section-shell--soft"
+      >
         <div className="site-rail">
           <div className="section-heading">
             <p className="eyebrow">The employee journey</p>
@@ -264,10 +365,16 @@ export function EmployeesPage() {
             {steps.map((step, index) => (
               <article key={step.title} className="premium-card">
                 <div className="flex items-center justify-between">
-                  <span className="icon-bubble">
-                    {step.icon}
+                  <span className="icon-bubble">{step.icon}</span>
+                  <span
+                    style={{
+                      fontSize: 11,
+                      letterSpacing: "0.2em",
+                      color: "var(--mp-muted)",
+                    }}
+                  >
+                    0{index + 1}
                   </span>
-                  <span style={{ fontSize: 11, letterSpacing: "0.2em", color: "var(--mp-muted)" }}>0{index + 1}</span>
                 </div>
                 <h3>{step.title}</h3>
                 <p>{step.body}</p>
@@ -278,26 +385,44 @@ export function EmployeesPage() {
       </section>
 
       {/* Built around trust */}
-      <section aria-labelledby="employee-trust-title" className="section-shell section-shell--white">
+      <section
+        aria-labelledby="employee-trust-title"
+        className="section-shell section-shell--white"
+      >
         <div className="site-rail">
           <div className="section-heading">
             <p className="eyebrow">Built around trust</p>
-            <h2 id="employee-trust-title">Nothing happens without visibility.</h2>
+            <h2 id="employee-trust-title">
+              Nothing happens without visibility.
+            </h2>
           </div>
           <div className="mt-9 grid gap-5 md:grid-cols-3">
             {trust.map((item) => (
               <article key={item.title} className="premium-card">
-                <span className="icon-bubble">
-                  {item.icon}
-                </span>
+                <span className="icon-bubble">{item.icon}</span>
                 <h3 style={{ fontSize: 17, marginTop: 20 }}>{item.title}</h3>
                 <p style={{ fontSize: 13.5 }}>{item.body}</p>
-                <div className="mt-5" style={{ borderTop: "1px solid var(--mp-border)", paddingTop: 16 }}>
+                <div
+                  className="mt-5"
+                  style={{
+                    borderTop: "1px solid var(--mp-border)",
+                    paddingTop: 16,
+                  }}
+                >
                   <span
                     className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1"
-                    style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: "0.08em", background: "var(--mp-page)", color: "var(--mp-ink)" }}
+                    style={{
+                      fontSize: 10,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.08em",
+                      background: "var(--mp-page)",
+                      color: "var(--mp-ink)",
+                    }}
                   >
-                    <span className="h-1.5 w-1.5 rounded-full" style={{ background: "var(--mp-blue)" }} />
+                    <span
+                      className="h-1.5 w-1.5 rounded-full"
+                      style={{ background: "var(--mp-blue)" }}
+                    />
                     {item.tag}
                   </span>
                 </div>
@@ -308,40 +433,45 @@ export function EmployeesPage() {
       </section>
 
       {/* Support callout */}
-      <section className="section-shell section-shell--soft" style={{ paddingTop: 0 }}>
+      <section
+        className="section-shell section-shell--soft"
+        style={{ paddingTop: 0 }}
+      >
         <div className="site-rail grid gap-6 lg:grid-cols-2">
           <article className="premium-card">
-            <ShieldCheck size={24} style={{ color: "var(--mp-blue)" }} aria-hidden="true" />
-            <h2 style={{ fontSize: 25, marginTop: 20 }}>Know what happens next.</h2>
-            <p>Request tracking and repayment visibility keep the experience understandable from start to finish.</p>
+            <ShieldCheck
+              size={24}
+              style={{ color: "var(--mp-blue)" }}
+              aria-hidden="true"
+            />
+            <h2 style={{ fontSize: 25, marginTop: 20 }}>
+              Know what happens next.
+            </h2>
+            <p>
+              Request tracking and repayment visibility keep the experience
+              understandable from start to finish.
+            </p>
           </article>
           <article className="premium-card">
-            <HelpCircle size={24} style={{ color: "var(--mp-blue)" }} aria-hidden="true" />
+            <HelpCircle
+              size={24}
+              style={{ color: "var(--mp-blue)" }}
+              aria-hidden="true"
+            />
             <h2 style={{ fontSize: 25, marginTop: 20 }}>Need help?</h2>
-            <p>Visit the FAQs or contact support for onboarding, account and request questions.</p>
+            <p>
+              Visit the FAQs or contact support for onboarding, account and
+              request questions.
+            </p>
             <div className="mt-5 flex flex-wrap gap-4">
-              <Link to="/faqs" className="text-link">Read FAQs →</Link>
-              <a href="mailto:support@mobpae.com" className="text-link">Email support →</a>
+              <Link to="/faqs" className="text-link">
+                Read FAQs →
+              </Link>
+              <a href="mailto:support@mobpae.com" className="text-link">
+                Email support →
+              </a>
             </div>
           </article>
-        </div>
-      </section>
-
-      {/* Closing CTA */}
-      <section className="final-cta">
-        <div className="site-rail">
-          <div className="final-cta__card">
-            <h2>Ready to bring this to your team?</h2>
-            <p>Ask your employer to explore MobPae, or see the full approval-to-recovery flow first.</p>
-            <div>
-              <Link to="/#enquiry" className="premium-button premium-button--light">
-                Request a demo <ArrowRight size={17} aria-hidden="true" />
-              </Link>
-              <Link to="/how-it-works" className="premium-button premium-button--dark-ghost">
-                See how it works
-              </Link>
-            </div>
-          </div>
         </div>
       </section>
     </StaticShell>
@@ -406,8 +536,9 @@ export function CareersPage() {
         <div className="site-rail careers-hero__content">
           <h1>Work at MobPae</h1>
           <p>
-            Help build employer-powered salary access for the modern Indian workforce.
-            We are looking for people who care about trust, speed and responsible fintech.
+            Help build employer-powered salary access for the modern Indian
+            workforce. We are looking for people who care about trust, speed and
+            responsible fintech.
           </p>
         </div>
       </section>
@@ -419,11 +550,15 @@ export function CareersPage() {
               <a
                 key={role.title}
                 className="career-card"
-                href={`mailto:support@mobpae.com?subject=${encodeURIComponent(role.title)}`}
+                href={`mailto:support@mobpae.com?subject=${encodeURIComponent(
+                  role.title
+                )}`}
               >
                 <span className="career-card__tag">{role.area}</span>
                 <h2>{role.title}</h2>
-                <p className="career-card__meta">{role.location} · {role.type}</p>
+                <p className="career-card__meta">
+                  {role.location} · {role.type}
+                </p>
                 <p>{role.body}</p>
               </a>
             ))}
@@ -448,19 +583,28 @@ export function StyleGuidePage() {
   ];
 
   const colors = [
-    { name: "Primary Blue", value: "#0057FF", text: "#fff" },
-    { name: "Blue 700", value: "#0047D8", text: "#fff" },
-    { name: "Ink", value: "#07111F", text: "#fff" },
-    { name: "Muted", value: "#657386", text: "#fff" },
-    { name: "Page", value: "#F8F7F4", text: "#07111F" },
-    { name: "Soft Blue", value: "#EAF1FF", text: "#07111F" },
+    { name: "Primary Blue", value: "#0057ff", text: "#fff" },
+    { name: "Sky Blue", value: "#8ac9f4", text: "#0b2c73" },
+    { name: "Deep Navy", value: "#0b2c73", text: "#fff" },
+    { name: "Ink", value: "#0b2c73", text: "#fff" },
+    { name: "Muted", value: "#60708a", text: "#fff" },
+    { name: "Page", value: "#f8f7f4", text: "#0b2c73" },
+    { name: "Soft Sky", value: "#e9f6ff", text: "#0b2c73" },
   ];
 
   const typeScale = [
     { name: "Display", size: "34 / 58", copy: "Beating your month end crunch" },
-    { name: "Section", size: "25 / 34", copy: "One platform. Every stakeholder." },
+    {
+      name: "Section",
+      size: "25 / 34",
+      copy: "One platform. Every stakeholder.",
+    },
     { name: "Card title", size: "20 / 26", copy: "Employer-backed access" },
-    { name: "Body", size: "15 / 26", copy: "A calm, readable paragraph for product explanations." },
+    {
+      name: "Body",
+      size: "15 / 26",
+      copy: "A calm, readable paragraph for product explanations.",
+    },
     { name: "Label", size: "12 / 16", copy: "EMPLOYER APPROVED" },
   ];
 
@@ -468,11 +612,18 @@ export function StyleGuidePage() {
     <StaticShell>
       <section className="style-guide-page">
         <aside className="style-guide-nav" aria-label="Style guide sections">
-          <img src="/brand/mobpae-icon-color.png" alt="" loading="lazy" decoding="async" />
+          <img
+            src="/brand/mobpae-icon-color.png"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
           <p>MobPae System</p>
           <nav>
             {sections.map((section) => (
-              <a key={section} href={`#${section.toLowerCase()}`}>{section}</a>
+              <a key={section} href={`#${section.toLowerCase()}`}>
+                {section}
+              </a>
             ))}
           </nav>
         </aside>
@@ -482,12 +633,17 @@ export function StyleGuidePage() {
             <p className="eyebrow">Style guide</p>
             <h1>The MobPae website design system.</h1>
             <p>
-              A compact reference for the typography, colors, components and motion language
-              used across the MobPae marketing website.
+              A compact reference for the typography, colors, components and
+              motion language used across the MobPae marketing website.
             </p>
           </header>
 
-          <StyleSection id="typography" eyebrow="01" title="Typography" icon={<Type size={20} />}>
+          <StyleSection
+            id="typography"
+            eyebrow="01"
+            title="Typography"
+            icon={<Type size={20} />}
+          >
             <div className="style-type-list">
               {typeScale.map((item) => (
                 <article key={item.name}>
@@ -499,10 +655,18 @@ export function StyleGuidePage() {
             </div>
           </StyleSection>
 
-          <StyleSection id="colors" eyebrow="02" title="Colors" icon={<Palette size={20} />}>
+          <StyleSection
+            id="colors"
+            eyebrow="02"
+            title="Colors"
+            icon={<Palette size={20} />}
+          >
             <div className="style-color-grid">
               {colors.map((color) => (
-                <article key={color.name} style={{ background: color.value, color: color.text }}>
+                <article
+                  key={color.name}
+                  style={{ background: color.value, color: color.text }}
+                >
                   <span>{color.name}</span>
                   <strong>{color.value}</strong>
                 </article>
@@ -510,21 +674,51 @@ export function StyleGuidePage() {
             </div>
           </StyleSection>
 
-          <StyleSection id="buttons" eyebrow="03" title="Buttons" icon={<MousePointer2 size={20} />}>
+          <StyleSection
+            id="buttons"
+            eyebrow="03"
+            title="Buttons"
+            icon={<MousePointer2 size={20} />}
+          >
             <div className="style-button-row">
-              <a className="btn-primary" href="#buttons">Request Demo <ArrowRight size={17} /></a>
-              <a className="btn-secondary" href="#buttons">Learn More</a>
-              <button className="style-button-ghost" type="button">Cancel</button>
-              <button className="style-button-disabled" type="button" disabled>Not available</button>
+              <a className="btn-primary" href="#buttons">
+                Request Demo <ArrowRight size={17} />
+              </a>
+              <a className="btn-secondary" href="#buttons">
+                Learn More
+              </a>
+              <button className="style-button-ghost" type="button">
+                Cancel
+              </button>
+              <button className="style-button-disabled" type="button" disabled>
+                Not available
+              </button>
             </div>
           </StyleSection>
 
-          <StyleSection id="cards" eyebrow="04" title="Cards" icon={<Layers size={20} />}>
+          <StyleSection
+            id="cards"
+            eyebrow="04"
+            title="Cards"
+            icon={<Layers size={20} />}
+          >
             <div className="style-card-grid">
               {[
-                { icon: <ShieldCheck size={20} />, title: "Trust surface", body: "Used for security, compliance and employer confidence messaging." },
-                { icon: <Wallet size={20} />, title: "Product surface", body: "Used for employee salary access, repayments and activity previews." },
-                { icon: <Building2 size={20} />, title: "Employer surface", body: "Used for HR, payroll and approval workflows." },
+                {
+                  icon: <ShieldCheck size={20} />,
+                  title: "Trust surface",
+                  body: "Used for security, compliance and employer confidence messaging.",
+                },
+                {
+                  icon: <Wallet size={20} />,
+                  title: "Product surface",
+                  body: "Used for employee salary access, repayments and activity previews.",
+                },
+                {
+                  icon: <Building2 size={20} />,
+                  title: "Employer surface",
+                  body: "Used for HR, payroll and approval workflows.",
+                },
               ].map((card) => (
                 <article key={card.title} className="style-demo-card">
                   <span>{card.icon}</span>
@@ -535,7 +729,12 @@ export function StyleGuidePage() {
             </div>
           </StyleSection>
 
-          <StyleSection id="forms" eyebrow="05" title="Forms" icon={<FormInput size={20} />}>
+          <StyleSection
+            id="forms"
+            eyebrow="05"
+            title="Forms"
+            icon={<FormInput size={20} />}
+          >
             <div className="style-form-demo">
               <label>
                 Email
@@ -544,7 +743,9 @@ export function StyleGuidePage() {
               <label>
                 Company size
                 <select defaultValue="">
-                  <option value="" disabled>Select range</option>
+                  <option value="" disabled>
+                    Select range
+                  </option>
                   <option>1 - 50 employees</option>
                   <option>51 - 250 employees</option>
                   <option>250+ employees</option>
@@ -557,7 +758,12 @@ export function StyleGuidePage() {
             </div>
           </StyleSection>
 
-          <StyleSection id="grids" eyebrow="06" title="Grids" icon={<Grid3X3 size={20} />}>
+          <StyleSection
+            id="grids"
+            eyebrow="06"
+            title="Grids"
+            icon={<Grid3X3 size={20} />}
+          >
             <div className="style-grid-demo" aria-hidden="true">
               {Array.from({ length: 12 }, (_, index) => (
                 <span key={index}>0{index + 1}</span>
@@ -565,7 +771,12 @@ export function StyleGuidePage() {
             </div>
           </StyleSection>
 
-          <StyleSection id="spacing" eyebrow="07" title="Spacing" icon={<Compass size={20} />}>
+          <StyleSection
+            id="spacing"
+            eyebrow="07"
+            title="Spacing"
+            icon={<Compass size={20} />}
+          >
             <div className="style-spacing-demo" aria-label="Spacing scale">
               {[8, 12, 16, 24, 32, 48].map((space) => (
                 <div key={space}>
@@ -576,20 +787,57 @@ export function StyleGuidePage() {
             </div>
           </StyleSection>
 
-          <StyleSection id="tabs" eyebrow="08" title="Tabs" icon={<SlidersHorizontal size={20} />}>
-            <div className="style-tabs-demo" role="tablist" aria-label="Demo tabs">
-              <button type="button" className="is-active" role="tab" aria-selected="true">Employers</button>
-              <button type="button" role="tab" aria-selected="false">Employees</button>
-              <button type="button" role="tab" aria-selected="false">Partners</button>
+          <StyleSection
+            id="tabs"
+            eyebrow="08"
+            title="Tabs"
+            icon={<SlidersHorizontal size={20} />}
+          >
+            <div
+              className="style-tabs-demo"
+              role="tablist"
+              aria-label="Demo tabs"
+            >
+              <button
+                type="button"
+                className="is-active"
+                role="tab"
+                aria-selected="true"
+              >
+                Employers
+              </button>
+              <button type="button" role="tab" aria-selected="false">
+                Employees
+              </button>
+              <button type="button" role="tab" aria-selected="false">
+                Partners
+              </button>
             </div>
           </StyleSection>
 
-          <StyleSection id="motion" eyebrow="09" title="Motion" icon={<Sparkles size={20} />}>
+          <StyleSection
+            id="motion"
+            eyebrow="09"
+            title="Motion"
+            icon={<Sparkles size={20} />}
+          >
             <div className="style-motion-demo">
-              <div><Sparkles size={20} /><span>Soft reveal</span></div>
-              <div><Zap size={20} /><span>Button lift</span></div>
-              <div><Compass size={20} /><span>Calm drift</span></div>
-              <div><LockKeyhole size={20} /><span>Reduced motion safe</span></div>
+              <div>
+                <Sparkles size={20} />
+                <span>Soft reveal</span>
+              </div>
+              <div>
+                <Zap size={20} />
+                <span>Button lift</span>
+              </div>
+              <div>
+                <Compass size={20} />
+                <span>Calm drift</span>
+              </div>
+              <div>
+                <LockKeyhole size={20} />
+                <span>Reduced motion safe</span>
+              </div>
             </div>
           </StyleSection>
         </div>
@@ -667,14 +915,21 @@ export function ContactPage() {
       <section className="section-shell section-shell--white">
         <div className="site-rail grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <p className="eyebrow">
-              Employer enquiry
-            </p>
+            <p className="eyebrow">Employer enquiry</p>
             <h2 style={{ fontSize: "clamp(25px, 2.25vw, 34px)" }}>
               One connected enquiry flow for every employer conversation.
             </h2>
-            <p className="mt-6 max-w-[560px]" style={{ fontSize: 16, lineHeight: 1.85, color: "var(--mp-muted)" }}>
-              Share a few details on the home enquiry form. Our team will review your payroll cycle, approval process and pilot fit before onboarding.
+            <p
+              className="mt-6 max-w-[560px]"
+              style={{
+                fontSize: 16,
+                lineHeight: 1.85,
+                color: "var(--mp-muted)",
+              }}
+            >
+              Share a few details on the home enquiry form. Our team will review
+              your payroll cycle, approval process and pilot fit before
+              onboarding.
             </p>
 
             <div className="mt-10 grid gap-4">
@@ -691,16 +946,39 @@ export function ContactPage() {
             </div>
           </div>
 
-          <div className="premium-card">
-            <p className="eyebrow" style={{ marginBottom: 4 }}>Book a Demo</p>
+          <div className="premium-card contact-enquiry-card">
+            <p className="eyebrow" style={{ marginBottom: 4 }}>
+              Book a Demo
+            </p>
             <h2 style={{ fontSize: 28 }}>
               Use the enquiry form on the home page.
             </h2>
-            <p className="mt-4" style={{ fontSize: 14, lineHeight: 1.75, color: "var(--mp-muted)" }}>
-              MobPae keeps one connected enquiry form so every website lead enters
-              the same backend flow.
+            <p
+              className="mt-4"
+              style={{
+                fontSize: 14,
+                lineHeight: 1.75,
+                color: "var(--mp-muted)",
+              }}
+            >
+              MobPae keeps one connected enquiry form so every website lead
+              enters the same backend flow.
             </p>
-            <Link to="/#enquiry" className="premium-button mt-8">
+
+            <div className="contact-enquiry-card__steps" aria-label="What happens after enquiry">
+              {[
+                "We review your payroll cycle",
+                "We map the approval flow",
+                "We suggest a pilot-ready next step",
+              ].map((step) => (
+                <div key={step}>
+                  <CheckCircle2 size={17} />
+                  <span>{step}</span>
+                </div>
+              ))}
+            </div>
+
+            <Link to="/#enquiry" className="premium-button mt-7">
               Open Enquiry Form <ArrowRight size={17} />
             </Link>
           </div>
@@ -740,40 +1018,33 @@ function StaticPage({
         description={content.description}
       >
         <HeroPanel>
-          <div className="icon-bubble">
-            {icon}
-          </div>
-          <div className="mt-7 grid gap-4">
+          <div className="icon-bubble">{icon}</div>
+          <div className="static-hero-preview">
             {content.sections.slice(0, 2).map((section) => (
-              <div key={section.title} style={{ borderTop: "1px solid var(--mp-border)", paddingTop: 16 }}>
-                <p className="m-0" style={{ fontSize: 15, color: "var(--mp-ink)" }}>{section.title}</p>
-                <p className="m-0 mt-2" style={{ fontSize: 13, lineHeight: 1.65, color: "var(--mp-muted)" }}>{section.body}</p>
+              <div key={section.title} className="static-hero-preview__item">
+                <p className="static-hero-preview__title">{section.title}</p>
+                <p className="static-hero-preview__body">{section.body}</p>
               </div>
             ))}
           </div>
         </HeroPanel>
       </PageHero>
 
-      <section className="section-shell section-shell--white">
+      <section className="section-shell section-shell--white static-content-section">
         <div className="site-rail">
-          <div className="grid gap-5 md:grid-cols-2">
+          <div className="static-content-grid">
             {content.sections.map((section) => (
-              <article key={section.title} className="premium-card">
-                <h2 style={{ margin: 0, fontSize: 20, letterSpacing: "-0.02em", color: "var(--mp-ink)" }}>
-                  {section.title}
-                </h2>
-                <p className="mt-4" style={{ fontSize: 14, lineHeight: 1.8, color: "var(--mp-muted)" }}>
-                  {section.body}
-                </p>
+              <article key={section.title} className="static-content-card">
+                <h2>{section.title}</h2>
+                <p>{section.body}</p>
                 {section.points && (
-                  <div className="mt-6 grid gap-3">
+                  <div className="static-content-card__points">
                     {section.points.map((point) => (
                       <div
                         key={point}
-                        className="flex items-center gap-3"
-                        style={{ fontSize: 13, color: "var(--mp-ink)" }}
+                        className="static-content-card__point"
                       >
-                        <CheckCircle2 size={16} style={{ color: "var(--mp-blue)" }} />
+                        <CheckCircle2 size={16} />
                         {point}
                       </div>
                     ))}
@@ -808,15 +1079,31 @@ function ContactItem({
   value: string;
 }) {
   return (
-    <div className="flex gap-4 rounded-2xl p-5" style={{ border: "1px solid var(--mp-border)", background: "#fff" }}>
-      <span className="icon-bubble" style={{ width: 44, height: 44, flexShrink: 0 }}>
+    <div
+      className="flex gap-4 rounded-2xl p-5"
+      style={{ border: "1px solid var(--mp-border)", background: "#fff" }}
+    >
+      <span
+        className="icon-bubble"
+        style={{ width: 44, height: 44, flexShrink: 0 }}
+      >
         {icon}
       </span>
       <div>
-        <p className="m-0" style={{ fontSize: 12, textTransform: "uppercase", letterSpacing: "0.12em", color: "var(--mp-muted)" }}>
+        <p
+          className="m-0"
+          style={{
+            fontSize: 12,
+            textTransform: "uppercase",
+            letterSpacing: "0.12em",
+            color: "var(--mp-muted)",
+          }}
+        >
           {label}
         </p>
-        <p className="mt-1" style={{ fontSize: 15, color: "var(--mp-ink)" }}>{value}</p>
+        <p className="mt-1" style={{ fontSize: 15, color: "var(--mp-ink)" }}>
+          {value}
+        </p>
       </div>
     </div>
   );
