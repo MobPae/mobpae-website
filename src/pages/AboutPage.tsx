@@ -74,14 +74,19 @@ export function AboutPage() {
               <picture>
                 <source
                   media="(max-width: 720px)"
-                  srcSet="/about/our-story-cover-mobile.png"
+                  type="image/webp"
+                  srcSet="/about/our-story-cover-mobile.webp"
+                />
+                <source
+                  media="(max-width: 720px)"
+                  srcSet="/about/our-story-cover-mobile.jpg"
                 />
                 <source
                   type="image/webp"
                   srcSet="/about/our-story-cover.webp"
                 />
                 <img
-                  src="/about/our-story-cover.png"
+                  src="/about/our-story-cover.jpg"
                   alt="MobPae story visual for employer-powered financial wellness"
                   loading="eager"
                   decoding="async"

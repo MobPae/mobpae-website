@@ -26,9 +26,18 @@ function InstagramIcon() {
   );
 }
 
+function XIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+      <path d="M18.244 2H21.5l-7.5 8.57L22.75 22h-6.844l-5.36-7.02L4.36 22H1.1l8.03-9.17L1.5 2h7.02l4.84 6.42L18.244 2Zm-1.2 18h1.9L7.03 4H5l12.044 16Z" />
+    </svg>
+  );
+}
+
 const socialLinks = [
   { label: "LinkedIn", href: "https://linkedin.com/company/mobpae", Icon: LinkedInIcon, color: "#0A66C2" },
   { label: "Instagram", href: "https://www.instagram.com/mobpae/", Icon: InstagramIcon, color: "#E4405F" },
+  { label: "X (Twitter)", href: "", Icon: XIcon, color: "#000000" },
 ];
 
 const footerColumns = [
@@ -87,18 +96,24 @@ export function SiteFooter() {
               liquidity, payroll clarity, and workforce wellbeing.
             </p>
             <div className="site-footer__socials" aria-label="Social links">
-              {socialLinks.map(({ label, href, Icon, color }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`MobPae on ${label}`}
-                  style={{ color }}
-                >
-                  <Icon />
-                </a>
-              ))}
+              {socialLinks.map(({ label, href, Icon, color }) =>
+                href ? (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`MobPae on ${label}`}
+                    style={{ color }}
+                  >
+                    <Icon />
+                  </a>
+                ) : (
+                  <span key={label} aria-hidden="true" style={{ color }}>
+                    <Icon />
+                  </span>
+                )
+              )}
             </div>
           </div>
 

@@ -43,7 +43,7 @@ const surfaces: Surface[] = [
   {
     icon: Landmark,
     title: "Capital Partner Layer",
-    body: "NBFC-ready rails support structured disbursals, portfolio visibility and payroll-linked repayment.",
+    body: "Capital partner-ready rails support structured disbursals, portfolio visibility and payroll-linked repayment.",
   },
 ];
 

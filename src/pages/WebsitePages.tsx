@@ -1,31 +1,20 @@
 import {
   ArrowRight,
   BadgeCheck,
-  Building2,
   CheckCircle2,
+  ChevronDown,
   Clock,
-  Compass,
   FileCheck,
   FileText,
-  FormInput,
-  Grid3X3,
   HelpCircle,
   Landmark,
-  Layers,
-  LockKeyhole,
   Mail,
   MapPin,
-  MousePointer2,
-  Palette,
   ShieldCheck,
-  SlidersHorizontal,
   Smartphone,
-  Sparkles,
-  Type,
   Wallet,
-  Zap,
 } from "lucide-react";
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { SiteNav } from "../components/SiteNav";
 import { SiteFooter } from "../components/SiteFooter";
@@ -323,14 +312,16 @@ export function EmployeesPage() {
               </p>
             </div>
             <div className="employee-app-showcase__stage">
-              <div className="employee-app-showcase__chip employee-app-showcase__chip--left">
-                <span>01</span>
-                Setup ready
-              </div>
-              <AppPreview className="employee-app-showcase__device" priority />
-              <div className="employee-app-showcase__chip employee-app-showcase__chip--right">
-                <span>02</span>
-                Payday aware
+              <div className="employee-app-showcase__frame">
+                <div className="employee-app-showcase__chip employee-app-showcase__chip--left">
+                  <span>01</span>
+                  Setup ready
+                </div>
+                <AppPreview className="employee-app-showcase__device" priority />
+                <div className="employee-app-showcase__chip employee-app-showcase__chip--right">
+                  <span>02</span>
+                  Payday aware
+                </div>
               </div>
             </div>
             <div className="employee-app-showcase__metrics">
@@ -478,9 +469,79 @@ export function EmployeesPage() {
   );
 }
 
-export function FaqsPage() {
+function FaqAccordionItem({
+  title,
+  body,
+  defaultOpen = false,
+}: {
+  title: string;
+  body: string;
+  defaultOpen?: boolean;
+}) {
+  const [open, setOpen] = useState(defaultOpen);
   return (
-    <StaticPage content={pageContent.faqs} icon={<HelpCircle size={22} />} />
+    <div
+      className={`faq-accordion__item ${
+        open ? "faq-accordion__item--open" : ""
+      }`}
+    >
+      <button
+        type="button"
+        className="faq-accordion__trigger"
+        aria-expanded={open}
+        onClick={() => setOpen((value) => !value)}
+      >
+        <span>{title}</span>
+        <ChevronDown size={18} aria-hidden="true" />
+      </button>
+      <div className="faq-accordion__panel">
+        <div>
+          <p>{body}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function FaqsPage() {
+  const content = pageContent.faqs;
+  return (
+    <StaticShell>
+      <PageHero
+        eyebrow={content.eyebrow}
+        title={content.title}
+        description={content.description}
+      >
+        <HeroPanel>
+          <div className="icon-bubble">
+            <HelpCircle size={22} />
+          </div>
+          <div className="static-hero-preview">
+            {content.sections.slice(0, 2).map((section) => (
+              <div key={section.title} className="static-hero-preview__item">
+                <p className="static-hero-preview__title">{section.title}</p>
+                <p className="static-hero-preview__body">{section.body}</p>
+              </div>
+            ))}
+          </div>
+        </HeroPanel>
+      </PageHero>
+
+      <section className="section-shell section-shell--white static-content-section">
+        <div className="site-rail">
+          <div className="faq-accordion">
+            {content.sections.map((section, index) => (
+              <FaqAccordionItem
+                key={section.title}
+                title={section.title}
+                body={section.body}
+                defaultOpen={index === 0}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+    </StaticShell>
   );
 }
 
@@ -566,310 +627,6 @@ export function CareersPage() {
         </div>
       </section>
     </StaticShell>
-  );
-}
-
-export function StyleGuidePage() {
-  const sections = [
-    "Typography",
-    "Colors",
-    "Buttons",
-    "Cards",
-    "Forms",
-    "Grids",
-    "Spacing",
-    "Tabs",
-    "Motion",
-  ];
-
-  const colors = [
-    { name: "Primary Blue", value: "#0057ff", text: "#fff" },
-    { name: "Sky Blue", value: "#8ac9f4", text: "#0b2c73" },
-    { name: "Deep Navy", value: "#0b2c73", text: "#fff" },
-    { name: "Ink", value: "#0b2c73", text: "#fff" },
-    { name: "Muted", value: "#60708a", text: "#fff" },
-    { name: "Page", value: "#f8f7f4", text: "#0b2c73" },
-    { name: "Soft Sky", value: "#e9f6ff", text: "#0b2c73" },
-  ];
-
-  const typeScale = [
-    { name: "Display", size: "34 / 58", copy: "Beating your month end crunch" },
-    {
-      name: "Section",
-      size: "25 / 34",
-      copy: "One platform. Every stakeholder.",
-    },
-    { name: "Card title", size: "20 / 26", copy: "Employer-backed access" },
-    {
-      name: "Body",
-      size: "15 / 26",
-      copy: "A calm, readable paragraph for product explanations.",
-    },
-    { name: "Label", size: "12 / 16", copy: "EMPLOYER APPROVED" },
-  ];
-
-  return (
-    <StaticShell>
-      <section className="style-guide-page">
-        <aside className="style-guide-nav" aria-label="Style guide sections">
-          <img
-            src="/brand/mobpae-icon-color.png"
-            alt=""
-            loading="lazy"
-            decoding="async"
-          />
-          <p>MobPae System</p>
-          <nav>
-            {sections.map((section) => (
-              <a key={section} href={`#${section.toLowerCase()}`}>
-                {section}
-              </a>
-            ))}
-          </nav>
-        </aside>
-
-        <div className="style-guide-content">
-          <header className="style-guide-hero">
-            <p className="eyebrow">Style guide</p>
-            <h1>The MobPae website design system.</h1>
-            <p>
-              A compact reference for the typography, colors, components and
-              motion language used across the MobPae marketing website.
-            </p>
-          </header>
-
-          <StyleSection
-            id="typography"
-            eyebrow="01"
-            title="Typography"
-            icon={<Type size={20} />}
-          >
-            <div className="style-type-list">
-              {typeScale.map((item) => (
-                <article key={item.name}>
-                  <span>{item.name}</span>
-                  <strong>{item.copy}</strong>
-                  <small>{item.size}px · Inter</small>
-                </article>
-              ))}
-            </div>
-          </StyleSection>
-
-          <StyleSection
-            id="colors"
-            eyebrow="02"
-            title="Colors"
-            icon={<Palette size={20} />}
-          >
-            <div className="style-color-grid">
-              {colors.map((color) => (
-                <article
-                  key={color.name}
-                  style={{ background: color.value, color: color.text }}
-                >
-                  <span>{color.name}</span>
-                  <strong>{color.value}</strong>
-                </article>
-              ))}
-            </div>
-          </StyleSection>
-
-          <StyleSection
-            id="buttons"
-            eyebrow="03"
-            title="Buttons"
-            icon={<MousePointer2 size={20} />}
-          >
-            <div className="style-button-row">
-              <a className="btn-primary" href="#buttons">
-                Request Demo <ArrowRight size={17} />
-              </a>
-              <a className="btn-secondary" href="#buttons">
-                Learn More
-              </a>
-              <button className="style-button-ghost" type="button">
-                Cancel
-              </button>
-              <button className="style-button-disabled" type="button" disabled>
-                Not available
-              </button>
-            </div>
-          </StyleSection>
-
-          <StyleSection
-            id="cards"
-            eyebrow="04"
-            title="Cards"
-            icon={<Layers size={20} />}
-          >
-            <div className="style-card-grid">
-              {[
-                {
-                  icon: <ShieldCheck size={20} />,
-                  title: "Trust surface",
-                  body: "Used for security, compliance and employer confidence messaging.",
-                },
-                {
-                  icon: <Wallet size={20} />,
-                  title: "Product surface",
-                  body: "Used for employee salary access, repayments and activity previews.",
-                },
-                {
-                  icon: <Building2 size={20} />,
-                  title: "Employer surface",
-                  body: "Used for HR, payroll and approval workflows.",
-                },
-              ].map((card) => (
-                <article key={card.title} className="style-demo-card">
-                  <span>{card.icon}</span>
-                  <h3>{card.title}</h3>
-                  <p>{card.body}</p>
-                </article>
-              ))}
-            </div>
-          </StyleSection>
-
-          <StyleSection
-            id="forms"
-            eyebrow="05"
-            title="Forms"
-            icon={<FormInput size={20} />}
-          >
-            <div className="style-form-demo">
-              <label>
-                Email
-                <input type="email" placeholder="name@company.com" />
-              </label>
-              <label>
-                Company size
-                <select defaultValue="">
-                  <option value="" disabled>
-                    Select range
-                  </option>
-                  <option>1 - 50 employees</option>
-                  <option>51 - 250 employees</option>
-                  <option>250+ employees</option>
-                </select>
-              </label>
-              <label className="style-form-demo__wide">
-                Message
-                <textarea placeholder="Tell us about your payroll cycle" />
-              </label>
-            </div>
-          </StyleSection>
-
-          <StyleSection
-            id="grids"
-            eyebrow="06"
-            title="Grids"
-            icon={<Grid3X3 size={20} />}
-          >
-            <div className="style-grid-demo" aria-hidden="true">
-              {Array.from({ length: 12 }, (_, index) => (
-                <span key={index}>0{index + 1}</span>
-              ))}
-            </div>
-          </StyleSection>
-
-          <StyleSection
-            id="spacing"
-            eyebrow="07"
-            title="Spacing"
-            icon={<Compass size={20} />}
-          >
-            <div className="style-spacing-demo" aria-label="Spacing scale">
-              {[8, 12, 16, 24, 32, 48].map((space) => (
-                <div key={space}>
-                  <span>{space}px</span>
-                  <strong style={{ width: `${space * 3}px` }} />
-                </div>
-              ))}
-            </div>
-          </StyleSection>
-
-          <StyleSection
-            id="tabs"
-            eyebrow="08"
-            title="Tabs"
-            icon={<SlidersHorizontal size={20} />}
-          >
-            <div
-              className="style-tabs-demo"
-              role="tablist"
-              aria-label="Demo tabs"
-            >
-              <button
-                type="button"
-                className="is-active"
-                role="tab"
-                aria-selected="true"
-              >
-                Employers
-              </button>
-              <button type="button" role="tab" aria-selected="false">
-                Employees
-              </button>
-              <button type="button" role="tab" aria-selected="false">
-                Partners
-              </button>
-            </div>
-          </StyleSection>
-
-          <StyleSection
-            id="motion"
-            eyebrow="09"
-            title="Motion"
-            icon={<Sparkles size={20} />}
-          >
-            <div className="style-motion-demo">
-              <div>
-                <Sparkles size={20} />
-                <span>Soft reveal</span>
-              </div>
-              <div>
-                <Zap size={20} />
-                <span>Button lift</span>
-              </div>
-              <div>
-                <Compass size={20} />
-                <span>Calm drift</span>
-              </div>
-              <div>
-                <LockKeyhole size={20} />
-                <span>Reduced motion safe</span>
-              </div>
-            </div>
-          </StyleSection>
-        </div>
-      </section>
-    </StaticShell>
-  );
-}
-
-function StyleSection({
-  id,
-  eyebrow,
-  title,
-  icon,
-  children,
-}: {
-  id: string;
-  eyebrow: string;
-  title: string;
-  icon: ReactNode;
-  children: ReactNode;
-}) {
-  return (
-    <section id={id} className="style-section">
-      <div className="style-section__header">
-        <span>{eyebrow}</span>
-        <div>
-          <span className="style-section__icon">{icon}</span>
-          <h2>{title}</h2>
-        </div>
-      </div>
-      <div className="style-section__body">{children}</div>
-    </section>
   );
 }
 
@@ -988,9 +745,65 @@ export function ContactPage() {
   );
 }
 
+function CompliancePage({
+  content,
+  icon,
+}: {
+  content: PageContent;
+  icon: ReactNode;
+}) {
+  return (
+    <StaticShell>
+      <PageHero
+        eyebrow={content.eyebrow}
+        title={content.title}
+        description={content.description}
+      >
+        <HeroPanel>
+          <div className="icon-bubble">{icon}</div>
+          <div className="static-hero-preview">
+            {content.sections.slice(0, 2).map((section) => (
+              <div key={section.title} className="static-hero-preview__item">
+                <p className="static-hero-preview__title">{section.title}</p>
+                <p className="static-hero-preview__body">{section.body}</p>
+              </div>
+            ))}
+          </div>
+        </HeroPanel>
+      </PageHero>
+
+      <section className="section-shell section-shell--white static-content-section">
+        <div className="site-rail">
+          <div className="doc-sections">
+            {content.sections.map((section, index) => (
+              <article key={section.title} className="doc-section">
+                <span className="doc-section__index">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h2>{section.title}</h2>
+                <p>{section.body}</p>
+                {section.points && (
+                  <div className="doc-section__points">
+                    {section.points.map((point) => (
+                      <div key={point} className="doc-section__point">
+                        <CheckCircle2 size={16} aria-hidden="true" />
+                        {point}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    </StaticShell>
+  );
+}
+
 export function PrivacyPolicyPage() {
   return (
-    <StaticPage
+    <CompliancePage
       content={pageContent.privacy}
       icon={<ShieldCheck size={22} />}
     />
@@ -999,7 +812,7 @@ export function PrivacyPolicyPage() {
 
 export function TermsPage() {
   return (
-    <StaticPage content={pageContent.terms} icon={<FileText size={22} />} />
+    <CompliancePage content={pageContent.terms} icon={<FileText size={22} />} />
   );
 }
 

@@ -12,7 +12,7 @@ import {
   Smartphone,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { HeroPanel, PageHero } from "../components/PageHero";
+import { PageHero } from "../components/PageHero";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteNav } from "../components/SiteNav";
 
@@ -110,7 +110,7 @@ const trustItems: FlowItem[] = [
   {
     icon: Landmark,
     title: "Capital partner ready",
-    body: "Disbursal and settlement flows are designed for NBFC-backed operations.",
+    body: "Disbursal and settlement flows are designed for capital partner-backed operations.",
   },
   {
     icon: ClipboardCheck,
@@ -176,20 +176,25 @@ export function HowItWorksPage() {
             </>
           }
         >
-          <HeroPanel>
-            <p className="eyebrow">Live flow</p>
-            <div className="inner-preview-list">
-              {flow.slice(0, 4).map((item, index) => (
-                <div className="inner-preview-row" key={item.title}>
-                  <div>
-                    <p>{item.title}</p>
-                    <span>{item.body}</span>
+          <div className="queue-card">
+            <div className="queue-card__header">
+              <span className="queue-card__live" aria-hidden="true" />
+              <p className="eyebrow">Live flow</p>
+            </div>
+            <div className="flow-timeline">
+              {flow.slice(0, 4).map((item) => (
+                <div className="flow-timeline__step" key={item.title}>
+                  <span className="icon-bubble flow-timeline__icon">
+                    <item.icon size={17} aria-hidden="true" />
+                  </span>
+                  <div className="flow-timeline__content">
+                    <h3>{item.title}</h3>
+                    <p>{item.body}</p>
                   </div>
-                  <b>0{index + 1}</b>
                 </div>
               ))}
             </div>
-          </HeroPanel>
+          </div>
         </PageHero>
 
         <section className="inner-section inner-section--white">

@@ -11,7 +11,7 @@ import {
 import type { LucideIcon } from "lucide-react";
 import { SiteNav } from "../components/SiteNav";
 import { SiteFooter } from "../components/SiteFooter";
-import { HeroPanel, PageHero } from "../components/PageHero";
+import { PageHero } from "../components/PageHero";
 
 type Card = {
   icon: LucideIcon;
@@ -76,9 +76,9 @@ const steps = [
 ];
 
 const queue = [
-  { name: "Priya Sharma", amount: "₹6,000", status: "Ready" },
-  { name: "Rahul Mehta", amount: "₹3,500", status: "Policy match" },
-  { name: "Anjali Patel", amount: "₹9,200", status: "Review" },
+  { name: "Priya Sharma", amount: "₹6,000", status: "Ready", tone: "green" },
+  { name: "Rahul Mehta", amount: "₹3,500", status: "Policy match", tone: "blue" },
+  { name: "Anjali Patel", amount: "₹9,200", status: "Review", tone: "amber" },
 ];
 
 function BenefitCard({ icon: Icon, title, body }: Card) {
@@ -122,20 +122,28 @@ export function EmployersPage() {
             </>
           }
         >
-          <HeroPanel>
-            <p className="eyebrow">Approval queue</p>
-            <div className="inner-preview-list">
+          <div className="queue-card">
+            <div className="queue-card__header">
+              <span className="queue-card__live" aria-hidden="true" />
+              <p className="eyebrow">Approval queue</p>
+            </div>
+            <div className="queue-card__list">
               {queue.map((item) => (
-                <div className="inner-preview-row" key={item.name}>
-                  <div>
+                <div className="queue-card__row" key={item.name}>
+                  <span className="queue-card__avatar" aria-hidden="true">
+                    {item.name.charAt(0)}
+                  </span>
+                  <div className="queue-card__meta">
                     <p>{item.name}</p>
                     <span>{item.amount}</span>
                   </div>
-                  <b>{item.status}</b>
+                  <b className={`queue-card__status queue-card__status--${item.tone}`}>
+                    {item.status}
+                  </b>
                 </div>
               ))}
             </div>
-          </HeroPanel>
+          </div>
         </PageHero>
 
         <section className="inner-section inner-section--white">
