@@ -352,24 +352,16 @@ export function EmployeesPage() {
             <p className="eyebrow">The employee journey</p>
             <h2 id="employee-journey-title">Clear at every step.</h2>
           </div>
-          <div className="mt-9 grid gap-5 md:grid-cols-3">
+          <div className="process-rail">
             {steps.map((step, index) => (
-              <article key={step.title} className="premium-card">
-                <div className="flex items-center justify-between">
-                  <span className="icon-bubble">{step.icon}</span>
-                  <span
-                    style={{
-                      fontSize: 11,
-                      letterSpacing: "0.2em",
-                      color: "var(--mp-muted)",
-                    }}
-                  >
-                    0{index + 1}
-                  </span>
+              <div className="process-rail__step" key={step.title}>
+                <span className="process-rail__node">{step.icon}</span>
+                <div>
+                  <small>0{index + 1}</small>
+                  <p className="process-rail__step-title">{step.title}</p>
+                  <p className="process-rail__step-body">{step.body}</p>
                 </div>
-                <h3>{step.title}</h3>
-                <p>{step.body}</p>
-              </article>
+              </div>
             ))}
           </div>
         </div>
@@ -387,37 +379,19 @@ export function EmployeesPage() {
               Nothing happens without visibility.
             </h2>
           </div>
-          <div className="mt-9 grid gap-5 md:grid-cols-3">
+          <div className="mt-9 trust-ledger">
             {trust.map((item) => (
-              <article key={item.title} className="premium-card">
+              <div className="trust-ledger__row" key={item.title}>
                 <span className="icon-bubble">{item.icon}</span>
-                <h3 style={{ fontSize: 17, marginTop: 20 }}>{item.title}</h3>
-                <p style={{ fontSize: 13.5 }}>{item.body}</p>
-                <div
-                  className="mt-5"
-                  style={{
-                    borderTop: "1px solid var(--mp-border)",
-                    paddingTop: 16,
-                  }}
-                >
-                  <span
-                    className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1"
-                    style={{
-                      fontSize: 10,
-                      textTransform: "uppercase",
-                      letterSpacing: "0.08em",
-                      background: "var(--mp-page)",
-                      color: "var(--mp-ink)",
-                    }}
-                  >
-                    <span
-                      className="h-1.5 w-1.5 rounded-full"
-                      style={{ background: "var(--mp-blue)" }}
-                    />
-                    {item.tag}
-                  </span>
+                <div className="trust-ledger__content">
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
                 </div>
-              </article>
+                <span className="trust-ledger__tag">
+                  <span aria-hidden="true" />
+                  {item.tag}
+                </span>
+              </div>
             ))}
           </div>
         </div>

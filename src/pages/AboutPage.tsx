@@ -4,7 +4,6 @@ import {
   CalendarClock,
   Landmark,
   ShieldCheck,
-  Sparkles,
   WalletCards,
 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -57,10 +56,10 @@ const model = [
 ];
 
 const principles = [
-  "Responsible access",
-  "Transparent recovery",
-  "Employer-powered trust",
-  "Built for Indian payroll",
+  { icon: ShieldCheck, label: "Responsible access" },
+  { icon: CalendarClock, label: "Transparent recovery" },
+  { icon: Building2, label: "Employer-powered trust" },
+  { icon: Landmark, label: "Built for Indian payroll" },
 ];
 
 export function AboutPage() {
@@ -140,32 +139,22 @@ export function AboutPage() {
         </section>
 
         <section className="story-led-vision">
-          <div className="site-rail story-led-vision__grid">
-            <div className="story-led-vision__visual" aria-hidden="true">
-              <div className="story-led-vision__card story-led-vision__card--top">
-                <ShieldCheck size={22} />
-                <span>Employer powered</span>
-              </div>
-              <div className="story-led-vision__card story-led-vision__card--center">
-                <Sparkles size={28} />
-                <strong>Financial wellness ecosystem</strong>
-              </div>
-              <div className="story-led-vision__card story-led-vision__card--bottom">
-                <CalendarClock size={22} />
-                <span>Payroll aware</span>
-              </div>
-            </div>
-
-            <div className="story-led-vision__copy">
+          <div className="site-rail story-led-vision__layout">
+            <div className="story-led-vision__intro">
               <p className="eyebrow">Our vision</p>
               <h2>
                 Building India’s employer-powered financial wellness ecosystem.
               </h2>
-              <div className="story-led-principles">
-                {principles.map((principle) => (
-                  <span key={principle}>{principle}</span>
-                ))}
-              </div>
+            </div>
+
+            <div className="story-led-vision__principles">
+              {principles.map((principle, index) => (
+                <div className="story-led-vision__principle" key={principle.label}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <principle.icon size={19} aria-hidden="true" />
+                  <p>{principle.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>

@@ -211,23 +211,34 @@ export function EmployersPage() {
                 the policy, approval and recovery controls they need.
               </p>
             </div>
-            <div className="inner-card-grid inner-card-grid--four">
+            <div className="trust-ledger">
               {[
-                "Role-based access",
-                "Encrypted employee data",
-                "Approval audit trail",
-                "Recovery visibility",
+                {
+                  title: "Role-based access",
+                  body: "Only the people you assign can review, approve or export employee requests.",
+                },
+                {
+                  title: "Encrypted employee data",
+                  body: "Salary, bank and KYC details stay encrypted at rest and in transit.",
+                },
+                {
+                  title: "Approval audit trail",
+                  body: "Every approval, rejection and edit is timestamped and traceable.",
+                },
+                {
+                  title: "Recovery visibility",
+                  body: "Deductions and settlement status stay visible against each payroll cycle.",
+                },
               ].map((item) => (
-                <article className="inner-card inner-card--sky" key={item}>
+                <div className="trust-ledger__row" key={item.title}>
                   <span className="icon-bubble">
                     <ShieldCheck size={20} aria-hidden="true" />
                   </span>
-                  <h3>{item}</h3>
-                  <p>
-                    Designed to keep financial access controlled, visible and
-                    responsible.
-                  </p>
-                </article>
+                  <div className="trust-ledger__content">
+                    <h3>{item.title}</h3>
+                    <p>{item.body}</p>
+                  </div>
+                </div>
               ))}
             </div>
           </div>

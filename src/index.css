@@ -2057,6 +2057,179 @@ svg {
   color: #fff;
 }
 
+.process-rail {
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 8px;
+  margin-top: clamp(8px, 1.4vw, 18px);
+}
+
+.process-rail::before {
+  content: "";
+  position: absolute;
+  top: 27px;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 87, 255, 0.04),
+    rgba(0, 87, 255, 0.3) 12%,
+    rgba(0, 87, 255, 0.3) 88%,
+    rgba(0, 87, 255, 0.04)
+  );
+}
+
+.process-rail__step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.process-rail__node {
+  display: grid;
+  flex-shrink: 0;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 87, 255, 0.22);
+  background: #fff;
+  box-shadow: 0 10px 26px rgba(11, 44, 115, 0.12);
+  color: var(--mp-blue-700);
+}
+
+.process-rail__step small {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--mp-blue-700);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.process-rail__step-title {
+  margin: 0;
+  max-width: 160px;
+  color: var(--mp-ink);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.process-rail__step-body {
+  margin: 6px 0 0;
+  max-width: 220px;
+  color: var(--mp-muted);
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+@media (max-width: 860px) {
+  .process-rail {
+    grid-auto-flow: row;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .process-rail::before {
+    top: 27px;
+    bottom: 27px;
+    left: 27px;
+    right: auto;
+    width: 2px;
+    height: auto;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 87, 255, 0.04),
+      rgba(0, 87, 255, 0.3) 8%,
+      rgba(0, 87, 255, 0.3) 92%,
+      rgba(0, 87, 255, 0.04)
+    );
+  }
+
+  .process-rail__step {
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+    padding: 16px 0;
+    text-align: left;
+  }
+
+  .process-rail__step-title,
+  .process-rail__step-body {
+    max-width: none;
+  }
+}
+
+.trust-ledger {
+  display: grid;
+  border: 1px solid var(--mp-border);
+  border-radius: var(--mp-radius-lg);
+  background: #fff;
+  overflow: hidden;
+  box-shadow: var(--mp-shadow-soft);
+}
+
+.trust-ledger__row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: clamp(20px, 2.4vw, 26px) clamp(20px, 3vw, 32px);
+  border-top: 1px solid var(--mp-border);
+}
+
+.trust-ledger__row:first-child {
+  border-top: 0;
+}
+
+.trust-ledger__content {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+.trust-ledger__content h3 {
+  margin: 0;
+  color: var(--mp-ink);
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.trust-ledger__content p {
+  margin: 4px 0 0;
+  color: var(--mp-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.trust-ledger__tag {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 7px;
+  border-radius: 999px;
+  background: var(--mp-page);
+  padding: 6px 14px;
+  color: var(--mp-ink);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.trust-ledger__tag > span {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--mp-blue);
+}
+
 .product-flow-section {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -2220,6 +2393,59 @@ svg {
 .product-surface-panel--sky .product-surface-row p,
 .product-surface-panel--white .product-surface-row p {
   color: var(--mp-muted);
+}
+
+.system-quadrant {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: 1px solid var(--mp-border);
+  border-radius: var(--mp-radius-lg);
+  background: #fff;
+  overflow: hidden;
+  box-shadow: var(--mp-shadow-soft);
+}
+
+.system-quadrant__cell {
+  padding: clamp(26px, 3vw, 36px);
+  border-top: 1px solid var(--mp-border);
+}
+
+.system-quadrant__cell:nth-child(-n + 2) {
+  border-top: 0;
+}
+
+.system-quadrant__cell:nth-child(odd) {
+  border-right: 1px solid var(--mp-border);
+}
+
+.system-quadrant__cell h3 {
+  margin: 18px 0 8px;
+  color: var(--mp-ink);
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.system-quadrant__cell p {
+  margin: 0;
+  color: var(--mp-muted);
+  font-size: 14px;
+  line-height: 1.68;
+}
+
+@media (max-width: 640px) {
+  .system-quadrant {
+    grid-template-columns: 1fr;
+  }
+
+  .system-quadrant__cell {
+    border-top: 1px solid var(--mp-border);
+    border-right: 0;
+  }
+
+  .system-quadrant__cell:first-child {
+    border-top: 0;
+  }
 }
 
 .inner-cta-card {
@@ -2835,86 +3061,58 @@ svg {
     #fff;
 }
 
-.story-led-vision__grid {
+.story-led-vision__layout {
   display: grid;
-  grid-template-columns: minmax(420px, 0.8fr) minmax(0, 0.86fr);
-  gap: clamp(42px, 7vw, 106px);
+  grid-template-columns: minmax(360px, 0.95fr) minmax(0, 1fr);
+  gap: clamp(42px, 7vw, 100px);
   align-items: center;
 }
 
-.story-led-vision__visual {
-  position: relative;
-  min-height: clamp(300px, 24vw, 400px);
-  border-radius: 24px;
-  border: 1px solid rgba(0, 87, 255, 0.12);
-  background:
-    radial-gradient(circle at 82% 18%, rgba(0, 87, 255, 0.1), transparent 22vw),
-    #fff;
-  box-shadow: 0 18px 52px rgba(16, 40, 72, 0.07);
-}
-
-.story-led-vision__card {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  border: 1px solid rgba(0, 87, 255, 0.12);
-  border-radius: 16px;
-  background: #fff;
-  padding: 18px 22px;
+.story-led-vision__intro h2 {
+  margin: 18px 0 0;
+  max-width: 480px;
   color: var(--mp-ink);
-  font-size: 14px;
+  font-size: clamp(28px, 3vw, 42px);
   font-weight: 400;
-  box-shadow: 0 16px 44px rgba(16, 40, 72, 0.09);
+  letter-spacing: -0.022em;
+  line-height: 1.14;
 }
 
-.story-led-vision__card svg {
+.story-led-vision__principles {
+  display: grid;
+}
+
+.story-led-vision__principle {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 0;
+  border-top: 1px solid rgba(11, 44, 115, 0.1);
+}
+
+.story-led-vision__principle:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.story-led-vision__principle > span {
+  color: rgba(11, 44, 115, 0.22);
+  font-size: 26px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.story-led-vision__principle svg {
   color: var(--mp-blue);
 }
 
-.story-led-vision__card--top {
-  top: 50px;
-  left: clamp(24px, 4vw, 70px);
-}
-
-.story-led-vision__card--center {
-  top: 50%;
-  left: 50%;
-  width: min(310px, calc(100% - 72px));
-  min-height: 138px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  transform: translate(-50%, -50%);
-}
-
-.story-led-vision__card--center strong {
-  max-width: 260px;
-  font-size: clamp(18px, 1.45vw, 23px);
-  font-weight: 400;
-  letter-spacing: -0.014em;
-  line-height: 1.2;
-}
-
-.story-led-vision__card--bottom {
-  right: clamp(24px, 4vw, 70px);
-  bottom: 50px;
-}
-
-.story-led-vision__copy h2 {
+.story-led-vision__principle p {
   margin: 0;
   color: var(--mp-ink);
-  font-size: clamp(21px, 1.65vw, 26px);
+  font-size: 16px;
   font-weight: 400;
-  letter-spacing: -0.01em;
-  line-height: 1.22;
-}
-
-.story-led-principles {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: clamp(28px, 4vw, 52px);
+  letter-spacing: -0.005em;
 }
 
 .story-led-principles span {
@@ -2996,7 +3194,7 @@ svg {
 @media (max-width: 1180px) {
   .story-led-hero__grid,
   .story-led-strip__grid,
-  .story-led-vision__grid {
+  .story-led-vision__layout {
     grid-template-columns: 1fr;
   }
 
@@ -3018,10 +3216,6 @@ svg {
   .story-led-media {
     min-height: 620px;
     border-radius: 0;
-  }
-
-  .story-led-vision__visual {
-    min-height: 430px;
   }
 }
 
@@ -3070,11 +3264,16 @@ svg {
   }
 
   .story-led-strip h2,
-  .story-led-section-head h2,
-  .story-led-vision__copy h2 {
+  .story-led-section-head h2 {
     font-size: clamp(23px, 6vw, 30px);
     letter-spacing: -0.02em;
     line-height: 1.14;
+  }
+
+  .story-led-vision__intro h2 {
+    font-size: clamp(26px, 7vw, 32px);
+    letter-spacing: -0.02em;
+    line-height: 1.16;
   }
 
   .story-led-section-head {
@@ -3083,10 +3282,6 @@ svg {
 
   .story-led-model__item {
     padding: 28px;
-  }
-
-  .story-led-principles {
-    grid-template-columns: 1fr;
   }
 
 }

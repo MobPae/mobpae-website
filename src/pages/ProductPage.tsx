@@ -129,18 +129,6 @@ const adminFeatures: Surface[] = [
   },
 ];
 
-function SurfaceCard({ icon: Icon, title, body }: Surface) {
-  return (
-    <article className="inner-card inner-card--sky">
-      <span className="icon-bubble">
-        <Icon size={21} aria-hidden="true" />
-      </span>
-      <h3>{title}</h3>
-      <p>{body}</p>
-    </article>
-  );
-}
-
 function ProductSurfaceSection({
   eyebrow,
   title,
@@ -227,9 +215,15 @@ function ProductEcosystemSection() {
             support a single responsible flow from request to recovery.
           </p>
         </div>
-        <div className="inner-card-grid inner-card-grid--four">
+        <div className="system-quadrant">
           {surfaces.map((surface) => (
-            <SurfaceCard key={surface.title} {...surface} />
+            <div className="system-quadrant__cell" key={surface.title}>
+              <span className="icon-bubble">
+                <surface.icon size={21} aria-hidden="true" />
+              </span>
+              <h3>{surface.title}</h3>
+              <p>{surface.body}</p>
+            </div>
           ))}
         </div>
       </div>

@@ -208,13 +208,17 @@ export function HowItWorksPage() {
                 payroll.
               </p>
             </div>
-            <div className="inner-flow-strip">
+            <div className="process-rail">
               {flow.map((item, index) => (
-                <article className="inner-flow-node" key={item.title}>
-                  <item.icon size={23} aria-hidden="true" />
-                  <small>0{index + 1}</small>
-                  <p>{item.title}</p>
-                </article>
+                <div className="process-rail__step" key={item.title}>
+                  <span className="process-rail__node">
+                    <item.icon size={20} aria-hidden="true" />
+                  </span>
+                  <div>
+                    <small>0{index + 1}</small>
+                    <p className="process-rail__step-title">{item.title}</p>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
