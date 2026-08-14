@@ -8,7 +8,6 @@ import {
   Mail,
   MapPin,
   Menu,
-  Phone,
   ShieldCheck,
   Star,
   WalletCards,
@@ -17,6 +16,7 @@ import {
 import type { ChangeEvent, FormEvent, ReactNode } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { AppPreview } from "../components/AppPreview";
 import { useInView } from "../hooks/useInView";
 import "./home.css";
 
@@ -84,76 +84,50 @@ const initialForm: FormState = {
   message: "",
 };
 
-// const services = [
-//   {
-//     icon: WalletCards,
-//     title: "Mobile Application",
-//     body: "Transform your siness with consng Weshfixes",
-//     href: "/product",
-//   },
-//   {
-//     icon: ShieldCheck,
-//     title: "Employer Web App",
-//     body: "Transform your siness with consng Weshfixes",
-//     href: "/product",
-//   },
-//   {
-//     icon: CalendarClock,
-//     title: "Admin Console",
-//     body: "Transform your siness with consng Weshfixes",
-//     href: "/product",
-//   },
-//   {
-//     icon: BadgeCheck,
-//     title: "Lender Platform",
-//     body: "Transform your siness with consng Weshfixes",
-//     href: "/product",
-//   },
-// ];
 const services = [
   {
     icon: WalletCards,
-    title: "Earned Wage Access",
-    body: "Your salary, when you need it.",
+    title: "Earned wage access",
+    body: "Employees can request a portion of wages already earned, instead of waiting until payday.",
     href: "/product",
   },
   {
     icon: ShieldCheck,
-    title: "Employer Powered",
-    body: "Built for modern workplaces.",
-    href: "/product",
+    title: "Employer powered",
+    body: "HR stays in control of eligibility, approvals, and recovery — MobPae never replaces payroll.",
+    href: "/employers",
   },
   {
     icon: CalendarClock,
-    title: "Payroll Integrated",
-    body: "Seamless salary-linked access.",
-    href: "/product",
+    title: "Payroll integrated",
+    body: "Disbursals and settlements follow the salary cycle, so repayment is automatic on payday.",
+    href: "/how-it-works",
   },
   {
     icon: BadgeCheck,
-    title: "Trusted Platform",
-    body: "Secure, compliant, and reliable.",
+    title: "Trusted platform",
+    body: "Built for compliance-minded employers: traceable requests, partner lending, and ₹0 capital from you.",
     href: "/product",
   },
 ];
 
 const cases = [
   {
-    tag: "Employee",
-    title: "Access Earned Wages With Greater Financial Confidence",
-    href: "/blog",
+    tag: "Employees",
+    title: "Access earned wages with greater financial confidence",
+    href: "/employees",
     image: "/ref/project/h3_project_img01.jpg",
   },
   {
-    tag: "Employer",
-    title: "Support Financial Wellness Across Your Workforce",
-    href: "/blog",
+    tag: "Employers",
+    title: "Support financial wellness across your workforce",
+    href: "/employers",
     image: "/ref/project/h3_project_img02.jpg",
   },
   {
     tag: "Partners",
-    title: "Enable Responsible Finance Through Payroll Integration",
-    href: "/blog",
+    title: "Enable responsible finance through payroll integration",
+    href: "/product",
     image: "/ref/project/h3_project_img03.jpg",
   },
 ];
@@ -187,32 +161,32 @@ const team = [
 
 const quotes = [
   {
-    name: "Mr.Robey Alexa",
-    role: "CEO, Xara Agency",
-    photo: "/ref/images/testi_avatar04.png",
+    name: "HR Lead",
+    role: "Manufacturing employer",
+    initials: "HR",
     quote:
-      "Morem ipsum dolor sit amconsectetur adipiscing elitaaey um dolor sitter amet consect eturellam eu neque esacili facilisis vitae massa. Quisque",
+      "Approvals stay with us. Employees get help before payday, and recovery sits in the next salary cycle.",
   },
   {
-    name: "Savannah Nguyen",
-    role: "CEO, Xara Agency",
-    photo: "/ref/images/testi_avatar02.png",
+    name: "People Ops",
+    role: "IT services employer",
+    initials: "PO",
     quote:
-      "Morem ipsum dolor sit amconsectetur adipiscing elitaaey um dolor sitter amet consect eturellam eu neque esacili facilisis vitae massa. Quisque",
+      "We wanted a benefit people would actually use, without turning HR into a lending desk.",
   },
   {
-    name: "Wade Warren",
-    role: "CEO, Xara Agency",
-    photo: "/ref/images/testi_avatar03.png",
+    name: "Plant Manager",
+    role: "Logistics employer",
+    initials: "PM",
     quote:
-      "Morem ipsum dolor sit amconsectetur adipiscing elitaaey um dolor sitter amet consect eturellam eu neque esacili facilisis vitae massa. Quisque",
+      "Go-live was straightforward. Eligibility, requests, and settlements are visible in one place.",
   },
   {
-    name: "Courtney Henry",
-    role: "CEO, Xara Agency",
-    photo: "/ref/images/testi_avatar01.png",
+    name: "CHRO",
+    role: "Retail employer",
+    initials: "CH",
     quote:
-      "Morem ipsum dolor sit amconsectetur adipiscing elitaaey um dolor sitter amet consect eturellam eu neque esacili facilisis vitae massa. Quisque",
+      "₹0 capital from our side, and employees stop waiting until payday for genuine emergencies.",
   },
 ];
 
@@ -254,7 +228,7 @@ function HomeNav() {
       <header className={`bk-header ${stuck ? "bk-header--stuck" : ""}`}>
         <div className="bk-header__bar">
           <Link to="/" aria-label="MobPae home" className="bk-logo">
-            MobPae
+            <img src="/logo.svg" alt="MobPae" />
           </Link>
           <nav className="bk-nav" aria-label="Primary navigation">
             {NAV_LINKS.map((link) => (
@@ -328,14 +302,13 @@ function HomeFooter() {
       <div className="bk-rail">
         <div className="bk-footer__grid">
           <div>
-            <p className="bk-footer__title">About Company</p>
+            <p className="bk-footer__title">About MobPae</p>
             <p>
-              Your Trusted Financial Partner. Employer-powered salary access
-              built for responsible liquidity, payroll clarity, and workforce
-              wellbeing.
+              Employer-powered salary access for responsible liquidity, payroll
+              clarity, and workforce wellbeing.
             </p>
             <div className="bk-follow">
-              <span>Follow us On:</span>
+              <span>Follow us</span>
               <a
                 href="https://linkedin.com/company/mobpae"
                 target="_blank"
@@ -352,9 +325,6 @@ function HomeFooter() {
               >
                 <InstagramIcon />
               </a>
-              <i aria-hidden="true">
-                <X size={16} />
-              </i>
             </div>
           </div>
           <div>
@@ -399,20 +369,20 @@ function HomeFooter() {
           </div>
           <div>
             <p className="bk-footer__title">Contact</p>
-            <p>Gujarat, Ahmedabad - 382470</p>
+            <p>Gujarat, Ahmedabad — 382470</p>
             <div className="bk-contact-line">
               <Mail size={18} aria-hidden="true" />
               <a href="mailto:support@mobpae.com">support@mobpae.com</a>
             </div>
             <div className="bk-contact-line">
               <MapPin size={18} aria-hidden="true" />
-              <span>Placeholder phone number: +123 888 9999</span>
+              <span>India</span>
             </div>
           </div>
         </div>
         <div className="bk-footer__bottom">
           <Link to="/" className="bk-logo" aria-label="MobPae home">
-            MobPae
+            <img src="/logo.svg" alt="MobPae" />
           </Link>
           <p>
             Copyright © {new Date().getFullYear()} MobPae | All Rights Reserved
@@ -427,17 +397,12 @@ function HeroArt() {
   return (
     <div className="bk-banner__art">
       <div className="bk-banner__hero">
-        <img src="/ref/banner/h3_hero_img01.svg" alt="" />
-        <img
-          className="bk-banner__hero-float"
-          src="/ref/banner/h3_hero_img02.svg"
-          alt=""
-        />
         <img
           className="bk-banner__hero-shape"
           src="/ref/banner/h3_hero_shape01.svg"
           alt=""
         />
+        <AppPreview priority />
       </div>
     </div>
   );
@@ -622,7 +587,7 @@ export function HomePage() {
         <section className="bk-banner">
           <div className="bk-rail bk-banner__grid">
             <div className="bk-banner__copy">
-              <h1>Your Trusted Financial Partner.</h1>
+              <h1>Your trusted financial partner</h1>
               <p>
                 MobPae helps salaried employees access earned wages before
                 payday through employer-backed approvals, partner lenders, and
@@ -633,12 +598,9 @@ export function HomePage() {
                   Request Demo <ArrowRight size={16} aria-hidden="true" />
                 </Link>
                 <div className="bk-clients">
-                  <div className="bk-clients__faces">
-                    <img src="/ref/banner/banner__client.png" alt="" />
-                  </div>
                   <div>
-                    <strong>23M+</strong>
-                    <p>Real Clients Reviews</p>
+                    <strong>₹0</strong>
+                    <p>Employer capital required</p>
                   </div>
                 </div>
               </div>
@@ -667,9 +629,6 @@ export function HomePage() {
             >
               <InstagramIcon />
             </a>
-            <i aria-hidden="true">
-              <X size={16} />
-            </i>
           </div>
         </section>
 
@@ -709,8 +668,8 @@ export function HomePage() {
               ))}
             </div>
             <p className="bk-services__foot">
-              Discover Our Financial Services.{" "}
-              <Link to="/product">Explore All Services</Link>
+              See how MobPae works for employers and employees.{" "}
+              <Link to="/product">Explore the product</Link>
             </p>
           </div>
         </section>
@@ -718,7 +677,7 @@ export function HomePage() {
         <section className="bk-about bk-py">
           <div className="bk-rail bk-split">
             <div className="bk-about__art">
-              <img src="/ref/images/h3_about_img.png" alt="" />
+              <img src="/about/our-story-cover.webp" alt="MobPae team and story" />
             </div>
             <div className="bk-about__copy">
               <span className="bk-sub">WHY MOBPAE?</span>
@@ -822,9 +781,7 @@ export function HomePage() {
             <div className="bk-team__intro">
               <div>
                 <span className="bk-sub">Core Team</span>
-                <h2 className="bk-title">
-                  Our expert team of professionals here for you
-                </h2>
+                <h2 className="bk-title">The founding team behind MobPae</h2>
               </div>
               <p>
                 A focused founding team across strategy, technology, legal, and
@@ -850,9 +807,15 @@ export function HomePage() {
                     <h3>{member.name}</h3>
                     <span>{member.role}</span>
                   </Link>
-                  <div className="bk-member__socials" aria-hidden="true">
-                    <LinkedInIcon />
-                    <InstagramIcon />
+                  <div className="bk-member__socials">
+                    <a
+                      href="https://linkedin.com/company/mobpae"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${member.name} on LinkedIn`}
+                    >
+                      <LinkedInIcon />
+                    </a>
                   </div>
                 </article>
               ))}
@@ -869,22 +832,22 @@ export function HomePage() {
                 alt=""
                 aria-hidden="true"
               />
-              <h2>Let’s Request a Schedule For Free Consultation</h2>
+              <h2>Ready to offer salary access at work?</h2>
               <div className="bk-cta__right">
                 <div className="bk-cta__call">
-                  <Phone
+                  <Mail
                     className="bk-cta__icon"
-                    size={50}
+                    size={42}
                     strokeWidth={1.6}
                     aria-hidden="true"
                   />
                   <div>
-                    <span>Call For More Info</span>
-                    <a href="tel:+1238989444">+123 8989 444</a>
+                    <span>Talk with the MobPae team</span>
+                    <a href="mailto:support@mobpae.com">support@mobpae.com</a>
                   </div>
                 </div>
                 <Link to="/#enquiry" className="bk-btn bk-btn--ghost">
-                  Read More <ArrowRight size={16} aria-hidden="true" />
+                  Request Demo <ArrowRight size={16} aria-hidden="true" />
                 </Link>
               </div>
             </div>
@@ -894,19 +857,15 @@ export function HomePage() {
         <section className="bk-quotes bk-py">
           <div className="bk-rail">
             <div className="bk-center">
-              <span className="bk-sub">Our Testimonials</span>
-              <h2 className="bk-title">
-                We are very glad to get client review
-              </h2>
+              <span className="bk-sub">Employer voices</span>
+              <h2 className="bk-title">What teams look for in salary access</h2>
             </div>
             <div className="bk-quote-grid">
               {quotes.map((item) => (
                 <article className="bk-quote" key={item.name}>
                   <div className="bk-quote__top">
                     <div className="bk-quote__author">
-                      <span className="bk-avatar">
-                        <img src={item.photo} alt="" />
-                      </span>
+                      <span className="bk-avatar">{item.initials}</span>
                       <div>
                         <h3>{item.name}</h3>
                         <small>{item.role}</small>
@@ -940,13 +899,13 @@ export function HomePage() {
                 <img src="/ref/images/h2_call_back_shape03.svg" alt="" />
               </div>
               <div className="bk-enquiry__copy">
-                <h2>Get free marketing consultation today</h2>
+                <h2>Request a MobPae demo</h2>
                 <p>
-                  Vestibulum lectus mauris ultrices eros in. Cursus sit amet
-                  dictum sit amet. Adipiscing.
+                  Tell us about your workforce. We’ll walk through eligibility,
+                  approvals, and payroll-linked recovery.
                 </p>
                 <Link to="/contact" className="bk-btn bk-btn--ghost">
-                  Contact With Us <ArrowRight size={16} aria-hidden="true" />
+                  Contact us <ArrowRight size={16} aria-hidden="true" />
                 </Link>
               </div>
               <form className="bk-form" onSubmit={submitEnquiry} noValidate>
@@ -967,7 +926,7 @@ export function HomePage() {
                       type="email"
                       value={form.email}
                       onChange={updateField}
-                      placeholder="E-mail *"
+                      placeholder="Work email *"
                       autoComplete="email"
                       required
                     />
@@ -999,7 +958,7 @@ export function HomePage() {
                     name="message"
                     value={form.message}
                     onChange={updateField}
-                    placeholder="Comments"
+                    placeholder="How we can help"
                     rows={4}
                     required
                   />

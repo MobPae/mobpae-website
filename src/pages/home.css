@@ -188,12 +188,16 @@
 }
 
 .bk-logo {
-  color: var(--bk-navy);
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1;
+  display: inline-flex;
+  align-items: center;
   flex: 0 0 auto;
+  line-height: 1;
+}
+
+.bk-logo img {
+  display: block;
+  height: 36px;
+  width: auto;
 }
 
 .bk-nav {
@@ -355,30 +359,23 @@
   position: relative;
   z-index: 1;
   width: 100%;
+  display: grid;
+  place-items: center;
 }
 
-.bk-banner__hero > img:first-child {
-  width: auto;
-  max-width: unset;
-  height: auto;
-}
-
-.bk-banner__hero-float {
-  position: absolute;
-  left: -2%;
-  bottom: 23%;
-  width: auto;
-  height: auto;
+.bk-banner__hero .hero-device {
+  width: min(100%, 280px);
+  transform: rotateY(-8deg) rotateZ(2deg);
 }
 
 .bk-banner__hero-shape {
   position: absolute;
-  left: 0;
-  top: -5%;
+  left: 8%;
+  top: -8%;
   z-index: -1;
-  width: auto;
-  max-width: unset;
+  width: min(92%, 520px);
   height: auto;
+  pointer-events: none;
 }
 
 .bk-banner__shapes {
@@ -651,9 +648,12 @@
 }
 
 .bk-about__art img {
-  width: auto;
-  max-width: 100%;
+  width: 100%;
+  max-width: 540px;
   height: auto;
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: var(--bk-shadow-hover);
 }
 
 .bk-about__copy > p {
@@ -847,6 +847,25 @@
   position: relative;
   height: 230px;
   overflow: hidden;
+}
+
+.bk-case__thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.38) 50%,
+    transparent 60%
+  );
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+.bk-case:hover .bk-case__thumb::after {
+  transform: translateX(120%);
+  transition: transform 0.7s ease-out;
 }
 
 .bk-case__thumb img {
@@ -1071,7 +1090,21 @@
   justify-content: center;
   gap: 10px;
   margin-top: 16px;
+}
+
+.bk-member__socials a {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 50%;
   color: var(--bk-navy);
+  background: #eaf0ff;
+}
+
+.bk-member__socials a:hover {
+  color: #fff;
+  background: var(--bk-blue);
 }
 
 /* CTA band */
@@ -1110,7 +1143,6 @@
   color: #fff;
   font-size: 30px;
   font-weight: 600;
-  text-transform: capitalize;
 }
 
 .bk-cta__right {
@@ -1140,16 +1172,17 @@
 .bk-cta__call a {
   display: block;
   color: #fff;
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.2;
+  word-break: break-word;
 }
 
 .bk-cta__icon {
   display: block;
   flex: 0 0 auto;
-  width: 50px;
-  height: 50px;
+  width: 42px;
+  height: 42px;
   color: #fff;
   background: none;
   border-radius: 0;
@@ -1635,8 +1668,8 @@
   padding: 22px 0;
 }
 
-.bk-footer__bottom .bk-logo {
-  font-size: 22px;
+.bk-footer__bottom .bk-logo img {
+  height: 28px;
 }
 
 /* Scroll top */
@@ -1712,13 +1745,13 @@
     width: 100%;
     font-size: 45px;
   }
-  .bk-banner__hero > img:first-child,
+  .bk-banner__hero .hero-device {
+    width: min(100%, 240px);
+    transform: none;
+  }
   .bk-banner__hero-shape {
     max-width: 100%;
     width: 100%;
-  }
-  .bk-banner__hero-float {
-    max-width: 150px;
   }
   .bk-service-grid,
   .bk-team-grid {
@@ -1742,7 +1775,7 @@
     display: none;
   }
   .bk-cta__call a {
-    font-size: 24px;
+    font-size: 18px;
   }
   .bk-enquiry__copy {
     width: 100%;
@@ -1909,7 +1942,10 @@
   .bk-float-card,
   .bk-choose__orbit,
   .bk-marquee__row,
-  .bk-shape--ring {
+  .bk-shape--ring,
+  .bk-case:hover .bk-case__thumb::after {
     animation: none;
+    transition: none;
+    transform: none;
   }
 }
