@@ -68,60 +68,60 @@ const initialForm: FormState = {
 const services = [
   {
     icon: WalletCards,
-    title: "Earned wage access",
-    body: "Employees request salary they have already earned, with eligibility visible before they commit.",
-    href: "/employees",
+    title: "Search Engine Optimize",
+    body: "Transform your siness with consng Weshfixes",
+    href: "/product",
   },
   {
     icon: ShieldCheck,
-    title: "Employer approvals",
-    body: "HR stays in control. Requests move only after the employer reviews salary context and policy.",
-    href: "/employers",
+    title: "Social Media Marketing",
+    body: "Transform your siness with consng Weshfixes",
+    href: "/product",
   },
   {
     icon: CalendarClock,
-    title: "Payroll-linked recovery",
-    body: "Cutoff, payday, platform fee, and repayment stay aligned to the employer payroll cycle.",
-    href: "/how-it-works",
+    title: "Marketing Research",
+    body: "Transform your siness with consng Weshfixes",
+    href: "/product",
   },
   {
     icon: BadgeCheck,
-    title: "Verified disbursal",
-    body: "KYC, bank details, and fee status are checked before funds move to the employee account.",
+    title: "Real-Time Data Analysis",
+    body: "Transform your siness with consng Weshfixes",
     href: "/product",
   },
 ];
 
 const cases = [
   {
-    tag: "Employers",
-    title: "Offer salary access without becoming a lender",
-    href: "/employers",
-    tone: "bk-ph",
+    tag: "Keywords",
+    title: "Conducting Accessibility Research Inaccessible",
+    href: "/blog",
+    image: "/ref/project/h3_project_img01.jpg",
   },
   {
-    tag: "Employees",
-    title: "Request earned wages in a 60-second guided flow",
-    href: "/employees",
-    tone: "bk-ph bk-ph--amber",
+    tag: "Market Analysis",
+    title: "How To Work With Graphic WordPress In 2025",
+    href: "/blog",
+    image: "/ref/project/h3_project_img02.jpg",
   },
   {
-    tag: "Workflow",
-    title: "From request to payroll recovery in one operating layer",
-    href: "/how-it-works",
-    tone: "bk-ph bk-ph--mint",
+    tag: "Marketing",
+    title: "How To Monitor And Optim ze Google Core Web",
+    href: "/blog",
+    image: "/ref/project/h3_project_img03.jpg",
   },
   {
-    tag: "Product",
-    title: "Four surfaces, one source of truth for approvals",
-    href: "/product",
-    tone: "bk-ph bk-ph--lilac",
+    tag: "Web Traffic",
+    title: "Sketchnotes And Key Take aways 2025",
+    href: "/blog",
+    image: "/ref/project/h3_project_img04.jpg",
   },
   {
-    tag: "Story",
-    title: "Built for responsible liquidity between salary days",
-    href: "/about",
-    tone: "bk-ph",
+    tag: "Market Analysis",
+    title: "How To Work With Graphic WordPress In 2025",
+    href: "/blog",
+    image: "/ref/project/h3_project_img02.jpg",
   },
 ];
 
@@ -154,63 +154,64 @@ const team = [
 
 const quotes = [
   {
-    name: "HR Lead",
-    role: "Placeholder employer review",
-    initials: "HL",
+    name: "Mr.Robey Alexa",
+    role: "CEO, Xara Agency",
+    photo: "/ref/images/testi_avatar04.png",
     quote:
-      "The strongest part of MobPae is that the employer remains in control. It feels like a benefit, not a credit product running outside HR.",
+      "Morem ipsum dolor sit amconsectetur adipiscing elitaaey um dolor sitter amet consect eturellam eu neque esacili facilisis vitae massa. Quisque",
   },
   {
-    name: "Payroll Manager",
-    role: "Placeholder operations review",
-    initials: "PM",
+    name: "Savannah Nguyen",
+    role: "CEO, Xara Agency",
+    photo: "/ref/images/testi_avatar02.png",
     quote:
-      "Payroll date visibility solves a real confusion point. Employees understand when repayment happens before they request money.",
+      "Morem ipsum dolor sit amconsectetur adipiscing elitaaey um dolor sitter amet consect eturellam eu neque esacili facilisis vitae massa. Quisque",
   },
   {
-    name: "People Partner",
-    role: "Placeholder wellness review",
-    initials: "PP",
+    name: "Wade Warren",
+    role: "CEO, Xara Agency",
+    photo: "/ref/images/testi_avatar03.png",
     quote:
-      "The product is practical because it speaks to all three sides: employee need, employer approval, and capital risk quality.",
+      "Morem ipsum dolor sit amconsectetur adipiscing elitaaey um dolor sitter amet consect eturellam eu neque esacili facilisis vitae massa. Quisque",
   },
   {
-    name: "Finance Controller",
-    role: "Placeholder finance review",
-    initials: "FC",
+    name: "Courtney Henry",
+    role: "CEO, Xara Agency",
+    photo: "/ref/images/testi_avatar01.png",
     quote:
-      "Approvals, disbursals, and recoveries stay traceable. That is what makes earned wage access usable at company scale.",
+      "Morem ipsum dolor sit amconsectetur adipiscing elitaaey um dolor sitter amet consect eturellam eu neque esacili facilisis vitae massa. Quisque",
   },
 ];
 
 const posts = [
   {
-    title: "Earned wage access basics for modern employers",
+    title: "Participate In Staff Meetings Dedicated To Strategically",
     href: "/blog",
-    tone: "bk-ph",
-    date: "Placeholder date",
+    image: "/ref/blog/blog_post03.jpg",
+    author: "Doman Smith",
+    date: "Oct 21, 2025",
   },
   {
-    title: "How payroll-aware recovery keeps salary cycles intact",
+    title: "Sketchnotes And Key Takea ways From Smashin",
     href: "/blog",
-    tone: "bk-ph bk-ph--mint",
-    date: "Placeholder date",
+    image: "/ref/blog/blog_post04.jpg",
+    author: "Doman Smith",
+    date: "Oct 21, 2025",
   },
   {
-    title: "Designing employee wellness without informal borrowing",
+    title: "Modern CSS Tooltips And Speech Bubbles",
     href: "/blog",
-    tone: "bk-ph bk-ph--amber",
-    date: "Placeholder date",
+    image: "/ref/blog/blog_post06.jpg",
+    author: "Doman Smith",
+    date: "Oct 21, 2025",
   },
 ];
 
 const marqueeItems = [
-  "Earned Wage Access",
-  "Employer Approvals",
-  "Payroll Recovery",
-  "Employee Wellness",
-  "Verified Disbursal",
-  "Audit-ready Records",
+  "Marketing",
+  "Finance Advisor",
+  "Investment",
+  "Target",
 ];
 
 function Field({
@@ -352,7 +353,7 @@ function HomeFooter() {
             </div>
             <div className="bk-contact-line">
               <MapPin size={18} aria-hidden="true" />
-              <span>Placeholder phone number</span>
+              <span>Placeholder phone number: +123 888 9999</span>
             </div>
           </div>
         </div>
@@ -369,31 +370,12 @@ function HomeFooter() {
 
 function HeroArt() {
   return (
-    <div className="bk-banner__art" aria-hidden="true">
-      <svg className="bk-banner__blob" viewBox="0 0 520 460" fill="none">
-        <ellipse cx="280" cy="240" rx="190" ry="180" fill="#dbe6ff" />
-        <circle cx="270" cy="210" r="128" fill="#0047ff" opacity="0.18" />
-        <rect x="168" y="96" width="210" height="268" rx="36" fill="#fff" stroke="#dfe1ed" />
-        <rect x="188" y="128" width="170" height="18" rx="9" fill="#e7eeff" />
-        <rect x="188" y="160" width="132" height="14" rx="7" fill="#f0f3ff" />
-        <rect x="188" y="196" width="170" height="72" rx="16" fill="#0047ff" />
-        <rect x="204" y="214" width="90" height="10" rx="5" fill="#fff" opacity="0.7" />
-        <rect x="204" y="234" width="58" height="16" rx="8" fill="#ffb930" />
-        <rect x="188" y="286" width="80" height="48" rx="12" fill="#f5f6fc" />
-        <rect x="278" y="286" width="80" height="48" rx="12" fill="#f5f6fc" />
-        <circle cx="420" cy="86" r="28" fill="#ffb930" />
-        <circle cx="92" cy="320" r="18" fill="#0047ff" />
-      </svg>
-      <div className="bk-float-card bk-float-card--tl">
-        <ShieldCheck size={18} />
-        Employer verified
+    <div className="bk-banner__art">
+      <div className="bk-banner__hero">
+        <img src="/ref/banner/h3_hero_img01.svg" alt="" />
+        <img className="bk-banner__hero-float" src="/ref/banner/h3_hero_img02.svg" alt="" />
+        <img className="bk-banner__hero-shape" src="/ref/banner/h3_hero_shape01.svg" alt="" />
       </div>
-      <div className="bk-float-card bk-float-card--br">
-        <CalendarClock size={18} />
-        Payday aware
-      </div>
-      <span className="bk-shape bk-shape--dot" />
-      <span className="bk-shape bk-shape--ring" />
     </div>
   );
 }
@@ -430,10 +412,10 @@ function CaseSlider() {
             transform: `translateX(calc(${activeIndex} * -1 * ((100% + 30px) / ${perView})))`,
           }}
         >
-          {cases.map((item) => (
-            <article className="bk-case" key={item.title}>
+          {cases.map((item, caseIndex) => (
+            <article className="bk-case" key={`${item.title}-${caseIndex}`}>
               <div className="bk-case__thumb">
-                <div className={item.tone} aria-hidden="true" />
+                <img src={item.image} alt="" />
               </div>
               <div className="bk-case__body">
                 <Link className="bk-tag" to={item.href}>
@@ -571,24 +553,22 @@ export function HomePage() {
         <section className="bk-banner">
           <div className="bk-rail bk-banner__grid">
             <div className="bk-banner__copy">
-              <h1>Your trusted financial partner for earned wages</h1>
+              <h1>Increased traffic & higher search rankings</h1>
               <p>
-                MobPae helps salaried employees access earned wages before payday through
-                employer-backed approvals, partner lenders, and payroll-linked recovery.
+                Transform your business with our transformative consulting solutions. We go beyond
+                short-term
               </p>
               <div className="bk-banner__bottom">
                 <Link to="/#enquiry" className="bk-btn">
                   Request Demo <ArrowRight size={16} aria-hidden="true" />
                 </Link>
                 <div className="bk-clients">
-                  <div className="bk-clients__faces" aria-hidden="true">
-                    <span />
-                    <span />
-                    <span />
+                  <div className="bk-clients__faces">
+                    <img src="/ref/banner/banner__client.png" alt="" />
                   </div>
                   <div>
-                    <strong>HR-first</strong>
-                    <p>Employer-controlled access</p>
+                    <strong>23M+</strong>
+                    <p>Real Clients Reviews</p>
                   </div>
                 </div>
               </div>
@@ -611,7 +591,7 @@ export function HomePage() {
           <div className="bk-rail">
             <div className="bk-center">
               <span className="bk-sub">Our Service</span>
-              <h2 className="bk-title">We provide salary access that works for workforces</h2>
+              <h2 className="bk-title">We Provide SEO Solutions That Works</h2>
             </div>
             <div className="bk-service-grid">
               {services.map((service) => (
@@ -627,7 +607,7 @@ export function HomePage() {
               ))}
             </div>
             <p className="bk-services__foot">
-              Discover our earned wage access platform.{" "}
+              Discover Our Financial Services.{" "}
               <Link to="/product">Explore All Services</Link>
             </p>
           </div>
@@ -635,38 +615,37 @@ export function HomePage() {
 
         <section className="bk-about bk-py">
           <div className="bk-rail bk-split">
-            <div className="bk-about__art" aria-hidden="true">
-              <div className="bk-about__panel" />
+            <div className="bk-about__art">
+              <img src="/ref/images/h3_about_img.png" alt="" />
             </div>
             <div className="bk-about__copy">
               <span className="bk-sub">Who we are</span>
-              <h2 className="bk-title">Reason for choosing employer-powered salary access</h2>
+              <h2 className="bk-title">Reason For Choosing Our Online Marketing</h2>
               <p>
-                MobPae is not a disconnected set of dashboards. It is one payroll-aware flow where
-                enquiry, approval, disbursal, recovery, and settlement share the same source of truth.
+                Things go wrong have questions. We’ve understand we areaa have peopleam viverra.
               </p>
-              <Link className="bk-about-card" to="/employers">
+              <Link className="bk-about-card" to="/about">
                 <div className="bk-about-card__left">
                   <span className="bk-icon">
                     <ShieldCheck size={22} aria-hidden="true" />
                   </span>
                   <div>
-                    <h3>Employer control</h3>
-                    <p>Policy, approval, and recovery stay with HR — never outside the company.</p>
+                    <h3>User Experience</h3>
+                    <p>Etiam viverra purus selie trail tincidunt diamvel amet.</p>
                   </div>
                 </div>
                 <span className="bk-about-card__arrow">
                   <ArrowRight size={16} />
                 </span>
               </Link>
-              <Link className="bk-about-card" to="/how-it-works">
+              <Link className="bk-about-card" to="/about">
                 <div className="bk-about-card__left">
                   <span className="bk-icon">
                     <CalendarClock size={22} aria-hidden="true" />
                   </span>
                   <div>
-                    <h3>Payroll clarity</h3>
-                    <p>Employees see payday, cutoff, and repayment before they request access.</p>
+                    <h3>Marketing Goal</h3>
+                    <p>Etiam viverra purus selie trail tincidunt diamvel amet.</p>
                   </div>
                 </div>
                 <span className="bk-about-card__arrow">
@@ -681,30 +660,29 @@ export function HomePage() {
           <div className="bk-rail bk-split">
             <div className="bk-choose__copy">
               <span className="bk-sub">Why Choose Us</span>
-              <h2 className="bk-title">Empowering workplaces with responsible salary access</h2>
+              <h2 className="bk-title">Empowering Businesses Demonstrating SEO Impact</h2>
               <p>
-                Give employees a calmer way to handle salary gaps while keeping approval, recovery,
-                and settlement workflows structured for employers.
+                Things go wrong have questions. We’ve understand we areaa have peopleam viverra.ting
+                is marketing and advertising of a business service using online channels.
               </p>
               <ul className="bk-checks">
                 <li>
-                  <Check size={16} aria-hidden="true" /> No employer capital required
+                  <Check size={16} aria-hidden="true" /> Perfect for large sites agencies
                 </li>
                 <li>
-                  <Check size={16} aria-hidden="true" /> Every approval and disbursal logged
+                  <Check size={16} aria-hidden="true" /> marketing and advertising
                 </li>
                 <li>
-                  <Check size={16} aria-hidden="true" /> Recovery aligned to payroll cutoff
+                  <Check size={16} aria-hidden="true" /> Effortless Integration
                 </li>
               </ul>
               <Link to="/contact" className="bk-btn">
                 Need a consultancy <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
-            <div className="bk-choose__art" aria-hidden="true">
-              <div className="bk-choose__stack" />
-              <span className="bk-choose__orbit bk-choose__orbit--a" />
-              <span className="bk-choose__orbit bk-choose__orbit--b" />
+            <div className="bk-choose__art">
+              <img src="/ref/images/choose_img01.svg" alt="" />
+              <img src="/ref/images/choose_img02.svg" alt="" />
             </div>
           </div>
         </section>
@@ -713,7 +691,7 @@ export function HomePage() {
           <div className="bk-rail">
             <div className="bk-cases-head">
               <span className="bk-sub">Our Case Studies</span>
-              <h2 className="bk-title">A systematic approach to earned wage access</h2>
+              <h2 className="bk-title">A systematic approach to digital marketing</h2>
             </div>
           </div>
           <div className="bk-wide">
@@ -760,7 +738,7 @@ export function HomePage() {
         <section className="bk-cta bk-py" style={{ paddingBottom: 0 }}>
           <div className="bk-rail">
             <div className="bk-cta__inner">
-              <h2>Let’s request a schedule for a free consultation</h2>
+                <h2>Let’s Request a Schedule For Free Consultation</h2>
               <div className="bk-cta__right">
                 <div className="bk-cta__call">
                   <span className="bk-cta__icon">
@@ -768,7 +746,7 @@ export function HomePage() {
                   </span>
                   <div>
                     <span>Call For More Info</span>
-                    <a href="mailto:support@mobpae.com">support@mobpae.com</a>
+                    <a href="tel:+1238989444">+123 8989 444</a>
                   </div>
                 </div>
                 <Link to="/#enquiry" className="bk-btn bk-btn--ghost">
@@ -790,7 +768,9 @@ export function HomePage() {
                 <article className="bk-quote" key={item.name}>
                   <div className="bk-quote__top">
                     <div className="bk-quote__author">
-                      <span className="bk-avatar">{item.initials}</span>
+                      <span className="bk-avatar">
+                        <img src={item.photo} alt="" />
+                      </span>
                       <div>
                         <h3>{item.name}</h3>
                         <small>{item.role}</small>
@@ -835,23 +815,23 @@ export function HomePage() {
                 <h2 className="bk-title">Get more updates for news & articles</h2>
               </div>
               <p>
-                Notes on salary access, payroll, and employee wellness. Longer-form MobPae
-                articles will live here — these cards are placeholders until publish.
+                Ever find yourself staring at your computer screen a good consulting slogan to come
+                to mind? Oftentimes.
               </p>
             </div>
             <div className="bk-blog-grid">
               {posts.map((post) => (
                 <article className="bk-post" key={post.title}>
                   <Link to={post.href} className="bk-post__thumb">
-                    <div className={post.tone} aria-hidden="true" />
+                    <img src={post.image} alt="" />
                     <span className="bk-post__chip">Business</span>
                   </Link>
                   <div className="bk-post__author">
                     <span className="bk-avatar" style={{ width: 36, height: 36, fontSize: 12 }}>
-                      MP
+                      <img src="/ref/images/testi_avatar01.png" alt="" />
                     </span>
                     <span>
-                      By <b>MobPae Team</b>
+                      By <b>{post.author}</b>
                     </span>
                   </div>
                   <h3>
@@ -859,7 +839,7 @@ export function HomePage() {
                   </h3>
                   <div className="bk-post__meta">
                     <span>{post.date}</span>
-                    <span>Comment: 0</span>
+                    <span>Comment: 15</span>
                   </div>
                 </article>
               ))}
@@ -871,10 +851,10 @@ export function HomePage() {
           <div className="bk-rail">
             <div className="bk-enquiry__inner">
               <div className="bk-enquiry__copy">
-                <h2>Get a free MobPae consultation today</h2>
+                <h2>Get free marketing consultation today</h2>
                 <p>
-                  Share the basics and our team will schedule a focused call for your payroll,
-                  HR, and employee wellness requirements.
+                  Vestibulum lectus mauris ultrices eros in. Cursus sit amet dictum sit amet.
+                  Adipiscing.
                 </p>
                 <Link to="/contact" className="bk-btn bk-btn--ghost">
                   Contact With Us <ArrowRight size={16} aria-hidden="true" />
