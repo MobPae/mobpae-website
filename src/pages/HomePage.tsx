@@ -397,16 +397,11 @@ function HeroArt() {
     <div className="bk-banner__art">
       <div className="bk-banner__hero">
         <img
-          className="bk-banner__hero-shape"
-          src="/ref/banner/h3_hero_shape01.svg"
-          alt=""
-        />
-        <img
           className="bk-banner__phone"
           src="/home/hero-phone-hand.png"
-          alt="Hand holding a phone showing the MobPae employee app"
-          width={960}
-          height={720}
+          alt="Right hand holding a phone showing the MobPae employee app"
+          width={1024}
+          height={1536}
         />
       </div>
     </div>
