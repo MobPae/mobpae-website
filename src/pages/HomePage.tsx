@@ -5,8 +5,6 @@ import {
   Banknote,
   CalendarClock,
   Check,
-  Clock,
-  IndianRupee,
   Mail,
   MapPin,
   Menu,
@@ -18,7 +16,6 @@ import {
 import type { ChangeEvent, FormEvent, ReactNode } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { AppPreview } from "../components/AppPreview";
 import { useInView } from "../hooks/useInView";
 import "./home.css";
 
@@ -404,7 +401,13 @@ function HeroArt() {
           src="/ref/banner/h3_hero_shape01.svg"
           alt=""
         />
-        <AppPreview priority />
+        <img
+          className="bk-banner__phone"
+          src="/home/hero-phone-hand.png"
+          alt="Hand holding a phone showing the MobPae employee app"
+          width={960}
+          height={720}
+        />
       </div>
     </div>
   );
@@ -698,45 +701,12 @@ export function HomePage() {
         <section className="bk-about bk-py">
           <div className="bk-rail bk-split">
             <div className="bk-about__art">
-              <div className="bk-stage">
-                <span className="bk-stage__glow" aria-hidden="true" />
-                <span className="bk-stage__ring" aria-hidden="true" />
-                <div className="bk-stage__photo">
-                  <img
-                    src="/about/our-story-cover.webp"
-                    alt="MobPae team"
-                  />
-                </div>
-                <div className="bk-stage__board">
-                  <p>This pay cycle</p>
-                  <strong>
-                    <IndianRupee size={28} strokeWidth={2.2} aria-hidden="true" />
-                    Available now
-                  </strong>
-                  <span>Earned wages · not a loan</span>
-                  <div className="bk-stage__bar" aria-hidden="true">
-                    <i />
-                    <b />
-                  </div>
-                  <div className="bk-stage__days">
-                    <span>Last payday</span>
-                    <span>Today</span>
-                    <span>Next payday</span>
-                  </div>
-                </div>
-                <aside className="bk-stage__chip bk-stage__chip--a">
-                  <Clock size={16} aria-hidden="true" />
-                  60 sec request
-                </aside>
-                <aside className="bk-stage__chip bk-stage__chip--b">
-                  <ShieldCheck size={16} aria-hidden="true" />
-                  HR approved
-                </aside>
-                <aside className="bk-stage__chip bk-stage__chip--c">
-                  <BadgeCheck size={16} aria-hidden="true" />
-                  ₹0 employer capital
-                </aside>
-              </div>
+              <img
+                src="/home/why-mobpae-art.png"
+                alt="Illustration of an employee with salary access on a smartphone"
+                width={1200}
+                height={900}
+              />
             </div>
             <div className="bk-about__copy">
               <span className="bk-sub">WHY MOBPAE?</span>
