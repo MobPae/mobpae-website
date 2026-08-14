@@ -534,8 +534,8 @@ function Counters() {
       <div className="bk-rail bk-counter-grid" ref={ref}>
         {stats.map((stat) => (
           <article className="bk-counter" key={stat.label}>
-            <span className="bk-icon">
-              <stat.icon size={26} aria-hidden="true" />
+            <span className="bk-counter__icon">
+              <stat.icon size={56} strokeWidth={1.5} aria-hidden="true" />
             </span>
             <div>
               <strong>{inView ? stat.value : "—"}</strong>
@@ -858,7 +858,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="bk-cta bk-py" style={{ paddingBottom: 0 }}>
+        <section className="bk-cta">
           <div className="bk-rail">
             <div className="bk-cta__inner">
               <img

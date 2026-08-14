@@ -899,8 +899,8 @@
 
 /* Counters */
 .bk-counters {
-  padding: 20px 0 0;
-  background: #fff;
+  padding: 0;
+  background: transparent;
 }
 
 .bk-counter-grid {
@@ -915,22 +915,50 @@
   gap: 20px;
 }
 
-.bk-counter:hover .bk-icon {
+.bk-counter__icon {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  flex: 0 0 auto;
+  color: var(--bk-blue);
+  padding: 10px 0 0 17px;
+}
+
+.bk-counter__icon::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  background: #eaf0ff;
+}
+
+.bk-counter:hover .bk-counter__icon svg {
   transform: rotateY(180deg);
+}
+
+.bk-counter__icon svg {
+  transition: transform 0.5s ease-out;
 }
 
 .bk-counter strong {
   display: block;
+  margin-bottom: 10px;
   color: var(--bk-navy);
-  font-size: 36px;
+  font-size: 60px;
   font-weight: 700;
-  line-height: 1;
+  line-height: 0.8;
 }
 
 .bk-counter p {
-  margin-top: 6px;
+  margin: 0;
   color: var(--bk-muted);
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
 }
 
 /* Team */
@@ -1020,8 +1048,8 @@
 
 /* CTA band */
 .bk-cta {
-  background: #fff;
-  padding: 0 0 0;
+  background: transparent;
+  padding: 0;
 }
 
 .bk-cta__inner {
@@ -1675,6 +1703,13 @@
   .bk-footer__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .bk-counter strong {
+    font-size: 50px;
+  }
+  .bk-counter__icon::before {
+    width: 60px;
+    height: 60px;
+  }
   .bk-social {
     display: none;
   }
@@ -1786,6 +1821,17 @@
   .bk-team-grid,
   .bk-counter-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .bk-counter {
+    gap: 10px;
+  }
+  .bk-counter strong {
+    font-size: 35px;
+    line-height: 1;
+  }
+  .bk-counter__icon::before {
+    width: 50px;
+    height: 50px;
   }
   .bk-case {
     flex-basis: 100%;
