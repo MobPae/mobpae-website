@@ -5,6 +5,8 @@ import {
   Banknote,
   CalendarClock,
   Check,
+  Clock,
+  IndianRupee,
   Mail,
   MapPin,
   Menu,
@@ -634,24 +636,43 @@ export function HomePage() {
 
         <section className="bk-services bk-py">
           <div className="bk-rail">
-            <div className="bk-center">
-              <span className="bk-sub">
-                Features you’ll love and use every day
-              </span>
-              <h2 className="bk-title">
-                Designed for the moments between salary and need.
-              </h2>
+            <div className="bk-features-head">
+              <div>
+                <span className="bk-sub">
+                  Features you’ll love and use every day
+                </span>
+                <h2 className="bk-title">
+                  Designed for the moments between salary and need.
+                </h2>
+              </div>
+              <ol className="bk-cycle" aria-label="Salary access cycle">
+                <li>
+                  <span>01</span>
+                  Earn
+                </li>
+                <li>
+                  <span>02</span>
+                  Request
+                </li>
+                <li>
+                  <span>03</span>
+                  Payday
+                </li>
+              </ol>
             </div>
             <div className="bk-service-grid">
-              {services.map((service) => (
+              {services.map((service, index) => (
                 <article className="bk-service" key={service.title}>
-                  <span className="bk-service__icon">
-                    <service.icon
-                      size={50}
-                      strokeWidth={1.4}
-                      aria-hidden="true"
-                    />
-                  </span>
+                  <div className="bk-service__top">
+                    <span className="bk-service__icon">
+                      <service.icon
+                        size={42}
+                        strokeWidth={1.4}
+                        aria-hidden="true"
+                      />
+                    </span>
+                    <em>0{index + 1}</em>
+                  </div>
                   <h3>
                     <Link to={service.href}>{service.title}</Link>
                   </h3>
@@ -677,7 +698,45 @@ export function HomePage() {
         <section className="bk-about bk-py">
           <div className="bk-rail bk-split">
             <div className="bk-about__art">
-              <img src="/about/our-story-cover.webp" alt="MobPae team and story" />
+              <div className="bk-stage">
+                <span className="bk-stage__glow" aria-hidden="true" />
+                <span className="bk-stage__ring" aria-hidden="true" />
+                <div className="bk-stage__photo">
+                  <img
+                    src="/about/our-story-cover.webp"
+                    alt="MobPae team"
+                  />
+                </div>
+                <div className="bk-stage__board">
+                  <p>This pay cycle</p>
+                  <strong>
+                    <IndianRupee size={28} strokeWidth={2.2} aria-hidden="true" />
+                    Available now
+                  </strong>
+                  <span>Earned wages · not a loan</span>
+                  <div className="bk-stage__bar" aria-hidden="true">
+                    <i />
+                    <b />
+                  </div>
+                  <div className="bk-stage__days">
+                    <span>Last payday</span>
+                    <span>Today</span>
+                    <span>Next payday</span>
+                  </div>
+                </div>
+                <aside className="bk-stage__chip bk-stage__chip--a">
+                  <Clock size={16} aria-hidden="true" />
+                  60 sec request
+                </aside>
+                <aside className="bk-stage__chip bk-stage__chip--b">
+                  <ShieldCheck size={16} aria-hidden="true" />
+                  HR approved
+                </aside>
+                <aside className="bk-stage__chip bk-stage__chip--c">
+                  <BadgeCheck size={16} aria-hidden="true" />
+                  ₹0 employer capital
+                </aside>
+              </div>
             </div>
             <div className="bk-about__copy">
               <span className="bk-sub">WHY MOBPAE?</span>
