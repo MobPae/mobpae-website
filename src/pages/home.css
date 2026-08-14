@@ -805,6 +805,25 @@
   text-align: center;
 }
 
+.bk-cases__wrap {
+  position: relative;
+  z-index: 1;
+  padding: 50px 0 80px;
+}
+
+.bk-cases__wrap::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: -1;
+  width: 75%;
+  height: 100%;
+  transform: translateX(-50%);
+  border-radius: 30px;
+  background: #eff1fa;
+}
+
 .bk-cases__viewport {
   overflow: hidden;
 }
@@ -863,6 +882,9 @@
 .bk-tag {
   display: inline-flex;
   margin-bottom: 10px;
+  padding: 4px 12px;
+  border-radius: 100px;
+  background: #eaf0ff;
   color: var(--bk-blue);
   font-size: 14px;
   font-weight: 500;
@@ -874,21 +896,27 @@
 }
 
 .bk-cases__nav {
+  position: absolute;
+  left: 50%;
+  bottom: -22px;
+  z-index: 2;
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin-top: 36px;
+  gap: 10px;
+  margin: 0;
+  transform: translateX(-50%);
 }
 
 .bk-nav-btn {
   display: grid;
-  width: 52px;
-  height: 52px;
+  width: 74px;
+  height: 50px;
   place-items: center;
-  border: 1px solid var(--bk-border);
-  border-radius: 50% !important;
+  border: 1px solid #d1d4e2;
+  border-radius: 100px !important;
   background: #fff;
   color: var(--bk-navy);
+  box-shadow: 0px 9px 20px 0px rgba(0, 0, 0, 0.1);
 }
 
 .bk-nav-btn:hover {
@@ -899,8 +927,8 @@
 
 /* Counters */
 .bk-counters {
-  padding: 0;
-  background: transparent;
+  padding: 80px 0;
+  background: #f5f6fc;
 }
 
 .bk-counter-grid {
@@ -1806,6 +1834,12 @@
   .bk-home {
     --bk-rail: calc(100% - 24px);
     --bk-wide: calc(100% - 24px);
+  }
+  .bk-cases__wrap {
+    padding: 35px 0 60px;
+  }
+  .bk-cases__wrap::before {
+    width: 80%;
   }
   .bk-banner {
     padding: 110px 0 80px;

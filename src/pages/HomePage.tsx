@@ -809,7 +809,9 @@ export function HomePage() {
             </div>
           </div>
           <div className="bk-wide">
-            <CaseSlider />
+            <div className="bk-cases__wrap">
+              <CaseSlider />
+            </div>
           </div>
         </section>
 
