@@ -30,7 +30,13 @@ const NAV_LINKS = [
 
 function LinkedInIcon() {
   return (
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+    <svg
+      viewBox="0 0 24 24"
+      width="16"
+      height="16"
+      fill="currentColor"
+      aria-hidden="true"
+    >
       <path d="M6.94 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM7 8.48H3.16V21H7V8.48Zm6.32 0H9.5V21h3.77v-6.19c0-3.44 4.48-3.72 4.48 0V21H21v-7.93c0-6.17-6.91-5.94-7.68-2.91V8.48Z" />
     </svg>
   );
@@ -38,8 +44,22 @@ function LinkedInIcon() {
 
 function InstagramIcon() {
   return (
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true">
-      <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="2" />
+    <svg
+      viewBox="0 0 24 24"
+      width="16"
+      height="16"
+      fill="none"
+      aria-hidden="true"
+    >
+      <rect
+        x="3"
+        y="3"
+        width="18"
+        height="18"
+        rx="5"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
       <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2" />
       <circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" />
     </svg>
@@ -64,63 +84,77 @@ const initialForm: FormState = {
   message: "",
 };
 
+// const services = [
+//   {
+//     icon: WalletCards,
+//     title: "Mobile Application",
+//     body: "Transform your siness with consng Weshfixes",
+//     href: "/product",
+//   },
+//   {
+//     icon: ShieldCheck,
+//     title: "Employer Web App",
+//     body: "Transform your siness with consng Weshfixes",
+//     href: "/product",
+//   },
+//   {
+//     icon: CalendarClock,
+//     title: "Admin Console",
+//     body: "Transform your siness with consng Weshfixes",
+//     href: "/product",
+//   },
+//   {
+//     icon: BadgeCheck,
+//     title: "Lender Platform",
+//     body: "Transform your siness with consng Weshfixes",
+//     href: "/product",
+//   },
+// ];
 const services = [
   {
     icon: WalletCards,
-    title: "Search Engine Optimize",
-    body: "Transform your siness with consng Weshfixes",
+    title: "Earned Wage Access",
+    body: "Your salary, when you need it.",
     href: "/product",
   },
   {
     icon: ShieldCheck,
-    title: "Social Media Marketing",
-    body: "Transform your siness with consng Weshfixes",
+    title: "Employer Powered",
+    body: "Built for modern workplaces.",
     href: "/product",
   },
   {
     icon: CalendarClock,
-    title: "Marketing Research",
-    body: "Transform your siness with consng Weshfixes",
+    title: "Payroll Integrated",
+    body: "Seamless salary-linked access.",
     href: "/product",
   },
   {
     icon: BadgeCheck,
-    title: "Real-Time Data Analysis",
-    body: "Transform your siness with consng Weshfixes",
+    title: "Trusted Platform",
+    body: "Secure, compliant, and reliable.",
     href: "/product",
   },
 ];
 
 const cases = [
   {
-    tag: "Keywords",
-    title: "Conducting Accessibility Research Inaccessible",
+    tag: "Employee",
+    title: "Access Earned Wages With Greater Financial Confidence",
     href: "/blog",
     image: "/ref/project/h3_project_img01.jpg",
   },
   {
-    tag: "Market Analysis",
-    title: "How To Work With Graphic WordPress In 2025",
+    tag: "Employer",
+    title: "Support Financial Wellness Across Your Workforce",
     href: "/blog",
     image: "/ref/project/h3_project_img02.jpg",
   },
   {
-    tag: "Marketing",
-    title: "How To Monitor And Optim ze Google Core Web",
+    tag: "Partners",
+    title: "Enable Responsible Finance Through Payroll Integration",
     href: "/blog",
     image: "/ref/project/h3_project_img03.jpg",
-  },
-  {
-    tag: "Web Traffic",
-    title: "Sketchnotes And Key Take aways 2025",
-    href: "/blog",
-    image: "/ref/project/h3_project_img04.jpg",
-  },
-  {
-    tag: "Market Analysis",
-    title: "How To Work With Graphic WordPress In 2025",
-    href: "/blog",
-    image: "/ref/project/h3_project_img02.jpg",
   },
 ];
 
@@ -206,12 +240,7 @@ const posts = [
   },
 ];
 
-const marqueeItems = [
-  "Marketing",
-  "Finance Advisor",
-  "Investment",
-  "Target",
-];
+const marqueeItems = ["Marketing", "Finance Advisor", "Investment", "Target"];
 
 function Field({
   label,
@@ -258,7 +287,9 @@ function HomeNav() {
               <Link
                 key={link.href}
                 to={link.href}
-                aria-current={location.pathname === link.href ? "page" : undefined}
+                aria-current={
+                  location.pathname === link.href ? "page" : undefined
+                }
               >
                 {link.label}
               </Link>
@@ -280,18 +311,34 @@ function HomeNav() {
               aria-controls="bk-mobile-navigation"
               onClick={() => setOpen((value) => !value)}
             >
-              {open ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}
+              {open ? (
+                <X size={18} aria-hidden="true" />
+              ) : (
+                <Menu size={18} aria-hidden="true" />
+              )}
             </button>
           </div>
         </div>
         {open ? (
-          <nav id="bk-mobile-navigation" className="bk-mobile" aria-label="Mobile navigation">
+          <nav
+            id="bk-mobile-navigation"
+            className="bk-mobile"
+            aria-label="Mobile navigation"
+          >
             {NAV_LINKS.map((link) => (
-              <Link key={link.href} to={link.href} onClick={() => setOpen(false)}>
+              <Link
+                key={link.href}
+                to={link.href}
+                onClick={() => setOpen(false)}
+              >
                 {link.label}
               </Link>
             ))}
-            <Link to="/#enquiry" className="bk-btn" onClick={() => setOpen(false)}>
+            <Link
+              to="/#enquiry"
+              className="bk-btn"
+              onClick={() => setOpen(false)}
+            >
               Request Demo
             </Link>
           </nav>
@@ -309,38 +356,71 @@ function HomeFooter() {
           <div>
             <p className="bk-footer__title">About Company</p>
             <p>
-              Your Trusted Financial Partner. Employer-powered salary access built for
-              responsible liquidity, payroll clarity, and workforce wellbeing.
+              Your Trusted Financial Partner. Employer-powered salary access
+              built for responsible liquidity, payroll clarity, and workforce
+              wellbeing.
             </p>
             <div className="bk-follow">
               <span>Follow us On:</span>
-              <a href="https://linkedin.com/company/mobpae" target="_blank" rel="noreferrer" aria-label="MobPae on LinkedIn">
+              <a
+                href="https://linkedin.com/company/mobpae"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="MobPae on LinkedIn"
+              >
                 <LinkedInIcon />
               </a>
-              <a href="https://www.instagram.com/mobpae/" target="_blank" rel="noreferrer" aria-label="MobPae on Instagram">
+              <a
+                href="https://www.instagram.com/mobpae/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="MobPae on Instagram"
+              >
                 <InstagramIcon />
               </a>
-              <i aria-hidden="true"><X size={16} /></i>
+              <i aria-hidden="true">
+                <X size={16} />
+              </i>
             </div>
           </div>
           <div>
             <p className="bk-footer__title">Information</p>
             <ul>
-              <li><Link to="/about">Our Story</Link></li>
-              <li><Link to="/team">Team</Link></li>
-              <li><Link to="/careers">Careers</Link></li>
-              <li><Link to="/blog">Blog</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
+              <li>
+                <Link to="/about">Our Story</Link>
+              </li>
+              <li>
+                <Link to="/team">Team</Link>
+              </li>
+              <li>
+                <Link to="/careers">Careers</Link>
+              </li>
+              <li>
+                <Link to="/blog">Blog</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact</Link>
+              </li>
             </ul>
           </div>
           <div>
             <p className="bk-footer__title">Quick links</p>
             <ul>
-              <li><Link to="/how-it-works">How It Works</Link></li>
-              <li><Link to="/employers">For Employers</Link></li>
-              <li><Link to="/employees">For Employees</Link></li>
-              <li><Link to="/product">Product</Link></li>
-              <li><Link to="/faqs">FAQs</Link></li>
+              <li>
+                <Link to="/how-it-works">How It Works</Link>
+              </li>
+              <li>
+                <Link to="/employers">For Employers</Link>
+              </li>
+              <li>
+                <Link to="/employees">For Employees</Link>
+              </li>
+              <li>
+                <Link to="/product">Product</Link>
+              </li>
+              <li>
+                <Link to="/faqs">FAQs</Link>
+              </li>
             </ul>
           </div>
           <div>
@@ -360,7 +440,9 @@ function HomeFooter() {
           <Link to="/" className="bk-logo" aria-label="MobPae home">
             MobPae
           </Link>
-          <p>Copyright © {new Date().getFullYear()} MobPae | All Rights Reserved</p>
+          <p>
+            Copyright © {new Date().getFullYear()} MobPae | All Rights Reserved
+          </p>
         </div>
       </div>
     </footer>
@@ -372,8 +454,16 @@ function HeroArt() {
     <div className="bk-banner__art">
       <div className="bk-banner__hero">
         <img src="/ref/banner/h3_hero_img01.svg" alt="" />
-        <img className="bk-banner__hero-float" src="/ref/banner/h3_hero_img02.svg" alt="" />
-        <img className="bk-banner__hero-shape" src="/ref/banner/h3_hero_shape01.svg" alt="" />
+        <img
+          className="bk-banner__hero-float"
+          src="/ref/banner/h3_hero_img02.svg"
+          alt=""
+        />
+        <img
+          className="bk-banner__hero-shape"
+          src="/ref/banner/h3_hero_shape01.svg"
+          alt=""
+        />
       </div>
     </div>
   );
@@ -390,7 +480,8 @@ function CaseSlider() {
         return;
       }
       if (window.matchMedia("(max-width: 767.98px)").matches) setPerView(1);
-      else if (window.matchMedia("(max-width: 1199.98px)").matches) setPerView(2);
+      else if (window.matchMedia("(max-width: 1199.98px)").matches)
+        setPerView(2);
       else setPerView(3);
     };
     update();
@@ -433,7 +524,9 @@ function CaseSlider() {
           type="button"
           className="bk-nav-btn"
           aria-label="Previous case studies"
-          onClick={() => setIndex((value) => Math.max(0, Math.min(maxIndex, value) - 1))}
+          onClick={() =>
+            setIndex((value) => Math.max(0, Math.min(maxIndex, value) - 1))
+          }
         >
           <ArrowRight size={18} style={{ transform: "rotate(180deg)" }} />
         </button>
@@ -459,7 +552,7 @@ function Counters() {
       { icon: ShieldCheck, value: "₹0", label: "Employer capital required" },
       { icon: BadgeCheck, value: "100%", label: "HR-controlled approvals" },
     ],
-    []
+    [],
   );
 
   return (
@@ -496,7 +589,9 @@ export function HomePage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  function updateField(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+  function updateField(
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) {
     const { name, value } = event.target;
     setForm((previous) => ({ ...previous, [name]: value }));
     if (errors[name as keyof FormState]) {
@@ -509,7 +604,8 @@ export function HomePage() {
     if (!form.contactName.trim()) nextErrors.contactName = "Required";
     if (!form.companyName.trim()) nextErrors.companyName = "Required";
     if (!form.email.trim()) nextErrors.email = "Required";
-    else if (!/^\S+@\S+\.\S+$/.test(form.email.trim())) nextErrors.email = "Invalid email";
+    else if (!/^\S+@\S+\.\S+$/.test(form.email.trim()))
+      nextErrors.email = "Invalid email";
     if (!form.message.trim()) nextErrors.message = "Required";
     setErrors(nextErrors);
     return Object.keys(nextErrors).length === 0;
@@ -552,10 +648,11 @@ export function HomePage() {
         <section className="bk-banner">
           <div className="bk-rail bk-banner__grid">
             <div className="bk-banner__copy">
-              <h1>Increased traffic & higher search rankings</h1>
+              <h1>Your Trusted Financial Partner.</h1>
               <p>
-                Transform your business with our transformative consulting solutions. We go beyond
-                short-term
+                MobPae helps salaried employees access earned wages before
+                payday through employer-backed approvals, partner lenders, and
+                payroll-linked recovery.
               </p>
               <div className="bk-banner__bottom">
                 <Link to="/#enquiry" className="bk-btn">
@@ -576,27 +673,47 @@ export function HomePage() {
           </div>
           <div className="bk-social">
             <span>Follow us</span>
-            <a href="https://linkedin.com/company/mobpae" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <a
+              href="https://linkedin.com/company/mobpae"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+            >
               <LinkedInIcon />
             </a>
-            <a href="https://www.instagram.com/mobpae/" target="_blank" rel="noreferrer" aria-label="Instagram">
+            <a
+              href="https://www.instagram.com/mobpae/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+            >
               <InstagramIcon />
             </a>
-            <i aria-hidden="true"><X size={16} /></i>
+            <i aria-hidden="true">
+              <X size={16} />
+            </i>
           </div>
         </section>
 
         <section className="bk-services bk-py">
           <div className="bk-rail">
             <div className="bk-center">
-              <span className="bk-sub">Our Service</span>
-              <h2 className="bk-title">We Provide SEO Solutions That Works</h2>
+              <span className="bk-sub">
+                Features you’ll love and use every day
+              </span>
+              <h2 className="bk-title">
+                Designed for the moments between salary and need.
+              </h2>
             </div>
             <div className="bk-service-grid">
               {services.map((service) => (
                 <article className="bk-service" key={service.title}>
                   <span className="bk-service__icon">
-                    <service.icon size={50} strokeWidth={1.4} aria-hidden="true" />
+                    <service.icon
+                      size={50}
+                      strokeWidth={1.4}
+                      aria-hidden="true"
+                    />
                   </span>
                   <h3>
                     <Link to={service.href}>{service.title}</Link>
@@ -604,7 +721,11 @@ export function HomePage() {
                   <p>{service.body}</p>
                   <Link className="bk-service__more" to={service.href}>
                     Read More
-                    <img src="/ref/icons/right_arrow.svg" alt="" aria-hidden="true" />
+                    <img
+                      src="/ref/icons/right_arrow.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
                   </Link>
                 </article>
               ))}
@@ -622,10 +743,11 @@ export function HomePage() {
               <img src="/ref/images/h3_about_img.png" alt="" />
             </div>
             <div className="bk-about__copy">
-              <span className="bk-sub">Who we are</span>
-              <h2 className="bk-title">Reason For Choosing Our Online Marketing</h2>
+              <span className="bk-sub">WHY MOBPAE?</span>
+              <h2 className="bk-title">Financial Wellness Beyond Payday</h2>
               <p>
-                Things go wrong have questions. We’ve understand we areaa have peopleam viverra.
+                Help employees access earned wages before payday while improving
+                financial well-being, productivity, and workplace satisfaction.
               </p>
               <Link className="bk-about-card" to="/about">
                 <div className="bk-about-card__left">
@@ -633,8 +755,11 @@ export function HomePage() {
                     <ShieldCheck size={22} aria-hidden="true" />
                   </span>
                   <div>
-                    <h3>User Experience</h3>
-                    <p>Etiam viverra purus selie trail tincidunt diamvel amet.</p>
+                    <h3>Access Salary Early</h3>
+                    <p>
+                      View available earnings and request funds anytime before
+                      payday.
+                    </p>
                   </div>
                 </div>
                 <span className="bk-about-card__arrow">
@@ -647,8 +772,11 @@ export function HomePage() {
                     <CalendarClock size={22} aria-hidden="true" />
                   </span>
                   <div>
-                    <h3>Marketing Goal</h3>
-                    <p>Etiam viverra purus selie trail tincidunt diamvel amet.</p>
+                    <h3>Automatic Payroll Settlement</h3>
+                    <p>
+                      Repayment is seamlessly deducted during the next payroll
+                      cycle.
+                    </p>
                   </div>
                 </div>
                 <span className="bk-about-card__arrow">
@@ -662,25 +790,28 @@ export function HomePage() {
         <section className="bk-choose bk-pb">
           <div className="bk-rail bk-split">
             <div className="bk-choose__copy">
-              <span className="bk-sub">Why Choose Us</span>
-              <h2 className="bk-title">Empowering Businesses Demonstrating SEO Impact</h2>
+              <span className="bk-sub">HOW IT WORKS?</span>
+              <h2 className="bk-title">Access Your Salary Before Payday</h2>
               <p>
-                Things go wrong have questions. We’ve understand we areaa have peopleam viverra.ting
-                is marketing and advertising of a business service using online channels.
+                Get secure access to earned wages through a simple
+                employer-powered process designed for employees and businesses.
               </p>
               <ul className="bk-checks">
                 <li>
-                  <Check size={16} aria-hidden="true" /> Perfect for large sites agencies
+                  <Check size={16} aria-hidden="true" /> Earn salary throughout
+                  the month
                 </li>
                 <li>
-                  <Check size={16} aria-hidden="true" /> marketing and advertising
+                  <Check size={16} aria-hidden="true" /> Request access to
+                  available earnings
                 </li>
                 <li>
-                  <Check size={16} aria-hidden="true" /> Effortless Integration
+                  <Check size={16} aria-hidden="true" /> Automatic settlement on
+                  payday
                 </li>
               </ul>
               <Link to="/contact" className="bk-btn">
-                Need a consultancy <ArrowRight size={16} aria-hidden="true" />
+                Get Started <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
             <div className="bk-choose__art">
@@ -693,8 +824,10 @@ export function HomePage() {
         <section className="bk-cases bk-pb">
           <div className="bk-rail">
             <div className="bk-cases-head">
-              <span className="bk-sub">Our Case Studies</span>
-              <h2 className="bk-title">A systematic approach to digital marketing</h2>
+              <span className="bk-sub">OUR ECOSYSTEM</span>
+              <h2 className="bk-title">
+                A Win-Win Model For Employees, Employers & Partners
+              </h2>
             </div>
           </div>
           <div className="bk-wide">
@@ -709,11 +842,14 @@ export function HomePage() {
             <div className="bk-team__intro">
               <div>
                 <span className="bk-sub">Core Team</span>
-                <h2 className="bk-title">Our expert team of professionals here for you</h2>
+                <h2 className="bk-title">
+                  Our expert team of professionals here for you
+                </h2>
               </div>
               <p>
-                A focused founding team across strategy, technology, legal, and people operations —
-                building MobPae as an employer-first salary access platform.
+                A focused founding team across strategy, technology, legal, and
+                people operations — building MobPae as an employer-first salary
+                access platform.
               </p>
             </div>
             <div className="bk-team-grid">
@@ -721,7 +857,13 @@ export function HomePage() {
                 <article className="bk-member" key={member.name}>
                   <Link to="/team">
                     {member.photo ? (
-                      <img src={member.photo} alt={member.name} width={148} height={148} loading="lazy" />
+                      <img
+                        src={member.photo}
+                        alt={member.name}
+                        width={148}
+                        height={148}
+                        loading="lazy"
+                      />
                     ) : (
                       <div className="bk-member__ph">{member.initials}</div>
                     )}
@@ -741,11 +883,21 @@ export function HomePage() {
         <section className="bk-cta bk-py" style={{ paddingBottom: 0 }}>
           <div className="bk-rail">
             <div className="bk-cta__inner">
-              <img className="bk-cta__shape" src="/ref/images/h2_cta_shape.svg" alt="" aria-hidden="true" />
+              <img
+                className="bk-cta__shape"
+                src="/ref/images/h2_cta_shape.svg"
+                alt=""
+                aria-hidden="true"
+              />
               <h2>Let’s Request a Schedule For Free Consultation</h2>
               <div className="bk-cta__right">
                 <div className="bk-cta__call">
-                  <Phone className="bk-cta__icon" size={72} strokeWidth={1.5} aria-hidden="true" />
+                  <Phone
+                    className="bk-cta__icon"
+                    size={72}
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  />
                   <div>
                     <span>Call For More Info</span>
                     <a href="tel:+1238989444">+123 8989 444</a>
@@ -763,7 +915,9 @@ export function HomePage() {
           <div className="bk-rail">
             <div className="bk-center">
               <span className="bk-sub">Our Testimonials</span>
-              <h2 className="bk-title">We are very glad to get client review</h2>
+              <h2 className="bk-title">
+                We are very glad to get client review
+              </h2>
             </div>
             <div className="bk-quote-grid">
               {quotes.map((item) => (
@@ -785,7 +939,12 @@ export function HomePage() {
                     </div>
                   </div>
                   <p>“{item.quote}”</p>
-                  <img className="bk-quote__mark" src="/ref/icons/quote02.svg" alt="" aria-hidden="true" />
+                  <img
+                    className="bk-quote__mark"
+                    src="/ref/icons/quote02.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
                 </article>
               ))}
             </div>
@@ -796,14 +955,16 @@ export function HomePage() {
           <div className="bk-marquee__row">
             {[...marqueeItems, ...marqueeItems].map((item, index) => (
               <span className="bk-marquee__item" key={`${item}-${index}`}>
-                <Star className="bk-star" size={16} fill="currentColor" /> {item}
+                <Star className="bk-star" size={16} fill="currentColor" />{" "}
+                {item}
               </span>
             ))}
           </div>
           <div className="bk-marquee__row bk-marquee__row--rev">
             {[...marqueeItems, ...marqueeItems].map((item, index) => (
               <span className="bk-marquee__item" key={`rev-${item}-${index}`}>
-                <Star className="bk-star" size={16} fill="currentColor" /> {item}
+                <Star className="bk-star" size={16} fill="currentColor" />{" "}
+                {item}
               </span>
             ))}
           </div>
@@ -814,11 +975,13 @@ export function HomePage() {
             <div className="bk-team__intro">
               <div>
                 <span className="bk-sub">Our Latest Blogs</span>
-                <h2 className="bk-title">Get more updates for news & articles</h2>
+                <h2 className="bk-title">
+                  Get more updates for news & articles
+                </h2>
               </div>
               <p>
-                Ever find yourself staring at your computer screen a good consulting slogan to come
-                to mind? Oftentimes.
+                Ever find yourself staring at your computer screen a good
+                consulting slogan to come to mind? Oftentimes.
               </p>
             </div>
             <div className="bk-blog-grid">
@@ -829,7 +992,10 @@ export function HomePage() {
                     <span className="bk-post__chip">Business</span>
                   </Link>
                   <div className="bk-post__author">
-                    <span className="bk-avatar" style={{ width: 36, height: 36, fontSize: 12 }}>
+                    <span
+                      className="bk-avatar"
+                      style={{ width: 36, height: 36, fontSize: 12 }}
+                    >
                       <img src="/ref/images/testi_avatar01.png" alt="" />
                     </span>
                     <span>
@@ -841,11 +1007,19 @@ export function HomePage() {
                   </h3>
                   <div className="bk-post__meta">
                     <span>
-                      <img src="/ref/icons/calendar.svg" alt="" aria-hidden="true" />
+                      <img
+                        src="/ref/icons/calendar.svg"
+                        alt=""
+                        aria-hidden="true"
+                      />
                       {post.date}
                     </span>
                     <span>
-                      <img src="/ref/icons/comment.svg" alt="" aria-hidden="true" />
+                      <img
+                        src="/ref/icons/comment.svg"
+                        alt=""
+                        aria-hidden="true"
+                      />
                       Comment: 15
                     </span>
                   </div>
@@ -866,8 +1040,8 @@ export function HomePage() {
               <div className="bk-enquiry__copy">
                 <h2>Get free marketing consultation today</h2>
                 <p>
-                  Vestibulum lectus mauris ultrices eros in. Cursus sit amet dictum sit amet.
-                  Adipiscing.
+                  Vestibulum lectus mauris ultrices eros in. Cursus sit amet
+                  dictum sit amet. Adipiscing.
                 </p>
                 <Link to="/contact" className="bk-btn bk-btn--ghost">
                   Contact With Us <ArrowRight size={16} aria-hidden="true" />
@@ -928,8 +1102,12 @@ export function HomePage() {
                     required
                   />
                 </Field>
-                {success ? <p className="bk-status bk-status--ok">{success}</p> : null}
-                {error ? <p className="bk-status bk-status--err">{error}</p> : null}
+                {success ? (
+                  <p className="bk-status bk-status--ok">{success}</p>
+                ) : null}
+                {error ? (
+                  <p className="bk-status bk-status--err">{error}</p>
+                ) : null}
                 <button type="submit" className="bk-submit" disabled={loading}>
                   {loading ? "Submitting..." : "Submit Now"}
                 </button>
