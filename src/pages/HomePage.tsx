@@ -216,32 +216,6 @@ const quotes = [
   },
 ];
 
-const posts = [
-  {
-    title: "Participate In Staff Meetings Dedicated To Strategically",
-    href: "/blog",
-    image: "/ref/blog/blog_post03.jpg",
-    author: "Doman Smith",
-    date: "Oct 21, 2025",
-  },
-  {
-    title: "Sketchnotes And Key Takea ways From Smashin",
-    href: "/blog",
-    image: "/ref/blog/blog_post04.jpg",
-    author: "Doman Smith",
-    date: "Oct 21, 2025",
-  },
-  {
-    title: "Modern CSS Tooltips And Speech Bubbles",
-    href: "/blog",
-    image: "/ref/blog/blog_post06.jpg",
-    author: "Doman Smith",
-    date: "Oct 21, 2025",
-  },
-];
-
-const marqueeItems = ["Marketing", "Finance Advisor", "Investment", "Target"];
-
 function Field({
   label,
   error,
@@ -671,6 +645,10 @@ export function HomePage() {
             </div>
             <HeroArt />
           </div>
+          <div className="bk-banner__shapes" aria-hidden="true">
+            <img src="/ref/banner/h3_hero_shape02.svg" alt="" />
+            <img src="/ref/banner/h3_hero_shape03.svg" alt="" />
+          </div>
           <div className="bk-social">
             <span>Follow us</span>
             <a
@@ -860,8 +838,8 @@ export function HomePage() {
                       <img
                         src={member.photo}
                         alt={member.name}
-                        width={148}
-                        height={148}
+                        width={200}
+                        height={200}
                         loading="lazy"
                       />
                     ) : (
@@ -894,8 +872,8 @@ export function HomePage() {
                 <div className="bk-cta__call">
                   <Phone
                     className="bk-cta__icon"
-                    size={72}
-                    strokeWidth={1.5}
+                    size={50}
+                    strokeWidth={1.6}
                     aria-hidden="true"
                   />
                   <div>
@@ -945,84 +923,6 @@ export function HomePage() {
                     alt=""
                     aria-hidden="true"
                   />
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="bk-marquee" aria-hidden="true">
-          <div className="bk-marquee__row">
-            {[...marqueeItems, ...marqueeItems].map((item, index) => (
-              <span className="bk-marquee__item" key={`${item}-${index}`}>
-                <Star className="bk-star" size={16} fill="currentColor" />{" "}
-                {item}
-              </span>
-            ))}
-          </div>
-          <div className="bk-marquee__row bk-marquee__row--rev">
-            {[...marqueeItems, ...marqueeItems].map((item, index) => (
-              <span className="bk-marquee__item" key={`rev-${item}-${index}`}>
-                <Star className="bk-star" size={16} fill="currentColor" />{" "}
-                {item}
-              </span>
-            ))}
-          </div>
-        </section>
-
-        <section className="bk-blog bk-py">
-          <div className="bk-rail">
-            <div className="bk-team__intro">
-              <div>
-                <span className="bk-sub">Our Latest Blogs</span>
-                <h2 className="bk-title">
-                  Get more updates for news & articles
-                </h2>
-              </div>
-              <p>
-                Ever find yourself staring at your computer screen a good
-                consulting slogan to come to mind? Oftentimes.
-              </p>
-            </div>
-            <div className="bk-blog-grid">
-              {posts.map((post) => (
-                <article className="bk-post" key={post.title}>
-                  <Link to={post.href} className="bk-post__thumb">
-                    <img src={post.image} alt="" />
-                    <span className="bk-post__chip">Business</span>
-                  </Link>
-                  <div className="bk-post__author">
-                    <span
-                      className="bk-avatar"
-                      style={{ width: 36, height: 36, fontSize: 12 }}
-                    >
-                      <img src="/ref/images/testi_avatar01.png" alt="" />
-                    </span>
-                    <span>
-                      By <b>{post.author}</b>
-                    </span>
-                  </div>
-                  <h3>
-                    <Link to={post.href}>{post.title}</Link>
-                  </h3>
-                  <div className="bk-post__meta">
-                    <span>
-                      <img
-                        src="/ref/icons/calendar.svg"
-                        alt=""
-                        aria-hidden="true"
-                      />
-                      {post.date}
-                    </span>
-                    <span>
-                      <img
-                        src="/ref/icons/comment.svg"
-                        alt=""
-                        aria-hidden="true"
-                      />
-                      Comment: 15
-                    </span>
-                  </div>
                 </article>
               ))}
             </div>
