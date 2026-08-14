@@ -8,7 +8,6 @@ import {
   Mail,
   MapPin,
   Menu,
-  MessageSquare,
   Phone,
   ShieldCheck,
   Star,
@@ -596,13 +595,17 @@ export function HomePage() {
             <div className="bk-service-grid">
               {services.map((service) => (
                 <article className="bk-service" key={service.title}>
-                  <span className="bk-icon">
-                    <service.icon size={28} aria-hidden="true" />
+                  <span className="bk-service__icon">
+                    <service.icon size={50} strokeWidth={1.4} aria-hidden="true" />
                   </span>
                   <h3>
                     <Link to={service.href}>{service.title}</Link>
                   </h3>
                   <p>{service.body}</p>
+                  <Link className="bk-service__more" to={service.href}>
+                    Read More
+                    <img src="/ref/icons/right_arrow.svg" alt="" aria-hidden="true" />
+                  </Link>
                 </article>
               ))}
             </div>
@@ -738,12 +741,11 @@ export function HomePage() {
         <section className="bk-cta bk-py" style={{ paddingBottom: 0 }}>
           <div className="bk-rail">
             <div className="bk-cta__inner">
-                <h2>Let’s Request a Schedule For Free Consultation</h2>
+              <img className="bk-cta__shape" src="/ref/images/h2_cta_shape.svg" alt="" aria-hidden="true" />
+              <h2>Let’s Request a Schedule For Free Consultation</h2>
               <div className="bk-cta__right">
                 <div className="bk-cta__call">
-                  <span className="bk-cta__icon">
-                    <Phone size={22} aria-hidden="true" />
-                  </span>
+                  <Phone className="bk-cta__icon" size={72} strokeWidth={1.5} aria-hidden="true" />
                   <div>
                     <span>Call For More Info</span>
                     <a href="tel:+1238989444">+123 8989 444</a>
@@ -783,7 +785,7 @@ export function HomePage() {
                     </div>
                   </div>
                   <p>“{item.quote}”</p>
-                  <MessageSquare className="bk-quote__mark" size={42} aria-hidden="true" />
+                  <img className="bk-quote__mark" src="/ref/icons/quote02.svg" alt="" aria-hidden="true" />
                 </article>
               ))}
             </div>
@@ -838,8 +840,14 @@ export function HomePage() {
                     <Link to={post.href}>{post.title}</Link>
                   </h3>
                   <div className="bk-post__meta">
-                    <span>{post.date}</span>
-                    <span>Comment: 15</span>
+                    <span>
+                      <img src="/ref/icons/calendar.svg" alt="" aria-hidden="true" />
+                      {post.date}
+                    </span>
+                    <span>
+                      <img src="/ref/icons/comment.svg" alt="" aria-hidden="true" />
+                      Comment: 15
+                    </span>
                   </div>
                 </article>
               ))}
@@ -850,6 +858,11 @@ export function HomePage() {
         <section id="enquiry" className="bk-enquiry">
           <div className="bk-rail">
             <div className="bk-enquiry__inner">
+              <div className="bk-enquiry__shapes" aria-hidden="true">
+                <img src="/ref/images/h2_call_back_shape01.svg" alt="" />
+                <img src="/ref/images/h2_call_back_shape02.svg" alt="" />
+                <img src="/ref/images/h2_call_back_shape03.svg" alt="" />
+              </div>
               <div className="bk-enquiry__copy">
                 <h2>Get free marketing consultation today</h2>
                 <p>
