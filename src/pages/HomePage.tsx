@@ -19,6 +19,7 @@ import {
 import type { ChangeEvent, FormEvent, ReactNode } from "react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { HeroProductMocks } from "../components/HeroProductMocks";
 import { SECTION_LINKS } from "../siteLinks";
 import "./home.css";
 
@@ -480,140 +481,6 @@ function HomeFooter() {
   );
 }
 
-function HeroArt() {
-  return (
-    <div
-      className="bk-banner__art"
-      aria-hidden="true"
-    >
-      <img
-        className="bk-banner__hero-shape"
-        src="/ref/banner/h3_hero_shape01.svg"
-        alt=""
-      />
-      <div className="bk-hero-products">
-        <div className="bk-dash bk-dash--admin">
-          <div className="bk-dash__chrome">
-            <span />
-            <span />
-            <span />
-            <em>Admin dashboard</em>
-          </div>
-          <div className="bk-dash__kpis">
-            <div>
-              <span>KYC queue</span>
-              <strong>6</strong>
-            </div>
-            <div>
-              <span>To disburse</span>
-              <strong>₹1.8L</strong>
-            </div>
-            <div>
-              <span>Settled</span>
-              <strong>92%</strong>
-            </div>
-          </div>
-          <div className="bk-dash__rows">
-            <div>
-              <b>PRI-2041</b>
-              <span>Bank verified</span>
-              <em>Ready</em>
-            </div>
-            <div>
-              <b>PRI-2038</b>
-              <span>Fee check</span>
-              <em>Review</em>
-            </div>
-            <div>
-              <b>PRI-2033</b>
-              <span>Disbursal</span>
-              <em>Sent</em>
-            </div>
-          </div>
-        </div>
-
-        <div className="bk-dash bk-dash--employer">
-          <div className="bk-dash__chrome">
-            <span />
-            <span />
-            <span />
-            <em>Employer dashboard</em>
-          </div>
-          <div className="bk-dash__kpis">
-            <div>
-              <span>Pending</span>
-              <strong>4</strong>
-            </div>
-            <div>
-              <span>Approved</span>
-              <strong>12</strong>
-            </div>
-            <div>
-              <span>Next payday</span>
-              <strong>7d</strong>
-            </div>
-          </div>
-          <table>
-            <thead>
-              <tr>
-                <th>Employee</th>
-                <th>Amount</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>A. Sharma</td>
-                <td>₹4,200</td>
-                <td>
-                  <i className="bk-pill bk-pill--wait">Pending</i>
-                </td>
-              </tr>
-              <tr>
-                <td>R. Iyer</td>
-                <td>₹2,800</td>
-                <td>
-                  <i className="bk-pill bk-pill--ok">Approved</i>
-                </td>
-              </tr>
-              <tr>
-                <td>S. Khan</td>
-                <td>₹6,000</td>
-                <td>
-                  <i className="bk-pill bk-pill--ok">Approved</i>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div className="bk-phone">
-          <div className="bk-phone__notch" />
-          <div className="bk-phone__screen">
-            <div className="bk-phone__bar">
-              <span>9:41</span>
-              <span>MobPae</span>
-            </div>
-            <p>Available today</p>
-            <strong>₹4,200</strong>
-            <span className="bk-phone__cta">Request</span>
-            <ul>
-              <li>
-                <span>Next payday</span>
-                <b>7 days</b>
-              </li>
-              <li>
-                <span>Last request</span>
-                <b>Approved</b>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function EcosystemCards() {
   return (
     <div className="bk-cases__track">
@@ -744,7 +611,7 @@ export function HomePage() {
                 </Link>
               </div>
             </div>
-            <HeroArt />
+            <HeroProductMocks />
           </div>
           <div className="bk-banner__shapes" aria-hidden="true">
             <img src="/ref/banner/h3_hero_shape02.svg" alt="" />
