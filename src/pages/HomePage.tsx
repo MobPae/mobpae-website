@@ -340,7 +340,9 @@ function HomeNav() {
                 key={link.href}
                 to={link.href}
                 aria-current={
-                  location.hash === link.href.replace("/", "") ? "page" : undefined
+                  location.hash === link.href.replace("/", "")
+                    ? "page"
+                    : undefined
                 }
               >
                 {link.label}
@@ -587,7 +589,7 @@ export function HomePage() {
         <section className="bk-banner">
           <div className="bk-wide bk-banner__grid">
             <div className="bk-banner__copy">
-              <h1>Your trusted financial partner</h1>
+              <h1>Redefining financial flexibility for the modern workforce</h1>
               <p>
                 MobPae helps salaried employees access earned wages before
                 payday through employer-backed approvals, partner lenders, and
@@ -674,8 +676,14 @@ export function HomePage() {
               </h2>
             </div>
             <div className="bk-choose__board">
-              <span className="bk-choose__glow bk-choose__glow--a" aria-hidden="true" />
-              <span className="bk-choose__glow bk-choose__glow--b" aria-hidden="true" />
+              <span
+                className="bk-choose__glow bk-choose__glow--a"
+                aria-hidden="true"
+              />
+              <span
+                className="bk-choose__glow bk-choose__glow--b"
+                aria-hidden="true"
+              />
               <div className="bk-choose__intro">
                 <div className="bk-choose__copy">
                   <p>
@@ -693,8 +701,8 @@ export function HomePage() {
                       disburses
                     </li>
                     <li>
-                      <Check size={16} aria-hidden="true" /> Recovery follows the
-                      payroll cycle
+                      <Check size={16} aria-hidden="true" /> Recovery follows
+                      the payroll cycle
                     </li>
                   </ul>
                   <div className="bk-choose__actions">
