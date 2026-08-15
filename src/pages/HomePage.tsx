@@ -5,11 +5,12 @@ import {
   Banknote,
   CalendarClock,
   Check,
+  FileCheck2,
+  Lock,
   Mail,
   MapPin,
   Menu,
   ShieldCheck,
-  Star,
   Users,
   WalletCards,
   X,
@@ -131,30 +132,86 @@ const cases = [
   },
 ];
 
-const team = [
+const employerReasons = [
   {
-    name: "Luhit Parajuli",
-    role: "Co-Founder & Business Strategy",
-    photo: "/team/luhit-parajuli.png",
-    initials: "LP",
+    icon: Banknote,
+    title: "No employer cash burden",
+    body: "Salary access is funded through structured capital partnerships, so payroll cash flow stays untouched.",
   },
   {
-    name: "Jyotirmoy Upadhaya",
-    role: "Co-Founder & Technology Lead",
-    photo: "/team/jyotirmoy.png",
-    initials: "JU",
+    icon: BadgeCheck,
+    title: "Employer stays in control",
+    body: "Every request follows your policy, salary context, and approval rules before funds move.",
   },
   {
-    name: "Bharati Bhattarai",
-    role: "Admin & Legal Head",
-    photo: "/team/bharati-bhattarai.png",
-    initials: "BB",
+    icon: CalendarClock,
+    title: "Payroll-linked recovery",
+    body: "Recoveries align with cutoff and payday logic, reducing manual follow-up and reconciliation.",
   },
   {
-    name: "Junu Bhattarai",
-    role: "HR & Digital Marketing Lead",
-    photo: "/team/junu.png",
-    initials: "JB",
+    icon: FileCheck2,
+    title: "Audit-ready operations",
+    body: "Approvals, disbursals, recoveries, and settlements remain traceable across the full cycle.",
+  },
+  {
+    icon: Users,
+    title: "A retention benefit people use",
+    body: "Employees get practical liquidity support without turning the company into a lending desk.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Responsible access",
+    body: "Limits, verification, and payroll recovery keep the product useful without encouraging debt dependency.",
+  },
+];
+
+const trustItems = [
+  {
+    icon: Lock,
+    title: "Role-based access",
+    body: "Only the people you assign can review, approve, or export employee requests.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Encrypted employee data",
+    body: "Salary, bank, and KYC details stay encrypted at rest and in transit.",
+  },
+  {
+    icon: FileCheck2,
+    title: "Approval audit trail",
+    body: "Every approval, rejection, and edit is timestamped and traceable.",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Recovery visibility",
+    body: "Deductions and settlement status stay visible against each payroll cycle.",
+  },
+];
+
+const faqs = [
+  {
+    title: "Is MobPae a loan?",
+    body: "No. MobPae is employer-backed earned salary access. It is not positioned as a loan or open-ended credit product.",
+  },
+  {
+    title: "Who approves requests?",
+    body: "The employer reviews salary access requests first. Admin operations handle verification, disbursal, and settlement visibility.",
+  },
+  {
+    title: "Does it affect payroll?",
+    body: "MobPae is designed around payroll date and cutoff logic so recoveries can align with the correct salary cycle.",
+  },
+  {
+    title: "Does the employer need to fund advances?",
+    body: "No. Employer capital required is ₹0. Partner lending funds approved access while HR keeps approval control.",
+  },
+  {
+    title: "How quickly can employees request access?",
+    body: "Eligible employees can submit a request in about 60 seconds from the app, subject to employer approval and policy limits.",
+  },
+  {
+    title: "How is employee data protected?",
+    body: "Salary, bank, and KYC details are encrypted, and only assigned employer roles can review or export request information.",
   },
 ];
 
@@ -163,37 +220,6 @@ const heroStats = [
   { icon: WalletCards, value: "60 sec", label: "Employee request time" },
   { icon: ShieldCheck, value: "₹0", label: "Employer capital required" },
   { icon: BadgeCheck, value: "100%", label: "HR-controlled approvals" },
-];
-
-const quotes = [
-  {
-    name: "HR Lead",
-    role: "Manufacturing employer",
-    initials: "HR",
-    quote:
-      "Approvals stay with us. Employees get help before payday, and recovery sits in the next salary cycle.",
-  },
-  {
-    name: "People Ops",
-    role: "IT services employer",
-    initials: "PO",
-    quote:
-      "We wanted a benefit people would actually use, without turning HR into a lending desk.",
-  },
-  {
-    name: "Plant Manager",
-    role: "Logistics employer",
-    initials: "PM",
-    quote:
-      "Go-live was straightforward. Eligibility, requests, and settlements are visible in one place.",
-  },
-  {
-    name: "CHRO",
-    role: "Retail employer",
-    initials: "CH",
-    quote:
-      "₹0 capital from our side, and employees stop waiting until payday for genuine emergencies.",
-  },
 ];
 
 function Field({
@@ -594,11 +620,9 @@ export function HomePage() {
           <div className="bk-rail">
             <div className="bk-features-head">
               <div>
-                <span className="bk-sub">
-                  Features you’ll love and use every day
-                </span>
+                <span className="bk-sub">EVERYDAY VALUE</span>
                 <h2 className="bk-title">
-                  Designed for the moments between salary and need.
+                  Features You’ll Love And Use Every Day
                 </h2>
               </div>
               <ol className="bk-cycle" aria-label="Salary access cycle">
@@ -651,55 +675,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="bk-about bk-py">
-          <div className="bk-rail">
-            <div className="bk-about__head">
-              <span className="bk-sub">WHY MOBPAE?</span>
-              <h2 className="bk-title">Financial Wellness Beyond Payday</h2>
-              <p>
-                Help employees access earned wages before payday while improving
-                financial well-being, productivity, and workplace satisfaction.
-              </p>
-            </div>
-            <div className="bk-about__grid">
-              <Link className="bk-about-card" to="/about">
-                <span className="bk-icon">
-                  <ShieldCheck size={22} aria-hidden="true" />
-                </span>
-                <em>01</em>
-                <h3>Access salary early</h3>
-                <p>
-                  Employees can view available earnings and request funds anytime
-                  before payday.
-                </p>
-              </Link>
-              <Link className="bk-about-card" to="/about">
-                <span className="bk-icon">
-                  <CalendarClock size={22} aria-hidden="true" />
-                </span>
-                <em>02</em>
-                <h3>Automatic payroll settlement</h3>
-                <p>
-                  Repayment is deducted during the next payroll cycle, without
-                  extra collections work.
-                </p>
-              </Link>
-              <Link className="bk-about-card" to="/about">
-                <span className="bk-icon">
-                  <Banknote size={22} aria-hidden="true" />
-                </span>
-                <em>03</em>
-                <h3>₹0 employer capital</h3>
-                <p>
-                  HR stays in control of approvals while partner lending funds
-                  the advance.
-                </p>
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        <section className="bk-choose bk-pb">
+        <section className="bk-choose bk-py">
           <div className="bk-rail bk-split">
             <div className="bk-choose__copy">
               <span className="bk-sub">HOW IT WORKS?</span>
@@ -771,7 +747,7 @@ export function HomePage() {
               </div>
             </div>
             <div className="bk-story__copy">
-              <span className="bk-sub">ABOUT US</span>
+              <span className="bk-sub">ABOUT MOBPAE</span>
               <h2 className="bk-title">
                 Redefining Salary Access For India’s Workforce
               </h2>
@@ -834,9 +810,9 @@ export function HomePage() {
         <section className="bk-cases bk-pb">
           <div className="bk-rail">
             <div className="bk-cases-head">
-              <span className="bk-sub">OUR ECOSYSTEM</span>
+              <span className="bk-sub">WIN-WIN-WIN ECOSYSTEM</span>
               <h2 className="bk-title">
-                A Win-Win Model For Employees, Employers & Partners
+                Built for employees, employers, and partners
               </h2>
             </div>
           </div>
@@ -847,47 +823,54 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="bk-team bk-py">
+        <section className="bk-about bk-py">
           <div className="bk-rail">
-            <div className="bk-team__intro">
-              <div>
-                <span className="bk-sub">Core Team</span>
-                <h2 className="bk-title">The founding team behind MobPae</h2>
-              </div>
+            <div className="bk-about__head">
+              <span className="bk-sub">WHY EMPLOYERS CHOOSE MOBPAE</span>
+              <h2 className="bk-title">
+                No risk. No overhead. Real workforce value.
+              </h2>
               <p>
-                A focused founding team across strategy, technology, legal, and
-                people operations — building MobPae as an employer-first salary
-                access platform.
+                MobPae is a practical workplace benefit: employer-controlled,
+                payroll-aware, and easy to operate without becoming a lending
+                function.
               </p>
             </div>
-            <div className="bk-team-grid">
-              {team.map((member) => (
-                <article className="bk-member" key={member.name}>
-                  <Link to="/team">
-                    {member.photo ? (
-                      <img
-                        src={member.photo}
-                        alt={member.name}
-                        width={200}
-                        height={200}
-                        loading="lazy"
-                      />
-                    ) : (
-                      <div className="bk-member__ph">{member.initials}</div>
-                    )}
-                    <h3>{member.name}</h3>
-                    <span>{member.role}</span>
-                  </Link>
-                  <div className="bk-member__socials">
-                    <a
-                      href="https://linkedin.com/company/mobpae"
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`${member.name} on LinkedIn`}
-                    >
-                      <LinkedInIcon />
-                    </a>
-                  </div>
+            <div className="bk-about__grid">
+              {employerReasons.map((reason, index) => (
+                <article className="bk-about-card" key={reason.title}>
+                  <span className="bk-icon">
+                    <reason.icon size={22} aria-hidden="true" />
+                  </span>
+                  <em>0{index + 1}</em>
+                  <h3>{reason.title}</h3>
+                  <p>{reason.body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bk-trust bk-py">
+          <div className="bk-rail">
+            <div className="bk-about__head">
+              <span className="bk-sub">SECURITY & TRUST</span>
+              <h2 className="bk-title">
+                Built for payroll teams, finance teams, and founders.
+              </h2>
+              <p>
+                The experience stays simple for employees while employers keep
+                the policy, approval, and recovery controls they need.
+              </p>
+            </div>
+            <div className="bk-trust__grid">
+              {trustItems.map((item) => (
+                <article className="bk-trust__card" key={item.title}>
+                  <span className="bk-icon">
+                    <item.icon size={22} aria-hidden="true" />
+                  </span>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
                 </article>
               ))}
             </div>
@@ -925,39 +908,31 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="bk-quotes bk-py">
+        <section className="bk-faq bk-py" id="faq">
           <div className="bk-rail">
-            <div className="bk-center">
-              <span className="bk-sub">Employer voices</span>
-              <h2 className="bk-title">What teams look for in salary access</h2>
+            <div className="bk-about__head">
+              <span className="bk-sub">FAQ</span>
+              <h2 className="bk-title">Everything you need to know.</h2>
+              <p>
+                A quick overview of earned wage access, employer approvals,
+                payroll recovery, and data protection.
+              </p>
             </div>
-            <div className="bk-quote-grid">
-              {quotes.map((item) => (
-                <article className="bk-quote" key={item.name}>
-                  <div className="bk-quote__top">
-                    <div className="bk-quote__author">
-                      <span className="bk-avatar">{item.initials}</span>
-                      <div>
-                        <h3>{item.name}</h3>
-                        <small>{item.role}</small>
-                      </div>
-                    </div>
-                    <div className="bk-stars" aria-hidden="true">
-                      {Array.from({ length: 5 }).map((_, star) => (
-                        <Star key={star} size={14} fill="currentColor" />
-                      ))}
-                    </div>
-                  </div>
-                  <p>“{item.quote}”</p>
-                  <img
-                    className="bk-quote__mark"
-                    src="/ref/icons/quote02.svg"
-                    alt=""
-                    aria-hidden="true"
-                  />
-                </article>
+            <div className="bk-faq__list">
+              {faqs.map((item, index) => (
+                <details
+                  className="bk-faq__item"
+                  key={item.title}
+                  open={index === 0}
+                >
+                  <summary>{item.title}</summary>
+                  <p>{item.body}</p>
+                </details>
               ))}
             </div>
+            <p className="bk-faq__more">
+              Need more detail? <Link to="/faqs">Read all FAQs</Link>
+            </p>
           </div>
         </section>
 

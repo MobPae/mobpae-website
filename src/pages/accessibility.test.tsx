@@ -22,6 +22,19 @@ describe("public page accessibility", () => {
     expect(screen.getByLabelText(/Email/)).toBeRequired();
     expect(screen.getByLabelText(/Company name/)).toBeRequired();
     expect(screen.getByLabelText(/Message/)).toBeRequired();
+    expect(
+      screen.getAllByRole("heading", { level: 2 }).map((node) => node.textContent)
+    ).toEqual([
+      "Features You’ll Love And Use Every Day",
+      "Access Your Salary Before Payday",
+      "Redefining Salary Access For India’s Workforce",
+      "Built for employees, employers, and partners",
+      "No risk. No overhead. Real workforce value.",
+      "Built for payroll teams, finance teams, and founders.",
+      "Ready to offer salary access at work?",
+      "Everything you need to know.",
+      "Request a MobPae demo",
+    ]);
     await expectNoAxeViolations();
   });
 
