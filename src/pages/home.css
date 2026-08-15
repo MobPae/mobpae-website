@@ -1174,40 +1174,6 @@
   animation: bk-spin 18s linear infinite;
 }
 
-.bk-social {
-  position: absolute;
-  right: 90px;
-  top: 50%;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  transform: translateY(-50%);
-}
-
-.bk-social span {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  color: var(--bk-navy);
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-}
-
-.bk-social a,
-.bk-social i {
-  display: grid;
-  width: 36px;
-  height: 36px;
-  place-items: center;
-  color: var(--bk-navy);
-}
-
-.bk-social a:hover {
-  color: var(--bk-blue);
-}
-
 /* Services */
 .bk-services {
   position: relative;
@@ -1938,27 +1904,27 @@
 
 .bk-story__collage {
   position: relative;
-  min-height: 540px;
+  min-height: 560px;
   margin-right: 10px;
 }
 
 .bk-story__collage::before {
   content: "";
   position: absolute;
-  right: 0;
-  top: 56px;
+  right: 8px;
+  top: 72px;
   z-index: 0;
-  width: 56%;
-  height: 72%;
-  border-radius: 24px 24px 96px 24px;
+  width: 48%;
+  height: 68%;
+  border-radius: 24px 24px 90px 24px;
   background: var(--bk-blue);
 }
 
 .bk-story__collage::after {
   content: "";
   position: absolute;
-  left: 16%;
-  bottom: 8px;
+  left: 10%;
+  bottom: 12px;
   z-index: 0;
   width: 88px;
   height: 88px;
@@ -1970,31 +1936,34 @@
   position: absolute;
   z-index: 1;
   object-fit: cover;
-  object-position: 50% 18%;
   border-radius: 20px;
 }
 
 .bk-story__photo--a {
   left: 0;
   top: 0;
-  width: 70%;
-  height: 248px;
+  width: 74%;
+  height: 430px;
+  object-position: 50% 18%;
 }
 
 .bk-story__photo--b {
-  right: 28px;
-  bottom: 28px;
+  right: 0;
+  bottom: 36px;
   z-index: 2;
-  width: 60%;
-  height: 228px;
+  width: 48%;
+  height: 250px;
+  object-position: 50% 12%;
+  border: 6px solid #f5f6fc;
+  box-shadow: var(--bk-shadow);
 }
 
 .bk-story__badge {
   position: absolute;
-  right: 36px;
-  top: 78px;
+  right: 28px;
+  top: 96px;
   z-index: 3;
-  width: min(190px, 40%);
+  width: min(170px, 36%);
   color: #fff;
 }
 
@@ -2015,8 +1984,8 @@
 
 .bk-story__float {
   position: absolute;
-  left: -8px;
-  top: 44%;
+  left: 18px;
+  bottom: 78px;
   z-index: 4;
   display: flex;
   align-items: center;
@@ -2853,16 +2822,16 @@
 
 .bk-footer__grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr 1.1fr;
-  gap: 30px;
+  grid-template-columns: 1.25fr 1fr 0.85fr 1fr;
+  gap: 40px;
   padding-bottom: 60px;
 }
 
-.bk-footer h4,
-.bk-footer__title {
-  margin-bottom: 22px;
-  font-size: 20px;
+.bk-footer .bk-footer__title {
+  margin: 0 0 22px;
+  font-size: 22px;
   font-weight: 700;
+  line-height: 1.25;
   color: var(--bk-navy);
 }
 
@@ -2888,24 +2857,48 @@
 
 .bk-follow {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 22px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 28px;
 }
 
 .bk-follow > span {
   color: var(--bk-navy);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
 }
 
-.bk-follow a,
-.bk-follow i {
+.bk-follow__icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bk-follow a {
   display: grid;
-  width: 34px;
-  height: 34px;
+  width: 56px;
+  height: 56px;
   place-items: center;
+  border: 1px solid #d7dbeb;
+  border-radius: 50%;
+  background: #eef1f8;
   color: var(--bk-navy);
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.bk-follow a:hover {
+  background: var(--bk-blue);
+  border-color: var(--bk-blue);
+  color: #fff;
+}
+
+.bk-follow a svg {
+  width: 22px;
+  height: 22px;
 }
 
 .bk-contact-line {
@@ -2986,9 +2979,6 @@
   .bk-header__contact {
     display: none;
   }
-  .bk-social {
-    right: 50px;
-  }
 }
 
 @media (max-width: 1199.98px) {
@@ -3017,9 +3007,6 @@
   }
   .bk-footer__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .bk-social {
-    display: none;
   }
   .bk-cta__call a {
     font-size: 18px;
@@ -3135,10 +3122,17 @@
     position: relative;
     inset: auto;
     width: 100%;
-    height: 220px;
+    height: 280px;
+    border: 0;
+  }
+  .bk-story__photo--a {
+    height: 320px;
+    object-position: 50% 16%;
   }
   .bk-story__photo--b {
+    height: 240px;
     margin-top: 16px;
+    object-position: 50% 12%;
   }
   .bk-story__badge {
     position: relative;

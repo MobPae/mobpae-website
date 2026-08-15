@@ -31,8 +31,8 @@ function LinkedInIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
-      width="16"
-      height="16"
+      width="22"
+      height="22"
       fill="currentColor"
       aria-hidden="true"
     >
@@ -45,8 +45,8 @@ function InstagramIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
-      width="16"
-      height="16"
+      width="22"
+      height="22"
       fill="none"
       aria-hidden="true"
     >
@@ -402,29 +402,39 @@ function HomeFooter() {
       <div className="bk-rail">
         <div className="bk-footer__grid">
           <div>
-            <p className="bk-footer__title">About MobPae</p>
+            <p className="bk-footer__title">About Company</p>
             <p>
               Employer-powered salary access for responsible liquidity, payroll
               clarity, and workforce wellbeing.
             </p>
+            <div className="bk-contact-line">
+              <Mail size={18} aria-hidden="true" />
+              <a href="mailto:support@mobpae.com">support@mobpae.com</a>
+            </div>
+            <div className="bk-contact-line">
+              <MapPin size={18} aria-hidden="true" />
+              <span>Gujarat, Ahmedabad — 382470</span>
+            </div>
             <div className="bk-follow">
-              <span>Follow us</span>
-              <a
-                href="https://linkedin.com/company/mobpae"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="MobPae on LinkedIn"
-              >
-                <LinkedInIcon />
-              </a>
-              <a
-                href="https://www.instagram.com/mobpae/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="MobPae on Instagram"
-              >
-                <InstagramIcon />
-              </a>
+              <span>Follow us On:</span>
+              <div className="bk-follow__icons">
+                <a
+                  href="https://linkedin.com/company/mobpae"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="MobPae on LinkedIn"
+                >
+                  <LinkedInIcon />
+                </a>
+                <a
+                  href="https://www.instagram.com/mobpae/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="MobPae on Instagram"
+                >
+                  <InstagramIcon />
+                </a>
+              </div>
             </div>
           </div>
           <div>
@@ -441,7 +451,18 @@ function HomeFooter() {
             <p className="bk-footer__title">Quick links</p>
             <ul>
               <li>
-                <Link to="/#enquiry">Request Demo</Link>
+                <Link to="/#team">Careers</Link>
+              </li>
+              <li>
+                <Link to="/#enquiry">Contact</Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p className="bk-footer__title">Resources</p>
+            <ul>
+              <li>
+                <Link to="/#faq">Help Center</Link>
               </li>
               <li>
                 <Link to="/privacy-policy">Privacy Policy</Link>
@@ -451,18 +472,6 @@ function HomeFooter() {
               </li>
             </ul>
           </div>
-          <div>
-            <p className="bk-footer__title">Contact</p>
-            <p>Gujarat, Ahmedabad — 382470</p>
-            <div className="bk-contact-line">
-              <Mail size={18} aria-hidden="true" />
-              <a href="mailto:support@mobpae.com">support@mobpae.com</a>
-            </div>
-            <div className="bk-contact-line">
-              <MapPin size={18} aria-hidden="true" />
-              <span>India</span>
-            </div>
-          </div>
         </div>
         <div className="bk-footer__bottom">
           <Link to="/" className="bk-logo" aria-label="MobPae home">
@@ -470,10 +479,6 @@ function HomeFooter() {
           </Link>
           <p>
             Copyright © {new Date().getFullYear()} MobPae | All Rights Reserved
-            {" · "}
-            <Link to="/privacy-policy">Privacy</Link>
-            {" · "}
-            <Link to="/terms">Terms</Link>
           </p>
         </div>
       </div>
@@ -617,25 +622,6 @@ export function HomePage() {
             <img src="/ref/banner/h3_hero_shape02.svg" alt="" />
             <img src="/ref/banner/h3_hero_shape03.svg" alt="" />
           </div>
-          <div className="bk-social">
-            <span>Follow us</span>
-            <a
-              href="https://linkedin.com/company/mobpae"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn"
-            >
-              <LinkedInIcon />
-            </a>
-            <a
-              href="https://www.instagram.com/mobpae/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Instagram"
-            >
-              <InstagramIcon />
-            </a>
-          </div>
         </section>
 
         <section className="bk-services bk-py" id="features">
@@ -766,15 +752,15 @@ export function HomePage() {
             <div className="bk-story__collage">
               <img
                 className="bk-story__photo bk-story__photo--a"
-                src="/home/ecosystem-employees.jpg"
-                alt="Employee using salary access at work"
+                src="/home/ecosystem-employers.jpg"
+                alt="Employer reviewing workforce salary access from the office"
                 width={1350}
                 height={900}
               />
               <img
                 className="bk-story__photo bk-story__photo--b"
-                src="/home/ecosystem-partners.jpg"
-                alt="Employers and partners collaborating on payroll-linked access"
+                src="/home/ecosystem-employees.jpg"
+                alt="Employee checking earned wages on a phone"
                 width={1350}
                 height={900}
               />
