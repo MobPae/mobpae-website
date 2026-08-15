@@ -395,14 +395,42 @@ function HomeFooter() {
 function HeroArt() {
   return (
     <div className="bk-banner__art">
-      <div className="bk-banner__hero">
-        <img
-          className="bk-banner__phone"
-          src="/home/hero-phone-hand.jpg"
-          alt="Over-the-shoulder view of a right hand holding a phone with the MobPae employee app"
-          width={1536}
-          height={1024}
-        />
+      <img
+        className="bk-banner__hero-shape"
+        src="/ref/banner/h3_hero_shape01.svg"
+        alt=""
+        aria-hidden="true"
+      />
+      <img
+        className="bk-banner__person"
+        src="/ref/banner/h3_hero_img01.svg"
+        alt="Employee reviewing earned wages from a laptop"
+        width={596}
+        height={544}
+      />
+      <img
+        className="bk-banner__orbit"
+        src="/ref/banner/h3_hero_img02.svg"
+        alt=""
+        aria-hidden="true"
+      />
+      <div className="bk-float-card bk-float-card--tl">
+        <span className="bk-float-card__icon">
+          <WalletCards size={18} aria-hidden="true" />
+        </span>
+        <div>
+          <em>Available today</em>
+          <strong>₹4,200</strong>
+        </div>
+      </div>
+      <div className="bk-float-card bk-float-card--br">
+        <span className="bk-float-card__icon">
+          <CalendarClock size={18} aria-hidden="true" />
+        </span>
+        <div>
+          <em>Next payday</em>
+          <strong>7 days</strong>
+        </div>
       </div>
     </div>
   );
