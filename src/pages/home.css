@@ -270,7 +270,9 @@
   overflow: hidden;
   padding: 200px 0 135px;
   background:
+    linear-gradient(180deg, rgba(246, 247, 252, 0.72), rgba(246, 247, 252, 0.88)),
     url("/ref/banner/h3_hero_bg.jpg") center / cover no-repeat;
+  background-color: #f6f7fc;
 }
 
 .bk-banner__grid {
@@ -404,9 +406,11 @@
   position: relative;
   z-index: 1;
   display: block;
-  width: 100%;
+  width: 118%;
   max-width: none;
   height: auto;
+  margin-left: -6%;
+  mix-blend-mode: multiply;
 }
 
 .bk-banner__orbit {
@@ -810,121 +814,47 @@
   gap: 70px;
 }
 
-.bk-about__art {
-  position: relative;
+.bk-about__head {
+  max-width: 640px;
+  margin: 0 auto 48px;
+  text-align: center;
 }
 
-.bk-why-stage {
-  position: relative;
-  min-height: 520px;
-}
-
-.bk-why-stage__scene {
-  display: block;
-  width: 100%;
-  height: 520px;
-  object-fit: cover;
-  object-position: 48% 46%;
-  border-radius: 32px;
-  background: #eceef8;
-}
-
-.bk-why-phone {
-  position: absolute;
-  right: 7%;
-  bottom: -28px;
-  z-index: 2;
-  width: 168px;
-  padding: 8px;
-  border-radius: 28px;
-  background: linear-gradient(160deg, #1a2740, #050814);
-  box-shadow: 18px 28px 50px rgba(1, 2, 46, 0.22);
-}
-
-.bk-why-phone img {
-  display: block;
-  width: 100%;
-  height: 340px;
-  object-fit: cover;
-  object-position: top;
-  border-radius: 20px;
-  background: #fff;
-}
-
-.bk-why-chip {
-  position: absolute;
-  z-index: 3;
-  min-width: 148px;
-  padding: 12px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.88);
-  box-shadow: 0 16px 32px rgba(1, 2, 46, 0.1);
-  backdrop-filter: blur(12px);
-  animation: bk-float 6s ease-in-out infinite;
-}
-
-.bk-why-chip span {
-  display: block;
+.bk-about__head p {
+  margin-top: 16px;
   color: var(--bk-muted);
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 1.2;
 }
 
-.bk-why-chip strong {
-  display: block;
-  margin-top: 4px;
-  color: var(--bk-navy);
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.1;
-}
-
-.bk-why-chip--a {
-  left: -12px;
-  top: 18%;
-}
-
-.bk-why-chip--b {
-  left: 8%;
-  bottom: 14%;
-  animation-delay: -2s;
-}
-
-.bk-why-chip--c {
-  right: -8px;
-  top: 8%;
-  animation-delay: -3.5s;
-}
-
-.bk-about__copy > p {
-  margin: 15px 0 28px;
-  color: var(--bk-muted);
+.bk-about__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
 }
 
 .bk-about-card {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  margin-bottom: 20px;
-  padding: 29px 40px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  min-height: 100%;
+  padding: 32px 28px;
   border: 1px solid var(--bk-border);
   border-radius: 20px;
   background: #fff;
   box-shadow: var(--bk-shadow);
-  transition: all 0.3s ease-out;
+  transition: transform 0.3s ease-out;
 }
 
 .bk-about-card:hover {
-  transform: translateX(6px);
+  transform: translateY(-6px);
 }
 
-.bk-about-card__left {
-  display: flex;
-  align-items: center;
-  gap: 18px;
+.bk-about-card em {
+  color: var(--bk-blue);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
 .bk-icon {
@@ -939,7 +869,7 @@
 }
 
 .bk-about-card h3 {
-  margin-bottom: 6px;
+  margin: 0;
   font-size: 20px;
 }
 
@@ -949,20 +879,13 @@
   line-height: 1.5;
 }
 
-.bk-about-card__arrow {
-  display: grid;
-  width: 42px;
-  height: 42px;
-  flex: 0 0 auto;
-  place-items: center;
-  border-radius: 50%;
-  background: rgba(0, 71, 255, 0.08);
-  color: var(--bk-blue);
-}
-
 /* Choose */
 .bk-choose {
   background: #fff;
+}
+
+.bk-choose .bk-split {
+  align-items: start;
 }
 
 .bk-choose__copy {
@@ -999,6 +922,7 @@
 .bk-choose__art {
   position: relative;
   text-align: center;
+  padding-top: 58px;
 }
 
 .bk-choose__art img {
@@ -1077,7 +1001,7 @@
 
 .bk-case__thumb {
   position: relative;
-  height: 230px;
+  height: 250px;
   overflow: hidden;
 }
 
@@ -1104,6 +1028,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 50% 18%;
 }
 
 .bk-ph {
@@ -1981,21 +1906,11 @@
   .bk-enquiry__inner {
     grid-template-columns: 1fr;
   }
-  .bk-cases__track {
+  .bk-about__grid {
     grid-template-columns: 1fr;
   }
-  .bk-why-stage {
-    min-height: 0;
-  }
-  .bk-why-stage__scene {
-    height: 420px;
-  }
-  .bk-why-phone {
-    width: 132px;
-    bottom: -16px;
-  }
-  .bk-why-phone img {
-    height: 260px;
+  .bk-choose__art {
+    padding-top: 0;
   }
   .bk-banner__copy h1 {
     font-size: 42px;
@@ -2082,12 +1997,6 @@
   }
   .bk-choose__art {
     min-height: 280px;
-  }
-  .bk-why-chip {
-    display: none;
-  }
-  .bk-why-phone {
-    display: none;
   }
 }
 

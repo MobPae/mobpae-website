@@ -410,9 +410,9 @@ function HeroArt() {
       <img
         className="bk-banner__person"
         src="/home/hero-person.jpg"
-        alt="Employee reviewing available earned wages on a laptop and phone"
-        width={1024}
-        height={1024}
+        alt="Employee reviewing available earned wages on a laptop"
+        width={1399}
+        height={933}
       />
       <span className="bk-banner__orbit" aria-hidden="true" />
       <div className="bk-float-card bk-float-card--tl">
@@ -431,42 +431,6 @@ function HeroArt() {
         <div>
           <em>Next payday</em>
           <strong>7 days</strong>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function WhyArt() {
-  return (
-    <div className="bk-about__art">
-      <div className="bk-why-stage">
-        <img
-          className="bk-why-stage__scene"
-          src="/home/why-mobpae-art.jpg"
-          alt="Illustrated payday scene with salary access, a calendar, and rupee coins"
-          width={1536}
-          height={1024}
-        />
-        <div className="bk-why-phone" aria-hidden="true">
-          <img
-            src="/product-shots/dashboard.png"
-            alt=""
-            width={800}
-            height={1847}
-          />
-        </div>
-        <div className="bk-why-chip bk-why-chip--a">
-          <span>Available today</span>
-          <strong>₹4,200</strong>
-        </div>
-        <div className="bk-why-chip bk-why-chip--b">
-          <span>Settles on payday</span>
-          <strong>Automatic</strong>
-        </div>
-        <div className="bk-why-chip bk-why-chip--c">
-          <span>Employer capital</span>
-          <strong>₹0</strong>
         </div>
       </div>
     </div>
@@ -687,48 +651,48 @@ export function HomePage() {
         </section>
 
         <section className="bk-about bk-py">
-          <div className="bk-rail bk-split">
-            <WhyArt />
-            <div className="bk-about__copy">
+          <div className="bk-rail">
+            <div className="bk-about__head">
               <span className="bk-sub">WHY MOBPAE?</span>
               <h2 className="bk-title">Financial Wellness Beyond Payday</h2>
               <p>
                 Help employees access earned wages before payday while improving
                 financial well-being, productivity, and workplace satisfaction.
               </p>
+            </div>
+            <div className="bk-about__grid">
               <Link className="bk-about-card" to="/about">
-                <div className="bk-about-card__left">
-                  <span className="bk-icon">
-                    <ShieldCheck size={22} aria-hidden="true" />
-                  </span>
-                  <div>
-                    <h3>Access Salary Early</h3>
-                    <p>
-                      View available earnings and request funds anytime before
-                      payday.
-                    </p>
-                  </div>
-                </div>
-                <span className="bk-about-card__arrow">
-                  <ArrowRight size={16} />
+                <span className="bk-icon">
+                  <ShieldCheck size={22} aria-hidden="true" />
                 </span>
+                <em>01</em>
+                <h3>Access salary early</h3>
+                <p>
+                  Employees can view available earnings and request funds anytime
+                  before payday.
+                </p>
               </Link>
               <Link className="bk-about-card" to="/about">
-                <div className="bk-about-card__left">
-                  <span className="bk-icon">
-                    <CalendarClock size={22} aria-hidden="true" />
-                  </span>
-                  <div>
-                    <h3>Automatic Payroll Settlement</h3>
-                    <p>
-                      Repayment is seamlessly deducted during the next payroll
-                      cycle.
-                    </p>
-                  </div>
-                </div>
-                <span className="bk-about-card__arrow">
-                  <ArrowRight size={16} />
+                <span className="bk-icon">
+                  <CalendarClock size={22} aria-hidden="true" />
                 </span>
+                <em>02</em>
+                <h3>Automatic payroll settlement</h3>
+                <p>
+                  Repayment is deducted during the next payroll cycle, without
+                  extra collections work.
+                </p>
+              </Link>
+              <Link className="bk-about-card" to="/about">
+                <span className="bk-icon">
+                  <Banknote size={22} aria-hidden="true" />
+                </span>
+                <em>03</em>
+                <h3>₹0 employer capital</h3>
+                <p>
+                  HR stays in control of approvals while partner lending funds
+                  the advance.
+                </p>
               </Link>
             </div>
           </div>
