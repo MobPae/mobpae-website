@@ -10,6 +10,7 @@ import {
   Menu,
   ShieldCheck,
   Star,
+  Users,
   WalletCards,
   X,
 } from "lucide-react";
@@ -734,6 +735,98 @@ export function HomePage() {
               />
               <span className="bk-choose__orbit bk-choose__orbit--a" aria-hidden="true" />
               <span className="bk-choose__orbit bk-choose__orbit--b" aria-hidden="true" />
+            </div>
+          </div>
+        </section>
+
+        <section className="bk-story bk-py">
+          <div className="bk-rail bk-split">
+            <div className="bk-story__collage">
+              <img
+                className="bk-story__photo bk-story__photo--a"
+                src="/home/ecosystem-employees.jpg"
+                alt="Employee using salary access at work"
+                width={1350}
+                height={900}
+              />
+              <img
+                className="bk-story__photo bk-story__photo--b"
+                src="/home/ecosystem-partners.jpg"
+                alt="Employers and partners collaborating on payroll-linked access"
+                width={1350}
+                height={900}
+              />
+              <div className="bk-story__badge">
+                <strong>₹0</strong>
+                <span>Employer capital required</span>
+              </div>
+              <div className="bk-story__float">
+                <span className="bk-icon">
+                  <WalletCards size={22} aria-hidden="true" />
+                </span>
+                <div>
+                  <strong>60 sec</strong>
+                  <p>Employee request time</p>
+                </div>
+              </div>
+            </div>
+            <div className="bk-story__copy">
+              <span className="bk-sub">ABOUT US</span>
+              <h2 className="bk-title">
+                Redefining Salary Access For India’s Workforce
+              </h2>
+              <p>
+                MobPae is an employer-powered earned wage access platform that
+                helps employees access a portion of their earned salary before
+                payday. We connect employees, employers, and financial partners
+                through a secure and transparent ecosystem focused on financial
+                wellness.
+              </p>
+              <div className="bk-story__features">
+                <div className="bk-story__minis">
+                  <article className="bk-story__mini">
+                    <span className="bk-icon">
+                      <Users size={22} aria-hidden="true" />
+                    </span>
+                    <div>
+                      <h3>Employee Financial Wellness</h3>
+                      <p>
+                        Give employees access to earned wages when they need it
+                        most.
+                      </p>
+                    </div>
+                  </article>
+                  <article className="bk-story__mini">
+                    <span className="bk-icon">
+                      <ShieldCheck size={22} aria-hidden="true" />
+                    </span>
+                    <div>
+                      <h3>Employer-Powered Platform</h3>
+                      <p>
+                        Complete visibility and control through
+                        employer-approved workflows.
+                      </p>
+                    </div>
+                  </article>
+                </div>
+                <ul className="bk-checks">
+                  <li>
+                    <Check size={16} aria-hidden="true" /> Access earned wages
+                    before payday
+                  </li>
+                  <li>
+                    <Check size={16} aria-hidden="true" /> Employer-controlled
+                    approval process
+                  </li>
+                  <li>
+                    <Check size={16} aria-hidden="true" /> Payroll-linked
+                    settlement and recovery
+                  </li>
+                </ul>
+              </div>
+              <Link to="/about" className="bk-btn">
+                Learn More <ArrowRight size={16} aria-hidden="true" />
+              </Link>
             </div>
           </div>
         </section>
