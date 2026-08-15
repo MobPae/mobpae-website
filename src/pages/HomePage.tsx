@@ -274,6 +274,33 @@ const trustItems = [
   },
 ];
 
+const team = [
+  {
+    name: "Luhit Parajuli",
+    role: "Co-Founder & Business Strategy",
+    photo: "/team/luhit-parajuli.png",
+    initials: "LP",
+  },
+  {
+    name: "Jyotirmoy Upadhaya",
+    role: "Co-Founder & Technology Lead",
+    photo: "/team/jyotirmoy.png",
+    initials: "JU",
+  },
+  {
+    name: "Bharati Bhattarai",
+    role: "Admin & Legal Head",
+    photo: "/team/bharati-bhattarai.png",
+    initials: "BB",
+  },
+  {
+    name: "Junu Bhattarai",
+    role: "HR & Digital Marketing Lead",
+    photo: "/team/junu.png",
+    initials: "JB",
+  },
+];
+
 const faqs = [
   {
     title: "Is MobPae a loan?",
@@ -1014,6 +1041,53 @@ export function HomePage() {
                   </article>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bk-team">
+          <div className="bk-rail">
+            <div className="bk-team__intro">
+              <div>
+                <span className="bk-sub">Core Team</span>
+                <h2 className="bk-title">The founding team behind MobPae</h2>
+              </div>
+              <p>
+                A focused founding team across strategy, technology, legal, and
+                people operations — building MobPae as an employer-first salary
+                access platform.
+              </p>
+            </div>
+            <div className="bk-team-grid">
+              {team.map((member) => (
+                <article className="bk-member" key={member.name}>
+                  <Link to="/team">
+                    {member.photo ? (
+                      <img
+                        src={member.photo}
+                        alt={member.name}
+                        width={200}
+                        height={200}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="bk-member__ph">{member.initials}</div>
+                    )}
+                    <h3>{member.name}</h3>
+                    <span>{member.role}</span>
+                  </Link>
+                  <div className="bk-member__socials">
+                    <a
+                      href="https://linkedin.com/company/mobpae"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${member.name} on LinkedIn`}
+                    >
+                      <LinkedInIcon />
+                    </a>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>

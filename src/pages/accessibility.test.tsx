@@ -31,6 +31,7 @@ describe("public page accessibility", () => {
       "Built for employees, employers, and partners",
       "No risk. No overhead. Real workforce value.",
       "Built for payroll teams, finance teams, and founders.",
+      "The founding team behind MobPae",
       "Ready to offer salary access at work?",
       "Everything you need to know.",
       "Request a MobPae demo",
