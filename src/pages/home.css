@@ -1595,6 +1595,12 @@
   }
 }
 
+.bk-case__thumb {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+
 .bk-case:nth-child(1) .bk-case__thumb::before,
 .bk-case:nth-child(2) .bk-case__thumb::before,
 .bk-case:nth-child(3) .bk-case__thumb::before {
