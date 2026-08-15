@@ -14,9 +14,8 @@ import {
   X,
 } from "lucide-react";
 import type { ChangeEvent, FormEvent, ReactNode } from "react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useInView } from "../hooks/useInView";
 import "./home.css";
 
 const NAV_LINKS = [
@@ -156,6 +155,13 @@ const team = [
     photo: "/team/junu.png",
     initials: "JB",
   },
+];
+
+const heroStats = [
+  { icon: Banknote, value: "< 2 wks", label: "Employer go-live time" },
+  { icon: WalletCards, value: "60 sec", label: "Employee request time" },
+  { icon: ShieldCheck, value: "₹0", label: "Employer capital required" },
+  { icon: BadgeCheck, value: "100%", label: "HR-controlled approvals" },
 ];
 
 const quotes = [
@@ -472,108 +478,25 @@ function WhyArt() {
   );
 }
 
-function CaseSlider() {
-  const [index, setIndex] = useState(0);
-  const [perView, setPerView] = useState(3);
-
-  useEffect(() => {
-    const update = () => {
-      if (typeof window.matchMedia !== "function") {
-        setPerView(3);
-        return;
-      }
-      if (window.matchMedia("(max-width: 767.98px)").matches) setPerView(1);
-      else if (window.matchMedia("(max-width: 1199.98px)").matches)
-        setPerView(2);
-      else setPerView(3);
-    };
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, []);
-
-  const maxIndex = Math.max(0, cases.length - perView);
-  const activeIndex = Math.min(index, maxIndex);
-
+function EcosystemCards() {
   return (
-    <>
-      <div className="bk-cases__viewport">
-        <div
-          className="bk-cases__track"
-          style={{
-            ["--bk-per" as string]: String(perView),
-            transform: `translateX(calc(${activeIndex} * -1 * ((100% + 30px) / ${perView})))`,
-          }}
-        >
-          {cases.map((item, caseIndex) => (
-            <article className="bk-case" key={`${item.title}-${caseIndex}`}>
-              <div className="bk-case__thumb">
-                <img src={item.image} alt="" />
-              </div>
-              <div className="bk-case__body">
-                <Link className="bk-tag" to={item.href}>
-                  {item.tag}
-                </Link>
-                <h3>
-                  <Link to={item.href}>{item.title}</Link>
-                </h3>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-      <div className="bk-cases__nav">
-        <button
-          type="button"
-          className="bk-nav-btn"
-          aria-label="Previous case studies"
-          onClick={() =>
-            setIndex((value) => Math.max(0, Math.min(maxIndex, value) - 1))
-          }
-        >
-          <ArrowRight size={18} style={{ transform: "rotate(180deg)" }} />
-        </button>
-        <button
-          type="button"
-          className="bk-nav-btn"
-          aria-label="Next case studies"
-          onClick={() => setIndex((value) => Math.min(maxIndex, value + 1))}
-        >
-          <ArrowRight size={18} />
-        </button>
-      </div>
-    </>
-  );
-}
-
-function Counters() {
-  const [ref, inView] = useInView<HTMLDivElement>(0.2);
-  const stats = useMemo(
-    () => [
-      { icon: Banknote, value: "< 2 wks", label: "Employer go-live time" },
-      { icon: WalletCards, value: "60 sec", label: "Employee request time" },
-      { icon: ShieldCheck, value: "₹0", label: "Employer capital required" },
-      { icon: BadgeCheck, value: "100%", label: "HR-controlled approvals" },
-    ],
-    [],
-  );
-
-  return (
-    <section className="bk-counters">
-      <div className="bk-rail bk-counter-grid" ref={ref}>
-        {stats.map((stat) => (
-          <article className="bk-counter" key={stat.label}>
-            <span className="bk-counter__icon">
-              <stat.icon size={56} strokeWidth={1.5} aria-hidden="true" />
-            </span>
-            <div>
-              <strong>{inView ? stat.value : "—"}</strong>
-              <p>{stat.label}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
+    <div className="bk-cases__track">
+      {cases.map((item) => (
+        <article className="bk-case" key={item.title}>
+          <div className="bk-case__thumb">
+            <img src={item.image} alt="" />
+          </div>
+          <div className="bk-case__body">
+            <Link className="bk-tag" to={item.href}>
+              {item.tag}
+            </Link>
+            <h3>
+              <Link to={item.href}>{item.title}</Link>
+            </h3>
+          </div>
+        </article>
+      ))}
+    </div>
   );
 }
 
@@ -657,16 +580,27 @@ export function HomePage() {
                 payday through employer-backed approvals, partner lenders, and
                 payroll-linked recovery.
               </p>
+              <div className="bk-hero-stats">
+                {heroStats.map((stat) => (
+                  <article className="bk-hero-stat" key={stat.label}>
+                    <span className="bk-hero-stat__icon">
+                      <stat.icon
+                        size={22}
+                        strokeWidth={1.6}
+                        aria-hidden="true"
+                      />
+                    </span>
+                    <div>
+                      <strong>{stat.value}</strong>
+                      <p>{stat.label}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
               <div className="bk-banner__bottom">
                 <Link to="/#enquiry" className="bk-btn">
                   Request Demo <ArrowRight size={16} aria-hidden="true" />
                 </Link>
-                <div className="bk-clients">
-                  <div>
-                    <strong>₹0</strong>
-                    <p>Employer capital required</p>
-                  </div>
-                </div>
               </div>
             </div>
             <HeroArt />
@@ -850,12 +784,10 @@ export function HomePage() {
           </div>
           <div className="bk-wide">
             <div className="bk-cases__wrap">
-              <CaseSlider />
+              <EcosystemCards />
             </div>
           </div>
         </section>
-
-        <Counters />
 
         <section className="bk-team bk-py">
           <div className="bk-rail">
