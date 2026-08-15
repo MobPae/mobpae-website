@@ -219,8 +219,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  min-height: 78px;
+  gap: 16px;
+  min-height: 0;
   padding: 0 22px;
   border-radius: 100px;
   background: #fff;
@@ -245,7 +245,7 @@
 
 .bk-logo img {
   display: block;
-  height: 36px;
+  height: 40px;
   width: auto;
 }
 
@@ -253,18 +253,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 0;
   flex: 1;
   flex-wrap: nowrap;
 }
 
 .bk-nav a {
   color: var(--bk-navy);
-  font-size: 13px;
+  padding: 30px 10px;
+  font-size: 15px;
   font-weight: 500;
-  line-height: 1;
+  line-height: 1.4;
   white-space: nowrap;
-  text-transform: capitalize;
+  text-transform: uppercase;
   transition: color 0.2s ease;
 }
 
@@ -294,9 +295,9 @@
 }
 
 .bk-header__cta {
-  min-height: 44px;
-  padding: 12px 22px;
-  font-size: 14px;
+  min-height: 52px;
+  padding: 18px 25px;
+  font-size: 15px;
 }
 
 .bk-menu-btn {
@@ -1336,8 +1337,9 @@
   z-index: 1;
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin: 18px 0 0;
+  gap: 22px;
+  margin: 36px 0 10px;
+  padding: 6px 8px;
   color: var(--bk-navy);
   font-size: 13px;
   font-weight: 600;
@@ -1359,7 +1361,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 0;
-  margin-top: 18px;
+  margin-top: 28px;
   overflow: hidden;
   border: 1px solid rgba(223, 225, 237, 0.95);
   border-radius: 24px;
@@ -1615,14 +1617,13 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 30px;
-  align-items: stretch;
+  align-items: start;
 }
 
 .bk-case {
   display: flex;
   flex-direction: column;
   min-width: 0;
-  min-height: 100%;
   border: 1px solid #dbdeed;
   border-radius: 25px;
   background: #fff;
@@ -1713,12 +1714,10 @@
 .bk-case__body {
   display: flex;
   flex-direction: column;
-  flex: 1;
   padding: 22px 24px 26px;
 }
 
 .bk-case h3 {
-  flex: 1;
   font-size: 22px;
   line-height: 1.3;
 }

@@ -377,10 +377,6 @@ function HomeNav() {
             ))}
           </nav>
           <div className="bk-header__actions">
-            <a className="bk-header__contact" href="mailto:support@mobpae.com">
-              <Mail size={16} aria-hidden="true" />
-              support@mobpae.com
-            </a>
             <Link to="/#enquiry" className="bk-btn bk-header__cta">
               Request Demo
             </Link>
@@ -530,7 +526,6 @@ function HeroArt() {
         width={1399}
         height={933}
       />
-      <span className="bk-banner__orbit" aria-hidden="true" />
       <div className="bk-float-card bk-float-card--tl">
         <span className="bk-float-card__icon">
           <WalletCards size={18} aria-hidden="true" />
@@ -942,8 +937,6 @@ export function HomePage() {
                 Built for employees, employers, and partners
               </h2>
             </div>
-          </div>
-          <div className="bk-wide">
             <div className="bk-cases__wrap">
               <EcosystemCards />
             </div>
@@ -964,12 +957,11 @@ export function HomePage() {
               </p>
             </div>
             <div className="bk-about__grid">
-              {employerReasons.map((reason, index) => (
+              {employerReasons.map((reason) => (
                 <article className="bk-about-card" key={reason.title}>
                   <span className="bk-icon">
                     <reason.icon size={22} aria-hidden="true" />
                   </span>
-                  <em>0{index + 1}</em>
                   <h3>{reason.title}</h3>
                   <p>{reason.body}</p>
                 </article>
