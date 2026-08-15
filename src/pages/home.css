@@ -49,8 +49,15 @@
   scroll-margin-top: 112px;
 }
 
+.bk-rail {
+  width: var(--bk-rail);
+  max-width: 1250px;
+  margin-inline: auto;
+}
+
 .bk-wide {
   width: var(--bk-wide);
+  max-width: 1664px;
   margin-inline: auto;
 }
 
@@ -177,6 +184,7 @@
 
 .bk-header__bar {
   width: var(--bk-rail);
+  max-width: 1250px;
   margin: 50px auto 0;
   display: flex;
   align-items: center;
