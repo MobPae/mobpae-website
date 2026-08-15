@@ -930,9 +930,6 @@ export function HomePage() {
                   </li>
                 </ul>
               </div>
-              <Link to="/#enquiry" className="bk-btn">
-                Request Demo <ArrowRight size={16} aria-hidden="true" />
-              </Link>
             </div>
           </div>
         </section>
