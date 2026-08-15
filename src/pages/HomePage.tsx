@@ -752,15 +752,17 @@ export function HomePage() {
 
         <section className="bk-choose" id="how-it-works">
           <div className="bk-rail">
+            <div className="bk-choose__head">
+              <span className="bk-sub">HOW IT WORKS?</span>
+              <h2 className="bk-title">
+                Simple for employees. Controlled for employers.
+              </h2>
+            </div>
             <div className="bk-choose__board">
               <span className="bk-choose__glow bk-choose__glow--a" aria-hidden="true" />
               <span className="bk-choose__glow bk-choose__glow--b" aria-hidden="true" />
               <div className="bk-choose__intro">
                 <div className="bk-choose__copy">
-                  <span className="bk-sub">HOW IT WORKS?</span>
-                  <h2 className="bk-title">
-                    Simple for employees. Controlled for employers.
-                  </h2>
                   <p>
                     MobPae keeps salary access clear from the first request to
                     the final recovery, with employer approval and payroll logic

@@ -1113,15 +1113,21 @@
 }
 
 #features.bk-py {
-  padding-bottom: 28px;
+  padding-bottom: 80px;
 }
 
 /* Choose */
 .bk-choose {
   position: relative;
   z-index: 2;
-  padding: 0 0 64px;
+  padding: 24px 0 80px;
   background: transparent;
+}
+
+.bk-choose__head {
+  max-width: 720px;
+  margin: 0 auto 40px;
+  text-align: center;
 }
 
 .bk-choose__board {
@@ -1843,10 +1849,10 @@
   position: relative;
   overflow: hidden;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(280px, 1fr) auto;
   align-items: center;
-  gap: 30px;
-  padding: 72px;
+  gap: 28px 40px;
+  padding: 56px 64px;
   border-radius: 32px;
   background:
     radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.18), transparent 34%),
@@ -1866,7 +1872,7 @@
 .bk-cta__inner h2 {
   position: relative;
   z-index: 1;
-  max-width: 90%;
+  max-width: none;
   margin: 0;
   color: #fff;
   font-size: 30px;
@@ -1879,13 +1885,20 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 35px;
+  flex-wrap: nowrap;
+  gap: 28px;
+  min-width: 0;
 }
 
 .bk-cta__call {
   display: flex;
   align-items: center;
   gap: 10px;
+  min-width: 0;
+}
+
+.bk-cta__call > div {
+  min-width: 0;
 }
 
 .bk-cta__call > div span {
@@ -1900,10 +1913,14 @@
 .bk-cta__call a {
   display: block;
   color: #fff;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 1.2;
-  word-break: break-word;
+  white-space: nowrap;
+}
+
+.bk-cta__right .bk-btn {
+  flex: 0 0 auto;
 }
 
 .bk-cta__icon {
@@ -2704,6 +2721,10 @@
   .bk-cta__inner,
   .bk-enquiry__copy {
     text-align: center;
+  }
+  .bk-cta__inner {
+    grid-template-columns: 1fr;
+    padding: 40px 28px;
   }
   .bk-cta__right {
     justify-content: center;
