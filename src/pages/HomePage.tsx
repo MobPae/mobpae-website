@@ -3,7 +3,6 @@ import {
   ArrowUp,
   BadgeCheck,
   Banknote,
-  Building2,
   CalendarClock,
   Check,
   FileCheck2,
@@ -11,7 +10,6 @@ import {
   Mail,
   MapPin,
   Menu,
-  RefreshCw,
   ShieldCheck,
   Smartphone,
   Users,
@@ -104,34 +102,6 @@ const services = [
     icon: BadgeCheck,
     title: "Trusted platform",
     body: "Built for compliance-minded employers: traceable requests, partner lending, and ₹0 capital from you.",
-  },
-];
-
-const howItWorksFlow = [
-  {
-    icon: Smartphone,
-    title: "Employee requests",
-    body: "The employee chooses an amount, reviews the terms and submits the request.",
-  },
-  {
-    icon: Building2,
-    title: "Employer approves",
-    body: "The employer checks salary context, policy fit and request history before approving.",
-  },
-  {
-    icon: BadgeCheck,
-    title: "MobPae verifies",
-    body: "Admin reviews the request, KYC, bank account and platform fee readiness.",
-  },
-  {
-    icon: Banknote,
-    title: "Funds are disbursed",
-    body: "Approved money is transferred directly to the employee's verified bank account.",
-  },
-  {
-    icon: RefreshCw,
-    title: "Recovered on payday",
-    body: "Recovery follows the configured payroll cutoff and payday cycle.",
   },
 ];
 
@@ -512,36 +482,132 @@ function HomeFooter() {
 
 function HeroArt() {
   return (
-    <div className="bk-banner__art">
+    <div
+      className="bk-banner__art"
+      aria-hidden="true"
+    >
       <img
         className="bk-banner__hero-shape"
         src="/ref/banner/h3_hero_shape01.svg"
         alt=""
-        aria-hidden="true"
       />
-      <img
-        className="bk-banner__person"
-        src="/home/hero-person.jpg"
-        alt="Employee reviewing available earned wages on a laptop"
-        width={1399}
-        height={933}
-      />
-      <div className="bk-float-card bk-float-card--tl">
-        <span className="bk-float-card__icon">
-          <WalletCards size={18} aria-hidden="true" />
-        </span>
-        <div>
-          <em>Available today</em>
-          <strong>₹4,200</strong>
+      <div className="bk-hero-products">
+        <div className="bk-dash bk-dash--admin">
+          <div className="bk-dash__chrome">
+            <span />
+            <span />
+            <span />
+            <em>Admin dashboard</em>
+          </div>
+          <div className="bk-dash__kpis">
+            <div>
+              <span>KYC queue</span>
+              <strong>6</strong>
+            </div>
+            <div>
+              <span>To disburse</span>
+              <strong>₹1.8L</strong>
+            </div>
+            <div>
+              <span>Settled</span>
+              <strong>92%</strong>
+            </div>
+          </div>
+          <div className="bk-dash__rows">
+            <div>
+              <b>PRI-2041</b>
+              <span>Bank verified</span>
+              <em>Ready</em>
+            </div>
+            <div>
+              <b>PRI-2038</b>
+              <span>Fee check</span>
+              <em>Review</em>
+            </div>
+            <div>
+              <b>PRI-2033</b>
+              <span>Disbursal</span>
+              <em>Sent</em>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="bk-float-card bk-float-card--br">
-        <span className="bk-float-card__icon">
-          <CalendarClock size={18} aria-hidden="true" />
-        </span>
-        <div>
-          <em>Next payday</em>
-          <strong>7 days</strong>
+
+        <div className="bk-dash bk-dash--employer">
+          <div className="bk-dash__chrome">
+            <span />
+            <span />
+            <span />
+            <em>Employer dashboard</em>
+          </div>
+          <div className="bk-dash__kpis">
+            <div>
+              <span>Pending</span>
+              <strong>4</strong>
+            </div>
+            <div>
+              <span>Approved</span>
+              <strong>12</strong>
+            </div>
+            <div>
+              <span>Next payday</span>
+              <strong>7d</strong>
+            </div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Employee</th>
+                <th>Amount</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>A. Sharma</td>
+                <td>₹4,200</td>
+                <td>
+                  <i className="bk-pill bk-pill--wait">Pending</i>
+                </td>
+              </tr>
+              <tr>
+                <td>R. Iyer</td>
+                <td>₹2,800</td>
+                <td>
+                  <i className="bk-pill bk-pill--ok">Approved</i>
+                </td>
+              </tr>
+              <tr>
+                <td>S. Khan</td>
+                <td>₹6,000</td>
+                <td>
+                  <i className="bk-pill bk-pill--ok">Approved</i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div className="bk-phone">
+          <div className="bk-phone__notch" />
+          <div className="bk-phone__screen">
+            <div className="bk-phone__bar">
+              <span>9:41</span>
+              <span>MobPae</span>
+            </div>
+            <p>Available today</p>
+            <strong>₹4,200</strong>
+            <span className="bk-phone__cta">Request</span>
+            <ul>
+              <li>
+                <span>Next payday</span>
+                <b>7 days</b>
+              </li>
+              <li>
+                <span>Last request</span>
+                <b>Approved</b>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -802,20 +868,6 @@ export function HomePage() {
                   </div>
                 </div>
               </div>
-              <ol className="bk-flow">
-                {howItWorksFlow.map((item, index) => (
-                  <li className="bk-flow__step" key={item.title}>
-                    <span className="bk-flow__node">
-                      <span className="bk-flow__num">0{index + 1}</span>
-                      <span className="bk-flow__icon">
-                        <item.icon size={20} aria-hidden="true" />
-                      </span>
-                    </span>
-                    <h3>{item.title}</h3>
-                    <p>{item.body}</p>
-                  </li>
-                ))}
-              </ol>
               <p className="bk-choose__bridge">
                 One payroll cycle. Two clear jobs.
               </p>
