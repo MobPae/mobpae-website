@@ -114,19 +114,19 @@ const cases = [
     tag: "Employees",
     title: "Access earned wages with greater financial confidence",
     href: "/employees",
-    image: "/ref/project/h3_project_img01.jpg",
+    image: "/home/ecosystem-employees.jpg",
   },
   {
     tag: "Employers",
     title: "Support financial wellness across your workforce",
     href: "/employers",
-    image: "/ref/project/h3_project_img02.jpg",
+    image: "/home/ecosystem-employers.jpg",
   },
   {
     tag: "Partners",
     title: "Enable responsible finance through payroll integration",
     href: "/product",
-    image: "/ref/project/h3_project_img03.jpg",
+    image: "/home/ecosystem-partners.jpg",
   },
 ];
 
@@ -409,17 +409,12 @@ function HeroArt() {
       />
       <img
         className="bk-banner__person"
-        src="/ref/banner/h3_hero_img01.svg"
-        alt="Employee reviewing earned wages from a laptop"
-        width={596}
-        height={544}
+        src="/home/hero-person.jpg"
+        alt="Employee reviewing available earned wages on a laptop and phone"
+        width={1024}
+        height={1024}
       />
-      <img
-        className="bk-banner__orbit"
-        src="/ref/banner/h3_hero_img02.svg"
-        alt=""
-        aria-hidden="true"
-      />
+      <span className="bk-banner__orbit" aria-hidden="true" />
       <div className="bk-float-card bk-float-card--tl">
         <span className="bk-float-card__icon">
           <WalletCards size={18} aria-hidden="true" />
@@ -767,8 +762,14 @@ export function HomePage() {
               </Link>
             </div>
             <div className="bk-choose__art">
-              <img src="/ref/images/choose_img01.svg" alt="" />
-              <img src="/ref/images/choose_img02.svg" alt="" />
+              <img
+                src="/home/how-it-works.jpg"
+                alt="Employee requesting earned wages on a phone before payday"
+                width={768}
+                height={1152}
+              />
+              <span className="bk-choose__orbit bk-choose__orbit--a" aria-hidden="true" />
+              <span className="bk-choose__orbit bk-choose__orbit--b" aria-hidden="true" />
             </div>
           </div>
         </section>

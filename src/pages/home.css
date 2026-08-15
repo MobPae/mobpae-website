@@ -412,11 +412,25 @@
 .bk-banner__orbit {
   position: absolute;
   left: -2%;
-  bottom: 23%;
+  bottom: 18%;
   z-index: 2;
-  width: auto;
-  max-width: 255px;
+  width: 92px;
+  height: 92px;
+  border: 10px solid #343c4d;
+  border-radius: 50%;
   pointer-events: none;
+}
+
+.bk-banner__orbit::after {
+  content: "";
+  position: absolute;
+  right: -18px;
+  bottom: 8px;
+  width: 46px;
+  height: 10px;
+  background: #343c4d;
+  transform: rotate(-38deg);
+  border-radius: 4px;
 }
 
 .bk-banner__hero-shape {
@@ -988,17 +1002,12 @@
 }
 
 .bk-choose__art img {
-  width: auto;
-  max-width: 100%;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 430px;
   height: auto;
-}
-
-.bk-choose__art img:nth-child(2) {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: auto;
-  max-width: 100%;
+  border-radius: 28px;
 }
 
 .bk-choose__orbit {
@@ -1882,7 +1891,8 @@
     max-width: 100%;
   }
   .bk-banner__orbit {
-    max-width: 150px;
+    width: 72px;
+    height: 72px;
   }
   .bk-service-grid,
   .bk-team-grid {
@@ -1962,7 +1972,7 @@
     margin-bottom: 50px;
   }
   .bk-banner__orbit {
-    bottom: 35%;
+    bottom: 12%;
   }
   .bk-banner__grid,
   .bk-split,
@@ -2021,8 +2031,9 @@
     padding: 110px 0 80px;
   }
   .bk-banner__orbit {
-    max-width: 120px;
-    bottom: 33%;
+    width: 64px;
+    height: 64px;
+    bottom: 10%;
   }
   .bk-float-card {
     display: none;
