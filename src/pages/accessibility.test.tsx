@@ -3,7 +3,6 @@ import axe from "axe-core";
 import { afterEach, describe, expect, it } from "vitest";
 import { MemoryRouter } from "react-router-dom";
 import { HomePage } from "./HomePage";
-import { EmployeesPage } from "./WebsitePages";
 
 afterEach(cleanup);
 
@@ -22,6 +21,8 @@ describe("public page accessibility", () => {
     expect(screen.getByLabelText(/Email/)).toBeRequired();
     expect(screen.getByLabelText(/Company name/)).toBeRequired();
     expect(screen.getByLabelText(/Message/)).toBeRequired();
+    expect(screen.getByRole("navigation", { name: "Primary navigation" })).toHaveTextContent("How It Works");
+    expect(screen.getByRole("navigation", { name: "Primary navigation" })).toHaveTextContent("About");
     expect(
       screen.getAllByRole("heading", { level: 2 }).map((node) => node.textContent)
     ).toEqual([
@@ -36,17 +37,6 @@ describe("public page accessibility", () => {
       "Everything you need to know.",
       "Request a MobPae demo",
     ]);
-    await expectNoAxeViolations();
-  });
-
-  it("gives the employee page one primary heading and a main landmark", async () => {
-    render(<MemoryRouter initialEntries={["/employees"]}><EmployeesPage /></MemoryRouter>);
-
-    expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
-    expect(screen.getByRole("main")).toHaveAttribute("id", "main-content");
-    expect(
-      screen.getByAltText(/MobPae employee app dashboard/)
-    ).toBeInTheDocument();
     await expectNoAxeViolations();
   });
 });

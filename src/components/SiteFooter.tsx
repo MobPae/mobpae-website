@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { SECTION_LINKS } from "../siteLinks";
 
 function LinkedInIcon() {
   return (
@@ -42,33 +43,20 @@ const socialLinks = [
 
 const footerColumns = [
   {
-    heading: "For Employers",
-    links: [
-      { label: "Overview", href: "/employers" },
-      { label: "Benefits", href: "/employers/benefits" },
-      { label: "Request Demo", href: "/#enquiry" },
-    ],
-  },
-  {
-    heading: "For Employees",
-    links: [
-      { label: "Overview", href: "/employees" },
-      { label: "How It Works", href: "/how-it-works" },
-      { label: "FAQs", href: "/faqs" },
-    ],
+    heading: "Explore",
+    links: SECTION_LINKS.slice(0, 4),
   },
   {
     heading: "Company",
-    links: [
-      { label: "Our Story", href: "/about" },
-      { label: "Careers", href: "/careers" },
-      { label: "Contact", href: "/contact" },
-    ],
+    links: SECTION_LINKS.slice(4),
   },
   {
-    heading: "Resources",
+    heading: "Get started",
+    links: [{ label: "Request Demo", href: "/#enquiry" }],
+  },
+  {
+    heading: "Legal",
     links: [
-      { label: "Help Center", href: "/help-center" },
       { label: "Privacy Policy", href: "/privacy-policy" },
       { label: "Terms & Conditions", href: "/terms" },
     ],

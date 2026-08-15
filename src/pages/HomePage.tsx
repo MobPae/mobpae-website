@@ -21,15 +21,12 @@ import {
 import type { ChangeEvent, FormEvent, ReactNode } from "react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { SECTION_LINKS } from "../siteLinks";
 import "./home.css";
 
-const NAV_LINKS = [
-  { label: "For Employers", href: "/employers" },
-  { label: "For Employees", href: "/employees" },
-  { label: "How It Works", href: "/how-it-works" },
-  { label: "Product", href: "/product" },
-  { label: "Our Story", href: "/about" },
-];
+const API_BASE = (
+  (import.meta.env.VITE_API_BASE_URL as string | undefined) || ""
+).replace(/\/api\/v1\/?$/, "");
 
 function LinkedInIcon() {
   return (
@@ -92,25 +89,21 @@ const services = [
     icon: WalletCards,
     title: "Earned wage access",
     body: "Employees can request a portion of wages already earned, instead of waiting until payday.",
-    href: "/product",
   },
   {
     icon: ShieldCheck,
     title: "Employer powered",
     body: "HR stays in control of eligibility, approvals, and recovery — MobPae never replaces payroll.",
-    href: "/employers",
   },
   {
     icon: CalendarClock,
     title: "Payroll integrated",
     body: "Disbursals and settlements follow the salary cycle, so repayment is automatic on payday.",
-    href: "/how-it-works",
   },
   {
     icon: BadgeCheck,
     title: "Trusted platform",
     body: "Built for compliance-minded employers: traceable requests, partner lending, and ₹0 capital from you.",
-    href: "/product",
   },
 ];
 
@@ -201,20 +194,20 @@ const cases = [
   {
     tag: "Employees",
     title: "Access earned wages with greater financial confidence",
-    href: "/employees",
     image: "/home/ecosystem-employees.jpg",
+    position: "50% 18%",
   },
   {
     tag: "Employers",
     title: "Support financial wellness across your workforce",
-    href: "/employers",
     image: "/home/ecosystem-employers.jpg",
+    position: "50% 62%",
   },
   {
     tag: "Partners",
     title: "Enable responsible finance through payroll integration",
-    href: "/product",
     image: "/home/ecosystem-partners.jpg",
+    position: "62% 42%",
   },
 ];
 
@@ -243,11 +236,6 @@ const employerReasons = [
     icon: Users,
     title: "A retention benefit people use",
     body: "Employees get practical liquidity support without turning the company into a lending desk.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Responsible access",
-    body: "Limits, verification, and payroll recovery keep the product useful without encouraging debt dependency.",
   },
 ];
 
@@ -376,12 +364,12 @@ function HomeNav() {
             <img src="/logo.svg" alt="MobPae" />
           </Link>
           <nav className="bk-nav" aria-label="Primary navigation">
-            {NAV_LINKS.map((link) => (
+            {SECTION_LINKS.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
                 aria-current={
-                  location.pathname === link.href ? "page" : undefined
+                  location.hash === link.href.replace("/", "") ? "page" : undefined
                 }
               >
                 {link.label}
@@ -418,7 +406,7 @@ function HomeNav() {
             className="bk-mobile"
             aria-label="Mobile navigation"
           >
-            {NAV_LINKS.map((link) => (
+            {SECTION_LINKS.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
@@ -475,40 +463,24 @@ function HomeFooter() {
           <div>
             <p className="bk-footer__title">Information</p>
             <ul>
-              <li>
-                <Link to="/about">Our Story</Link>
-              </li>
-              <li>
-                <Link to="/team">Team</Link>
-              </li>
-              <li>
-                <Link to="/careers">Careers</Link>
-              </li>
-              <li>
-                <Link to="/blog">Blog</Link>
-              </li>
-              <li>
-                <Link to="/contact">Contact</Link>
-              </li>
+              {SECTION_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link to={link.href}>{link.label}</Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div>
             <p className="bk-footer__title">Quick links</p>
             <ul>
               <li>
-                <Link to="/how-it-works">How It Works</Link>
+                <Link to="/#enquiry">Request Demo</Link>
               </li>
               <li>
-                <Link to="/employers">For Employers</Link>
+                <Link to="/privacy-policy">Privacy Policy</Link>
               </li>
               <li>
-                <Link to="/employees">For Employees</Link>
-              </li>
-              <li>
-                <Link to="/product">Product</Link>
-              </li>
-              <li>
-                <Link to="/faqs">FAQs</Link>
+                <Link to="/terms">Terms & Conditions</Link>
               </li>
             </ul>
           </div>
@@ -531,6 +503,10 @@ function HomeFooter() {
           </Link>
           <p>
             Copyright © {new Date().getFullYear()} MobPae | All Rights Reserved
+            {" · "}
+            <Link to="/privacy-policy">Privacy</Link>
+            {" · "}
+            <Link to="/terms">Terms</Link>
           </p>
         </div>
       </div>
@@ -583,15 +559,15 @@ function EcosystemCards() {
       {cases.map((item) => (
         <article className="bk-case" key={item.title}>
           <div className="bk-case__thumb">
-            <img src={item.image} alt="" />
+            <img
+              src={item.image}
+              alt=""
+              style={{ objectPosition: item.position }}
+            />
           </div>
           <div className="bk-case__body">
-            <Link className="bk-tag" to={item.href}>
-              {item.tag}
-            </Link>
-            <h3>
-              <Link to={item.href}>{item.title}</Link>
-            </h3>
+            <span className="bk-tag">{item.tag}</span>
+            <h3>{item.title}</h3>
           </div>
         </article>
       ))}
@@ -644,15 +620,20 @@ export function HomePage() {
     setError("");
 
     try {
-      const response = await fetch("/api/enquiry", {
+      const endpoint = API_BASE
+        ? `${API_BASE}/employer-enquiries`
+        : "/api/enquiry";
+      const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          companyName: form.companyName.trim(),
-          contactPerson: form.contactName.trim(),
-          email: form.email.trim().toLowerCase(),
-          phone: form.phone.trim() || null,
-          message: form.message.trim(),
+          companyName: form.companyName,
+          contactPerson:
+            form.contactName || form.companyName || "Website enquiry",
+          email: form.email,
+          phone: form.phone || null,
+          employeeCount: null,
+          message: form.message || "Website enquiry",
         }),
       });
       if (!response.ok) throw new Error("Failed to submit enquiry");
@@ -729,7 +710,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="bk-services bk-py">
+        <section className="bk-services bk-py" id="features">
           <div className="bk-rail">
             <div className="bk-features-head">
               <div>
@@ -766,29 +747,15 @@ export function HomePage() {
                     </span>
                     <em>0{index + 1}</em>
                   </div>
-                  <h3>
-                    <Link to={service.href}>{service.title}</Link>
-                  </h3>
+                  <h3>{service.title}</h3>
                   <p>{service.body}</p>
-                  <Link className="bk-service__more" to={service.href}>
-                    Read More
-                    <img
-                      src="/ref/icons/right_arrow.svg"
-                      alt=""
-                      aria-hidden="true"
-                    />
-                  </Link>
                 </article>
               ))}
             </div>
-            <p className="bk-services__foot">
-              See how MobPae works for employers and employees.{" "}
-              <Link to="/product">Explore the product</Link>
-            </p>
           </div>
         </section>
 
-        <section className="bk-choose">
+        <section className="bk-choose" id="how-it-works">
           <div className="bk-rail">
             <div className="bk-choose__board">
               <span className="bk-choose__glow bk-choose__glow--a" aria-hidden="true" />
@@ -821,9 +788,6 @@ export function HomePage() {
                   <div className="bk-choose__actions">
                     <Link to="/#enquiry" className="bk-btn">
                       Request Demo <ArrowRight size={16} aria-hidden="true" />
-                    </Link>
-                    <Link to="/how-it-works" className="bk-btn bk-btn--line">
-                      See the full flow
                     </Link>
                   </div>
                 </div>
@@ -881,7 +845,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="bk-story bk-py">
+        <section className="bk-story bk-py" id="about">
           <div className="bk-rail bk-split">
             <div className="bk-story__collage">
               <img
@@ -966,14 +930,14 @@ export function HomePage() {
                   </li>
                 </ul>
               </div>
-              <Link to="/about" className="bk-btn">
-                Learn More <ArrowRight size={16} aria-hidden="true" />
+              <Link to="/#enquiry" className="bk-btn">
+                Request Demo <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
           </div>
         </section>
 
-        <section className="bk-cases bk-pb">
+        <section className="bk-cases bk-pb" id="ecosystem">
           <div className="bk-rail">
             <div className="bk-cases-head">
               <span className="bk-sub">WIN-WIN-WIN ECOSYSTEM</span>
@@ -989,7 +953,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="bk-about bk-py">
+        <section className="bk-about bk-py" id="employers">
           <div className="bk-rail">
             <div className="bk-about__head">
               <span className="bk-sub">WHY EMPLOYERS CHOOSE MOBPAE</span>
@@ -1017,7 +981,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="bk-trust">
+        <section className="bk-trust" id="security">
           <div className="bk-rail">
             <div className="bk-trust__board">
               <div className="bk-about__head">
@@ -1045,7 +1009,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="bk-team">
+        <section className="bk-team" id="team">
           <div className="bk-rail">
             <div className="bk-team__intro">
               <div>
@@ -1061,21 +1025,19 @@ export function HomePage() {
             <div className="bk-team-grid">
               {team.map((member) => (
                 <article className="bk-member" key={member.name}>
-                  <Link to="/team">
-                    {member.photo ? (
-                      <img
-                        src={member.photo}
-                        alt={member.name}
-                        width={200}
-                        height={200}
-                        loading="lazy"
-                      />
-                    ) : (
-                      <div className="bk-member__ph">{member.initials}</div>
-                    )}
-                    <h3>{member.name}</h3>
-                    <span>{member.role}</span>
-                  </Link>
+                  {member.photo ? (
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      width={200}
+                      height={200}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="bk-member__ph">{member.initials}</div>
+                  )}
+                  <h3>{member.name}</h3>
+                  <span>{member.role}</span>
                   <div className="bk-member__socials">
                     <a
                       href="https://linkedin.com/company/mobpae"
@@ -1146,9 +1108,6 @@ export function HomePage() {
                   </details>
                 ))}
               </div>
-              <p className="bk-faq__more">
-                Need more detail? <Link to="/faqs">Read all FAQs</Link>
-              </p>
             </div>
           </div>
         </section>
@@ -1167,9 +1126,6 @@ export function HomePage() {
                   Tell us about your workforce. We’ll walk through eligibility,
                   approvals, and payroll-linked recovery.
                 </p>
-                <Link to="/contact" className="bk-btn bk-btn--ghost">
-                  Contact us <ArrowRight size={16} aria-hidden="true" />
-                </Link>
               </div>
               <form className="bk-form" onSubmit={submitEnquiry} noValidate>
                 <div className="bk-form__row">

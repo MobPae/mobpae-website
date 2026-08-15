@@ -1,14 +1,7 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-
-const NAV_LINKS = [
-  { label: "For Employers", href: "/employers" },
-  { label: "For Employees", href: "/employees" },
-  { label: "How It Works", href: "/how-it-works" },
-  { label: "Product", href: "/product" },
-  { label: "Our Story", href: "/about" },
-];
+import { SECTION_LINKS } from "../siteLinks";
 
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
@@ -42,11 +35,13 @@ export function SiteNav() {
           </Link>
 
           <nav className="site-nav__links" aria-label="Primary navigation">
-            {NAV_LINKS.map((link) => (
+            {SECTION_LINKS.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                aria-current={location.pathname === link.href ? "page" : undefined}
+                aria-current={
+                  location.hash === link.href.replace("/", "") ? "page" : undefined
+                }
               >
                 {link.label}
               </Link>
@@ -72,7 +67,7 @@ export function SiteNav() {
 
         {menuOpen ? (
           <nav id="mobile-navigation" className="site-nav__mobile" aria-label="Mobile navigation">
-            {NAV_LINKS.map((link) => (
+            {SECTION_LINKS.map((link) => (
               <Link key={link.href} to={link.href} onClick={() => setMenuOpen(false)}>
                 {link.label}
               </Link>

@@ -1,16 +1,10 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { PageHero } from "../components/PageHero";
 import { NotFoundIllustration } from "../components/NotFoundIllustration";
+import { PageHero } from "../components/PageHero";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteNav } from "../components/SiteNav";
-
-const quickLinks = [
-  { label: "Product", href: "/product" },
-  { label: "For Employers", href: "/employers" },
-  { label: "How It Works", href: "/how-it-works" },
-  { label: "Contact", href: "/contact" },
-];
+import { SECTION_LINKS } from "../siteLinks";
 
 export function NotFoundPage() {
   return (
@@ -42,7 +36,7 @@ export function NotFoundPage() {
               aria-label="Suggested pages"
               style={{ display: "flex", flexWrap: "wrap", gap: "14px 28px" }}
             >
-              {quickLinks.map((link) => (
+              {SECTION_LINKS.map((link) => (
                 <Link key={link.href} to={link.href} className="text-link">
                   {link.label} <ArrowRight size={14} aria-hidden="true" />
                 </Link>
