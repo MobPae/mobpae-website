@@ -26,7 +26,7 @@ describe("public page accessibility", () => {
       screen.getAllByRole("heading", { level: 2 }).map((node) => node.textContent)
     ).toEqual([
       "Features You’ll Love And Use Every Day",
-      "Access Your Salary Before Payday",
+      "Simple for employees. Controlled for employers.",
       "Redefining Salary Access For India’s Workforce",
       "Built for employees, employers, and partners",
       "No risk. No overhead. Real workforce value.",

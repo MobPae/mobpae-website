@@ -3,6 +3,7 @@ import {
   ArrowUp,
   BadgeCheck,
   Banknote,
+  Building2,
   CalendarClock,
   Check,
   FileCheck2,
@@ -10,7 +11,9 @@ import {
   Mail,
   MapPin,
   Menu,
+  RefreshCw,
   ShieldCheck,
+  Smartphone,
   Users,
   WalletCards,
   X,
@@ -108,6 +111,89 @@ const services = [
     title: "Trusted platform",
     body: "Built for compliance-minded employers: traceable requests, partner lending, and ₹0 capital from you.",
     href: "/product",
+  },
+];
+
+const howItWorksFlow = [
+  {
+    icon: Smartphone,
+    title: "Employee requests",
+    body: "The employee chooses an amount, reviews the terms and submits the request.",
+  },
+  {
+    icon: Building2,
+    title: "Employer approves",
+    body: "The employer checks salary context, policy fit and request history before approving.",
+  },
+  {
+    icon: BadgeCheck,
+    title: "MobPae verifies",
+    body: "Admin reviews the request, KYC, bank account and platform fee readiness.",
+  },
+  {
+    icon: Banknote,
+    title: "Funds are disbursed",
+    body: "Approved money is transferred directly to the employee's verified bank account.",
+  },
+  {
+    icon: RefreshCw,
+    title: "Recovered on payday",
+    body: "Recovery follows the configured payroll cutoff and payday cycle.",
+  },
+];
+
+const howItWorksLanes = [
+  {
+    label: "For employers",
+    title: "Policy control before funds move.",
+    steps: [
+      {
+        number: "01",
+        title: "Onboard your company",
+        body: "Set up company details, payroll date, cutoff date and approval ownership.",
+      },
+      {
+        number: "02",
+        title: "Define the policy",
+        body: "Configure eligibility, maximum access and the rules that shape each request.",
+      },
+      {
+        number: "03",
+        title: "Approve with context",
+        body: "Review employee salary data, request amount and past activity before a decision.",
+      },
+      {
+        number: "04",
+        title: "Track recoveries",
+        body: "See approved requests, deductions, settlement status and repayment history.",
+      },
+    ],
+  },
+  {
+    label: "For employees",
+    title: "A calm way to access earned salary.",
+    steps: [
+      {
+        number: "01",
+        title: "Complete setup",
+        body: "Employees submit KYC and bank details once, then wait for verification.",
+      },
+      {
+        number: "02",
+        title: "Request salary access",
+        body: "The app shows eligible amount, repayment date and the full payable amount.",
+      },
+      {
+        number: "03",
+        title: "Follow every update",
+        body: "Employees can see pending approval, employer approval, disbursal and repayment status.",
+      },
+      {
+        number: "04",
+        title: "Repay through salary",
+        body: "The amount is recovered automatically through the correct payroll cycle.",
+      },
+    ],
   },
 ];
 
@@ -676,41 +762,88 @@ export function HomePage() {
         </section>
 
         <section className="bk-choose bk-py">
-          <div className="bk-rail bk-split">
-            <div className="bk-choose__copy">
-              <span className="bk-sub">HOW IT WORKS?</span>
-              <h2 className="bk-title">Access Your Salary Before Payday</h2>
-              <p>
-                Get secure access to earned wages through a simple
-                employer-powered process designed for employees and businesses.
-              </p>
-              <ul className="bk-checks">
-                <li>
-                  <Check size={16} aria-hidden="true" /> Earn salary throughout
-                  the month
-                </li>
-                <li>
-                  <Check size={16} aria-hidden="true" /> Request access to
-                  available earnings
-                </li>
-                <li>
-                  <Check size={16} aria-hidden="true" /> Automatic settlement on
-                  payday
-                </li>
-              </ul>
-              <Link to="/contact" className="bk-btn">
-                Get Started <ArrowRight size={16} aria-hidden="true" />
-              </Link>
+          <div className="bk-rail">
+            <div className="bk-split">
+              <div className="bk-choose__copy">
+                <span className="bk-sub">HOW IT WORKS?</span>
+                <h2 className="bk-title">
+                  Simple for employees. Controlled for employers.
+                </h2>
+                <p>
+                  MobPae keeps salary access clear from the first request to the
+                  final recovery, with employer approval and payroll logic built
+                  into the flow.
+                </p>
+                <ul className="bk-checks">
+                  <li>
+                    <Check size={16} aria-hidden="true" /> Employees request,
+                    employers approve
+                  </li>
+                  <li>
+                    <Check size={16} aria-hidden="true" /> MobPae verifies and
+                    disburses
+                  </li>
+                  <li>
+                    <Check size={16} aria-hidden="true" /> Recovery follows the
+                    payroll cycle
+                  </li>
+                </ul>
+                <div className="bk-choose__actions">
+                  <Link to="/#enquiry" className="bk-btn">
+                    Request Demo <ArrowRight size={16} aria-hidden="true" />
+                  </Link>
+                  <Link to="/how-it-works" className="bk-btn bk-btn--line">
+                    See the full flow
+                  </Link>
+                </div>
+              </div>
+              <div className="bk-choose__art">
+                <img
+                  src="/home/how-it-works.jpg"
+                  alt="Employee requesting earned wages on a phone before payday"
+                  width={768}
+                  height={1152}
+                />
+                <span
+                  className="bk-choose__orbit bk-choose__orbit--a"
+                  aria-hidden="true"
+                />
+                <span
+                  className="bk-choose__orbit bk-choose__orbit--b"
+                  aria-hidden="true"
+                />
+              </div>
             </div>
-            <div className="bk-choose__art">
-              <img
-                src="/home/how-it-works.jpg"
-                alt="Employee requesting earned wages on a phone before payday"
-                width={768}
-                height={1152}
-              />
-              <span className="bk-choose__orbit bk-choose__orbit--a" aria-hidden="true" />
-              <span className="bk-choose__orbit bk-choose__orbit--b" aria-hidden="true" />
+            <ol className="bk-flow">
+              {howItWorksFlow.map((item, index) => (
+                <li className="bk-flow__step" key={item.title}>
+                  <span className="bk-flow__icon">
+                    <item.icon size={22} aria-hidden="true" />
+                  </span>
+                  <small>0{index + 1}</small>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </li>
+              ))}
+            </ol>
+            <div className="bk-choose__lanes">
+              {howItWorksLanes.map((lane) => (
+                <article className="bk-lane" key={lane.label}>
+                  <span className="bk-sub">{lane.label}</span>
+                  <h3>{lane.title}</h3>
+                  <div className="bk-lane__steps">
+                    {lane.steps.map((step) => (
+                      <div className="bk-lane__step" key={step.number}>
+                        <span>{step.number}</span>
+                        <div>
+                          <strong>{step.title}</strong>
+                          <p>{step.body}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
