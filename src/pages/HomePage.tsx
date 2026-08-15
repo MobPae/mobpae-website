@@ -398,11 +398,47 @@ function HeroArt() {
       <div className="bk-banner__hero">
         <img
           className="bk-banner__phone"
-          src="/home/hero-phone-hand.png"
-          alt="Right hand holding a phone showing the MobPae employee app"
-          width={1024}
-          height={1536}
+          src="/home/hero-phone-hand.jpg"
+          alt="Over-the-shoulder view of a right hand holding a phone with the MobPae employee app"
+          width={1536}
+          height={1024}
         />
+      </div>
+    </div>
+  );
+}
+
+function WhyArt() {
+  return (
+    <div className="bk-about__art">
+      <div className="bk-why-stage">
+        <img
+          className="bk-why-stage__scene"
+          src="/home/why-mobpae-art.jpg"
+          alt="Illustrated payday scene with salary access, a calendar, and rupee coins"
+          width={1536}
+          height={1024}
+        />
+        <div className="bk-why-phone" aria-hidden="true">
+          <img
+            src="/product-shots/dashboard.png"
+            alt=""
+            width={800}
+            height={1847}
+          />
+        </div>
+        <div className="bk-why-chip bk-why-chip--a">
+          <span>Available today</span>
+          <strong>₹4,200</strong>
+        </div>
+        <div className="bk-why-chip bk-why-chip--b">
+          <span>Settles on payday</span>
+          <strong>Automatic</strong>
+        </div>
+        <div className="bk-why-chip bk-why-chip--c">
+          <span>Employer capital</span>
+          <strong>₹0</strong>
+        </div>
       </div>
     </div>
   );
@@ -695,14 +731,7 @@ export function HomePage() {
 
         <section className="bk-about bk-py">
           <div className="bk-rail bk-split">
-            <div className="bk-about__art">
-              <img
-                src="/home/why-mobpae-art.png"
-                alt="Illustration of an employee with salary access on a smartphone"
-                width={1200}
-                height={900}
-              />
-            </div>
+            <WhyArt />
             <div className="bk-about__copy">
               <span className="bk-sub">WHY MOBPAE?</span>
               <h2 className="bk-title">Financial Wellness Beyond Payday</h2>
