@@ -594,7 +594,7 @@
 /* Services */
 .bk-services {
   position: relative;
-  background: #fff;
+  background: transparent;
 }
 
 .bk-services::before,
