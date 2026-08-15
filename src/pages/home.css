@@ -326,9 +326,9 @@
 
 .bk-banner__grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
   align-items: center;
-  gap: 12px;
+  gap: 36px;
 }
 
 .bk-banner__copy {
@@ -338,10 +338,11 @@
 }
 
 .bk-banner__copy h1 {
-  width: 81%;
-  margin-bottom: 15px;
-  font-size: 55px;
-  line-height: 1.15;
+  width: 100%;
+  max-width: none;
+  margin-bottom: 18px;
+  font-size: 52px;
+  line-height: 1.12;
 }
 
 .bk-banner__copy > p {
@@ -478,6 +479,79 @@
   display: block;
   width: 100%;
   height: auto;
+}
+
+.bk-hero-chips {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.bk-hero-chip {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid rgba(0, 87, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0b2c73;
+  box-shadow: 0 12px 28px rgba(11, 44, 115, 0.1);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  animation: bk-bob 5.6s ease-in-out infinite;
+}
+
+.bk-hero-chip--a {
+  left: 196px;
+  top: 18px;
+}
+
+.bk-hero-chip--b {
+  right: -8px;
+  top: 46%;
+  animation-delay: -1.8s;
+}
+
+.bk-hero-chip--c {
+  left: 8px;
+  bottom: 28px;
+  animation-delay: -3.2s;
+}
+
+.bk-hero-orb {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.bk-hero-orb--a {
+  width: 18px;
+  height: 18px;
+  right: 12%;
+  top: 8%;
+  background: #0057ff;
+}
+
+.bk-hero-orb--b {
+  width: 10px;
+  height: 10px;
+  left: 38%;
+  bottom: 10%;
+  background: #8ac9f4;
+}
+
+@keyframes bk-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
 }
 
 .bk-hero-products {
@@ -3089,6 +3163,10 @@
   .mp-win--admin {
     width: 100%;
   }
+  .bk-hero-chips,
+  .bk-hero-orb {
+    display: none;
+  }
   .bk-banner__grid,
   .bk-split,
   .bk-team__intro,
@@ -3277,6 +3355,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .bk-hero-chip,
   .bk-marquee__row,
   .bk-shape--ring,
   .bk-btn,

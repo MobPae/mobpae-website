@@ -15,12 +15,9 @@ export const LEGACY_PAGE_REDIRECTS: Array<{ from: string; to: string }> = [
   { from: "/employees", to: "/#ecosystem" },
   { from: "/how-it-works", to: "/#how-it-works" },
   { from: "/product", to: "/#features" },
-  { from: "/faqs", to: "/#faq" },
+  { from: "/faqs", to: "/help-center" },
   { from: "/about", to: "/#about" },
   { from: "/team", to: "/#team" },
   { from: "/teams", to: "/#team" },
-  { from: "/careers", to: "/#team" },
   { from: "/blog", to: "/" },
-  { from: "/contact", to: "/#enquiry" },
-  { from: "/help-center", to: "/#faq" },
 ];

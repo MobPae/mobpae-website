@@ -3,7 +3,7 @@ import { getRouteMeta } from "./routeMeta";
 
 describe("route metadata", () => {
   it("provides indexable metadata for the homepage and legal pages", () => {
-    const paths = ["/", "/privacy-policy", "/terms"];
+    const paths = ["/", "/help-center", "/privacy-policy", "/terms", "/careers", "/contact"];
     const metadata = paths.map(getRouteMeta);
 
     expect(new Set(metadata.map((item) => item.title)).size).toBe(paths.length);

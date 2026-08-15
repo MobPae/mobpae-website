@@ -451,10 +451,10 @@ function HomeFooter() {
             <p className="bk-footer__title">Quick links</p>
             <ul>
               <li>
-                <Link to="/#team">Careers</Link>
+                <Link to="/careers">Careers</Link>
               </li>
               <li>
-                <Link to="/#enquiry">Contact</Link>
+                <Link to="/contact">Contact</Link>
               </li>
             </ul>
           </div>
@@ -462,7 +462,7 @@ function HomeFooter() {
             <p className="bk-footer__title">Resources</p>
             <ul>
               <li>
-                <Link to="/#faq">Help Center</Link>
+                <Link to="/help-center">Help Center</Link>
               </li>
               <li>
                 <Link to="/privacy-policy">Privacy Policy</Link>
@@ -585,7 +585,7 @@ export function HomePage() {
       <HomeNav />
       <main id="main-content">
         <section className="bk-banner">
-          <div className="bk-rail bk-banner__grid">
+          <div className="bk-wide bk-banner__grid">
             <div className="bk-banner__copy">
               <h1>Your trusted financial partner</h1>
               <p>

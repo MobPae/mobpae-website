@@ -119,114 +119,172 @@ const pageContent: Record<string, PageContent> = {
   },
   helpCenter: {
     eyebrow: "Help Center",
-    title: "Support for employers and employees.",
+    title: "Answers for employees, employers, and partners.",
     description:
-      "Find quick guidance on onboarding, employee setup, salary requests, repayments and account questions.",
+      "Use this guide for setup, requests, approvals, payroll recovery, and how to reach MobPae support. Product behaviour can vary by employer policy.",
     sections: [
       {
         title: "For employees",
-        body: "Complete KYC, add bank account details, pay the platform fee after employer approval and track salary advance requests from the employee app.",
+        body: "The MobPae app shows what you can request from wages already earned in the current cycle, then tracks employer approval, disbursal, and payday recovery.",
         points: [
-          "Complete setup once",
-          "See request and repayment status",
-          "Pay only after employer approval",
+          "Complete KYC and add a verified bank account before the first request",
+          "Review the eligible amount, payable amount, and repayment date",
+          "Submit a request only after you understand the terms shown in the app",
+          "Follow status: pending, approved, disbursed, or recovered on payday",
         ],
       },
       {
         title: "For employers",
-        body: "Review employee requests, approve eligible advances and coordinate recoveries with your payroll cycle.",
+        body: "Employers stay in control. Requests are reviewed against salary context and your policy before funds move. Recovery follows the payroll date and cutoff you configure.",
         points: [
-          "Review requests with salary context",
-          "Track recovery and settlement status",
-          "Keep payroll teams in control",
+          "Onboard company details, payroll date, cutoff, and approvers",
+          "Review pending requests with employee and amount context",
+          "Approve or decline before MobPae verifies and disburses",
+          "Reconcile recoveries with the salary cycle, not ad-hoc collections",
+        ],
+      },
+      {
+        title: "Approvals, disbursal, and payday",
+        body: "Nothing is paid out on a request alone. Employer approval comes first. MobPae then verifies readiness and sends funds to the employee’s verified account. Recovery is designed to happen on payday through payroll-linked settlement.",
+        points: [
+          "Employer approval is required",
+          "Disbursal is to a verified bank account",
+          "Recovery follows the configured payroll cycle",
         ],
       },
       {
         title: "Need help?",
-        body: "Email support@mobpae.com and our team will respond.",
+        body: "Email support@mobpae.com. Include your company name and, if you are an employee, your employee code or request ID. For a product walkthrough, use Contact or Request Demo.",
         points: [
-          "Share your company name",
-          "Mention employee code or request ID",
-          "Include screenshots only when needed",
+          "support@mobpae.com",
+          "Share screenshots only when they help explain the issue",
+          "Do not send passwords or full card numbers over email",
         ],
       },
     ],
   },
   privacy: {
     eyebrow: "Privacy Policy",
-    title: "How MobPae handles your information.",
+    title: "How MobPae collects, uses, and protects information.",
     description:
-      "This policy explains how information submitted through the website and enquiry forms may be collected, used and protected.",
+      "This draft policy covers the MobPae website, enquiry forms, and — once you are onboarded — the employee app, employer dashboard, and admin operations. Last updated 15 August 2026. You can ask us to revise any clause.",
     sections: [
       {
-        title: "Information we collect",
-        body: "We may collect company name, contact name, email address, phone number, employee count and message details when you submit an enquiry.",
+        title: "Who we are",
+        body: "MobPae provides employer-powered earned wage access: employees may request a portion of wages already earned, employers approve requests, and recovery is designed to follow the payroll cycle. We operate from Gujarat, Ahmedabad — 382470, India. Privacy questions: support@mobpae.com.",
+      },
+      {
+        title: "What this policy covers",
+        body: "It applies to visitors of this website, people who submit employer enquiries, and authorised users of MobPae products. It does not replace a customer contract. If a signed agreement says something different about data processing, that agreement controls for that relationship.",
         points: [
-          "Website enquiry details",
-          "Contact and company context",
-          "Messages shared with our team",
+          "Website browsing and enquiry forms",
+          "Employee app, employer dashboard, and admin tools after onboarding",
+          "Support emails sent to support@mobpae.com",
+        ],
+      },
+      {
+        title: "Information we collect",
+        body: "Website enquiries may include company name, contact name, email, phone, employee count, and your message. If you become a customer, we may process employment and payroll context needed to run salary access, including employee identifiers, eligibility, request amounts, approval decisions, bank details for disbursal, KYC references, and recovery status.",
+        points: [
+          "Enquiry and contact details you type into forms",
+          "Account and role information for employer and admin users",
+          "Request, approval, disbursal, and payday recovery records",
+          "Technical logs needed for security",
         ],
       },
       {
         title: "How we use information",
-        body: "We use submitted information to contact you, understand your requirements, provide product information and improve our services.",
+        body: "We use information to respond to demos and onboarding, operate earned wage access with employer control, disburse to verified accounts, settle on the payroll cycle, keep an audit trail, improve the product, and meet legal duties. We do not sell enquiry or employee data as a marketing list.",
         points: [
-          "Respond to employer enquiries",
-          "Prepare demo and onboarding conversations",
-          "Improve website and product communication",
+          "Answer employer enquiries and schedule demos",
+          "Run approvals, verification, disbursal, and recovery",
+          "Secure accounts and investigate misuse",
+          "Send service messages about requests or payroll cutoffs",
         ],
       },
       {
-        title: "Data protection",
-        body: "We take reasonable steps to protect submitted information from unauthorized access, misuse or disclosure.",
+        title: "Who we share with",
+        body: "We share only what is needed. Employers see requests for their workforce. Partner lenders or capital partners may receive information required to fund or settle an approved request. Banks receive details needed to pay an employee. Vendors such as hosting or KYC process data on our instructions. We may disclose information if required by law.",
         points: [
-          "Limited access to enquiry data",
-          "Operational use only",
-          "No public resale of submitted details",
+          "Your employer, for workforce requests they must approve",
+          "Funding, banking, and KYC partners involved in a transaction",
+          "Infrastructure and support vendors under contract",
+          "Regulators or courts when legally required",
         ],
       },
       {
-        title: "Contact",
-        body: "For privacy-related questions, contact us at support@mobpae.com.",
+        title: "Retention and security",
+        body: "We keep enquiry records long enough to handle the conversation. Product records are kept for the employer relationship and a reasonable period afterwards for audit, dispute, and legal retention. We use access controls, encryption where designed into the platform, and role-based employer permissions.",
+      },
+      {
+        title: "Your choices and rights",
+        body: "You may ask us to access, correct, or delete personal information we hold, subject to law and records we must keep for payroll, fraud, or accounting. Employees should also use their employer’s HR channel for workplace data the employer controls. Email support@mobpae.com with enough detail for us to identify you.",
+      },
+      {
+        title: "Cookies and this website",
+        body: "The marketing site may use cookies needed for the site to function. We do not run a separate advertising cookie program on these pages. You can control cookies in your browser; blocking some cookies may affect site features.",
+      },
+      {
+        title: "Children",
+        body: "MobPae is built for salaried employees through employers. It is not directed at children. We do not knowingly collect personal information from children through this website.",
+      },
+      {
+        title: "Changes and contact",
+        body: "We may update this policy as the product and the law change. For privacy requests: support@mobpae.com, MobPae, Gujarat, Ahmedabad — 382470, India.",
       },
     ],
   },
   terms: {
     eyebrow: "Terms & Conditions",
-    title: "Terms for using the MobPae website.",
+    title: "Terms for the MobPae website and public product information.",
     description:
-      "These terms govern use of the MobPae website and public enquiry experience.",
+      "These draft terms govern use of this website and information we publish about earned wage access. They are not a customer master agreement. Last updated 15 August 2026. Please review and tell us what to change.",
     sections: [
       {
-        title: "Website use",
-        body: "The content on this website is provided for general product information and may be updated without prior notice.",
+        title: "Agreement",
+        body: "By using this website you agree to these terms and to our Privacy Policy. If you do not agree, do not use the site. Live app or dashboard use is also governed by onboarding documents, employer policy, and any partner terms that apply to disbursal.",
+      },
+      {
+        title: "What MobPae is",
+        body: "MobPae is employer-powered access to a portion of wages already earned, subject to employer approval, eligibility, and payroll-linked recovery. It is not an open-ended personal loan or credit card. Nothing on this website is an offer of credit to the public or a guarantee that any company or employee will be onboarded.",
         points: [
-          "Informational website content",
-          "Product details may evolve",
-          "Pilot terms are confirmed separately",
+          "Employees request; employers approve",
+          "Funds, when paid, go to a verified employee account",
+          "Recovery is designed around the salary cycle",
         ],
       },
       {
-        title: "Enquiries",
-        body: "Submitting an enquiry does not create a contract or guarantee service availability. Our team may contact you to understand your requirements.",
+        title: "Website content",
+        body: "Copy, metrics, dummy dashboards, and sample rupee amounts are for illustration. Features and partner arrangements can change. Do not treat website text as a binding service description until it is confirmed in a written onboarding or commercial document.",
+      },
+      {
+        title: "Enquiries and demos",
+        body: "Submitting the enquiry form is a request for contact. It does not create a contract or obligation to provide salary access. We may decline or delay a conversation where the employer is not a fit or information is incomplete.",
         points: [
-          "Employer fit is reviewed first",
-          "Implementation depends on onboarding readiness",
-          "Commercial terms are shared during discussion",
+          "Use accurate company and contact details",
+          "Do not submit other people’s personal data unless you are authorised",
+          "Pilot scope and commercial terms are agreed separately",
         ],
       },
       {
-        title: "Limitation",
-        body: "MobPae is not liable for losses arising from website misuse, temporary unavailability or reliance on general website content.",
-        points: [
-          "Use the official contact channels",
-          "Do not submit false information",
-          "Do not misuse website forms",
-        ],
+        title: "Acceptable use",
+        body: "You must not misuse the website or forms, attempt to access other accounts, or use MobPae information to process salary access outside an authorised employer relationship.",
       },
       {
-        title: "Contact",
-        body: "For terms-related questions, contact us at support@mobpae.com.",
+        title: "Intellectual property",
+        body: "The MobPae name, logo, website design, and product UI shown in mockups are owned by MobPae or its licensors. You may link to public pages in a fair, non-misleading way.",
+      },
+      {
+        title: "Disclaimers and liability",
+        body: "The website is provided as-is for information. To the fullest extent permitted by Indian law, MobPae is not liable for indirect loss arising from website use or from relying on general marketing content. Paying customers are covered by their signed contract, not these website terms.",
+      },
+      {
+        title: "Governing law",
+        body: "These website terms are governed by the laws of India. Courts in Ahmedabad, Gujarat shall have exclusive jurisdiction over disputes arising from this website, subject to any mandatory protections that apply to you.",
+      },
+      {
+        title: "Changes and contact",
+        body: "We may revise these terms. Continued use of the website after an update means you accept the new terms. Questions: support@mobpae.com, MobPae, Gujarat, Ahmedabad — 382470, India.",
       },
     ],
   },
@@ -615,6 +673,16 @@ export function HelpCenterPage() {
     <StaticPage
       content={pageContent.helpCenter}
       icon={<HelpCircle size={22} />}
+      extra={
+        <div className="mt-8 flex flex-wrap gap-4">
+          <Link to="/contact" className="premium-button">
+            Contact MobPae <ArrowRight size={17} aria-hidden="true" />
+          </Link>
+          <Link to="/#faq" className="premium-button premium-button--ghost">
+            Homepage FAQ
+          </Link>
+        </div>
+      }
     />
   );
 }
@@ -793,9 +861,11 @@ export function TermsPage() {
 function StaticPage({
   content,
   icon,
+  extra,
 }: {
   content: PageContent;
   icon: ReactNode;
+  extra?: ReactNode;
 }) {
   return (
     <StaticShell>
@@ -840,6 +910,7 @@ function StaticPage({
               </article>
             ))}
           </div>
+          {extra}
         </div>
       </section>
     </StaticShell>

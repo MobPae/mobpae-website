@@ -18,6 +18,13 @@ export function HeroProductMocks() {
         <EmployerDashboard />
         <AdminDashboard />
       </div>
+      <div className="bk-hero-chips">
+        <span className="bk-hero-chip bk-hero-chip--a">Payroll-linked recovery</span>
+        <span className="bk-hero-chip bk-hero-chip--b">₹0 employer capital</span>
+        <span className="bk-hero-chip bk-hero-chip--c">HR approves first</span>
+      </div>
+      <span className="bk-hero-orb bk-hero-orb--a" />
+      <span className="bk-hero-orb bk-hero-orb--b" />
     </div>
   );
 }

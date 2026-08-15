@@ -48,7 +48,11 @@ const footerColumns = [
   },
   {
     heading: "Company",
-    links: SECTION_LINKS.slice(4),
+    links: [
+      ...SECTION_LINKS.slice(4),
+      { label: "Careers", href: "/careers" },
+      { label: "Contact", href: "/contact" },
+    ],
   },
   {
     heading: "Get started",
@@ -57,6 +61,7 @@ const footerColumns = [
   {
     heading: "Legal",
     links: [
+      { label: "Help Center", href: "/help-center" },
       { label: "Privacy Policy", href: "/privacy-policy" },
       { label: "Terms & Conditions", href: "/terms" },
     ],

@@ -8,6 +8,9 @@ const HomePage = lazy(() => import("./pages/HomePage").then((m) => ({ default: m
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage").then((m) => ({ default: m.NotFoundPage })));
 const PrivacyPolicyPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.PrivacyPolicyPage })));
 const TermsPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.TermsPage })));
+const HelpCenterPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.HelpCenterPage })));
+const CareersPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.CareersPage })));
+const ContactPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.ContactPage })));
 
 function ScrollToHash() {
   const { pathname, hash } = useLocation();
@@ -123,8 +126,11 @@ function App() {
       <Suspense fallback={<PageSkeleton />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/help-center" element={<HelpCenterPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms" element={<TermsPage />} />
+          <Route path="/careers" element={<CareersPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           {LEGACY_PAGE_REDIRECTS.map((route) => (
             <Route
               key={route.from}
