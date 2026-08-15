@@ -761,89 +761,95 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="bk-choose bk-py">
+        <section className="bk-choose">
           <div className="bk-rail">
-            <div className="bk-split">
-              <div className="bk-choose__copy">
-                <span className="bk-sub">HOW IT WORKS?</span>
-                <h2 className="bk-title">
-                  Simple for employees. Controlled for employers.
-                </h2>
-                <p>
-                  MobPae keeps salary access clear from the first request to the
-                  final recovery, with employer approval and payroll logic built
-                  into the flow.
-                </p>
-                <ul className="bk-checks">
-                  <li>
-                    <Check size={16} aria-hidden="true" /> Employees request,
-                    employers approve
-                  </li>
-                  <li>
-                    <Check size={16} aria-hidden="true" /> MobPae verifies and
-                    disburses
-                  </li>
-                  <li>
-                    <Check size={16} aria-hidden="true" /> Recovery follows the
-                    payroll cycle
-                  </li>
-                </ul>
-                <div className="bk-choose__actions">
-                  <Link to="/#enquiry" className="bk-btn">
-                    Request Demo <ArrowRight size={16} aria-hidden="true" />
-                  </Link>
-                  <Link to="/how-it-works" className="bk-btn bk-btn--line">
-                    See the full flow
-                  </Link>
+            <div className="bk-choose__board">
+              <span className="bk-choose__glow bk-choose__glow--a" aria-hidden="true" />
+              <span className="bk-choose__glow bk-choose__glow--b" aria-hidden="true" />
+              <div className="bk-choose__intro">
+                <div className="bk-choose__copy">
+                  <span className="bk-sub">HOW IT WORKS?</span>
+                  <h2 className="bk-title">
+                    Simple for employees. Controlled for employers.
+                  </h2>
+                  <p>
+                    MobPae keeps salary access clear from the first request to
+                    the final recovery, with employer approval and payroll logic
+                    built into the flow.
+                  </p>
+                  <ul className="bk-checks">
+                    <li>
+                      <Check size={16} aria-hidden="true" /> Employees request,
+                      employers approve
+                    </li>
+                    <li>
+                      <Check size={16} aria-hidden="true" /> MobPae verifies and
+                      disburses
+                    </li>
+                    <li>
+                      <Check size={16} aria-hidden="true" /> Recovery follows the
+                      payroll cycle
+                    </li>
+                  </ul>
+                  <div className="bk-choose__actions">
+                    <Link to="/#enquiry" className="bk-btn">
+                      Request Demo <ArrowRight size={16} aria-hidden="true" />
+                    </Link>
+                    <Link to="/how-it-works" className="bk-btn bk-btn--line">
+                      See the full flow
+                    </Link>
+                  </div>
+                </div>
+                <div className="bk-choose__art">
+                  <div className="bk-choose__frame">
+                    <img
+                      src="/home/how-it-works.jpg"
+                      alt="Employee requesting earned wages on a phone before payday"
+                      width={768}
+                      height={1152}
+                    />
+                    <span className="bk-choose__chip" aria-hidden="true">
+                      <Smartphone size={16} /> Live request
+                    </span>
+                  </div>
                 </div>
               </div>
-              <div className="bk-choose__art">
-                <img
-                  src="/home/how-it-works.jpg"
-                  alt="Employee requesting earned wages on a phone before payday"
-                  width={768}
-                  height={1152}
-                />
-                <span
-                  className="bk-choose__orbit bk-choose__orbit--a"
-                  aria-hidden="true"
-                />
-                <span
-                  className="bk-choose__orbit bk-choose__orbit--b"
-                  aria-hidden="true"
-                />
-              </div>
-            </div>
-            <ol className="bk-flow">
-              {howItWorksFlow.map((item, index) => (
-                <li className="bk-flow__step" key={item.title}>
-                  <span className="bk-flow__icon">
-                    <item.icon size={22} aria-hidden="true" />
-                  </span>
-                  <small>0{index + 1}</small>
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                </li>
-              ))}
-            </ol>
-            <div className="bk-choose__lanes">
-              {howItWorksLanes.map((lane) => (
-                <article className="bk-lane" key={lane.label}>
-                  <span className="bk-sub">{lane.label}</span>
-                  <h3>{lane.title}</h3>
-                  <div className="bk-lane__steps">
-                    {lane.steps.map((step) => (
-                      <div className="bk-lane__step" key={step.number}>
-                        <span>{step.number}</span>
-                        <div>
-                          <strong>{step.title}</strong>
-                          <p>{step.body}</p>
+              <ol className="bk-flow">
+                {howItWorksFlow.map((item, index) => (
+                  <li className="bk-flow__step" key={item.title}>
+                    <span className="bk-flow__node">
+                      <span className="bk-flow__num">0{index + 1}</span>
+                      <span className="bk-flow__icon">
+                        <item.icon size={20} aria-hidden="true" />
+                      </span>
+                    </span>
+                    <h3>{item.title}</h3>
+                    <p>{item.body}</p>
+                  </li>
+                ))}
+              </ol>
+              <p className="bk-choose__bridge">
+                One payroll cycle. Two clear jobs.
+              </p>
+              <div className="bk-choose__lanes">
+                {howItWorksLanes.map((lane) => (
+                  <article className="bk-lane" key={lane.label}>
+                    <span className="bk-sub">{lane.label}</span>
+                    <h3>{lane.title}</h3>
+                    <div className="bk-lane__steps">
+                      {lane.steps.map((step) => (
+                        <div className="bk-lane__step" key={step.number}>
+                          <span>{step.number}</span>
+                          <div>
+                            <strong>{step.title}</strong>
+                            <p>{step.body}</p>
+                          </div>
                         </div>
-                      </div>
-                    ))}
-                  </div>
-                </article>
-              ))}
+                      ))}
+                    </div>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -984,28 +990,30 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="bk-trust bk-py">
+        <section className="bk-trust">
           <div className="bk-rail">
-            <div className="bk-about__head">
-              <span className="bk-sub">SECURITY & TRUST</span>
-              <h2 className="bk-title">
-                Built for payroll teams, finance teams, and founders.
-              </h2>
-              <p>
-                The experience stays simple for employees while employers keep
-                the policy, approval, and recovery controls they need.
-              </p>
-            </div>
-            <div className="bk-trust__grid">
-              {trustItems.map((item) => (
-                <article className="bk-trust__card" key={item.title}>
-                  <span className="bk-icon">
-                    <item.icon size={22} aria-hidden="true" />
-                  </span>
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                </article>
-              ))}
+            <div className="bk-trust__board">
+              <div className="bk-about__head">
+                <span className="bk-sub">SECURITY & TRUST</span>
+                <h2 className="bk-title">
+                  Built for payroll teams, finance teams, and founders.
+                </h2>
+                <p>
+                  The experience stays simple for employees while employers keep
+                  the policy, approval, and recovery controls they need.
+                </p>
+              </div>
+              <div className="bk-trust__grid">
+                {trustItems.map((item) => (
+                  <article className="bk-trust__card" key={item.title}>
+                    <span className="bk-icon">
+                      <item.icon size={22} aria-hidden="true" />
+                    </span>
+                    <h3>{item.title}</h3>
+                    <p>{item.body}</p>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -1041,31 +1049,33 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="bk-faq bk-py" id="faq">
+        <section className="bk-faq" id="faq">
           <div className="bk-rail">
-            <div className="bk-about__head">
-              <span className="bk-sub">FAQ</span>
-              <h2 className="bk-title">Everything you need to know.</h2>
-              <p>
-                A quick overview of earned wage access, employer approvals,
-                payroll recovery, and data protection.
+            <div className="bk-faq__board">
+              <div className="bk-about__head">
+                <span className="bk-sub">FAQ</span>
+                <h2 className="bk-title">Everything you need to know.</h2>
+                <p>
+                  A quick overview of earned wage access, employer approvals,
+                  payroll recovery, and data protection.
+                </p>
+              </div>
+              <div className="bk-faq__list">
+                {faqs.map((item, index) => (
+                  <details
+                    className="bk-faq__item"
+                    key={item.title}
+                    open={index === 0}
+                  >
+                    <summary>{item.title}</summary>
+                    <p>{item.body}</p>
+                  </details>
+                ))}
+              </div>
+              <p className="bk-faq__more">
+                Need more detail? <Link to="/faqs">Read all FAQs</Link>
               </p>
             </div>
-            <div className="bk-faq__list">
-              {faqs.map((item, index) => (
-                <details
-                  className="bk-faq__item"
-                  key={item.title}
-                  open={index === 0}
-                >
-                  <summary>{item.title}</summary>
-                  <p>{item.body}</p>
-                </details>
-              ))}
-            </div>
-            <p className="bk-faq__more">
-              Need more detail? <Link to="/faqs">Read all FAQs</Link>
-            </p>
           </div>
         </section>
 
