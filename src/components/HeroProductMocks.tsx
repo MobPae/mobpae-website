@@ -1,15 +1,22 @@
 export function HeroProductMocks() {
   return (
     <div className="bk-banner__art" aria-hidden="true">
-      <img
-        className="bk-banner__hero-shape"
-        src="/ref/banner/h3_hero_shape01.svg"
-        alt=""
-      />
+      <div className="bk-hero-mark">
+        <svg viewBox="0 0 400 400" fill="none">
+          <path
+            fill="#0057ff"
+            d="M80 60h80a40 40 0 0 1 40 40L140 200l60 100a40 40 0 0 1-40 40H80a40 40 0 0 1-40-40V100A40 40 0 0 1 80 60Z"
+          />
+          <path
+            fill="#8ac9f4"
+            d="M320 60h-80a40 40 0 0 0-40 40l60 100-60 100a40 40 0 0 0 40 40h80a40 40 0 0 0 40-40V100a40 40 0 0 0-40-40Z"
+          />
+        </svg>
+      </div>
       <div className="bk-hero-products">
+        <EmployeeApp />
         <EmployerDashboard />
         <AdminDashboard />
-        <EmployeeApp />
       </div>
     </div>
   );

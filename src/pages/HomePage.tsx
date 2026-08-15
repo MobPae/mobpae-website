@@ -618,10 +618,6 @@ export function HomePage() {
             </div>
             <HeroProductMocks />
           </div>
-          <div className="bk-banner__shapes" aria-hidden="true">
-            <img src="/ref/banner/h3_hero_shape02.svg" alt="" />
-            <img src="/ref/banner/h3_hero_shape03.svg" alt="" />
-          </div>
         </section>
 
         <section className="bk-services bk-py" id="features">

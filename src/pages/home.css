@@ -320,11 +320,8 @@
 .bk-banner {
   position: relative;
   overflow: hidden;
-  padding: 168px 0 0;
-  background:
-    linear-gradient(180deg, rgba(246, 247, 252, 0.72), rgba(246, 247, 252, 0.88)),
-    url("/ref/banner/h3_hero_bg.jpg") center / cover no-repeat;
-  background-color: #f6f7fc;
+  padding: 148px 0 72px;
+  background: #f6f7fc;
 }
 
 .bk-banner__grid {
@@ -337,7 +334,7 @@
 .bk-banner__copy {
   position: relative;
   z-index: 2;
-  padding: 0 0 90px;
+  padding: 0;
 }
 
 .bk-banner__copy h1 {
@@ -452,44 +449,45 @@
 .bk-banner__art {
   position: relative;
   z-index: 1;
-  min-height: 580px;
-  padding: 24px 0 48px;
+  min-height: 0;
+  padding: 8px 0 8px 8px;
 }
 
-.bk-banner__hero-shape {
+.bk-banner__art::before {
+  content: "";
   position: absolute;
-  left: 0;
-  top: -5%;
+  inset: 10% 4% 6% 18%;
   z-index: 0;
-  width: auto;
-  max-width: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 87, 255, 0.12), transparent 68%);
+  pointer-events: none;
+}
+
+.bk-hero-mark {
+  position: absolute;
+  right: -8%;
+  top: 8%;
+  z-index: 0;
+  width: 72%;
+  max-width: 340px;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.bk-hero-mark svg {
+  display: block;
+  width: 100%;
   height: auto;
-  pointer-events: none;
-}
-
-.bk-banner__shapes {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.bk-banner__shapes img:first-child {
-  position: absolute;
-  left: 4%;
-  bottom: 12%;
-}
-
-.bk-banner__shapes img:last-child {
-  position: absolute;
-  right: 8%;
-  top: 18%;
 }
 
 .bk-hero-products {
   position: relative;
   z-index: 1;
-  min-height: 560px;
+  display: grid;
+  grid-template-columns: 228px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  gap: 16px;
+  min-height: 0;
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -507,7 +505,7 @@
 }
 
 .mp-win {
-  position: absolute;
+  position: relative;
   overflow: hidden;
   border: 1px solid rgba(16, 24, 40, 0.08);
   border-radius: 16px;
@@ -518,19 +516,15 @@
 }
 
 .mp-win--employer {
-  right: 0;
-  top: 18px;
+  position: relative;
   z-index: 1;
-  width: min(100%, 520px);
-  transform: rotate(-1.2deg);
+  width: 100%;
 }
 
 .mp-win--admin {
-  right: 28px;
-  bottom: 10px;
+  position: relative;
   z-index: 2;
-  width: min(92%, 430px);
-  transform: rotate(1.8deg);
+  width: 100%;
 }
 
 .mp-win__chrome {
@@ -822,11 +816,11 @@
 }
 
 .mp-phone {
-  position: absolute;
-  left: 0;
-  top: 28px;
+  position: relative;
+  grid-column: 1;
+  grid-row: 1 / span 2;
   z-index: 4;
-  width: 248px;
+  width: 228px;
   padding: 9px;
   border-radius: 42px;
   background:
@@ -1195,8 +1189,8 @@
   top: 130px;
   width: 418px;
   height: 418px;
-  background: #55ff8f;
-  opacity: 0.1;
+  background: #8ac9f4;
+  opacity: 0.16;
 }
 
 .bk-services::after {
@@ -1204,8 +1198,8 @@
   bottom: -140px;
   width: 530px;
   height: 530px;
-  background: #7838ff;
-  opacity: 0.08;
+  background: #0057ff;
+  opacity: 0.06;
 }
 
 .bk-center {
@@ -2814,7 +2808,7 @@
   width: 360px;
   height: 360px;
   border-radius: 50%;
-  background: #7838ff;
+  background: #0057ff;
   filter: blur(125px);
   opacity: 0.08;
   pointer-events: none;
@@ -3076,24 +3070,24 @@
     order: -1;
     min-height: 0;
     margin-bottom: 12px;
-    padding-bottom: 12px;
+    padding: 0;
   }
   .bk-hero-products {
-    min-height: 480px;
+    grid-template-columns: 1fr;
+    min-height: 0;
   }
   .mp-phone {
-    left: 4px;
-    top: 20px;
-    width: 210px;
+    grid-column: auto;
+    grid-row: auto;
+    width: 228px;
+    margin: 0 auto;
   }
   .mp-phone__glass {
-    height: 430px;
+    height: 470px;
   }
-  .mp-win--employer {
-    width: min(86%, 430px);
-  }
+  .mp-win--employer,
   .mp-win--admin {
-    width: min(78%, 340px);
+    width: 100%;
   }
   .bk-banner__grid,
   .bk-split,
@@ -3215,9 +3209,8 @@
     padding: 110px 0 36px;
   }
   .bk-hero-products {
-    min-height: 340px;
-    transform: scale(0.86);
-    transform-origin: top center;
+    min-height: 0;
+    transform: none;
   }
   .bk-banner__copy h1 {
     font-size: 38px;
