@@ -1,43 +1,35 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { NotFoundIllustration } from "../components/NotFoundIllustration";
-import { PageHero } from "../components/PageHero";
 import { SiteFooter } from "../components/SiteFooter";
-import { SiteNav } from "../components/SiteNav";
+import { SiteHeader } from "../components/SiteHeader";
 import { SECTION_LINKS } from "../siteLinks";
+import "./home.css";
 
 export function NotFoundPage() {
   return (
-    <div className="min-h-screen" style={{ background: "var(--mp-page)", color: "var(--mp-ink)" }}>
-      <SiteNav />
-
+    <div className="bk-home">
+      <SiteHeader />
       <main id="main-content">
-        <PageHero
-          eyebrow="404"
-          title="This page moved."
-          description="The page you are looking for does not exist yet or may have been renamed."
-          actions={
-            <Link to="/" className="premium-button">
-              Go Home <ArrowRight size={17} />
-            </Link>
-          }
-        >
-          <div style={{ maxWidth: 340, margin: "0 auto" }}>
-            <NotFoundIllustration />
-          </div>
-        </PageHero>
-
-        <section style={{ padding: "0 0 clamp(64px, 8vw, 110px)" }}>
-          <div className="site-rail">
-            <p style={{ margin: "0 0 14px", color: "var(--mp-muted)", fontSize: 14 }}>
-              Or head to one of these instead:
+        <section className="bk-404">
+          <div className="bk-rail">
+            <div className="bk-404__art">
+              <NotFoundIllustration />
+            </div>
+            <span className="bk-page-hero__eyebrow">404</span>
+            <h1>This page moved.</h1>
+            <p>
+              The page you are looking for does not exist yet or may have
+              been renamed.
             </p>
-            <nav
-              aria-label="Suggested pages"
-              style={{ display: "flex", flexWrap: "wrap", gap: "14px 28px" }}
-            >
+            <div className="bk-page-hero__actions">
+              <Link to="/" className="bk-btn">
+                Go Home <ArrowRight size={16} aria-hidden="true" />
+              </Link>
+            </div>
+            <nav className="bk-404-links" aria-label="Suggested pages">
               {SECTION_LINKS.map((link) => (
-                <Link key={link.href} to={link.href} className="text-link">
+                <Link key={link.href} to={link.href}>
                   {link.label} <ArrowRight size={14} aria-hidden="true" />
                 </Link>
               ))}

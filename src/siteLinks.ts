@@ -5,7 +5,6 @@ export const SECTION_LINKS = [
   { label: "Ecosystem", href: "/#ecosystem" },
   { label: "Employers", href: "/#employers" },
   { label: "Security", href: "/#security" },
-  { label: "Team", href: "/#team" },
   { label: "FAQ", href: "/#faq" },
 ];
 
@@ -17,7 +16,7 @@ export const LEGACY_PAGE_REDIRECTS: Array<{ from: string; to: string }> = [
   { from: "/product", to: "/#features" },
   { from: "/faqs", to: "/help-center" },
   { from: "/about", to: "/#about" },
-  { from: "/team", to: "/#team" },
-  { from: "/teams", to: "/#team" },
+  { from: "/team", to: "/" },
+  { from: "/teams", to: "/" },
   { from: "/blog", to: "/" },
 ];

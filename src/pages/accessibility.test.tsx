@@ -26,13 +26,12 @@ describe("public page accessibility", () => {
     expect(
       screen.getAllByRole("heading", { level: 2 }).map((node) => node.textContent)
     ).toEqual([
-      "Features You’ll Love And Use Every Day",
+      "Financial solutions built for the modern workforce.",
       "Simple for employees. Controlled for employers.",
-      "Redefining Salary Access For India’s Workforce",
-      "Built for employees, employers, and partners",
+      "Redefining salary access for India’s workforce.",
+      "Built for employees, employers, and partners.",
       "No risk. No overhead. Real workforce value.",
       "Built for payroll teams, finance teams, and founders.",
-      "The founding team behind MobPae",
       "Ready to offer salary access at work?",
       "Everything you need to know.",
       "Request a MobPae demo",

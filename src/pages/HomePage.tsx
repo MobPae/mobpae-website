@@ -3,67 +3,28 @@ import {
   ArrowUp,
   BadgeCheck,
   Banknote,
+  Building2,
   CalendarClock,
   Check,
+  Download,
   FileCheck2,
   Lock,
   Mail,
-  MapPin,
-  Menu,
   ShieldCheck,
   Smartphone,
   Users,
   WalletCards,
-  X,
 } from "lucide-react";
 import type { ChangeEvent, FormEvent, ReactNode } from "react";
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { HeroProductMocks } from "../components/HeroProductMocks";
-import { SECTION_LINKS } from "../siteLinks";
+import { Link } from "react-router-dom";
+import { SiteFooter } from "../components/SiteFooter";
+import { SiteHeader } from "../components/SiteHeader";
 import "./home.css";
 
 const API_BASE = (
   (import.meta.env.VITE_API_BASE_URL as string | undefined) || ""
 ).replace(/\/api\/v1\/?$/, "");
-
-function LinkedInIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width="22"
-      height="22"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <path d="M6.94 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM7 8.48H3.16V21H7V8.48Zm6.32 0H9.5V21h3.77v-6.19c0-3.44 4.48-3.72 4.48 0V21H21v-7.93c0-6.17-6.91-5.94-7.68-2.91V8.48Z" />
-    </svg>
-  );
-}
-
-function InstagramIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width="22"
-      height="22"
-      fill="none"
-      aria-hidden="true"
-    >
-      <rect
-        x="3"
-        y="3"
-        width="18"
-        height="18"
-        rx="5"
-        stroke="currentColor"
-        strokeWidth="2"
-      />
-      <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2" />
-      <circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" />
-    </svg>
-  );
-}
 
 type FormState = {
   contactName: string;
@@ -86,23 +47,49 @@ const initialForm: FormState = {
 const services = [
   {
     icon: WalletCards,
-    title: "Earned wage access",
-    body: "Employees can request a portion of wages already earned, instead of waiting until payday.",
+    title: "Earned Wage Access",
+    body: "Flexible access to earned income before the traditional payday.",
+    cta: "For Employees",
+    href: "/#ecosystem",
   },
   {
     icon: ShieldCheck,
-    title: "Employer powered",
-    body: "HR stays in control of eligibility, approvals, and recovery — MobPae never replaces payroll.",
+    title: "Financial Wellness",
+    body: "Financial solutions built to improve employee flexibility.",
+    cta: "For Employers",
+    href: "/#employers",
+  },
+  {
+    icon: Banknote,
+    title: "Digital Lending Solutions",
+    body: "Seamless digital lending solutions built for financial partners.",
+    cta: "For Partners",
+    href: "/#ecosystem",
   },
   {
     icon: CalendarClock,
-    title: "Payroll integrated",
-    body: "Disbursals and settlements follow the salary cycle, so repayment is automatic on payday.",
+    title: "Repayment Solutions",
+    body: "Payroll-linked repayments & settlement management.",
+    cta: "For Everyone",
+    href: "/#how-it-works",
+  },
+];
+
+const howItWorksSteps = [
+  {
+    icon: Smartphone,
+    title: "Employees Request",
+    body: "Employees open the app and request a portion of the salary they've already earned — no paperwork, no waiting.",
   },
   {
-    icon: BadgeCheck,
-    title: "Trusted platform",
-    body: "Built for compliance-minded employers: traceable requests, partner lending, and ₹0 capital from you.",
+    icon: ShieldCheck,
+    title: "Employers Approve",
+    body: "Each request is checked against company policy and approved by the employer before any money moves.",
+  },
+  {
+    icon: CalendarClock,
+    title: "Recovery Follows Payroll",
+    body: "The approved amount is disbursed instantly and recovered automatically on the next payroll cycle.",
   },
 ];
 
@@ -110,6 +97,7 @@ const howItWorksLanes = [
   {
     label: "For employers",
     title: "Policy control before funds move.",
+    icon: Building2,
     steps: [
       {
         number: "01",
@@ -136,11 +124,12 @@ const howItWorksLanes = [
   {
     label: "For employees",
     title: "A calm way to access earned salary.",
+    icon: Users,
     steps: [
       {
         number: "01",
         title: "Complete setup",
-        body: "Employees submit KYC and bank details once, then wait for verification.",
+        body: "Once account is accesible, Employees submit KYC and bank details once, then wait for verification.",
       },
       {
         number: "02",
@@ -155,7 +144,7 @@ const howItWorksLanes = [
       {
         number: "04",
         title: "Repay through salary",
-        body: "The amount is recovered automatically through the correct payroll cycle.",
+        body: "The amount is recovered automatically through the correct payroll cycle or can be prepaid.",
       },
     ],
   },
@@ -182,34 +171,6 @@ const cases = [
   },
 ];
 
-const employerReasons = [
-  {
-    icon: Banknote,
-    title: "No employer cash burden",
-    body: "Salary access is funded through structured capital partnerships, so payroll cash flow stays untouched.",
-  },
-  {
-    icon: BadgeCheck,
-    title: "Employer stays in control",
-    body: "Every request follows your policy, salary context, and approval rules before funds move.",
-  },
-  {
-    icon: CalendarClock,
-    title: "Payroll-linked recovery",
-    body: "Recoveries align with cutoff and payday logic, reducing manual follow-up and reconciliation.",
-  },
-  {
-    icon: FileCheck2,
-    title: "Audit-ready operations",
-    body: "Approvals, disbursals, recoveries, and settlements remain traceable across the full cycle.",
-  },
-  {
-    icon: Users,
-    title: "A retention benefit people use",
-    body: "Employees get practical liquidity support without turning the company into a lending desk.",
-  },
-];
-
 const trustItems = [
   {
     icon: Lock,
@@ -230,33 +191,6 @@ const trustItems = [
     icon: BadgeCheck,
     title: "Recovery visibility",
     body: "Deductions and settlement status stay visible against each payroll cycle.",
-  },
-];
-
-const team = [
-  {
-    name: "Luhit Parajuli",
-    role: "Co-Founder & Business Strategy",
-    photo: "/team/luhit-parajuli.png",
-    initials: "LP",
-  },
-  {
-    name: "Jyotirmoy Upadhaya",
-    role: "Co-Founder & Technology Lead",
-    photo: "/team/jyotirmoy.png",
-    initials: "JU",
-  },
-  {
-    name: "Bharati Bhattarai",
-    role: "Admin & Legal Head",
-    photo: "/team/bharati-bhattarai.png",
-    initials: "BB",
-  },
-  {
-    name: "Junu Bhattarai",
-    role: "HR & Digital Marketing Lead",
-    photo: "/team/junu.png",
-    initials: "JB",
   },
 ];
 
@@ -287,13 +221,6 @@ const faqs = [
   },
 ];
 
-const heroStats = [
-  { icon: Banknote, value: "< 2 wks", label: "Employer go-live time" },
-  { icon: WalletCards, value: "60 sec", label: "Employee request time" },
-  { icon: ShieldCheck, value: "₹0", label: "Employer capital required" },
-  { icon: BadgeCheck, value: "100%", label: "HR-controlled approvals" },
-];
-
 function Field({
   label,
   error,
@@ -309,182 +236,6 @@ function Field({
       {children}
       {error ? <small>{error}</small> : null}
     </label>
-  );
-}
-
-function HomeNav() {
-  const [stuck, setStuck] = useState(false);
-  const [open, setOpen] = useState(false);
-  const location = useLocation();
-
-  useEffect(() => {
-    const onScroll = () => setStuck(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  return (
-    <>
-      <a className="bk-skip" href="#main-content">
-        Skip to main content
-      </a>
-      <header className={`bk-header ${stuck ? "bk-header--stuck" : ""}`}>
-        <div className="bk-header__bar">
-          <Link to="/" aria-label="MobPae home" className="bk-logo">
-            <img src="/logo.svg" alt="MobPae" />
-          </Link>
-          <nav className="bk-nav" aria-label="Primary navigation">
-            {SECTION_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                aria-current={
-                  location.hash === link.href.replace("/", "")
-                    ? "page"
-                    : undefined
-                }
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-          <div className="bk-header__actions">
-            <Link to="/#enquiry" className="bk-btn bk-header__cta">
-              Request Demo
-            </Link>
-            <button
-              type="button"
-              className="bk-menu-btn"
-              aria-label={open ? "Close menu" : "Open menu"}
-              aria-expanded={open}
-              aria-controls="bk-mobile-navigation"
-              onClick={() => setOpen((value) => !value)}
-            >
-              {open ? (
-                <X size={18} aria-hidden="true" />
-              ) : (
-                <Menu size={18} aria-hidden="true" />
-              )}
-            </button>
-          </div>
-        </div>
-        {open ? (
-          <nav
-            id="bk-mobile-navigation"
-            className="bk-mobile"
-            aria-label="Mobile navigation"
-          >
-            {SECTION_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                onClick={() => setOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Link
-              to="/#enquiry"
-              className="bk-btn"
-              onClick={() => setOpen(false)}
-            >
-              Request Demo
-            </Link>
-          </nav>
-        ) : null}
-      </header>
-    </>
-  );
-}
-
-function HomeFooter() {
-  return (
-    <footer className="bk-footer">
-      <div className="bk-rail">
-        <div className="bk-footer__grid">
-          <div>
-            <p className="bk-footer__title">About Company</p>
-            <p>
-              Employer-powered salary access for responsible liquidity, payroll
-              clarity, and workforce wellbeing.
-            </p>
-            <div className="bk-contact-line">
-              <Mail size={18} aria-hidden="true" />
-              <a href="mailto:support@mobpae.com">support@mobpae.com</a>
-            </div>
-            <div className="bk-contact-line">
-              <MapPin size={18} aria-hidden="true" />
-              <span>Gujarat, Ahmedabad — 382470</span>
-            </div>
-            <div className="bk-follow">
-              <span>Follow us On:</span>
-              <div className="bk-follow__icons">
-                <a
-                  href="https://linkedin.com/company/mobpae"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="MobPae on LinkedIn"
-                >
-                  <LinkedInIcon />
-                </a>
-                <a
-                  href="https://www.instagram.com/mobpae/"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="MobPae on Instagram"
-                >
-                  <InstagramIcon />
-                </a>
-              </div>
-            </div>
-          </div>
-          <div>
-            <p className="bk-footer__title">Information</p>
-            <ul>
-              {SECTION_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link to={link.href}>{link.label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <p className="bk-footer__title">Quick links</p>
-            <ul>
-              <li>
-                <Link to="/careers">Careers</Link>
-              </li>
-              <li>
-                <Link to="/contact">Contact</Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <p className="bk-footer__title">Resources</p>
-            <ul>
-              <li>
-                <Link to="/help-center">Help Center</Link>
-              </li>
-              <li>
-                <Link to="/privacy-policy">Privacy Policy</Link>
-              </li>
-              <li>
-                <Link to="/terms">Terms & Conditions</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="bk-footer__bottom">
-          <Link to="/" className="bk-logo" aria-label="MobPae home">
-            <img src="/logo.svg" alt="MobPae" />
-          </Link>
-          <p>
-            Copyright © {new Date().getFullYear()} MobPae | All Rights Reserved
-          </p>
-        </div>
-      </div>
-    </footer>
   );
 }
 
@@ -584,155 +335,172 @@ export function HomePage() {
 
   return (
     <div className="bk-home">
-      <HomeNav />
+      <SiteHeader />
       <main id="main-content">
         <section className="bk-banner">
-          <div className="bk-wide bk-banner__grid">
-            <div className="bk-banner__copy">
-              <h1>Redefining financial flexibility for the modern workforce</h1>
-              <p>
-                MobPae helps salaried employees access earned wages before
-                payday through employer-backed approvals, partner lenders, and
-                payroll-linked recovery.
-              </p>
-              <div className="bk-hero-stats">
-                {heroStats.map((stat) => (
-                  <article className="bk-hero-stat" key={stat.label}>
-                    <span className="bk-hero-stat__icon">
-                      <stat.icon
-                        size={22}
-                        strokeWidth={1.6}
-                        aria-hidden="true"
-                      />
-                    </span>
-                    <div>
-                      <strong>{stat.value}</strong>
-                      <p>{stat.label}</p>
-                    </div>
-                  </article>
-                ))}
+          <span
+            className="bk-banner__glow bk-banner__glow--a"
+            aria-hidden="true"
+          />
+          <span
+            className="bk-banner__glow bk-banner__glow--b"
+            aria-hidden="true"
+          />
+
+          <div className="bk-banner__intro">
+            <span className="bk-banner__eyebrow">
+              <span className="bk-banner__eyebrow-dot" aria-hidden="true" />
+              Employer-Backed Earned Wage Access
+            </span>
+            <h1>
+              Payday shouldn&rsquo;t be the only day you get <em>paid.</em>
+            </h1>
+            <p className="bk-banner__lead">
+              MobPae lets employees draw wages they&rsquo;ve already earned —
+              approved by employers, funded by partners, and settled
+              automatically on payroll day.
+            </p>
+            <div className="bk-banner__actions">
+              <Link to="/#enquiry" className="bk-btn">
+                Request Demo <ArrowRight size={16} aria-hidden="true" />
+              </Link>
+            </div>
+            <div className="bk-banner__stats">
+              <div className="bk-banner__stat">
+                <strong>&lt; 1 wk</strong>
+                <span>Employer go-live time</span>
               </div>
-              <div className="bk-banner__bottom">
-                <Link to="/#enquiry" className="bk-btn">
-                  Request Demo <ArrowRight size={16} aria-hidden="true" />
-                </Link>
+              <div className="bk-banner__stat">
+                <strong>60 sec</strong>
+                <span>Employee request time</span>
+              </div>
+              <div className="bk-banner__stat">
+                <strong>₹0</strong>
+                <span>Employer capital required</span>
+              </div>
+              <div className="bk-banner__stat">
+                <strong>100%</strong>
+                <span>HR-controlled approvals</span>
               </div>
             </div>
-            <HeroProductMocks />
+            <span className="bk-banner__store-note">
+              <Download size={15} aria-hidden="true" />
+              Available on the App Store &amp; Google Play soon
+            </span>
+          </div>
+
+          <div className="bk-banner__ticker">
+            <span>Employer-approved</span>
+            <span aria-hidden="true">·</span>
+            <span>Payroll-linked recovery</span>
+            <span aria-hidden="true">·</span>
+            <span>Bank-grade security</span>
+            <span aria-hidden="true">·</span>
+            <span>₹0 capital required</span>
+            <span aria-hidden="true">·</span>
+            <span>
+              <span aria-hidden="true">🇮🇳</span> Made in India
+            </span>
           </div>
         </section>
 
         <section className="bk-services bk-py" id="features">
-          <div className="bk-rail">
-            <div className="bk-features-head">
-              <div>
-                <span className="bk-sub">EVERYDAY VALUE</span>
-                <h2 className="bk-title">
-                  Features You’ll Love And Use Every Day
-                </h2>
-              </div>
-              <ol className="bk-cycle" aria-label="Salary access cycle">
-                <li>
-                  <span>01</span>
-                  Earn
-                </li>
-                <li>
-                  <span>02</span>
-                  Request
-                </li>
-                <li>
-                  <span>03</span>
-                  Payday
-                </li>
-              </ol>
+          <div className="bk-wide">
+            <div className="bk-center">
+              <span className="bk-sub">OUR SOLUTIONS</span>
+              <h2 className="bk-title">
+                Financial solutions built for the modern workforce.
+              </h2>
             </div>
             <div className="bk-service-grid">
-              {services.map((service, index) => (
+              {services.map((service) => (
                 <article className="bk-service" key={service.title}>
+                  <svg
+                    className="bk-service__shape"
+                    viewBox="0 0 392 295"
+                    preserveAspectRatio="none"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M221 0H20C8.95431 0 0 8.9543 0 20V234V275C0 286.046 8.9543 295 20 295H217C228.046 295 237 286.046 237 275V245C237 233.954 245.954 225 257 225H372C383.046 225 392 216.046 392 205V20C392 8.95431 383.046 0 372 0H221Z"
+                      fill="#fff"
+                    />
+                  </svg>
                   <div className="bk-service__top">
                     <span className="bk-service__icon">
                       <service.icon
-                        size={42}
-                        strokeWidth={1.4}
+                        size={28}
+                        strokeWidth={1.8}
                         aria-hidden="true"
                       />
                     </span>
-                    <em>0{index + 1}</em>
+                    <h3>{service.title}</h3>
                   </div>
-                  <h3>{service.title}</h3>
                   <p>{service.body}</p>
+                  <span className="bk-service__more">{service.cta}</span>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="bk-choose" id="how-it-works">
+        <section className="bk-choose bk-py" id="how-it-works">
           <div className="bk-rail">
             <div className="bk-choose__head">
-              <span className="bk-sub">HOW IT WORKS?</span>
+              <span className="bk-sub">HOW IT WORKS</span>
               <h2 className="bk-title">
                 Simple for employees. Controlled for employers.
               </h2>
             </div>
-            <div className="bk-choose__board">
-              <span
-                className="bk-choose__glow bk-choose__glow--a"
+            <div className="bk-steps">
+              <div
+                className="bk-steps__row bk-steps__row--badges"
                 aria-hidden="true"
-              />
-              <span
-                className="bk-choose__glow bk-choose__glow--b"
-                aria-hidden="true"
-              />
-              <div className="bk-choose__intro">
-                <div className="bk-choose__copy">
-                  <p>
-                    MobPae keeps salary access clear from the first request to
-                    the final recovery, with employer approval and payroll logic
-                    built into the flow.
-                  </p>
-                  <ul className="bk-checks">
-                    <li>
-                      <Check size={16} aria-hidden="true" /> Employees request,
-                      employers approve
-                    </li>
-                    <li>
-                      <Check size={16} aria-hidden="true" /> MobPae verifies and
-                      disburses
-                    </li>
-                    <li>
-                      <Check size={16} aria-hidden="true" /> Recovery follows
-                      the payroll cycle
-                    </li>
-                  </ul>
-                  <div className="bk-choose__actions">
-                    <Link to="/#enquiry" className="bk-btn">
-                      Request Demo <ArrowRight size={16} aria-hidden="true" />
-                    </Link>
-                  </div>
-                </div>
-                <div className="bk-choose__art">
-                  <div className="bk-choose__frame">
-                    <img
-                      src="/home/how-it-works.jpg"
-                      alt="Employee requesting earned wages on a phone before payday"
-                      width={768}
-                      height={1152}
-                    />
-                    <span className="bk-choose__chip" aria-hidden="true">
-                      <Smartphone size={16} /> Live request
-                    </span>
-                  </div>
-                </div>
+              >
+                {howItWorksSteps.map((step, index) => (
+                  <span className="bk-steps__badge" key={step.title}>
+                    Step - {String(index + 1).padStart(2, "0")}
+                  </span>
+                ))}
               </div>
-              <p className="bk-choose__bridge">
-                One payroll cycle. Two clear jobs.
-              </p>
-              <div className="bk-choose__lanes">
-                {howItWorksLanes.map((lane) => (
-                  <article className="bk-lane" key={lane.label}>
-                    <span className="bk-sub">{lane.label}</span>
-                    <h3>{lane.title}</h3>
+              <div className="bk-steps__line" aria-hidden="true">
+                {howItWorksSteps.map((step) => (
+                  <span className="bk-steps__dot" key={step.title} />
+                ))}
+              </div>
+              <div className="bk-steps__row bk-steps__row--body">
+                {howItWorksSteps.map((step) => (
+                  <div className="bk-steps__col" key={step.title}>
+                    <span className="bk-steps__icon">
+                      <step.icon
+                        size={26}
+                        strokeWidth={1.7}
+                        aria-hidden="true"
+                      />
+                    </span>
+                    <h3>{step.title}</h3>
+                    <p>{step.body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <p className="bk-choose__bridge">
+              One payroll cycle. Two clear jobs.
+            </p>
+            <div className="bk-choose__lanes">
+              {howItWorksLanes.map((lane) => (
+                <div className="bk-lane-block" key={lane.label}>
+                  <div className="bk-lane__head">
+                    <span className="bk-lane__icon">
+                      <lane.icon size={22} aria-hidden="true" />
+                    </span>
+                    <div>
+                      <span className="bk-sub">{lane.label}</span>
+                      <h3>{lane.title}</h3>
+                    </div>
+                  </div>
+                  <article className="bk-lane">
                     <div className="bk-lane__steps">
                       {lane.steps.map((step) => (
                         <div className="bk-lane__step" key={step.number}>
@@ -745,8 +513,8 @@ export function HomePage() {
                       ))}
                     </div>
                   </article>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -755,37 +523,18 @@ export function HomePage() {
           <div className="bk-rail bk-split">
             <div className="bk-story__collage">
               <img
-                className="bk-story__photo bk-story__photo--a"
-                src="/home/ecosystem-employers.jpg"
-                alt="Employer reviewing workforce salary access from the office"
-                width={1350}
-                height={900}
+                className="bk-story__art"
+                src="/home/about-support.svg"
+                alt="A MobPae support specialist wearing a headset, seated at a laptop, ready to help employees and employers"
+                width={600}
+                height={520}
+                loading="lazy"
               />
-              <img
-                className="bk-story__photo bk-story__photo--b"
-                src="/home/ecosystem-employees.jpg"
-                alt="Employee checking earned wages on a phone"
-                width={1350}
-                height={900}
-              />
-              <div className="bk-story__badge">
-                <strong>₹0</strong>
-                <span>Employer capital required</span>
-              </div>
-              <div className="bk-story__float">
-                <span className="bk-icon">
-                  <WalletCards size={22} aria-hidden="true" />
-                </span>
-                <div>
-                  <strong>60 sec</strong>
-                  <p>Employee request time</p>
-                </div>
-              </div>
             </div>
             <div className="bk-story__copy">
               <span className="bk-sub">ABOUT MOBPAE</span>
               <h2 className="bk-title">
-                Redefining Salary Access For India’s Workforce
+                Redefining salary access for India’s workforce.
               </h2>
               <p>
                 MobPae is an employer-powered earned wage access platform that
@@ -823,16 +572,34 @@ export function HomePage() {
                 </div>
                 <ul className="bk-checks">
                   <li>
-                    <Check size={16} aria-hidden="true" /> Access earned wages
-                    before payday
+                    <span className="bk-checks__tick">
+                      <Check size={13} aria-hidden="true" />
+                    </span>
+                    Access earned wages before payday
                   </li>
                   <li>
-                    <Check size={16} aria-hidden="true" /> Employer-controlled
-                    approval process
+                    <span className="bk-checks__tick">
+                      <Check size={13} aria-hidden="true" />
+                    </span>
+                    Employer-controlled approval process
                   </li>
                   <li>
-                    <Check size={16} aria-hidden="true" /> Payroll-linked
-                    settlement and recovery
+                    <span className="bk-checks__tick">
+                      <Check size={13} aria-hidden="true" />
+                    </span>
+                    Payroll-linked settlement and recovery
+                  </li>
+                  <li>
+                    <span className="bk-checks__tick">
+                      <Check size={13} aria-hidden="true" />
+                    </span>
+                    Dedicated Customer Support
+                  </li>
+                  <li>
+                    <span className="bk-checks__tick">
+                      <Check size={13} aria-hidden="true" />
+                    </span>
+                    Proper Reports &amp; Insights
                   </li>
                 </ul>
               </div>
@@ -840,12 +607,12 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="bk-cases bk-pb" id="ecosystem">
+        <section className="bk-cases bk-py" id="ecosystem">
           <div className="bk-rail">
             <div className="bk-cases-head">
               <span className="bk-sub">WIN-WIN-WIN ECOSYSTEM</span>
               <h2 className="bk-title">
-                Built for employees, employers, and partners
+                Built for employees, employers, and partners.
               </h2>
             </div>
             <div className="bk-cases__wrap">
@@ -854,9 +621,9 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="bk-about bk-py" id="employers">
-          <div className="bk-rail">
-            <div className="bk-about__head">
+        <section className="bk-story bk-py" id="employers">
+          <div className="bk-rail bk-split">
+            <div className="bk-story__copy">
               <span className="bk-sub">WHY EMPLOYERS CHOOSE MOBPAE</span>
               <h2 className="bk-title">
                 No risk. No overhead. Real workforce value.
@@ -866,95 +633,104 @@ export function HomePage() {
                 payroll-aware, and easy to operate without becoming a lending
                 function.
               </p>
-            </div>
-            <div className="bk-about__grid">
-              {employerReasons.map((reason) => (
-                <article className="bk-about-card" key={reason.title}>
-                  <span className="bk-icon">
-                    <reason.icon size={22} aria-hidden="true" />
-                  </span>
-                  <h3>{reason.title}</h3>
-                  <p>{reason.body}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="bk-trust" id="security">
-          <div className="bk-rail">
-            <div className="bk-trust__board">
-              <div className="bk-about__head">
-                <span className="bk-sub">SECURITY & TRUST</span>
-                <h2 className="bk-title">
-                  Built for payroll teams, finance teams, and founders.
-                </h2>
-                <p>
-                  The experience stays simple for employees while employers keep
-                  the policy, approval, and recovery controls they need.
-                </p>
-              </div>
-              <div className="bk-trust__grid">
-                {trustItems.map((item) => (
-                  <article className="bk-trust__card" key={item.title}>
+              <div className="bk-story__features">
+                <div className="bk-story__minis">
+                  <article className="bk-story__mini">
                     <span className="bk-icon">
-                      <item.icon size={22} aria-hidden="true" />
+                      <Banknote size={22} aria-hidden="true" />
                     </span>
-                    <h3>{item.title}</h3>
-                    <p>{item.body}</p>
+                    <div>
+                      <h3>No employer cash burden</h3>
+                      <p>
+                        Access is funded through capital partnerships — payroll
+                        cash flow stays untouched.
+                      </p>
+                    </div>
                   </article>
-                ))}
+                  <article className="bk-story__mini">
+                    <span className="bk-icon">
+                      <BadgeCheck size={22} aria-hidden="true" />
+                    </span>
+                    <div>
+                      <h3>Employer stays in control</h3>
+                      <p>
+                        Every request follows your policy and approval rules
+                        before funds move.
+                      </p>
+                    </div>
+                  </article>
+                </div>
+                <ul className="bk-checks">
+                  <li>
+                    <span className="bk-checks__tick">
+                      <Check size={13} aria-hidden="true" />
+                    </span>
+                    Payroll-linked recovery, not manual chasing
+                  </li>
+                  <li>
+                    <span className="bk-checks__tick">
+                      <Check size={13} aria-hidden="true" />
+                    </span>
+                    Fully audit-ready operations
+                  </li>
+                  <li>
+                    <span className="bk-checks__tick">
+                      <Check size={13} aria-hidden="true" />
+                    </span>
+                    A retention benefit employees actually use
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="bk-story__collage">
+              <div className="bk-trust-photo">
+                <img
+                  className="bk-trust-photo__img"
+                  src="/home/hero-person.jpg"
+                  alt="An employee reviewing available salary and requesting access from a laptop"
+                  width={1399}
+                  height={933}
+                  loading="lazy"
+                />
+                <span className="bk-trust-photo__chip">
+                  <ShieldCheck size={17} aria-hidden="true" />
+                  <span>
+                    <strong>Trusted &amp; protected</strong>
+                    <small>Employee wellbeing</small>
+                  </span>
+                </span>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="bk-team" id="team">
+        <section className="bk-trust bk-py" id="security">
           <div className="bk-rail">
-            <div className="bk-team__intro">
-              <div>
-                <span className="bk-sub">Core Team</span>
-                <h2 className="bk-title">The founding team behind MobPae</h2>
-              </div>
+            <div className="bk-about__head">
+              <span className="bk-sub">SECURITY & TRUST</span>
+              <h2 className="bk-title">
+                Built for payroll teams, finance teams, and founders.
+              </h2>
               <p>
-                A focused founding team across strategy, technology, legal, and
-                people operations — building MobPae as an employer-first salary
-                access platform.
+                The experience stays simple for employees while employers keep
+                the policy, approval, and recovery controls they need.
               </p>
             </div>
-            <div className="bk-team-grid">
-              {team.map((member) => (
-                <article className="bk-member" key={member.name}>
-                  {member.photo ? (
-                    <img
-                      src={member.photo}
-                      alt={member.name}
-                      width={200}
-                      height={200}
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className="bk-member__ph">{member.initials}</div>
-                  )}
-                  <h3>{member.name}</h3>
-                  <span>{member.role}</span>
-                  <div className="bk-member__socials">
-                    <a
-                      href="https://linkedin.com/company/mobpae"
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`${member.name} on LinkedIn`}
-                    >
-                      <LinkedInIcon />
-                    </a>
-                  </div>
+            <div className="bk-trust__strip">
+              {trustItems.map((item) => (
+                <article className="bk-trust__item" key={item.title}>
+                  <span className="bk-trust__icon">
+                    <item.icon size={24} strokeWidth={1.7} aria-hidden="true" />
+                  </span>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="bk-cta">
+        <section className="bk-cta bk-py">
           <div className="bk-rail">
             <div className="bk-cta__inner">
               <img
@@ -985,7 +761,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="bk-faq" id="faq">
+        <section className="bk-faq bk-py" id="faq">
           <div className="bk-rail">
             <div className="bk-faq__board">
               <div className="bk-about__head">
@@ -1012,7 +788,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section id="enquiry" className="bk-enquiry">
+        <section id="enquiry" className="bk-enquiry bk-py">
           <div className="bk-rail">
             <div className="bk-enquiry__inner">
               <div className="bk-enquiry__shapes" aria-hidden="true">
@@ -1096,7 +872,7 @@ export function HomePage() {
           </div>
         </section>
       </main>
-      <HomeFooter />
+      <SiteFooter />
       {showTop ? (
         <button
           type="button"

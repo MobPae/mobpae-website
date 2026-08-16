@@ -59,7 +59,7 @@ function ScrollRevealEffects() {
     frame = window.requestAnimationFrame(() => {
       const nodes = Array.from(
         document.querySelectorAll<HTMLElement>(
-          "main section, main article, main form, footer .site-footer__main > div, [data-reveal]"
+          "main section, main article, main form, [data-reveal]"
         )
       );
 
