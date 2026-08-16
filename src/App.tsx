@@ -2,30 +2,20 @@ import { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { SEO } from "./components/SEO";
 import { getRouteMeta } from "./seo/routeMeta";
+import { LEGACY_PAGE_REDIRECTS } from "./siteLinks";
 
 const HomePage = lazy(() => import("./pages/HomePage").then((m) => ({ default: m.HomePage })));
-const ProductPage = lazy(() => import("./pages/ProductPage").then((m) => ({ default: m.ProductPage })));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage").then((m) => ({ default: m.NotFoundPage })));
-const HowItWorksPage = lazy(() => import("./pages/HowItWorksPage").then((m) => ({ default: m.HowItWorksPage })));
-const EmployersPage = lazy(() => import("./pages/EmployersPage").then((m) => ({ default: m.EmployersPage })));
-const TeamPage = lazy(() => import("./pages/TeamPage").then((m) => ({ default: m.TeamPage })));
-const AboutPage = lazy(() => import("./pages/AboutPage").then((m) => ({ default: m.AboutPage })));
-const EmployerBenefitsPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.EmployerBenefitsPage })));
-const EmployeesPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.EmployeesPage })));
-const FaqsPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.FaqsPage })));
-const CareersPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.CareersPage })));
-const BlogPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.BlogPage })));
-const HelpCenterPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.HelpCenterPage })));
-const ContactPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.ContactPage })));
 const PrivacyPolicyPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.PrivacyPolicyPage })));
 const TermsPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.TermsPage })));
+const HelpCenterPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.HelpCenterPage })));
+const CareersPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.CareersPage })));
+const ContactPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.ContactPage })));
 
-// Scroll to hash on navigation; scroll to top on route change
 function ScrollToHash() {
   const { pathname, hash } = useLocation();
   useEffect(() => {
     if (hash) {
-      // Give the page a tick to render before scrolling
       const id = hash.replace("#", "");
       const attempt = (tries: number) => {
         const el = document.getElementById(id);
@@ -69,7 +59,7 @@ function ScrollRevealEffects() {
     frame = window.requestAnimationFrame(() => {
       const nodes = Array.from(
         document.querySelectorAll<HTMLElement>(
-          "main section, main article, main form, footer .site-footer__main > div, [data-reveal]"
+          "main section, main article, main form, [data-reveal]"
         )
       );
 
@@ -136,21 +126,18 @@ function App() {
       <Suspense fallback={<PageSkeleton />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/employers" element={<EmployersPage />} />
-          <Route path="/employers/benefits" element={<EmployerBenefitsPage />} />
-          <Route path="/employees" element={<EmployeesPage />} />
-          <Route path="/how-it-works" element={<HowItWorksPage />} />
-          <Route path="/faqs" element={<FaqsPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/team" element={<TeamPage />} />
-          <Route path="/teams" element={<Navigate to="/team" replace />} />
-          <Route path="/careers" element={<CareersPage />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/contact" element={<ContactPage />} />
           <Route path="/help-center" element={<HelpCenterPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms" element={<TermsPage />} />
-          <Route path="/product" element={<ProductPage />} />
+          <Route path="/careers" element={<CareersPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          {LEGACY_PAGE_REDIRECTS.map((route) => (
+            <Route
+              key={route.from}
+              path={route.from}
+              element={<Navigate to={route.to} replace />}
+            />
+          ))}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>

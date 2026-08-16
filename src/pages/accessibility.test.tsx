@@ -3,7 +3,6 @@ import axe from "axe-core";
 import { afterEach, describe, expect, it } from "vitest";
 import { MemoryRouter } from "react-router-dom";
 import { HomePage } from "./HomePage";
-import { EmployeesPage } from "./WebsitePages";
 
 afterEach(cleanup);
 
@@ -22,17 +21,21 @@ describe("public page accessibility", () => {
     expect(screen.getByLabelText(/Email/)).toBeRequired();
     expect(screen.getByLabelText(/Company name/)).toBeRequired();
     expect(screen.getByLabelText(/Message/)).toBeRequired();
-    await expectNoAxeViolations();
-  });
-
-  it("gives the employee page one primary heading and a main landmark", async () => {
-    render(<MemoryRouter initialEntries={["/employees"]}><EmployeesPage /></MemoryRouter>);
-
-    expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
-    expect(screen.getByRole("main")).toHaveAttribute("id", "main-content");
+    expect(screen.getByRole("navigation", { name: "Primary navigation" })).toHaveTextContent("How It Works");
+    expect(screen.getByRole("navigation", { name: "Primary navigation" })).toHaveTextContent("About");
     expect(
-      screen.getByAltText(/MobPae employee app dashboard/)
-    ).toBeInTheDocument();
+      screen.getAllByRole("heading", { level: 2 }).map((node) => node.textContent)
+    ).toEqual([
+      "Financial solutions built for the modern workforce.",
+      "Simple for employees. Controlled for employers.",
+      "Redefining salary access for India’s workforce.",
+      "Built for employees, employers, and partners.",
+      "No risk. No overhead. Real workforce value.",
+      "Built for payroll teams, finance teams, and founders.",
+      "Ready to offer salary access at work?",
+      "Everything you need to know.",
+      "Request a MobPae demo",
+    ]);
     await expectNoAxeViolations();
   });
 });
