@@ -911,16 +911,23 @@
   background: #fff;
   box-shadow: var(--bk-shadow);
   border-radius: 20px;
-  text-decoration: none;
   transition: box-shadow 0.25s ease, transform 0.3s ease-out;
 }
 
 .bk-services__item:hover {
   /* !important: the .motion-reveal scroll-reveal system (src/index.css)
      otherwise
-     pins transform once this link has faded in. */
+     pins transform once this card has faded in. */
   transform: translateY(-6px) !important;
   box-shadow: var(--bk-shadow-hover);
+}
+
+/* These are plain cards now, not links to anywhere — :active gives
+   touch/mobile the same "the card responded" feedback that :hover
+   already gives a mouse, since taps don't reliably trigger :hover. */
+.bk-services__item:active {
+  transform: translateY(-2px) scale(0.98) !important;
+  transition: transform 0.15s ease;
 }
 
 .bk-services__number {

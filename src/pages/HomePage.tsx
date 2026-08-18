@@ -75,26 +75,23 @@ const heroBadges = [
   { icon: Headphones, label: "24/7 support" },
 ];
 
+// Cards, not links — see .bk-services__grid below.
 const solutions = [
   {
     title: "Earned Wage Access",
     body: "Employees draw a portion of the salary they've already earned — approved by employers, funded by partners, settled automatically on payroll day.",
-    href: "/#how-it-works",
   },
   {
     title: "Financial Wellness",
     body: "A steadier alternative to high-cost borrowing between paydays, built into the benefits employers already offer.",
-    href: "/#employers",
   },
   {
     title: "Digital Lending Solutions",
     body: "Policy-bound lending infrastructure for financial partners funding approved requests.",
-    href: "/#ecosystem",
   },
   {
     title: "Repayment Solutions",
     body: "Payroll-linked repayments with full settlement visibility and an audit trail for every recovery.",
-    href: "/#security",
   },
 ];
 
@@ -549,18 +546,17 @@ export function HomePage() {
             </div>
 
             <div className="bk-services__grid">
+              {/* Cards, not links — they don't navigate anywhere. The
+                  hover lift/number-spin (desktop) and the :active press
+                  (touch) are the whole interaction. */}
               {solutions.map((solution, index) => (
-                <Link
-                  to={solution.href}
-                  className="bk-services__item"
-                  key={solution.title}
-                >
+                <article className="bk-services__item" key={solution.title}>
                   <span className="bk-services__number">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <h3>{solution.title}</h3>
                   <p>{solution.body}</p>
-                </Link>
+                </article>
               ))}
             </div>
           </div>
