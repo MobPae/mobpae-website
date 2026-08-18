@@ -81,7 +81,7 @@ const focusAreas = [
     title: "Capital partner and payroll partnerships",
     location: "India",
     type: "Exploratory",
-    body: "Build trusted partner relationships across lending, payroll and employer financial wellness programs.",
+    body: "Build trusted partner relationships across lending, payroll and employer financial wellness programmes.",
   },
 ];
 
@@ -91,7 +91,7 @@ export function CareersPage() {
       <PageHero
         eyebrow="Careers"
         title="Build financial wellness for the modern workforce."
-        description="We are early, focused and product-led. If you care about fintech, design and responsible salary access, MobPae is the kind of problem worth building."
+        description="We are early, focused and product-led. If you care about fintech, design and responsible salary access, MobPae is the kind of problem worth solving."
       />
       <section className="bk-py">
         <div className="bk-rail">
@@ -240,7 +240,7 @@ const helpSections = [
   },
   {
     title: "Need help?",
-    body: "Email support@mobpae.com. Include your company name and, if you are an employee, your employee code or request ID. For a product walkthrough, use Contact or Request Demo.",
+    body: "Email support@mobpae.com. Include your company name and, if you are an employee, your employee code or request ID. For a product walkthrough, use Contact or Get In Touch.",
     points: [
       "support@mobpae.com",
       "Share screenshots only when they help explain the issue",
@@ -396,7 +396,7 @@ const privacySections: DocSection[] = [
   },
   {
     title: "Cookies and this website",
-    body: "The marketing site may use cookies needed for the site to function. We do not run a separate advertising cookie program on these pages. You can control cookies in your browser; blocking some cookies may affect site features.",
+    body: "The marketing site may use cookies needed for the site to function. We do not run a separate advertising cookie programme on these pages. You can control cookies in your browser; blocking some cookies may affect site features.",
   },
   {
     title: "Children",

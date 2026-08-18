@@ -4,6 +4,15 @@ import { SEO } from "./components/SEO";
 import { getRouteMeta } from "./seo/routeMeta";
 import { LEGACY_PAGE_REDIRECTS } from "./siteLinks";
 
+// Belt-and-suspenders re-assertion — the primary fix is an inline
+// script at the very top of index.html's <head>, which runs early
+// enough to beat the browser's own scroll-position restoration on a
+// hard refresh. By the time this module runs, that's already handled;
+// this just keeps it "manual" for any later same-tab reload too.
+if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
+  window.history.scrollRestoration = "manual";
+}
+
 const HomePage = lazy(() => import("./pages/HomePage").then((m) => ({ default: m.HomePage })));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage").then((m) => ({ default: m.NotFoundPage })));
 const PrivacyPolicyPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.PrivacyPolicyPage })));
@@ -11,6 +20,62 @@ const TermsPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ defau
 const HelpCenterPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.HelpCenterPage })));
 const CareersPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.CareersPage })));
 const ContactPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ default: m.ContactPage })));
+
+// A hand-rolled smooth scroll rather than scrollIntoView/scrollTo's own
+// "smooth" option — that native behavior is what section nav links used
+// to rely on, but its animation is opaque (no control over duration or
+// easing, and it's the browser compositor's call whether it runs at
+// all). Driving it via rAF ourselves means the "little animation" is
+// actually guaranteed to happen and always finishes, and gives an
+// eased, on-brand feel instead of whatever curve the platform defaults
+// to. Skips straight to the end for prefers-reduced-motion.
+function animatedScrollTo(targetY: number, duration = 650) {
+  const startY = window.scrollY;
+  const distance = targetY - startY;
+  if (Math.abs(distance) < 1) return;
+
+  const instant = "instant" as ScrollBehavior;
+
+  if (
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
+    window.scrollTo({ top: targetY, left: 0, behavior: instant });
+    return;
+  }
+
+  const start = performance.now();
+  const easeInOutCubic = (t: number) =>
+    t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2;
+
+  function step(now: number) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    // Every per-frame jump must itself be instant — the global
+    // `html { scroll-behavior: smooth }` (index.css) otherwise applies
+    // to these calls too (the two-argument scrollTo(x, y) form doesn't
+    // opt out of it the way the options-object form with an explicit
+    // behavior does), so each step tried to smooth-animate on top of
+    // the one before it instead of landing where this easing put it.
+    window.scrollTo({
+      top: startY + distance * easeInOutCubic(progress),
+      left: 0,
+      behavior: instant,
+    });
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+
+  // Safety net: environments that never schedule a rendering frame (an
+  // inactive/backgrounded tab, some automated test harnesses) would
+  // otherwise leave the page exactly where it started, forever. This
+  // guarantees the section is actually reached even then.
+  setTimeout(() => {
+    if (Math.abs(window.scrollY - targetY) > 2) {
+      window.scrollTo({ top: targetY, left: 0, behavior: instant });
+    }
+  }, duration + 150);
+}
 
 function ScrollToHash() {
   const { pathname, hash } = useLocation();
@@ -20,7 +85,13 @@ function ScrollToHash() {
       const attempt = (tries: number) => {
         const el = document.getElementById(id);
         if (el) {
-          el.scrollIntoView({ behavior: "smooth" });
+          // scroll-margin-top (set globally on section[id] in home.css)
+          // is what keeps the fixed header from covering the section's
+          // own heading — read it back here since a manual scrollTo
+          // doesn't apply it the way scrollIntoView would have.
+          const offset = parseFloat(getComputedStyle(el).scrollMarginTop) || 0;
+          const targetY = el.getBoundingClientRect().top + window.scrollY - offset;
+          animatedScrollTo(targetY);
         } else if (tries > 0) {
           setTimeout(() => attempt(tries - 1), 80);
         }

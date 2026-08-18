@@ -18,9 +18,9 @@ describe("public page accessibility", () => {
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
     expect(screen.getByRole("main")).toHaveAttribute("id", "main-content");
     expect(screen.getByLabelText(/Full name/)).toBeRequired();
-    expect(screen.getByLabelText(/Email/)).toBeRequired();
+    expect(screen.getByLabelText(/email/i)).toBeRequired();
     expect(screen.getByLabelText(/Company name/)).toBeRequired();
-    expect(screen.getByLabelText(/Message/)).toBeRequired();
+    expect(screen.getByLabelText(/How can we help/)).toBeRequired();
     expect(screen.getByRole("navigation", { name: "Primary navigation" })).toHaveTextContent("How It Works");
     expect(screen.getByRole("navigation", { name: "Primary navigation" })).toHaveTextContent("About");
     expect(
@@ -28,12 +28,12 @@ describe("public page accessibility", () => {
     ).toEqual([
       "Financial solutions built for the modern workforce.",
       "Simple for employees. Controlled for employers.",
-      "Redefining salary access for India’s workforce.",
+      "Payday is a calendar accident. Money shouldn’t be.",
       "Built for employees, employers, and partners.",
       "No risk. No overhead. Real workforce value.",
       "Built for payroll teams, finance teams, and founders.",
       "Ready to offer salary access at work?",
-      "Everything you need to know.",
+      "Your burning questions",
       "Request a MobPae demo",
     ]);
     await expectNoAxeViolations();

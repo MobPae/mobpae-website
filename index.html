@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Runs before anything else on the page, including React — the
+         browser's own scroll-position restoration on a hard refresh
+         happens very early in navigation, so undoing it (and turning it
+         off for future reloads) from inside a React effect was
+         sometimes too late and the page would flash to the old scroll
+         position first. App.tsx's ScrollToHash still owns scroll
+         behavior for in-app route changes; this only covers the very
+         first load of a fresh page visit/refresh. -->
+    <script>
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
+      if (!location.hash) {
+        window.scrollTo(0, 0);
+      }
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -27,6 +44,8 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://mobpae.com" />
+    <meta property="og:site_name" content="MobPae" />
+    <meta property="og:locale" content="en_IN" />
     <meta property="og:image" content="https://mobpae.com/social/og-image-1200x630.png" />
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -47,9 +66,42 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Archivo:wght@700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Organization + WebSite structured data — present on every route
+         (not injected per-page like the FAQPage schema on the homepage)
+         since it describes the site itself, not any one page's content.
+         Helps search engines resolve MobPae as a distinct entity rather
+         than just a page of text, which is what search-index inclusion
+         and any brand/knowledge-panel treatment depend on. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://mobpae.com/#organization",
+            "name": "MobPae",
+            "url": "https://mobpae.com/",
+            "logo": "https://mobpae.com/logo.svg",
+            "description": "MobPae helps employers offer responsible earned salary access through employer-backed approvals, NBFC partnerships, disbursal tracking, and recovery visibility.",
+            "sameAs": [
+              "https://linkedin.com/company/mobpae",
+              "https://www.instagram.com/mobpae/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://mobpae.com/#website",
+            "name": "MobPae",
+            "url": "https://mobpae.com/",
+            "publisher": { "@id": "https://mobpae.com/#organization" }
+          }
+        ]
+      }
+    </script>
   </head>
 
   <body>
