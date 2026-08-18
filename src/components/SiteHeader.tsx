@@ -48,7 +48,7 @@ export function SiteHeader() {
           </nav>
           <div className="bk-header__actions">
             <Link to="/#enquiry" className="bk-btn bk-header__cta">
-              Request Demo
+              Get In Touch
             </Link>
             <button
               type="button"
@@ -78,7 +78,7 @@ export function SiteHeader() {
               </Link>
             ))}
             <Link to="/#enquiry" className="bk-btn" onClick={() => setOpen(false)}>
-              Request Demo
+              Get In Touch
             </Link>
           </nav>
         ) : null}
