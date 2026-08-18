@@ -29,10 +29,19 @@ const ContactPage = lazy(() => import("./pages/WebsitePages").then((m) => ({ def
 // actually guaranteed to happen and always finishes, and gives an
 // eased, on-brand feel instead of whatever curve the platform defaults
 // to. Skips straight to the end for prefers-reduced-motion.
-function animatedScrollTo(targetY: number, duration = 650) {
+function animatedScrollTo(targetY: number, duration?: number) {
   const startY = window.scrollY;
   const distance = targetY - startY;
   if (Math.abs(distance) < 1) return;
+
+  // A fixed duration made short hops (a couple hundred px) feel right
+  // but covered this page's longest in-page jumps — a section anchor
+  // can sit 5,000–8,000px down this single long page — in the same
+  // ~650ms, which reads as the page teleporting rather than scrolling.
+  // Scaling with distance keeps short jumps snappy while giving long
+  // ones enough time to actually look like travel.
+  const resolvedDuration =
+    duration ?? Math.min(1200, Math.max(450, Math.abs(distance) / 6));
 
   const instant = "instant" as ScrollBehavior;
 
@@ -50,7 +59,7 @@ function animatedScrollTo(targetY: number, duration = 650) {
 
   function step(now: number) {
     const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
+    const progress = Math.min(elapsed / resolvedDuration, 1);
     // Every per-frame jump must itself be instant — the global
     // `html { scroll-behavior: smooth }` (index.css) otherwise applies
     // to these calls too (the two-argument scrollTo(x, y) form doesn't
@@ -74,7 +83,7 @@ function animatedScrollTo(targetY: number, duration = 650) {
     if (Math.abs(window.scrollY - targetY) > 2) {
       window.scrollTo({ top: targetY, left: 0, behavior: instant });
     }
-  }, duration + 150);
+  }, resolvedDuration + 150);
 }
 
 function ScrollToHash() {
