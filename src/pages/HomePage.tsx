@@ -3,14 +3,24 @@ import {
   ArrowUp,
   BadgeCheck,
   Banknote,
+  Building2,
   Check,
   Download,
+  Factory,
   FileCheck2,
+  HeartHandshake,
+  HeartPulse,
   Headphones,
+  Landmark,
   Lock,
   Mail,
   MapPin,
+  Quote,
+  RefreshCw,
   ShieldCheck,
+  ShoppingBag,
+  Truck,
+  Wallet,
 } from "lucide-react";
 import type { ChangeEvent, FormEvent, ReactNode } from "react";
 import { useEffect, useState } from "react";
@@ -75,23 +85,29 @@ const heroBadges = [
   { icon: Headphones, label: "24/7 support" },
 ];
 
-// Cards, not links — see .bk-services__grid below.
+// Cards, not links — see .bk-services__grid below. Each card carries a
+// small icon badge alongside its number so the four are scannable at a
+// glance, not just distinguishable by reading the copy.
 const solutions = [
   {
     title: "Earned Wage Access",
     body: "Employees draw a portion of the salary they've already earned — approved by employers, funded by partners, settled automatically on payroll day.",
+    icon: Wallet,
   },
   {
     title: "Financial Wellness",
     body: "A steadier alternative to high-cost borrowing between paydays, built into the benefits employers already offer.",
+    icon: HeartHandshake,
   },
   {
     title: "Digital Lending Solutions",
     body: "Policy-bound lending infrastructure for financial partners funding approved requests.",
+    icon: Landmark,
   },
   {
     title: "Repayment Solutions",
     body: "Payroll-linked repayments with full settlement visibility and an audit trail for every recovery.",
+    icon: RefreshCw,
   },
 ];
 
@@ -167,6 +183,30 @@ const cases = [
     image: "/home/ecosystem-partners.jpg",
     position: "62% 42%",
   },
+];
+
+// Every figure here already appears elsewhere on the page (hero stat
+// row, About's copy) — this section just gives them one dedicated,
+// larger-type moment instead of splitting them across two sections.
+// Deliberately not inventing volume metrics (₹ disbursed, employees
+// served) with no real figure behind them yet.
+const byTheNumbers = [
+  { value: "< 1 wk", label: "Employer go-live time" },
+  { value: "60 sec", label: "Employee request time" },
+  { value: "₹0", label: "Employer capital required" },
+  { value: "1 cycle", label: "Advance to settlement, inside payroll" },
+];
+
+// Industry categories, not client logos — MobPae doesn't have named
+// employers to feature here yet. Says who the product is built for
+// without implying a specific company has onboarded.
+const industries = [
+  { icon: Building2, label: "IT Services & BPO" },
+  { icon: Factory, label: "Manufacturing" },
+  { icon: Truck, label: "Retail & Logistics" },
+  { icon: Landmark, label: "Financial Services" },
+  { icon: HeartPulse, label: "Healthcare" },
+  { icon: ShoppingBag, label: "E-commerce & D2C" },
 ];
 
 const trustItems = [
@@ -551,9 +591,14 @@ export function HomePage() {
                   (touch) are the whole interaction. */}
               {solutions.map((solution, index) => (
                 <article className="bk-services__item" key={solution.title}>
-                  <span className="bk-services__number">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
+                  <div className="bk-services__item-top">
+                    <span className="bk-services__number">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="bk-services__icon">
+                      <solution.icon size={18} strokeWidth={2} aria-hidden="true" />
+                    </span>
+                  </div>
                   <h3>{solution.title}</h3>
                   <p>{solution.body}</p>
                 </article>
@@ -746,25 +791,27 @@ export function HomePage() {
                 transparent ecosystem built around{" "}
                 <mark>financial wellness</mark>.
               </p>
-              <div className="bk-story__stats">
-                <div className="bk-story__stat">
-                  <strong>1 cycle</strong>
-                  <span>
-                    From advance to settlement, recovered automatically inside
-                    the payroll run.
-                  </span>
-                </div>
-                <div className="bk-story__stat">
-                  <strong>100%</strong>
-                  <span>
-                    Employer-approved workflows, with reports on every
-                    disbursal.
-                  </span>
-                </div>
-              </div>
               <p className="bk-story__note">
                 <em>Built with payroll, not around it.</em>
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Standalone proof-point band — the same facts already stated in
+            the hero and (until now) buried inline here in About, pulled
+            into one dedicated moment instead of being split across two
+            sections. No new numbers invented; every figure here is one
+            already said elsewhere on the page in different words. */}
+        <section className="bk-stats bk-py">
+          <div className="bk-rail">
+            <div className="bk-stats__grid">
+              {byTheNumbers.map((item) => (
+                <div className="bk-stats__item" key={item.label}>
+                  <strong>{item.value}</strong>
+                  <span>{item.label}</span>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -779,6 +826,23 @@ export function HomePage() {
               </h2>
             </div>
             <div className="bk-cases__wrap">
+              {/* Visual connector: MobPae is the hub the three cards below
+                  plug into, not three cards floating side by side — see
+                  .bk-cases__connector in home.css. Hidden on small screens
+                  where the cards stack (the stacking order already reads
+                  as connected); decorative either way, so aria-hidden. */}
+              <div className="bk-cases__connector" aria-hidden="true">
+                <span className="bk-cases__connector-line" />
+                <div className="bk-cases__connector-spokes">
+                  <span className="bk-cases__connector-spoke" />
+                  <span className="bk-cases__connector-spoke" />
+                  <span className="bk-cases__connector-spoke" />
+                </div>
+                <span className="bk-cases__connector-hub">
+                  <img src="/favicon.svg" alt="" width={18} height={18} />
+                  MobPae
+                </span>
+              </div>
               <EcosystemCards />
             </div>
           </div>
@@ -868,6 +932,22 @@ export function HomePage() {
           </div>
         </section>
 
+        {/* Industry categories, not client logos — see the industries
+            comment above for why. A quiet trust strip, not a loud one. */}
+        <section className="bk-industries bk-py">
+          <div className="bk-rail">
+            <p className="bk-industries__label">BUILT FOR TEAMS LIKE YOURS</p>
+            <ul className="bk-industries__list">
+              {industries.map((item) => (
+                <li className="bk-industries__chip" key={item.label}>
+                  <item.icon size={16} strokeWidth={2} aria-hidden="true" />
+                  {item.label}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         <section className="bk-trust bk-py" id="security">
           <div className="bk-rail">
             {/* Mirror of How It Works' bento (see .bk-flow above): same
@@ -903,6 +983,25 @@ export function HomePage() {
                   <span className="bk-trust__tag">{item.tag}</span>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Unattributed pull-quote, not a named testimonial — MobPae
+            doesn't have a real quote to feature yet, and a fabricated
+            "— Name, Title" would read as a fake endorsement. This is
+            MobPae's own voice, styled as one, not attributed to anyone. */}
+        <section className="bk-quote bk-py">
+          <div className="bk-rail">
+            <div className="bk-quote__inner">
+              <Quote className="bk-quote__mark" aria-hidden="true" />
+              <p className="bk-quote__text">
+                Getting paid shouldn&rsquo;t depend on the calendar, and
+                helping employees with that shouldn&rsquo;t turn an employer
+                into a lender. That split — real access, zero lending
+                exposure — is the whole point of MobPae.
+              </p>
+              <span className="bk-quote__attr">The MobPae team</span>
             </div>
           </div>
         </section>
@@ -1107,6 +1206,10 @@ export function HomePage() {
                 <button type="submit" className="bk-submit" disabled={loading}>
                   {loading ? "Submitting..." : "Submit as an Employer"}
                 </button>
+                <p className="bk-form__note">
+                  <Lock size={13} aria-hidden="true" />
+                  No spam. Used only to respond to this enquiry.
+                </p>
               </form>
             </div>
           </div>

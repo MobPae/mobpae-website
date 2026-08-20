@@ -930,6 +930,13 @@
   transition: transform 0.15s ease;
 }
 
+.bk-services__item-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
 .bk-services__number {
   display: block;
   font-family: Archivo, Poppins, sans-serif;
@@ -938,6 +945,21 @@
   line-height: 0.9;
   color: #e66d52;
   font-variant-numeric: tabular-nums;
+}
+
+/* Small badge next to the number — one per card, so the four are
+   scannable at a glance rather than distinguishable only by copy. Sits
+   flush with the top of the number, not vertically centered against it. */
+.bk-services__icon {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: rgba(0, 71, 255, 0.08);
+  color: var(--bk-blue);
 }
 
 /* A full spin that lands back on 0deg — "rotate and return", not a
@@ -1521,6 +1543,93 @@
   font-style: italic;
 }
 
+/* Standalone proof-point band (see byTheNumbers in HomePage.tsx) — one
+   bordered strip, items divided by hairlines rather than four separate
+   floating cards, so it reads as a single measured statement. */
+.bk-stats {
+  background: transparent;
+}
+
+.bk-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid var(--bk-border);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: var(--bk-shadow);
+  overflow: hidden;
+}
+
+.bk-stats__item {
+  padding: 34px 22px;
+  text-align: center;
+}
+
+.bk-stats__item + .bk-stats__item {
+  border-left: 1px solid var(--bk-border);
+}
+
+.bk-stats__item strong {
+  display: block;
+  font-family: Archivo, Poppins, sans-serif;
+  font-weight: 700;
+  font-size: clamp(26px, 3.2vw, 38px);
+  line-height: 1.1;
+  color: var(--bk-blue);
+  font-variant-numeric: tabular-nums;
+}
+
+.bk-stats__item span {
+  display: block;
+  margin-top: 8px;
+  color: var(--bk-muted);
+  font-size: 13.5px;
+  line-height: 1.4;
+}
+
+/* Industry categories, not client logos (see the industries comment in
+   HomePage.tsx) — a quiet strip of chips, not a loud logo wall. */
+.bk-industries {
+  background: transparent;
+}
+
+.bk-industries__label {
+  margin: 0 0 20px;
+  text-align: center;
+  color: var(--bk-muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.bk-industries__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bk-industries__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 1px solid var(--bk-border);
+  border-radius: 100px;
+  background: #fff;
+  color: var(--bk-navy);
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.bk-industries__chip svg {
+  flex: 0 0 auto;
+  color: var(--bk-blue);
+}
+
 /* .bk-story__decor reuses .bk-services__decor's rule as-is (see the
    selector list on that rule in the Our Solutions block above) — same
    glossy blue-gradient faceted-jack ornament, same inline-after-the-text
@@ -1711,6 +1820,98 @@
     #eef1fb;
 }
 
+/* MobPae as the hub the three cards plug into, not three cards
+   floating side by side — a badge above, a spoke down into each card.
+   .bk-cases__connector-spokes reuses .bk-cases__track's own
+   grid-template-columns/gap exactly, so each dot lands centered over
+   its card without hand-computed positions. */
+.bk-cases__connector {
+  position: relative;
+  height: 74px;
+  margin-bottom: 8px;
+}
+
+.bk-cases__connector-hub {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px 9px 14px;
+  border-radius: 100px;
+  background: #fff;
+  border: 1px solid var(--bk-border);
+  box-shadow: var(--bk-shadow);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--bk-navy);
+  white-space: nowrap;
+}
+
+.bk-cases__connector-hub img {
+  display: block;
+}
+
+.bk-cases__connector-line {
+  position: absolute;
+  z-index: 1;
+  top: 19px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 71, 255, 0.5),
+    rgba(0, 71, 255, 0.16) 46%,
+    rgba(0, 71, 255, 0.16) 54%,
+    rgba(230, 109, 82, 0.5)
+  );
+}
+
+.bk-cases__connector-spokes {
+  position: absolute;
+  z-index: 1;
+  inset: 19px 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.bk-cases__connector-spoke {
+  position: relative;
+  justify-self: center;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0, 71, 255, 0.45), rgba(0, 71, 255, 0.08));
+}
+
+.bk-cases__connector-spoke::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bk-blue);
+  box-shadow: 0 0 0 4px rgba(0, 71, 255, 0.15);
+}
+
+/* Middle spoke picks up the same orange the middle card already
+   carries (top seam, tag) instead of all three reading identically blue. */
+.bk-cases__connector-spoke:nth-child(2) {
+  background: linear-gradient(180deg, rgba(230, 109, 82, 0.45), rgba(230, 109, 82, 0.08));
+}
+
+.bk-cases__connector-spoke:nth-child(2)::after {
+  background: #e66d52;
+  box-shadow: 0 0 0 4px rgba(230, 109, 82, 0.15);
+}
+
 .bk-cases__track {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1839,6 +2040,44 @@
 .bk-case:nth-child(2) .bk-tag {
   background: rgba(230, 109, 82, 0.12);
   color: #e66d52;
+}
+
+/* Unattributed pull-quote — MobPae's own voice, styled as a statement,
+   not a fabricated named endorsement. See the comment in HomePage.tsx. */
+.bk-quote {
+  background: transparent;
+}
+
+.bk-quote__inner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.bk-quote__mark {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto 16px;
+  color: rgba(0, 71, 255, 0.25);
+}
+
+.bk-quote__text {
+  margin: 0;
+  color: var(--bk-navy);
+  font-size: clamp(20px, 2.6vw, 27px);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+.bk-quote__attr {
+  display: block;
+  margin-top: 18px;
+  color: var(--bk-muted);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 /* CTA band */
@@ -2233,6 +2472,24 @@ a.bk-enquiry__contact-value:hover {
   font-weight: 500;
 }
 
+/* Small trust note under the submit button — common on B2B lead forms,
+   and the one reassurance this form was missing (the response-time
+   line up top says how fast, not what happens to the data). */
+.bk-form__note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: -6px 0 0;
+  color: var(--bk-muted);
+  font-size: 12.5px;
+}
+
+.bk-form__note svg {
+  flex: 0 0 auto;
+  color: var(--bk-muted);
+}
+
 .bk-status--ok {
   color: #16a34a;
 }
@@ -2524,6 +2781,26 @@ a.bk-enquiry__contact-value:hover {
   .bk-cases__track {
     grid-template-columns: 1fr;
   }
+  .bk-stats__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .bk-stats__item:nth-child(3) {
+    border-left: 0;
+  }
+  .bk-stats__item:nth-child(3),
+  .bk-stats__item:nth-child(4) {
+    border-top: 1px solid var(--bk-border);
+  }
+  /* Cards stack vertically here, so the spokes-grid (which mirrors
+     .bk-cases__track's own columns) has nothing to align to — the
+     stacking order already reads as connected. Keep just the hub badge. */
+  .bk-cases__connector {
+    height: 34px;
+  }
+  .bk-cases__connector-line,
+  .bk-cases__connector-spokes {
+    display: none;
+  }
   .bk-trust__grid {
     grid-template-columns: 1fr;
   }
@@ -2648,6 +2925,19 @@ a.bk-enquiry__contact-value:hover {
   .bk-cta__inner h2,
   .bk-title {
     font-size: 28px;
+  }
+  .bk-stats__grid {
+    grid-template-columns: 1fr;
+  }
+  .bk-stats__item {
+    border-left: 0 !important;
+  }
+  .bk-stats__item + .bk-stats__item {
+    border-top: 1px solid var(--bk-border);
+  }
+  .bk-stats__item:nth-child(3),
+  .bk-stats__item:nth-child(4) {
+    border-top: 1px solid var(--bk-border);
   }
 }
 
