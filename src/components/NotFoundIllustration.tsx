@@ -20,10 +20,10 @@ export function NotFoundIllustration() {
         404
       </text>
 
-      <circle cx="308" cy="70" r="5" fill="var(--bk-amber)" opacity="0.55" />
+      <circle cx="308" cy="70" r="5" fill="var(--bk-blue)" opacity="0.55" />
       <circle cx="72" cy="120" r="4" fill="var(--bk-blue)" opacity="0.3" />
       <circle cx="336" cy="220" r="3" fill="var(--bk-blue)" opacity="0.4" />
-      <circle cx="54" cy="270" r="5" fill="var(--bk-amber)" opacity="0.45" />
+      <circle cx="54" cy="270" r="5" fill="var(--bk-blue)" opacity="0.45" />
 
       <path
         d="M60 210 C 130 150, 200 260, 270 190 S 330 120, 300 95"

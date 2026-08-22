@@ -3,11 +3,13 @@ import {
   ArrowUp,
   BadgeCheck,
   Banknote,
+  Briefcase,
   Building2,
   Check,
   Download,
   Factory,
   FileCheck2,
+  HandCoins,
   HeartHandshake,
   HeartPulse,
   Headphones,
@@ -73,16 +75,6 @@ const enquiryContacts = [
     value: "Available 24/7",
     href: undefined as string | undefined,
   },
-];
-
-// Three icon-only glass badges floating in the hero's own top/bottom
-// margins — decoration, not another copy of the trust copy already said
-// in words by the stat row below. label is kept only as the map key,
-// not rendered (the whole group is aria-hidden).
-const heroBadges = [
-  { icon: Lock, label: "Bank-grade security" },
-  { icon: ShieldCheck, label: "Employer-approved" },
-  { icon: Headphones, label: "24/7 support" },
 ];
 
 // Cards, not links — see .bk-services__grid below. Each card carries a
@@ -164,24 +156,26 @@ const howItWorksFlow = [
   },
 ];
 
-const cases = [
+// Three roles, one shared card (see .bk-cases__panel) — each column's
+// own "win," not a repeat of How It Works' process steps just above it.
+const ecosystemWins = [
   {
-    tag: "Employees",
-    title: "Access earned wages with greater financial confidence",
-    image: "/home/ecosystem-employees.jpg",
-    position: "50% 18%",
+    role: "EMPLOYEES",
+    icon: HandCoins,
+    title: "Get paid on your own schedule",
+    body: "Draw a portion of the salary you've already earned, whenever you need it — approved by your employer, never a loan.",
   },
   {
-    tag: "Employers",
-    title: "Support financial wellness across your workforce",
-    image: "/home/ecosystem-employers.jpg",
-    position: "50% 62%",
+    role: "EMPLOYERS",
+    icon: Briefcase,
+    title: "Offer it without the cost",
+    body: "A retention benefit that costs nothing to run — funded by partners, controlled entirely by your own approval policy.",
   },
   {
-    tag: "Partners",
-    title: "Enable responsible finance through payroll integration",
-    image: "/home/ecosystem-partners.jpg",
-    position: "62% 42%",
+    role: "PARTNERS",
+    icon: Landmark,
+    title: "Fund responsibly, at scale",
+    body: "Policy-bound lending infrastructure with payroll-linked recovery — approved requests only, full visibility end to end.",
   },
 ];
 
@@ -278,28 +272,6 @@ function Field({
       {children}
       {error ? <small>{error}</small> : null}
     </label>
-  );
-}
-
-function EcosystemCards() {
-  return (
-    <div className="bk-cases__track">
-      {cases.map((item) => (
-        <article className="bk-case" key={item.title}>
-          <div className="bk-case__thumb">
-            <img
-              src={item.image}
-              alt=""
-              style={{ objectPosition: item.position }}
-            />
-          </div>
-          <div className="bk-case__body">
-            <span className="bk-tag">{item.tag}</span>
-            <h3>{item.title}</h3>
-          </div>
-        </article>
-      ))}
-    </div>
   );
 }
 
@@ -417,38 +389,15 @@ export function HomePage() {
       <SiteHeader />
       <main id="main-content">
         <section className="bk-banner">
-          <span
-            className="bk-banner__glow bk-banner__glow--a"
-            aria-hidden="true"
-          />
-          <span
-            className="bk-banner__glow bk-banner__glow--b"
-            aria-hidden="true"
-          />
+          {/* One soft central glow for depth — the grid pattern, rings,
+              stars, and floating badges are gone. They read as busy
+              rather than premium once everything else on the page was
+              this quiet, and the badges in particular competed with
+              the headline for the first thing your eye lands on. */}
           <span
             className="bk-banner__glow bk-banner__glow--c"
             aria-hidden="true"
           />
-          <span className="bk-banner__ring bk-banner__ring--1" aria-hidden="true" />
-          <span className="bk-banner__ring bk-banner__ring--2" aria-hidden="true" />
-          <span className="bk-banner__ring bk-banner__ring--3" aria-hidden="true" />
-          <span className="bk-banner__star bk-banner__star--1" aria-hidden="true" />
-          <span className="bk-banner__star bk-banner__star--2" aria-hidden="true" />
-          <span className="bk-banner__star bk-banner__star--3" aria-hidden="true" />
-          <span className="bk-banner__star bk-banner__star--4" aria-hidden="true" />
-          <span className="bk-banner__star bk-banner__star--5" aria-hidden="true" />
-
-          {/* Small floating icon badges, not text pills — glass-circle
-              "images" rather than more copy. Hidden below the width
-              where the top/bottom margin they float in disappears (see
-              the 991.98px breakpoint in home.css). */}
-          <div className="bk-banner__badges" aria-hidden="true">
-            {heroBadges.map((badge) => (
-              <span className="bk-banner__badge" key={badge.label}>
-                <badge.icon size={20} strokeWidth={1.8} aria-hidden="true" />
-              </span>
-            ))}
-          </div>
 
           <div className="bk-banner__intro">
             <span className="bk-banner__eyebrow">
@@ -527,7 +476,7 @@ export function HomePage() {
                       </linearGradient>
                       <linearGradient id="bkFacetB" x1="1" y1="0" x2="0" y2="1">
                         <stop offset="0%" stopColor="#dfeaff" />
-                        <stop offset="100%" stopColor="#0047ff" />
+                        <stop offset="100%" stopColor="#0057ff" />
                       </linearGradient>
                       <linearGradient id="bkFacetC" x1="0" y1="1" x2="1" y2="0">
                         <stop offset="0%" stopColor="#c7e2fb" />
@@ -596,7 +545,7 @@ export function HomePage() {
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <span className="bk-services__icon">
-                      <solution.icon size={18} strokeWidth={2} aria-hidden="true" />
+                      <solution.icon size={28} strokeWidth={1.8} aria-hidden="true" />
                     </span>
                   </div>
                   <h3>{solution.title}</h3>
@@ -733,7 +682,7 @@ export function HomePage() {
                       y2="1"
                     >
                       <stop offset="0%" stopColor="#dfeaff" />
-                      <stop offset="100%" stopColor="#0047ff" />
+                      <stop offset="100%" stopColor="#0057ff" />
                     </linearGradient>
                     <linearGradient
                       id="bkFacetCAbout"
@@ -825,25 +774,22 @@ export function HomePage() {
                 <span className="bk-gradient-text">partners</span>.
               </h2>
             </div>
-            <div className="bk-cases__wrap">
-              {/* Visual connector: MobPae is the hub the three cards below
-                  plug into, not three cards floating side by side — see
-                  .bk-cases__connector in home.css. Hidden on small screens
-                  where the cards stack (the stacking order already reads
-                  as connected); decorative either way, so aria-hidden. */}
-              <div className="bk-cases__connector" aria-hidden="true">
-                <span className="bk-cases__connector-line" />
-                <div className="bk-cases__connector-spokes">
-                  <span className="bk-cases__connector-spoke" />
-                  <span className="bk-cases__connector-spoke" />
-                  <span className="bk-cases__connector-spoke" />
-                </div>
-                <span className="bk-cases__connector-hub">
-                  <img src="/favicon.svg" alt="" width={18} height={18} />
-                  MobPae
-                </span>
-              </div>
-              <EcosystemCards />
+            {/* One shared card, not three separate ones — see
+                .bk-cases__panel in home.css. Being physically inside the
+                same bordered panel is what shows the three roles are
+                connected, rather than a connector graphic laid over
+                three otherwise-independent tiles. */}
+            <div className="bk-cases__panel">
+              {ecosystemWins.map((item) => (
+                <article className="bk-cases__col" key={item.role}>
+                  <span className="bk-cases__col-icon">
+                    <item.icon size={28} strokeWidth={1.8} aria-hidden="true" />
+                  </span>
+                  <span className="bk-cases__col-role">{item.role}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -970,12 +916,16 @@ export function HomePage() {
               </div>
               {trustItems.map((item, index) => (
                 <article className="bk-trust__item" key={item.title}>
+                  {/* Same header pattern as Our Solutions: a big number
+                      on the left, a plain icon (no badge circle) on the
+                      right — not the old filled-circle-icon +
+                      small-corner-number layout. */}
                   <div className="bk-trust__item-top">
-                    <span className="bk-trust__icon">
-                      <item.icon size={22} strokeWidth={2} aria-hidden="true" />
-                    </span>
                     <span className="bk-trust__num">
                       {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="bk-trust__icon">
+                      <item.icon size={28} strokeWidth={1.8} aria-hidden="true" />
                     </span>
                   </div>
                   <h3>{item.title}</h3>
