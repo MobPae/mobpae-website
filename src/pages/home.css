@@ -260,7 +260,11 @@
   justify-content: space-between;
   gap: 16px;
   min-height: 0;
-  padding: 0 22px;
+  /* Vertical padding, not just horizontal — with none, the bar's height
+     was exactly the logo's height, so the logo touched the pill's own
+     top/bottom edges instead of sitting inside it with any breathing
+     room (barely visible on desktop, obviously cramped on a phone). */
+  padding: 12px 22px;
   /* Was a full pill (100px) — now that the buttons inside it are sharp
      4px corners, a full pill read as mismatched against them. This
      keeps the header soft without going fully round. */
@@ -2405,7 +2409,7 @@ a.bk-enquiry__contact-value:hover {
     border-radius: 18px;
     box-shadow: var(--bk-shadow);
     background: #fff;
-    padding: 0 16px;
+    padding: 10px 16px;
   }
   .bk-header--stuck .bk-header__bar {
     top: 8px;
@@ -2527,6 +2531,13 @@ a.bk-enquiry__contact-value:hover {
   .bk-home {
     --bk-rail: calc(100% - 24px);
     --bk-wide: calc(100% - 24px);
+  }
+  /* 44px was sized for the desktop header, where the bar has much more
+     width to spare. On a phone the same height leaves the logo taking
+     up an outsized share of a much narrower bar, right next to the
+     menu button — this scales it back down to match. */
+  .bk-logo img {
+    height: 34px;
   }
   .bk-cases__col {
     padding: 30px 24px;
