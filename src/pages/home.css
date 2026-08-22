@@ -462,23 +462,29 @@
   text-wrap: balance;
 }
 
-/* Black, not white — the field is flat blue everywhere, so black
-   reliably contrasts against it regardless of where the word falls,
-   and gives the emphasized word real separation from the white text
-   around it instead of relying on weight alone. */
-/* A white highlight behind the word, not just black text on the flat
-   blue field — black-on-blue alone read as too low-contrast/"lost" at
-   a glance. The white patch gives it a second layer of separation so
-   it reads instantly instead of needing a second look. */
+/* Black read as too low-contrast/"lost" against the flat blue field —
+   an off-white (not pure white) instead, so the word still separates
+   from the upright white text around it, just not by color contrast
+   alone; the tilt and wiggle carry most of that separation now. No
+   background box: that added enough padding to the line that on
+   narrower widths, where the headline wraps to a third line, the box
+   collided with the line above it. */
 .bk-banner__intro h1 em {
   font-style: normal;
   font-weight: 700;
-  color: var(--bk-black);
-  background: #fff;
-  padding: 0 0.05em;
-  border-radius: 0.08em;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
+  color: #f2f2f2;
+  display: inline-block;
+  animation: bk-paid-wiggle 3.2s ease-in-out infinite;
+}
+
+@keyframes bk-paid-wiggle {
+  0%,
+  100% {
+    transform: rotate(-7deg);
+  }
+  50% {
+    transform: rotate(-2deg);
+  }
 }
 
 /* Was barely-there white glass, tuned for a dark hero — on the light
@@ -3014,6 +3020,7 @@ a.bk-enquiry__contact-value:hover {
   .bk-btn svg,
   .bk-home .bk-submit,
   .bk-banner__stat strong,
+  .bk-banner__intro h1 em,
   .bk-flow__card,
   .bk-services__number,
   .bk-trust__num,
