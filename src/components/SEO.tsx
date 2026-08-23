@@ -8,7 +8,7 @@ type SEOProps = {
 };
 
 const siteName = "MobPae";
-const siteUrl = "https://mobpae.com";
+const siteUrl = "https://www.mobpae.com";
 
 export function SEO({ title, description, path = "/", robots = "index, follow" }: SEOProps) {
   useEffect(() => {

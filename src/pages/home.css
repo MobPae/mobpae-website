@@ -699,7 +699,7 @@
   height: 0.72em;
   margin: 0 0 0 0.15em;
   vertical-align: middle;
-  filter: drop-shadow(0 10px 16px rgba(0, 135, 246, 0.25));
+  filter: drop-shadow(0 10px 16px rgba(0, 87, 255, 0.25));
   animation: bk-cube-float 6s ease-in-out infinite;
 }
 
@@ -903,7 +903,7 @@
   flex: 0 0 auto;
   place-items: center;
   border-radius: 50%;
-  background: rgba(0, 135, 246, 0.08);
+  background: rgba(0, 87, 255, 0.08);
   color: var(--bk-blue);
 }
 
@@ -1363,7 +1363,7 @@
 }
 
 .bk-story__point:nth-child(odd):hover {
-  background: rgba(0, 135, 246, 0.05);
+  background: rgba(0, 87, 255, 0.05);
 }
 
 .bk-story__point:nth-child(even):hover {
@@ -1751,7 +1751,7 @@
   width: 30px;
   height: 30px;
   margin: 0 auto 16px;
-  color: rgba(0, 135, 246, 0.25);
+  color: rgba(0, 87, 255, 0.25);
 }
 
 .bk-quote__text {
@@ -2339,7 +2339,7 @@ a.bk-enquiry__contact-value:hover {
   border-radius: 50% !important;
   background: var(--bk-blue);
   color: #fff;
-  box-shadow: 0 10px 24px rgba(0, 135, 246, 0.28);
+  box-shadow: 0 10px 24px rgba(0, 87, 255, 0.28);
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     background 0.35s ease,
@@ -2708,7 +2708,7 @@ a.bk-enquiry__contact-value:hover {
 .bk-job-card__tag {
   padding: 6px 14px;
   border-radius: 999px;
-  background: rgba(0, 135, 246, 0.08);
+  background: rgba(0, 87, 255, 0.08);
   color: var(--bk-blue);
   font-size: 12px;
   font-weight: 600;
@@ -2920,7 +2920,7 @@ a.bk-enquiry__contact-value:hover {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(0, 135, 246, 0.08);
+  background: rgba(0, 87, 255, 0.08);
   color: var(--bk-blue);
   font-size: 13px;
   font-weight: 700;
