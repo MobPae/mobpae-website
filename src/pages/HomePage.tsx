@@ -112,7 +112,7 @@ const solutions = [
 // not a lucide icon.
 const howItWorksFlow = [
   {
-    label: "SET UP",
+    label: "Set up",
     body: "Set the rules before anyone requests.",
     tag: "FOR EMPLOYERS",
     steps: [
@@ -122,7 +122,7 @@ const howItWorksFlow = [
     ],
   },
   {
-    label: "REQUEST",
+    label: "Request",
     body: "Access the salary you've already earned.",
     tag: "FOR EMPLOYEES",
     steps: [
@@ -133,7 +133,7 @@ const howItWorksFlow = [
     ],
   },
   {
-    label: "APPROVE & DISBURSE",
+    label: "Approve & disburse",
     body: "Every request is reviewed before funds move.",
     tag: "CONTROLLED BY EMPLOYER",
     steps: [
@@ -144,7 +144,7 @@ const howItWorksFlow = [
     ],
   },
   {
-    label: "RECOVER",
+    label: "Recover",
     body: "Repayment follows the payroll.",
     tag: "AUTOMATED",
     steps: [
@@ -155,6 +155,46 @@ const howItWorksFlow = [
     ],
   },
 ];
+
+// Shared between the featured card beside the head and the plain grid
+// below it, so both stay in sync — one card can't drift from the other.
+// The number badge is what keeps the 1→2→3→4 sequence readable even
+// though card 1 no longer sits directly above card 2 (it's beside the
+// heading instead); without it the order only existed in the data, not
+// on the page.
+function FlowCard({
+  card,
+  index,
+}: {
+  card: (typeof howItWorksFlow)[number];
+  index: number;
+}) {
+  return (
+    <article className="bk-flow__card">
+      <div className="bk-flow__head-row">
+        <span className="bk-flow__step-badge">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <h3 className="bk-flow__label">{card.label}</h3>
+        <span className="bk-flow__tag">{card.tag}</span>
+      </div>
+      <p className="bk-flow__body">{card.body}</p>
+      <ul className="bk-flow__steps">
+        {card.steps.map((step, stepIndex) => (
+          <li className="bk-flow__step" key={step.title}>
+            <span className="bk-flow__step-num">
+              {String(stepIndex + 1).padStart(2, "0")}
+            </span>
+            <span>
+              <strong>{step.title}</strong>
+              <p>{step.body}</p>
+            </span>
+          </li>
+        ))}
+      </ul>
+    </article>
+  );
+}
 
 // Three roles, one shared card (see .bk-cases__panel) — each column's
 // own "win," not a repeat of How It Works' process steps just above it.
@@ -229,6 +269,35 @@ const trustItems = [
     tag: "Tracked every cycle",
   },
 ];
+
+// Shared between the featured card beside the head and the plain grid
+// below it — same reasoning as FlowCard above.
+function TrustCard({
+  item,
+  index,
+}: {
+  item: (typeof trustItems)[number];
+  index: number;
+}) {
+  return (
+    <article className="bk-trust__item">
+      {/* Same header pattern as Our Solutions: a big number on the
+          left, a plain icon (no badge circle) on the right — not the
+          old filled-circle-icon + small-corner-number layout. */}
+      <div className="bk-trust__item-top">
+        <span className="bk-trust__num">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <span className="bk-trust__icon">
+          <item.icon size={28} strokeWidth={1.8} aria-hidden="true" />
+        </span>
+      </div>
+      <h3>{item.title}</h3>
+      <p>{item.body}</p>
+      <span className="bk-trust__tag">{item.tag}</span>
+    </article>
+  );
+}
 
 const faqs = [
   {
@@ -558,43 +627,30 @@ export function HomePage() {
 
         <section className="bk-choose bk-py" id="how-it-works">
           <div className="bk-rail">
-            {/* A 3-column grid: the heading spans the first two columns of
-                row one, leaving the third for the first card, then the
-                remaining three cards fill row two — the same asymmetric
-                bento as the reference, not a centered head over a plain
-                2x2. grid-column:span 2 on the head is the only explicit
-                placement; auto-placement fills the rest correctly. */}
+            {/* Card 1 sits beside the head, in the head row's own
+                explicit 3-column grid (head spans the first two,
+                card 1 takes the third) — not the old dense-packed
+                bento that let auto-placement decide where things
+                landed. Cards 2–4 are a separate grid below, so the
+                DOM order (head, card 1, card 2, card 3, card 4) is
+                also the visual order: nothing to jump back up for. */}
             <div className="bk-flow">
-              <div className="bk-flow__head">
-                <span className="bk-sub">HOW IT WORKS</span>
-                <h2 className="bk-title">
-                  Simple for employees.{" "}
-                  <span className="bk-gradient-text">Controlled</span> for
-                  employers.
-                </h2>
+              <div className="bk-flow__top">
+                <div className="bk-flow__head">
+                  <span className="bk-sub">HOW IT WORKS</span>
+                  <h2 className="bk-title">
+                    Simple for employees.{" "}
+                    <span className="bk-gradient-text">Controlled</span> for
+                    employers.
+                  </h2>
+                </div>
+                <FlowCard card={howItWorksFlow[0]} index={0} />
               </div>
-              {howItWorksFlow.map((card) => (
-                <article className="bk-flow__card" key={card.label}>
-                  <div className="bk-flow__head-row">
-                    <h3 className="bk-flow__label">{card.label}</h3>
-                    <span className="bk-flow__tag">{card.tag}</span>
-                  </div>
-                  <p className="bk-flow__body">{card.body}</p>
-                  <ul className="bk-flow__steps">
-                    {card.steps.map((step, stepIndex) => (
-                      <li className="bk-flow__step" key={step.title}>
-                        <span className="bk-flow__step-num">
-                          {String(stepIndex + 1).padStart(2, "0")}
-                        </span>
-                        <span>
-                          <strong>{step.title}</strong>
-                          <p>{step.body}</p>
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
+              <div className="bk-flow__grid">
+                {howItWorksFlow.slice(1).map((card, index) => (
+                  <FlowCard card={card} index={index + 1} key={card.label} />
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -768,7 +824,7 @@ export function HomePage() {
         <section className="bk-cases bk-py" id="ecosystem">
           <div className="bk-rail">
             <div className="bk-cases-head">
-              <span className="bk-sub">WIN-WIN-WIN ECOSYSTEM</span>
+              <span className="bk-sub">ECOSYSTEM</span>
               <h2 className="bk-title">
                 Built for employees, employers, and{" "}
                 <span className="bk-gradient-text">partners</span>.
@@ -882,7 +938,7 @@ export function HomePage() {
             comment above for why. A quiet trust strip, not a loud one. */}
         <section className="bk-industries bk-py">
           <div className="bk-rail">
-            <p className="bk-industries__label">BUILT FOR TEAMS LIKE YOURS</p>
+            <p className="bk-industries__label">Built for teams like yours</p>
             <ul className="bk-industries__list">
               {industries.map((item) => (
                 <li className="bk-industries__chip" key={item.label}>
@@ -896,42 +952,23 @@ export function HomePage() {
 
         <section className="bk-trust bk-py" id="security">
           <div className="bk-rail">
-            {/* Mirror of How It Works' bento (see .bk-flow above): same
-                3-column grid, but the head sits in row one's right two
-                columns instead of the left two, so the first card falls
-                to its left — card, then text, then the other three cards
-                fill row two. Only the head's explicit grid-column start
-                changes; auto-placement does the rest, same as .bk-flow. */}
+            {/* Plain full-width head, all four cards left alone below it —
+                not paired with a card the way .bk-flow's head is. Trust's
+                cards are too light (number, icon, one line, a tag) to
+                stretch gracefully to a 3-line heading's height without
+                leaving dead space; How It Works' cards carry enough
+                content (a paragraph plus a step list) that pairing one
+                with the head actually works there. */}
+            <div className="bk-trust__head">
+              <span className="bk-sub">SECURITY & TRUST</span>
+              <h2 className="bk-title">
+                Built for payroll teams, finance teams, and{" "}
+                <span className="bk-gradient-text">founders</span>.
+              </h2>
+            </div>
             <div className="bk-trust__grid">
-              <div className="bk-trust__head">
-                <span className="bk-sub">SECURITY & TRUST</span>
-                <h2 className="bk-title">
-                  Built for payroll teams, finance teams, and{" "}
-                  <span className="bk-gradient-text">founders</span>.
-                </h2>
-                <p>
-                  The experience stays simple for employees while employers
-                  keep the policy, approval, and recovery controls they need.
-                </p>
-              </div>
               {trustItems.map((item, index) => (
-                <article className="bk-trust__item" key={item.title}>
-                  {/* Same header pattern as Our Solutions: a big number
-                      on the left, a plain icon (no badge circle) on the
-                      right — not the old filled-circle-icon +
-                      small-corner-number layout. */}
-                  <div className="bk-trust__item-top">
-                    <span className="bk-trust__num">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span className="bk-trust__icon">
-                      <item.icon size={28} strokeWidth={1.8} aria-hidden="true" />
-                    </span>
-                  </div>
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                  <span className="bk-trust__tag">{item.tag}</span>
-                </article>
+                <TrustCard item={item} index={index} key={item.title} />
               ))}
             </div>
           </div>
@@ -1154,7 +1191,14 @@ export function HomePage() {
                   <p className="bk-status bk-status--err">{error}</p>
                 ) : null}
                 <button type="submit" className="bk-submit" disabled={loading}>
-                  {loading ? "Submitting..." : "Submit as an Employer"}
+                  {loading ? (
+                    "Submitting..."
+                  ) : (
+                    <>
+                      Submit as an Employer{" "}
+                      <ArrowRight size={16} aria-hidden="true" />
+                    </>
+                  )}
                 </button>
                 <p className="bk-form__note">
                   <Lock size={13} aria-hidden="true" />

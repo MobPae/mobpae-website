@@ -19,6 +19,30 @@
   --bk-shadow-hover: 0 22px 48px rgba(1, 2, 46, 0.1);
   --bk-rail: min(1250px, calc(100% - 24px));
   --bk-wide: min(1664px, calc(100% - 24px));
+
+  /* Type scale — codifies the steps new/edited rules should snap to.
+     The stylesheet still has ~24 one-off font-size values predating
+     this scale; migrating every one of those is a separate, larger
+     sweep (each has to be checked in place, not batch-replaced) and
+     isn't done here. New and touched rules use these tokens instead
+     of another bespoke px value. */
+  --fs-caption: 12px;
+  --fs-sm: 13.5px;
+  --fs-base: 15px;
+  --fs-md: 16px;
+  --fs-lg: 20px;
+  --fs-xl: 26px;
+  --fs-2xl: clamp(26px, 3.2vw, 38px);
+  --fs-3xl: clamp(32px, 7vw, 100px);
+  --fs-hero: clamp(48px, 9vw, 128px);
+
+  /* Radius scale — same idea: three steps cover cards, pills, and
+     circular elements. Existing components keep their tuned radii;
+     this is what new/touched rules should reach for. */
+  --radius-sm: 4px;
+  --radius-card: 20px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
 }
 
 .bk-home {
@@ -402,18 +426,22 @@
   text-align: center;
 }
 
+/* Sentence case, not uppercase — the source string is already
+   "Employer-Backed Earned Wage Access" (34 chars); forcing it fully
+   uppercase turned a readable title-case phrase into a long shouted
+   run. Letter-spacing pulled back to suit mixed case, which doesn't
+   need the extra tracking all-caps does. */
 .bk-banner__eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  padding: 6px 13px 6px 10px;
+  padding: 7px 14px 7px 11px;
   border-radius: 100px;
   background: #fff;
   color: var(--bk-blue);
-  font-size: 8.5px;
+  font-size: var(--fs-caption);
   font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
 }
 
 .bk-banner__eyebrow-dot {
@@ -498,7 +526,7 @@
   gap: 0;
   margin-top: 48px;
   padding: 22px clamp(16px, 4vw, 36px);
-  border-radius: 20px;
+  border-radius: var(--radius-card);
   background: #fff;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.14);
 }
@@ -704,7 +732,10 @@
 }
 
 .bk-services__top-right {
-  padding-top: 10px;
+  /* Was padding-top: 10px — an explicit nudge that put the paragraph's
+     cap-height noticeably below the heading's, breaking the top edge
+     the two-column grid's align-items: start otherwise gives them. */
+  padding-top: 0;
 }
 
 .bk-services__lead {
@@ -777,7 +808,7 @@
   padding: 32px 26px 34px;
   background: #fff;
   box-shadow: var(--bk-shadow);
-  border-radius: 20px;
+  border-radius: var(--radius-card);
   transition: box-shadow 0.25s ease, transform 0.3s ease-out;
 }
 
@@ -916,38 +947,39 @@
   background: var(--bk-surface);
 }
 
-/* Same 3-column bento as .bk-flow (How It Works), mirrored: the head is
-   pinned to columns 2–3 instead of 1–2, so the first card auto-places
-   into the now-open column 1 beside it, and the remaining three cards
-   auto-flow into row two — card-then-text where How It Works is
-   text-then-card. */
+/* Head above, four cards in one row below — same flat 4-column grid as
+   .bk-services__grid (Our Solutions), not a bento. These cards are
+   light enough content (icon, number, one line, a tag) to sit four
+   across the way Our Solutions' cards do; the previous version pinned
+   the head to columns 2–3 so card 1 fell into the leftover column 1,
+   which matched neither Our Solutions' grid nor a linear reading
+   order. */
 .bk-trust__grid {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  /* dense: placing the head at columns 2–3 pushes the auto-placement
-     cursor past the end of row one, so without dense packing the first
-     card would drop to row two, leaving row one's column 1 empty
-     instead of filling it. Dense packing back-fills that gap. */
-  grid-auto-flow: row dense;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px;
 }
 
+/* Plain block, not paired with a card — see the comment in
+   HomePage.tsx for why Trust's lighter cards don't hold up to being
+   stretched next to a heading the way How It Works' do. Whitespace to
+   the right of a left-aligned heading isn't automatically a problem
+   that needs filling; forcing it here produced a worse result than
+   leaving it alone. */
 .bk-trust__head {
-  grid-column: 2 / span 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.bk-trust__head .bk-title {
+  text-wrap: balance;
 }
 
 .bk-trust__head .bk-sub {
   margin-bottom: 10px;
-}
-
-.bk-trust__head p {
-  margin-top: 16px;
-  color: var(--bk-muted);
 }
 
 .bk-trust__item {
@@ -956,7 +988,7 @@
   padding: 28px 26px 30px;
   background: #fff;
   border: 1px solid var(--bk-border);
-  border-radius: 20px;
+  border-radius: var(--radius-card);
   box-shadow: var(--bk-shadow);
   transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
 }
@@ -1039,12 +1071,15 @@
   display: inline-flex;
   align-self: flex-start;
   width: fit-content;
-  margin-top: 18px;
+  /* auto, not a fixed 18px — pins the tag to the card's bottom edge
+     regardless of how many lines the heading/body above it take, so
+     all four tags land on the same line across the row. See #6. */
+  margin-top: auto;
   padding: 4px 11px;
   border-radius: 999px;
   background: rgba(0, 87, 255, 0.12);
   color: #0057ff;
-  font-size: 10.5px;
+  font-size: var(--fs-caption);
   font-weight: 700;
   letter-spacing: 0.03em;
 }
@@ -1075,7 +1110,7 @@
   margin: 0;
   overflow: hidden;
   border: 1px solid var(--bk-border);
-  border-radius: 20px;
+  border-radius: var(--radius-card);
 }
 
 .bk-faq__item {
@@ -1164,19 +1199,23 @@
   color: var(--bk-blue);
 }
 
-/* An asymmetric 3-column bento: the head spans the first two columns of
-   row one (grid-column:span 2 is the only explicit placement anywhere
-   in here), leaving row one's third column for the first card; the
-   other three cards auto-flow into row two, one per column. Row one
-   ends up taller than row two because the grid default (align-items:
-   stretch) stretches the first card to match the head's height, the
-   same proportions as the reference. */
 .bk-flow {
   position: relative;
   z-index: 1;
+}
+
+/* Explicit 3-column row: head takes the first two, card 1 the third.
+   Two items, two placements, nothing for the browser to auto-place or
+   dense-pack. Works here because How It Works' cards carry enough
+   content (paragraph + step list) to hold their own next to the
+   heading — Security & Trust's lighter cards don't, so that section
+   went back to a plain full-width head instead. */
+.bk-flow__top {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
+  align-items: stretch;
+  margin-bottom: 24px;
 }
 
 .bk-flow__head {
@@ -1190,6 +1229,15 @@
   margin-bottom: 10px;
 }
 
+/* Cards 2–4 in their own 3-column row below — matches card 1's width
+   in .bk-flow__top exactly, so the whole set (1 beside the head, 2–4
+   below) reads as one consistent card size, not two different ones. */
+.bk-flow__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
 /* Cards now show their full breakdown open at all times — no hover
    crossfade, no icon. Just a natural-height card: label + tag up top,
    the one-liner, then the numbered steps straight through. The lift-
@@ -1200,7 +1248,10 @@
   padding: 32px;
   background: #fff;
   border: 1px solid var(--bk-border);
-  border-radius: 24px;
+  /* Matches .bk-services__item / .bk-trust__item (both 20px) — was
+     24px, the one outlier among this site's three numbered-card
+     grids. */
+  border-radius: var(--radius-card);
   box-shadow: var(--bk-shadow);
   transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
 }
@@ -1220,22 +1271,56 @@
   gap: 8px 12px;
 }
 
-/* The card's primary heading now — sized up from its old small
-   hover-only-reveal size to actually carry the top of the card. */
-.bk-home .bk-flow__label {
-  margin: 0;
-  font-size: 20px;
+/* Keeps the 1→2→3→4 sequence legible on the page itself — card 1 sits
+   beside the section head rather than above card 2, so position alone
+   no longer carries the order the way it did when all four were in one
+   row. */
+.bk-flow__step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(0, 87, 255, 0.08);
+  color: var(--bk-blue);
+  font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
 }
 
+/* The card's primary heading now — sized up from its old small
+   hover-only-reveal size to actually carry the top of the card. */
+/* Bumped from 20px — already inherits font-weight:700 off the shared
+   h1–h4 rule, but at 20px next to a 13.5px/600 step title the size gap
+   alone read as too subtle to scan quickly. var(--fs-xl) widens it. */
+.bk-home .bk-flow__label {
+  margin: 0;
+  font-size: var(--fs-xl);
+}
+
+/* Plain caption, not a second colored pill — .bk-flow__label already
+   carries the card's identity, so the tag only needs to read as a
+   quiet qualifier next to it, not a competing chip. All four cards
+   already share this one style; there was never per-card color
+   variation, just too many distinct shapes crammed into one row. */
 .bk-flow__tag {
-  display: inline-block;
-  padding: 4px 11px;
-  border-radius: 999px;
-  background: rgba(0, 87, 255, 0.08);
-  color: #0057ff;
-  font-size: 10.5px;
-  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--bk-muted);
+  font-size: var(--fs-caption);
+  font-weight: 600;
   letter-spacing: 0.03em;
+}
+
+.bk-flow__tag::before {
+  content: "";
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--bk-border);
 }
 
 .bk-flow__body {
@@ -1440,7 +1525,7 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   border: 1px solid var(--bk-border);
-  border-radius: 24px;
+  border-radius: var(--radius-lg);
   background: #fff;
   box-shadow: var(--bk-shadow);
   overflow: hidden;
@@ -1531,7 +1616,7 @@
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 24px;
+  border-radius: var(--radius-lg);
   box-shadow: 0 30px 60px rgba(1, 2, 46, 0.18);
 }
 
@@ -1689,7 +1774,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   border: 1px solid var(--bk-border);
-  border-radius: 24px;
+  border-radius: var(--radius-lg);
   background: #fff;
   box-shadow: var(--bk-shadow);
   overflow: hidden;
@@ -1713,10 +1798,10 @@
   display: inline-block;
   margin-top: 18px;
   padding: 4px 11px;
-  border-radius: 100px;
+  border-radius: var(--radius-pill);
   background: rgba(0, 87, 255, 0.08);
   color: var(--bk-blue);
-  font-size: 10.5px;
+  font-size: var(--fs-caption);
   font-weight: 700;
   letter-spacing: 0.05em;
 }
@@ -1733,6 +1818,13 @@
   color: var(--bk-muted);
   font-size: 14.5px;
   line-height: 1.6;
+  /* Reserves room for 3 lines regardless of actual copy length, so the
+     column's visible text block ends at the same point even if one
+     role's description runs shorter/longer than the others — .bk-cases__panel's
+     grid already stretches the three columns to equal outer height
+     (verified), but that alone doesn't stop the text itself from
+     trailing off at different points inside that shared height. */
+  min-height: calc(3 * 14.5px * 1.6);
 }
 
 /* Unattributed pull-quote — MobPae's own voice, styled as a statement,
@@ -2129,7 +2221,16 @@ a.bk-enquiry__contact-value:hover {
   color: var(--bk-muted);
 }
 
+/* Same visual identity as .bk-btn (radius, weight, hover-to-blue) —
+   kept as its own block only for the width:100%/disabled-state parts
+   a form submit needs that the shared class doesn't; text-transform
+   was the one property that had drifted (uppercase vs .bk-btn's
+   capitalize) and made the CTA read as a third, unrelated button. */
 .bk-home .bk-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   width: 100%;
   border: 0;
   border-radius: 4px !important;
@@ -2139,7 +2240,7 @@ a.bk-enquiry__contact-value:hover {
   font-family: Poppins, sans-serif;
   font-size: 15px;
   font-weight: 600;
-  text-transform: uppercase;
+  text-transform: capitalize;
   cursor: pointer;
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
@@ -2152,6 +2253,14 @@ a.bk-enquiry__contact-value:hover {
   background: var(--bk-blue);
   transform: translateY(-2px);
   box-shadow: 0 12px 24px rgba(0, 87, 255, 0.24);
+}
+
+.bk-home .bk-submit svg {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bk-home .bk-submit:hover:not(:disabled) svg {
+  transform: translateX(4px);
 }
 
 .bk-home .bk-submit:disabled {
@@ -2400,6 +2509,19 @@ a.bk-enquiry__contact-value:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     margin-top: 40px;
   }
+  .bk-flow__top {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  /* Without this, .bk-flow__head's grid-column:span 2 forces a second
+     implicit column into existence even though the grid above is now
+     a single column, splitting the stack back into two side by side. */
+  .bk-flow__head {
+    grid-column: 1;
+  }
+  .bk-flow__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   /* The ascending staircase only reads correctly in a single 4-across
      row — once it wraps to 2 columns, flatten it back out. */
   .bk-services__item:nth-child(1),
@@ -2486,13 +2608,10 @@ a.bk-enquiry__contact-value:hover {
     border-top: 1px solid var(--bk-border);
   }
   .bk-trust__grid {
-    grid-template-columns: 1fr;
-  }
-  /* Same reasoning as .bk-flow__head just below: an explicit
-     grid-column start otherwise forces a second/third implicit column
-     into existence even though .bk-trust__grid only defines one here. */
-  .bk-trust__head {
-    grid-column: 1;
+    /* Matches .bk-services__grid's tablet step — same reasoning: the
+       head is a plain block now, not a grid item, so there's nothing
+       to re-place at this width. */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .bk-story__collage {
     min-height: 0;
@@ -2507,14 +2626,8 @@ a.bk-enquiry__contact-value:hover {
   .bk-story__features {
     grid-template-columns: 1fr;
   }
-  .bk-flow {
+  .bk-flow__grid {
     grid-template-columns: 1fr;
-  }
-  /* Without this, .bk-flow__head's grid-column:span 2 forces an
-     implicit second column into existence even though .bk-flow only
-     defines one, splitting the "single column" stack back into two. */
-  .bk-flow__head {
-    grid-column: 1;
   }
   .bk-faq__board {
     padding: 28px 20px;
@@ -2577,6 +2690,12 @@ a.bk-enquiry__contact-value:hover {
     grid-template-columns: 1fr;
     gap: 36px;
     margin-top: 40px;
+  }
+  .bk-trust__grid {
+    grid-template-columns: 1fr;
+  }
+  .bk-flow__grid {
+    grid-template-columns: 1fr;
   }
   .bk-flow__card {
     padding: 28px 24px;
@@ -2691,7 +2810,7 @@ a.bk-enquiry__contact-value:hover {
   gap: 12px;
   padding: 32px 28px;
   border: 1px solid rgba(223, 225, 237, 0.9);
-  border-radius: 24px;
+  border-radius: var(--radius-lg);
   background: linear-gradient(180deg, #ffffff, #f7f8ff);
   box-shadow: var(--bk-shadow);
   text-decoration: none;
@@ -2856,7 +2975,7 @@ a.bk-enquiry__contact-value:hover {
 .bk-help-card {
   padding: 32px 28px;
   border: 1px solid rgba(223, 225, 237, 0.9);
-  border-radius: 24px;
+  border-radius: var(--radius-lg);
   background: #fff;
   box-shadow: var(--bk-shadow);
 }
