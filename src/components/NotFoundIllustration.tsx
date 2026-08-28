@@ -13,22 +13,22 @@ export function NotFoundIllustration() {
         textAnchor="middle"
         fontSize="180"
         fontWeight="400"
-        fill="var(--bk-blue)"
+        fill="var(--mpw-blue)"
         opacity="0.08"
         style={{ fontFamily: "inherit", letterSpacing: "-0.04em" }}
       >
         404
       </text>
 
-      <circle cx="308" cy="70" r="5" fill="var(--bk-blue)" opacity="0.55" />
-      <circle cx="72" cy="120" r="4" fill="var(--bk-blue)" opacity="0.3" />
-      <circle cx="336" cy="220" r="3" fill="var(--bk-blue)" opacity="0.4" />
-      <circle cx="54" cy="270" r="5" fill="var(--bk-blue)" opacity="0.45" />
+      <circle cx="308" cy="70" r="5" fill="var(--mpw-blue)" opacity="0.55" />
+      <circle cx="72" cy="120" r="4" fill="var(--mpw-blue)" opacity="0.3" />
+      <circle cx="336" cy="220" r="3" fill="var(--mpw-blue)" opacity="0.4" />
+      <circle cx="54" cy="270" r="5" fill="var(--mpw-blue)" opacity="0.45" />
 
       <path
         d="M60 210 C 130 150, 200 260, 270 190 S 330 120, 300 95"
         fill="none"
-        stroke="var(--bk-border)"
+        stroke="var(--mpw-border)"
         strokeWidth="3"
         strokeDasharray="2 12"
         strokeLinecap="round"
@@ -37,7 +37,7 @@ export function NotFoundIllustration() {
       <g transform="translate(275,60) rotate(24)">
         <path
           d="M0 0C-16.6 0-30 13.4-30 30c0 22.5 30 46 30 46s30-23.5 30-46C30 13.4 16.6 0 0 0Z"
-          fill="var(--bk-blue)"
+          fill="var(--mpw-blue)"
         />
         <circle cx="0" cy="29" r="11" fill="#fff" />
         <text
@@ -46,7 +46,7 @@ export function NotFoundIllustration() {
           textAnchor="middle"
           fontSize="15"
           fontWeight="600"
-          fill="var(--bk-blue)"
+          fill="var(--mpw-blue)"
         >
           ?
         </text>

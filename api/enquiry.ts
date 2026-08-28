@@ -1,23 +1,29 @@
-// Vercel serverless function — temporary stand-in for the backend's
-// POST /employer-enquiries route while that backend isn't deployed yet.
+// HTTP handler for the enquiry endpoint — temporary stand-in for the
+// backend's POST /employer-enquiries route while that backend isn't
+// deployed yet.
 //
 // Emails the enquiry directly to the support inbox over SMTP using the
 // mailbox's own credentials. Delete this file (and remove the fetch call
 // in src/pages/HomePage.tsx that points at it) once the real backend is
 // live — see the comments there for the original code to restore.
 //
-// handleEnquiryRequest is also called directly by the Vite dev-server
-// middleware (vite.config.ts) so `npm run dev` works without needing
-// `vercel dev`.
+// Framework-agnostic on purpose: `handleEnquiryRequest` takes a plain
+// payload and returns a plain { status, body } result, so it drops into
+// an Express route, a plain Node http server, or any other host without
+// changes. The `handler` export below matches Express's
+// req.method/req.body and chainable res.status().json() shape, which
+// most Node HTTP frameworks already follow. It's also called directly
+// by the Vite dev-server middleware (vite.config.ts) so `npm run dev`
+// works without a separate server process.
 import nodemailer from "nodemailer";
 
-interface VercelRequest {
+interface ApiRequest {
   method?: string;
   body: unknown;
 }
 
-interface VercelResponse {
-  status(code: number): VercelResponse;
+interface ApiResponse {
+  status(code: number): ApiResponse;
   json(body: unknown): void;
 }
 
@@ -27,7 +33,14 @@ interface EnquiryPayload {
   email?: unknown;
   phone?: unknown;
   message?: unknown;
+  honeypot?: unknown;
+  startedAt?: unknown;
 }
+
+// Below this, a submission arrived faster than a human could plausibly
+// read the form and type into four fields — almost certainly a script,
+// not someone hitting submit unusually fast.
+const MIN_FILL_TIME_MS = 1500;
 
 export interface EnquiryResult {
   status: number;
@@ -42,6 +55,19 @@ function asTrimmedString(value: unknown): string {
 
 export async function handleEnquiryRequest(payload: unknown): Promise<EnquiryResult> {
   const body = payload as EnquiryPayload;
+
+  // Spam check first, before touching SMTP at all. Both fail silently
+  // with a 200 "ok" — a bot that gets a normal-looking success response
+  // has no signal to adapt to, unlike a 4xx it could learn from. Real
+  // clients (the website form) never trip either check.
+  const honeypot = asTrimmedString(body?.honeypot);
+  const startedAt = typeof body?.startedAt === "number" ? body.startedAt : NaN;
+  const fillTime = Date.now() - startedAt;
+  const looksLikeSpam =
+    honeypot !== "" || !Number.isFinite(fillTime) || fillTime < MIN_FILL_TIME_MS;
+  if (looksLikeSpam) {
+    return { status: 200, body: { ok: true } };
+  }
 
   const companyName = asTrimmedString(body?.companyName);
   const contactPerson = asTrimmedString(body?.contactPerson);
@@ -104,7 +130,7 @@ export async function handleEnquiryRequest(payload: unknown): Promise<EnquiryRes
   }
 }
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+export default async function handler(req: ApiRequest, res: ApiResponse) {
   if (req.method !== "POST") {
     res.status(405).json({ ok: false, error: "Method not allowed" });
     return;

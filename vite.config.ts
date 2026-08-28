@@ -2,9 +2,9 @@ import { defineConfig, loadEnv, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 
 // TEMPORARY: lets `npm run dev` serve api/enquiry.ts locally, since plain
-// `vite dev` doesn't run Vercel's /api serverless functions on its own.
-// Safe to delete this plugin (and the loadEnv wiring below) once the real
-// backend is deployed and api/enquiry.ts is removed.
+// `vite dev` has no HTTP server wired to it on its own. Safe to delete
+// this plugin (and the loadEnv wiring below) once the real backend is
+// deployed and api/enquiry.ts is removed.
 function enquiryDevApiPlugin(): Plugin {
   return {
     name: 'enquiry-api-dev-middleware',
@@ -53,5 +53,11 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react(), enquiryDevApiPlugin()],
+    build: {
+      // No source maps in the shipped build — DevTools' Sources tab
+      // should only ever show the bundled, minified output, never a
+      // reconstructed tree of the original component files.
+      sourcemap: false,
+    },
   }
 })

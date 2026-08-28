@@ -43,32 +43,32 @@ function InstagramIcon() {
 /**
  * Shared site-wide footer. Used by the homepage and every secondary page
  * (Careers, Contact, Help Center, Privacy Policy, Terms, …) so the footer
- * is identical everywhere. Relies on the --bk-* design tokens, which are
- * defined on :root in home.css, and on home.css's .bk-footer* rules — both
+ * is identical everywhere. Relies on the --mpw-* design tokens, which are
+ * defined on :root in home.css, and on home.css's .mpw-footer* rules — both
  * load globally once home.css is imported anywhere in the app.
  */
 export function SiteFooter() {
   return (
-    <footer className="bk-footer">
-      <div className="bk-rail">
-        <div className="bk-footer__grid">
+    <footer className="mpw-footer">
+      <div className="mpw-rail">
+        <div className="mpw-footer__grid">
           <div>
-            <p className="bk-footer__title">Company</p>
+            <p className="mpw-footer__title">Company</p>
             <p>
               Employer-powered salary access for responsible liquidity, payroll
               clarity, and workforce wellbeing.
             </p>
-            <div className="bk-contact-line">
+            <div className="mpw-contact-line">
               <Mail size={18} aria-hidden="true" />
               <a href="mailto:support@mobpae.com">support@mobpae.com</a>
             </div>
-            <div className="bk-contact-line">
+            <div className="mpw-contact-line">
               <MapPin size={18} aria-hidden="true" />
               <span>Gujarat, Ahmedabad — 382470</span>
             </div>
-            <div className="bk-follow">
+            <div className="mpw-follow">
               <span>Follow us on:</span>
-              <div className="bk-follow__icons">
+              <div className="mpw-follow__icons">
                 <a
                   href="https://linkedin.com/company/mobpae"
                   target="_blank"
@@ -89,7 +89,7 @@ export function SiteFooter() {
             </div>
           </div>
           <div>
-            <p className="bk-footer__title">Information</p>
+            <p className="mpw-footer__title">Information</p>
             <ul>
               {SECTION_LINKS.map((link) => (
                 <li key={link.href}>
@@ -99,7 +99,7 @@ export function SiteFooter() {
             </ul>
           </div>
           <div>
-            <p className="bk-footer__title">Quick links</p>
+            <p className="mpw-footer__title">Quick links</p>
             <ul>
               <li>
                 <Link to="/careers">Careers</Link>
@@ -113,7 +113,7 @@ export function SiteFooter() {
             </ul>
           </div>
           <div>
-            <p className="bk-footer__title">Resources</p>
+            <p className="mpw-footer__title">Resources</p>
             <ul>
               <li>
                 <Link to="/help-center">Help Center</Link>
@@ -124,14 +124,14 @@ export function SiteFooter() {
             </ul>
           </div>
         </div>
-        <div className="bk-footer__bottom">
-          <Link to="/" className="bk-logo" aria-label="MobPae home">
+        <div className="mpw-footer__bottom">
+          <Link to="/" className="mpw-logo" aria-label="MobPae home">
             <img src="/logo.svg" alt="MobPae" />
           </Link>
           <p>
             Copyright © {new Date().getFullYear()} MobPae | All Rights Reserved
           </p>
-          <span className="bk-made-in-india">
+          <span className="mpw-made-in-india">
             <span aria-hidden="true">🇮🇳</span> Made in India
           </span>
         </div>

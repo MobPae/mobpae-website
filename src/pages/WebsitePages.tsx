@@ -7,7 +7,7 @@ import "./home.css";
 
 function PageShell({ children }: { children: ReactNode }) {
   return (
-    <div className="bk-home">
+    <div className="mpw-home">
       <SiteHeader />
       <main id="main-content">{children}</main>
       <SiteFooter />
@@ -27,12 +27,12 @@ function PageHero({
   actions?: ReactNode;
 }) {
   return (
-    <section className="bk-page-hero">
-      <div className="bk-rail">
-        <span className="bk-page-hero__eyebrow">{eyebrow}</span>
+    <section className="mpw-page-hero">
+      <div className="mpw-rail">
+        <span className="mpw-page-hero__eyebrow">{eyebrow}</span>
         <h1>{title}</h1>
         <p>{description}</p>
-        {actions ? <div className="bk-page-hero__actions">{actions}</div> : null}
+        {actions ? <div className="mpw-page-hero__actions">{actions}</div> : null}
       </div>
     </section>
   );
@@ -93,20 +93,20 @@ export function CareersPage() {
         title="Build financial wellness for the modern workforce."
         description="We are early, focused and product-led. If you care about fintech, design and responsible salary access, MobPae is the kind of problem worth solving."
       />
-      <section className="bk-py">
-        <div className="bk-rail">
-          <div className="bk-job-grid">
+      <section className="mpw-py">
+        <div className="mpw-rail">
+          <div className="mpw-job-grid">
             {focusAreas.map((role) => (
               <a
                 key={role.title}
-                className="bk-job-card"
+                className="mpw-job-card"
                 href={`mailto:support@mobpae.com?subject=${encodeURIComponent(
                   role.title,
                 )}`}
               >
-                <span className="bk-job-card__tag">{role.area}</span>
+                <span className="mpw-job-card__tag">{role.area}</span>
                 <h2>{role.title}</h2>
-                <p className="bk-job-card__meta">
+                <p className="mpw-job-card__meta">
                   {role.location} · {role.type}
                 </p>
                 <p>{role.body}</p>
@@ -131,8 +131,8 @@ function ContactItem({
   value: string;
 }) {
   return (
-    <div className="bk-contact-item">
-      <span className="bk-icon">{icon}</span>
+    <div className="mpw-contact-item">
+      <span className="mpw-icon">{icon}</span>
       <div>
         <span>{label}</span>
         <strong>{value}</strong>
@@ -155,18 +155,18 @@ export function ContactPage() {
         title="Let us build a financially stronger workforce."
         description="Tell us about your team and we will help you understand how MobPae can fit your payroll cycle and employee wellness goals."
       />
-      <section className="bk-py">
-        <div className="bk-rail">
-          <div className="bk-contact-grid">
+      <section className="mpw-py">
+        <div className="mpw-rail">
+          <div className="mpw-contact-grid">
             <div>
-              <span className="bk-sub">Employer enquiry</span>
+              <span className="mpw-sub">Employer enquiry</span>
               <h2>One connected enquiry flow for every employer conversation.</h2>
-              <p className="bk-contact-grid__intro">
+              <p className="mpw-contact-grid__intro">
                 Share a few details on the home enquiry form. Our team will
                 review your payroll cycle, approval process and pilot fit
                 before onboarding.
               </p>
-              <div className="bk-contact-list">
+              <div className="mpw-contact-list">
                 <ContactItem
                   icon={<Mail size={20} aria-hidden="true" />}
                   label="Email"
@@ -180,14 +180,14 @@ export function ContactPage() {
               </div>
             </div>
 
-            <div className="bk-contact-card">
-              <span className="bk-sub">Book a Demo</span>
+            <div className="mpw-contact-card">
+              <span className="mpw-sub">Book a Demo</span>
               <h2>Use the enquiry form on the home page.</h2>
               <p>
                 MobPae keeps one connected enquiry form so every website lead
                 enters the same backend flow.
               </p>
-              <div className="bk-contact-card__steps">
+              <div className="mpw-contact-card__steps">
                 {steps.map((step) => (
                   <div key={step}>
                     <CheckCircle2 size={18} aria-hidden="true" />
@@ -195,7 +195,7 @@ export function ContactPage() {
                   </div>
                 ))}
               </div>
-              <Link to="/#enquiry" className="bk-btn">
+              <Link to="/#enquiry" className="mpw-btn">
                 Open Enquiry Form <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
@@ -257,14 +257,14 @@ export function HelpCenterPage() {
         title="Answers for employees, employers, and partners."
         description="Use this guide for setup, requests, approvals, payroll recovery, and how to reach MobPae support. Product behaviour can vary by employer policy."
       />
-      <section className="bk-py">
-        <div className="bk-rail">
-          <div className="bk-help-grid">
+      <section className="mpw-py">
+        <div className="mpw-rail">
+          <div className="mpw-help-grid">
             {helpSections.map((section) => (
-              <article className="bk-help-card" key={section.title}>
+              <article className="mpw-help-card" key={section.title}>
                 <h2>{section.title}</h2>
                 <p>{section.body}</p>
-                <div className="bk-help-card__points">
+                <div className="mpw-help-card__points">
                   {section.points.map((point) => (
                     <div key={point}>
                       <CheckCircle2 size={16} aria-hidden="true" />
@@ -275,11 +275,11 @@ export function HelpCenterPage() {
               </article>
             ))}
           </div>
-          <div className="bk-page-hero__actions" style={{ marginTop: 48 }}>
-            <Link to="/contact" className="bk-btn">
+          <div className="mpw-page-hero__actions" style={{ marginTop: 48 }}>
+            <Link to="/contact" className="mpw-btn">
               Contact MobPae <ArrowRight size={16} aria-hidden="true" />
             </Link>
-            <Link to="/#faq" className="bk-btn bk-btn--line">
+            <Link to="/#faq" className="mpw-btn mpw-btn--line">
               Homepage FAQ
             </Link>
           </div>
@@ -311,19 +311,19 @@ function DocPage({
   return (
     <PageShell>
       <PageHero eyebrow={eyebrow} title={title} description={lastUpdated} />
-      <section className="bk-py">
-        <div className="bk-rail">
-          <div className="bk-doc-list">
+      <section className="mpw-py">
+        <div className="mpw-rail">
+          <div className="mpw-doc-list">
             {sections.map((section, index) => (
-              <article className="bk-doc-item" key={section.title}>
-                <span className="bk-doc-item__index" aria-hidden="true">
+              <article className="mpw-doc-item" key={section.title}>
+                <span className="mpw-doc-item__index" aria-hidden="true">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <div>
                   <h2>{section.title}</h2>
                   <p>{section.body}</p>
                   {section.points ? (
-                    <div className="bk-doc-item__points">
+                    <div className="mpw-doc-item__points">
                       {section.points.map((point) => (
                         <div key={point}>
                           <CheckCircle2 size={15} aria-hidden="true" />

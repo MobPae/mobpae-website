@@ -5,8 +5,8 @@ import { SECTION_LINKS } from "../siteLinks";
 
 /**
  * Shared site-wide header. Used by the homepage and every secondary page
- * so the header is identical everywhere. Relies on the --bk-* design
- * tokens (global, defined on :root in home.css) and home.css's .bk-header*
+ * so the header is identical everywhere. Relies on the --mpw-* design
+ * tokens (global, defined on :root in home.css) and home.css's .mpw-header*
  * rules, both of which load globally once home.css is imported anywhere.
  */
 export function SiteHeader() {
@@ -23,15 +23,15 @@ export function SiteHeader() {
 
   return (
     <>
-      <a className="bk-skip" href="#main-content">
+      <a className="mpw-skip" href="#main-content">
         Skip to main content
       </a>
-      <header className={`bk-header ${stuck ? "bk-header--stuck" : ""}`}>
-        <div className="bk-header__bar">
-          <Link to="/" aria-label="MobPae home" className="bk-logo">
+      <header className={`mpw-header ${stuck ? "mpw-header--stuck" : ""}`}>
+        <div className="mpw-header__bar">
+          <Link to="/" aria-label="MobPae home" className="mpw-logo">
             <img src="/logo.svg" alt="MobPae" />
           </Link>
-          <nav className="bk-nav" aria-label="Primary navigation">
+          <nav className="mpw-nav" aria-label="Primary navigation">
             {SECTION_LINKS.map((link) => (
               <Link
                 key={link.href}
@@ -46,16 +46,16 @@ export function SiteHeader() {
               </Link>
             ))}
           </nav>
-          <div className="bk-header__actions">
-            <Link to="/#enquiry" className="bk-btn bk-header__cta">
+          <div className="mpw-header__actions">
+            <Link to="/#enquiry" className="mpw-btn mpw-header__cta">
               Get In Touch
             </Link>
             <button
               type="button"
-              className="bk-menu-btn"
+              className="mpw-menu-btn"
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
-              aria-controls="bk-mobile-navigation"
+              aria-controls="mpw-mobile-navigation"
               onClick={() => setOpen((value) => !value)}
             >
               {open ? (
@@ -68,8 +68,8 @@ export function SiteHeader() {
         </div>
         {open ? (
           <nav
-            id="bk-mobile-navigation"
-            className="bk-mobile"
+            id="mpw-mobile-navigation"
+            className="mpw-mobile"
             aria-label="Mobile navigation"
           >
             {SECTION_LINKS.map((link) => (
@@ -77,7 +77,7 @@ export function SiteHeader() {
                 {link.label}
               </Link>
             ))}
-            <Link to="/#enquiry" className="bk-btn" onClick={() => setOpen(false)}>
+            <Link to="/#enquiry" className="mpw-btn" onClick={() => setOpen(false)}>
               Get In Touch
             </Link>
           </nav>

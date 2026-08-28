@@ -25,7 +25,7 @@ import {
   Wallet,
 } from "lucide-react";
 import type { ChangeEvent, FormEvent, ReactNode } from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
@@ -77,7 +77,7 @@ const enquiryContacts = [
   },
 ];
 
-// Cards, not links — see .bk-services__grid below. Each card carries a
+// Cards, not links — see .mpw-services__grid below. Each card carries a
 // small icon badge alongside its number so the four are scannable at a
 // glance, not just distinguishable by reading the copy.
 const solutions = [
@@ -106,9 +106,9 @@ const solutions = [
 // Four cards, one per stage of the flow. Each card is a fixed-height
 // crossfade between two full-size layers — a bare icon + one line by
 // default, a numbered breakdown on hover/focus — never a height change.
-// See .bk-flow__layer in home.css. Step copy is kept deliberately short
+// See .mpw-flow__layer in home.css. Step copy is kept deliberately short
 // so all four breakdowns fit the same fixed card height without
-// scrolling. The icon is a plain CSS-shaped blob (see .bk-flow__icon),
+// scrolling. The icon is a plain CSS-shaped blob (see .mpw-flow__icon),
 // not a lucide icon.
 const howItWorksFlow = [
   {
@@ -170,19 +170,19 @@ function FlowCard({
   index: number;
 }) {
   return (
-    <article className="bk-flow__card">
-      <div className="bk-flow__head-row">
-        <span className="bk-flow__step-badge">
+    <article className="mpw-flow__card">
+      <div className="mpw-flow__head-row">
+        <span className="mpw-flow__step-badge">
           {String(index + 1).padStart(2, "0")}
         </span>
-        <h3 className="bk-flow__label">{card.label}</h3>
-        <span className="bk-flow__tag">{card.tag}</span>
+        <h3 className="mpw-flow__label">{card.label}</h3>
+        <span className="mpw-flow__tag">{card.tag}</span>
       </div>
-      <p className="bk-flow__body">{card.body}</p>
-      <ul className="bk-flow__steps">
+      <p className="mpw-flow__body">{card.body}</p>
+      <ul className="mpw-flow__steps">
         {card.steps.map((step, stepIndex) => (
-          <li className="bk-flow__step" key={step.title}>
-            <span className="bk-flow__step-num">
+          <li className="mpw-flow__step" key={step.title}>
+            <span className="mpw-flow__step-num">
               {String(stepIndex + 1).padStart(2, "0")}
             </span>
             <span>
@@ -196,7 +196,7 @@ function FlowCard({
   );
 }
 
-// Three roles, one shared card (see .bk-cases__panel) — each column's
+// Three roles, one shared card (see .mpw-cases__panel) — each column's
 // own "win," not a repeat of How It Works' process steps just above it.
 const ecosystemWins = [
   {
@@ -280,21 +280,21 @@ function TrustCard({
   index: number;
 }) {
   return (
-    <article className="bk-trust__item">
+    <article className="mpw-trust__item">
       {/* Same header pattern as Our Solutions: a big number on the
           left, a plain icon (no badge circle) on the right — not the
           old filled-circle-icon + small-corner-number layout. */}
-      <div className="bk-trust__item-top">
-        <span className="bk-trust__num">
+      <div className="mpw-trust__item-top">
+        <span className="mpw-trust__num">
           {String(index + 1).padStart(2, "0")}
         </span>
-        <span className="bk-trust__icon">
+        <span className="mpw-trust__icon">
           <item.icon size={28} strokeWidth={1.8} aria-hidden="true" />
         </span>
       </div>
       <h3>{item.title}</h3>
       <p>{item.body}</p>
-      <span className="bk-trust__tag">{item.tag}</span>
+      <span className="mpw-trust__tag">{item.tag}</span>
     </article>
   );
 }
@@ -336,7 +336,7 @@ function Field({
   children: ReactNode;
 }) {
   return (
-    <label className="bk-field">
+    <label className="mpw-field">
       <span>{label}</span>
       {children}
       {error ? <small>{error}</small> : null}
@@ -388,6 +388,17 @@ export function HomePage() {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
   const [showTop, setShowTop] = useState(false);
+  // Spam-filtering fields, kept off React state on purpose — a bot that
+  // fills every input it finds will fill this one too (real users never
+  // see or touch it), and the fixed mount time lets the API reject
+  // submissions that arrive faster than a human could type. Neither is
+  // rendered as a validation error; the server just quietly no-ops.
+  const honeypotRef = useRef<HTMLInputElement>(null);
+  const formLoadedAtRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    formLoadedAtRef.current = Date.now();
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setShowTop(window.scrollY > 480);
@@ -440,6 +451,11 @@ export function HomePage() {
           phone: form.phone || null,
           employeeCount: null,
           message: form.message || "Website enquiry",
+          // Spam signals — see the honeypotRef/formLoadedAtRef comment
+          // above. A real submission always has an empty honeypot and a
+          // startedAt a few seconds in the past.
+          honeypot: honeypotRef.current?.value || "",
+          startedAt: formLoadedAtRef.current ?? Date.now(),
         }),
       });
       if (!response.ok) throw new Error("Failed to submit enquiry");
@@ -454,51 +470,51 @@ export function HomePage() {
   }
 
   return (
-    <div className="bk-home">
+    <div className="mpw-home">
       <SiteHeader />
       <main id="main-content">
-        <section className="bk-banner">
+        <section className="mpw-banner">
           {/* One soft central glow for depth — the grid pattern, rings,
               stars, and floating badges are gone. They read as busy
               rather than premium once everything else on the page was
               this quiet, and the badges in particular competed with
               the headline for the first thing your eye lands on. */}
           <span
-            className="bk-banner__glow bk-banner__glow--c"
+            className="mpw-banner__glow mpw-banner__glow--c"
             aria-hidden="true"
           />
 
-          <div className="bk-banner__intro">
-            <span className="bk-banner__eyebrow">
-              <span className="bk-banner__eyebrow-dot" aria-hidden="true" />
+          <div className="mpw-banner__intro">
+            <span className="mpw-banner__eyebrow">
+              <span className="mpw-banner__eyebrow-dot" aria-hidden="true" />
               Employer-Backed Earned Wage Access
             </span>
             <h1>
               Payday shouldn&rsquo;t be the only day you get <em>paid.</em>
             </h1>
-            <div className="bk-banner__stats">
-              <div className="bk-banner__stat">
+            <div className="mpw-banner__stats">
+              <div className="mpw-banner__stat">
                 <strong>&lt; 1 wk</strong>
                 <span>Employer go-live time</span>
               </div>
-              <div className="bk-banner__stat">
+              <div className="mpw-banner__stat">
                 <strong>
                   <CountUpNumber value={60} suffix=" sec" />
                 </strong>
                 <span>Employee request time</span>
               </div>
-              <div className="bk-banner__stat">
+              <div className="mpw-banner__stat">
                 <strong>₹0</strong>
                 <span>Employer capital required</span>
               </div>
-              <div className="bk-banner__stat">
+              <div className="mpw-banner__stat">
                 <strong>
                   <CountUpNumber value={100} suffix="%" />
                 </strong>
                 <span>HR-controlled approvals</span>
               </div>
             </div>
-            <span className="bk-banner__store-note">
+            <span className="mpw-banner__store-note">
               <Download size={15} aria-hidden="true" />
               Available on the App Store &amp; Google Play soon
             </span>
@@ -510,7 +526,7 @@ export function HomePage() {
               flat cut. preserveAspectRatio="none" lets the same path
               stretch to any width. */}
           <svg
-            className="bk-banner__curve"
+            className="mpw-banner__curve"
             viewBox="0 0 1440 110"
             preserveAspectRatio="none"
             aria-hidden="true"
@@ -519,22 +535,22 @@ export function HomePage() {
           </svg>
         </section>
 
-        <section className="bk-services bk-py" id="features">
-          <div className="bk-wide">
-            <span className="bk-sub">OUR SOLUTIONS</span>
+        <section className="mpw-services mpw-py" id="features">
+          <div className="mpw-wide">
+            <span className="mpw-sub">OUR SOLUTIONS</span>
 
-            <div className="bk-services__top">
-              <div className="bk-services__top-left">
-                <h2 className="bk-title bk-services__heading">
+            <div className="mpw-services__top">
+              <div className="mpw-services__top-left">
+                <h2 className="mpw-title mpw-services__heading">
                   Financial solutions built for the modern{" "}
-                  <span className="bk-gradient-text">workforce</span>.
+                  <span className="mpw-gradient-text">workforce</span>.
                   {/* An original faceted-jack ornament (three rotated
                       capsules, not a copied render), set inline right after
                       the heading's last word instead of as a separate block
                       below it — it lands in the trailing whitespace the
                       final short line otherwise leaves empty. */}
                   <svg
-                    className="bk-services__decor"
+                    className="mpw-services__decor"
                     viewBox="0 0 200 200"
                     aria-hidden="true"
                   >
@@ -589,8 +605,8 @@ export function HomePage() {
                   </svg>
                 </h2>
               </div>
-              <div className="bk-services__top-right">
-                <p className="bk-services__lead">
+              <div className="mpw-services__top-right">
+                <p className="mpw-services__lead">
                   MobPae connects employees, employers, and financial partners
                   on one platform — built around{" "}
                   <mark>instant access to earned wages</mark>,{" "}
@@ -603,17 +619,17 @@ export function HomePage() {
               </div>
             </div>
 
-            <div className="bk-services__grid">
+            <div className="mpw-services__grid">
               {/* Cards, not links — they don't navigate anywhere. The
                   hover lift/number-spin (desktop) and the :active press
                   (touch) are the whole interaction. */}
               {solutions.map((solution, index) => (
-                <article className="bk-services__item" key={solution.title}>
-                  <div className="bk-services__item-top">
-                    <span className="bk-services__number">
+                <article className="mpw-services__item" key={solution.title}>
+                  <div className="mpw-services__item-top">
+                    <span className="mpw-services__number">
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <span className="bk-services__icon">
+                    <span className="mpw-services__icon">
                       <solution.icon size={28} strokeWidth={1.8} aria-hidden="true" />
                     </span>
                   </div>
@@ -625,8 +641,8 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="bk-choose bk-py" id="how-it-works">
-          <div className="bk-rail">
+        <section className="mpw-choose mpw-py" id="how-it-works">
+          <div className="mpw-rail">
             {/* Card 1 sits beside the head, in the head row's own
                 explicit 3-column grid (head spans the first two,
                 card 1 takes the third) — not the old dense-packed
@@ -634,19 +650,19 @@ export function HomePage() {
                 landed. Cards 2–4 are a separate grid below, so the
                 DOM order (head, card 1, card 2, card 3, card 4) is
                 also the visual order: nothing to jump back up for. */}
-            <div className="bk-flow">
-              <div className="bk-flow__top">
-                <div className="bk-flow__head">
-                  <span className="bk-sub">HOW IT WORKS</span>
-                  <h2 className="bk-title">
+            <div className="mpw-flow">
+              <div className="mpw-flow__top">
+                <div className="mpw-flow__head">
+                  <span className="mpw-sub">HOW IT WORKS</span>
+                  <h2 className="mpw-title">
                     Simple for employees.{" "}
-                    <span className="bk-gradient-text">Controlled</span> for
+                    <span className="mpw-gradient-text">Controlled</span> for
                     employers.
                   </h2>
                 </div>
                 <FlowCard card={howItWorksFlow[0]} index={0} />
               </div>
-              <div className="bk-flow__grid">
+              <div className="mpw-flow__grid">
                 {howItWorksFlow.slice(1).map((card, index) => (
                   <FlowCard card={card} index={index + 1} key={card.label} />
                 ))}
@@ -655,12 +671,12 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="bk-story bk-py" id="about">
-          <div className="bk-rail bk-split">
-            <div className="bk-story__proof">
-              <ul className="bk-story__points">
-                <li className="bk-story__point">
-                  <span className="bk-story__point-num">01</span>
+        <section className="mpw-story mpw-py" id="about">
+          <div className="mpw-rail mpw-split">
+            <div className="mpw-story__proof">
+              <ul className="mpw-story__points">
+                <li className="mpw-story__point">
+                  <span className="mpw-story__point-num">01</span>
                   <div>
                     <h3>Get ahead of payday</h3>
                     <p>
@@ -669,8 +685,8 @@ export function HomePage() {
                     </p>
                   </div>
                 </li>
-                <li className="bk-story__point">
-                  <span className="bk-story__point-num">02</span>
+                <li className="mpw-story__point">
+                  <span className="mpw-story__point-num">02</span>
                   <div>
                     <h3>Employers stay in control</h3>
                     <p>
@@ -679,8 +695,8 @@ export function HomePage() {
                     </p>
                   </div>
                 </li>
-                <li className="bk-story__point">
-                  <span className="bk-story__point-num">03</span>
+                <li className="mpw-story__point">
+                  <span className="mpw-story__point-num">03</span>
                   <div>
                     <h3>Payroll-linked by design</h3>
                     <p>
@@ -689,8 +705,8 @@ export function HomePage() {
                     </p>
                   </div>
                 </li>
-                <li className="bk-story__point">
-                  <span className="bk-story__point-num">04</span>
+                <li className="mpw-story__point">
+                  <span className="mpw-story__point-num">04</span>
                   <div>
                     <h3>Humans on the other end</h3>
                     <p>
@@ -700,22 +716,22 @@ export function HomePage() {
                   </div>
                 </li>
               </ul>
-              <p className="bk-story__note">
+              <p className="mpw-story__note">
                 <em>Four principles, zero manual work.</em>
               </p>
             </div>
-            <div className="bk-story__copy">
-              <span className="bk-sub">ABOUT MOBPAE</span>
-              <h2 className="bk-title">
-                Payday is a <span className="bk-gradient-text">calendar</span>{" "}
+            <div className="mpw-story__copy">
+              <span className="mpw-sub">ABOUT MOBPAE</span>
+              <h2 className="mpw-title">
+                Payday is a <span className="mpw-gradient-text">calendar</span>{" "}
                 accident. Money shouldn&rsquo;t be.
                 {/* The exact same faceted-jack ornament as Our Solutions'
-                    heading (see .bk-services__decor) — same glossy blue
+                    heading (see .mpw-services__decor) — same glossy blue
                     gradient, same inline-after-the-text placement — reused
                     rather than the earlier orange star, so both section
                     headings carry one consistent "moving icon" motif. */}
                 <svg
-                  className="bk-services__decor bk-story__decor"
+                  className="mpw-services__decor mpw-story__decor"
                   viewBox="0 0 200 200"
                   aria-hidden="true"
                 >
@@ -796,7 +812,7 @@ export function HomePage() {
                 transparent ecosystem built around{" "}
                 <mark>financial wellness</mark>.
               </p>
-              <p className="bk-story__note">
+              <p className="mpw-story__note">
                 <em>Built with payroll, not around it.</em>
               </p>
             </div>
@@ -808,11 +824,11 @@ export function HomePage() {
             into one dedicated moment instead of being split across two
             sections. No new numbers invented; every figure here is one
             already said elsewhere on the page in different words. */}
-        <section className="bk-stats bk-py">
-          <div className="bk-rail">
-            <div className="bk-stats__grid">
+        <section className="mpw-stats mpw-py">
+          <div className="mpw-rail">
+            <div className="mpw-stats__grid">
               {byTheNumbers.map((item) => (
-                <div className="bk-stats__item" key={item.label}>
+                <div className="mpw-stats__item" key={item.label}>
                   <strong>{item.value}</strong>
                   <span>{item.label}</span>
                 </div>
@@ -821,27 +837,27 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="bk-cases bk-py" id="ecosystem">
-          <div className="bk-rail">
-            <div className="bk-cases-head">
-              <span className="bk-sub">ECOSYSTEM</span>
-              <h2 className="bk-title">
+        <section className="mpw-cases mpw-py" id="ecosystem">
+          <div className="mpw-rail">
+            <div className="mpw-cases-head">
+              <span className="mpw-sub">ECOSYSTEM</span>
+              <h2 className="mpw-title">
                 Built for employees, employers, and{" "}
-                <span className="bk-gradient-text">partners</span>.
+                <span className="mpw-gradient-text">partners</span>.
               </h2>
             </div>
             {/* One shared card, not three separate ones — see
-                .bk-cases__panel in home.css. Being physically inside the
+                .mpw-cases__panel in home.css. Being physically inside the
                 same bordered panel is what shows the three roles are
                 connected, rather than a connector graphic laid over
                 three otherwise-independent tiles. */}
-            <div className="bk-cases__panel">
+            <div className="mpw-cases__panel">
               {ecosystemWins.map((item) => (
-                <article className="bk-cases__col" key={item.role}>
-                  <span className="bk-cases__col-icon">
+                <article className="mpw-cases__col" key={item.role}>
+                  <span className="mpw-cases__col-icon">
                     <item.icon size={28} strokeWidth={1.8} aria-hidden="true" />
                   </span>
-                  <span className="bk-cases__col-role">{item.role}</span>
+                  <span className="mpw-cases__col-role">{item.role}</span>
                   <h3>{item.title}</h3>
                   <p>{item.body}</p>
                 </article>
@@ -850,23 +866,23 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="bk-story bk-py" id="employers">
-          <div className="bk-rail bk-split">
-            <div className="bk-story__copy">
-              <span className="bk-sub">WHY EMPLOYERS CHOOSE MOBPAE</span>
-              <h2 className="bk-title">
+        <section className="mpw-story mpw-py" id="employers">
+          <div className="mpw-rail mpw-split">
+            <div className="mpw-story__copy">
+              <span className="mpw-sub">WHY EMPLOYERS CHOOSE MOBPAE</span>
+              <h2 className="mpw-title">
                 No risk. No overhead. Real workforce{" "}
-                <span className="bk-gradient-text">value</span>.
+                <span className="mpw-gradient-text">value</span>.
               </h2>
               <p>
                 MobPae is a practical workplace benefit: employer-controlled,
                 payroll-aware, and easy to operate without becoming a lending
                 function.
               </p>
-              <div className="bk-story__features">
-                <div className="bk-story__minis">
-                  <article className="bk-story__mini">
-                    <span className="bk-icon">
+              <div className="mpw-story__features">
+                <div className="mpw-story__minis">
+                  <article className="mpw-story__mini">
+                    <span className="mpw-icon">
                       <Banknote size={22} aria-hidden="true" />
                     </span>
                     <div>
@@ -877,8 +893,8 @@ export function HomePage() {
                       </p>
                     </div>
                   </article>
-                  <article className="bk-story__mini">
-                    <span className="bk-icon">
+                  <article className="mpw-story__mini">
+                    <span className="mpw-icon">
                       <BadgeCheck size={22} aria-hidden="true" />
                     </span>
                     <div>
@@ -890,21 +906,21 @@ export function HomePage() {
                     </div>
                   </article>
                 </div>
-                <ul className="bk-checks">
+                <ul className="mpw-checks">
                   <li>
-                    <span className="bk-checks__tick">
+                    <span className="mpw-checks__tick">
                       <Check size={13} aria-hidden="true" />
                     </span>
                     Payroll-linked recovery, not manual chasing
                   </li>
                   <li>
-                    <span className="bk-checks__tick">
+                    <span className="mpw-checks__tick">
                       <Check size={13} aria-hidden="true" />
                     </span>
                     Fully audit-ready operations
                   </li>
                   <li>
-                    <span className="bk-checks__tick">
+                    <span className="mpw-checks__tick">
                       <Check size={13} aria-hidden="true" />
                     </span>
                     A retention benefit employees actually use
@@ -912,17 +928,17 @@ export function HomePage() {
                 </ul>
               </div>
             </div>
-            <div className="bk-story__collage">
-              <div className="bk-trust-photo">
+            <div className="mpw-story__collage">
+              <div className="mpw-trust-photo">
                 <img
-                  className="bk-trust-photo__img"
+                  className="mpw-trust-photo__img"
                   src="/home/hero-person.jpg"
                   alt="An employee reviewing available salary and requesting access from a laptop"
                   width={1399}
                   height={933}
                   loading="lazy"
                 />
-                <span className="bk-trust-photo__chip">
+                <span className="mpw-trust-photo__chip">
                   <ShieldCheck size={17} aria-hidden="true" />
                   <span>
                     <strong>Trusted &amp; protected</strong>
@@ -936,12 +952,12 @@ export function HomePage() {
 
         {/* Industry categories, not client logos — see the industries
             comment above for why. A quiet trust strip, not a loud one. */}
-        <section className="bk-industries bk-py">
-          <div className="bk-rail">
-            <p className="bk-industries__label">Built for teams like yours</p>
-            <ul className="bk-industries__list">
+        <section className="mpw-industries mpw-py">
+          <div className="mpw-rail">
+            <p className="mpw-industries__label">Built for teams like yours</p>
+            <ul className="mpw-industries__list">
               {industries.map((item) => (
-                <li className="bk-industries__chip" key={item.label}>
+                <li className="mpw-industries__chip" key={item.label}>
                   <item.icon size={16} strokeWidth={2} aria-hidden="true" />
                   {item.label}
                 </li>
@@ -950,23 +966,23 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="bk-trust bk-py" id="security">
-          <div className="bk-rail">
+        <section className="mpw-trust mpw-py" id="security">
+          <div className="mpw-rail">
             {/* Plain full-width head, all four cards left alone below it —
-                not paired with a card the way .bk-flow's head is. Trust's
+                not paired with a card the way .mpw-flow's head is. Trust's
                 cards are too light (number, icon, one line, a tag) to
                 stretch gracefully to a 3-line heading's height without
                 leaving dead space; How It Works' cards carry enough
                 content (a paragraph plus a step list) that pairing one
                 with the head actually works there. */}
-            <div className="bk-trust__head">
-              <span className="bk-sub">SECURITY & TRUST</span>
-              <h2 className="bk-title">
+            <div className="mpw-trust__head">
+              <span className="mpw-sub">SECURITY & TRUST</span>
+              <h2 className="mpw-title">
                 Built for payroll teams, finance teams, and{" "}
-                <span className="bk-gradient-text">founders</span>.
+                <span className="mpw-gradient-text">founders</span>.
               </h2>
             </div>
-            <div className="bk-trust__grid">
+            <div className="mpw-trust__grid">
               {trustItems.map((item, index) => (
                 <TrustCard item={item} index={index} key={item.title} />
               ))}
@@ -978,35 +994,35 @@ export function HomePage() {
             doesn't have a real quote to feature yet, and a fabricated
             "— Name, Title" would read as a fake endorsement. This is
             MobPae's own voice, styled as one, not attributed to anyone. */}
-        <section className="bk-quote bk-py">
-          <div className="bk-rail">
-            <div className="bk-quote__inner">
-              <Quote className="bk-quote__mark" aria-hidden="true" />
-              <p className="bk-quote__text">
+        <section className="mpw-quote mpw-py">
+          <div className="mpw-rail">
+            <div className="mpw-quote__inner">
+              <Quote className="mpw-quote__mark" aria-hidden="true" />
+              <p className="mpw-quote__text">
                 Getting paid shouldn&rsquo;t depend on the calendar, and
                 helping employees with that shouldn&rsquo;t turn an employer
                 into a lender. That split — real access, zero lending
                 exposure — is the whole point of MobPae.
               </p>
-              <span className="bk-quote__attr">The MobPae team</span>
+              <span className="mpw-quote__attr">The MobPae team</span>
             </div>
           </div>
         </section>
 
-        <section className="bk-cta bk-py">
-          <div className="bk-rail">
-            <div className="bk-cta__inner">
+        <section className="mpw-cta mpw-py">
+          <div className="mpw-rail">
+            <div className="mpw-cta__inner">
               <h2>
                 Ready to offer{" "}
-                <span className="bk-gradient-text bk-gradient-text--on-blue">
+                <span className="mpw-gradient-text mpw-gradient-text--on-blue">
                   salary
                 </span>{" "}
                 access at work?
               </h2>
-              <div className="bk-cta__right">
-                <div className="bk-cta__call">
+              <div className="mpw-cta__right">
+                <div className="mpw-cta__call">
                   <Mail
-                    className="bk-cta__icon"
+                    className="mpw-cta__icon"
                     size={42}
                     strokeWidth={1.6}
                     aria-hidden="true"
@@ -1016,7 +1032,7 @@ export function HomePage() {
                     <a href="mailto:support@mobpae.com">support@mobpae.com</a>
                   </div>
                 </div>
-                <Link to="/#enquiry" className="bk-btn bk-btn--ghost">
+                <Link to="/#enquiry" className="mpw-btn mpw-btn--ghost">
                   Get In Touch <ArrowRight size={16} aria-hidden="true" />
                 </Link>
               </div>
@@ -1024,7 +1040,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="bk-faq bk-py" id="faq">
+        <section className="mpw-faq mpw-py" id="faq">
           {/* FAQPage structured data — same six questions rendered as
               plain HTML just below, so this is a machine-readable copy
               of what's already on the page rather than separate content
@@ -1044,23 +1060,23 @@ export function HomePage() {
               })),
             })}
           </script>
-          <div className="bk-rail">
-            <div className="bk-faq__board">
-              <div className="bk-about__head">
-                <span className="bk-sub">FAQ</span>
-                <h2 className="bk-title">
+          <div className="mpw-rail">
+            <div className="mpw-faq__board">
+              <div className="mpw-about__head">
+                <span className="mpw-sub">FAQ</span>
+                <h2 className="mpw-title">
                   Your burning{" "}
-                  <span className="bk-gradient-text">questions</span>
+                  <span className="mpw-gradient-text">questions</span>
                 </h2>
                 <p>
                   A quick overview of earned wage access, employer approvals,
                   payroll recovery, and data protection.
                 </p>
               </div>
-              <div className="bk-faq__list">
+              <div className="mpw-faq__list">
                 {faqs.map((item, index) => (
                   <details
-                    className="bk-faq__item"
+                    className="mpw-faq__item"
                     key={item.title}
                     open={index === 0}
                   >
@@ -1073,22 +1089,22 @@ export function HomePage() {
           </div>
         </section>
 
-        <section id="enquiry" className="bk-enquiry bk-py">
-          <div className="bk-rail">
+        <section id="enquiry" className="mpw-enquiry mpw-py">
+          <div className="mpw-rail">
             {/* The blue card now holds only the copy/contacts column —
                 the form is a sibling, not a child, so it renders as its
                 own separate white card next to the blue one instead of
                 floating inside it. */}
-            <div className="bk-enquiry__layout">
-              <div className="bk-enquiry__inner">
-                <div className="bk-enquiry__shapes" aria-hidden="true">
-                  <span className="bk-enquiry__glow bk-enquiry__glow--a" />
-                  <span className="bk-enquiry__glow bk-enquiry__glow--b" />
+            <div className="mpw-enquiry__layout">
+              <div className="mpw-enquiry__inner">
+                <div className="mpw-enquiry__shapes" aria-hidden="true">
+                  <span className="mpw-enquiry__glow mpw-enquiry__glow--a" />
+                  <span className="mpw-enquiry__glow mpw-enquiry__glow--b" />
                 </div>
-                <div className="bk-enquiry__copy">
+                <div className="mpw-enquiry__copy">
                   <h2>
                     Request a{" "}
-                    <span className="bk-gradient-text bk-gradient-text--on-blue">
+                    <span className="mpw-gradient-text mpw-gradient-text--on-blue">
                       MobPae
                     </span>{" "}
                     demo
@@ -1097,27 +1113,27 @@ export function HomePage() {
                     Tell us about your workforce. We’ll walk through
                     eligibility, approvals, and payroll-linked recovery.
                   </p>
-                  <ul className="bk-enquiry__contacts">
+                  <ul className="mpw-enquiry__contacts">
                     {enquiryContacts.map((item) => (
-                      <li className="bk-enquiry__contact" key={item.label}>
+                      <li className="mpw-enquiry__contact" key={item.label}>
                         <div>
-                          <span className="bk-enquiry__contact-label">
+                          <span className="mpw-enquiry__contact-label">
                             {item.label}
                           </span>
                           {item.href ? (
                             <a
-                              className="bk-enquiry__contact-value"
+                              className="mpw-enquiry__contact-value"
                               href={item.href}
                             >
                               {item.value}
                             </a>
                           ) : (
-                            <span className="bk-enquiry__contact-value">
+                            <span className="mpw-enquiry__contact-value">
                               {item.value}
                             </span>
                           )}
                         </div>
-                        <span className="bk-enquiry__contact-icon">
+                        <span className="mpw-enquiry__contact-icon">
                           <item.icon size={18} aria-hidden="true" />
                         </span>
                       </li>
@@ -1125,12 +1141,30 @@ export function HomePage() {
                   </ul>
                 </div>
               </div>
-              <form className="bk-form" onSubmit={submitEnquiry} noValidate>
-                <div className="bk-form__head">
+              <form className="mpw-form" onSubmit={submitEnquiry} noValidate>
+                {/* Honeypot — invisible to a real visitor (off-screen,
+                    not display:none, since some bots skip that) but
+                    every field a scripted bot fills in blindly.
+                    tabIndex/aria-hidden keep it out of the tab order and
+                    off screen readers. */}
+                <div className="mpw-honeypot" aria-hidden="true">
+                  <label htmlFor="company-website">
+                    Leave this field blank
+                  </label>
+                  <input
+                    id="company-website"
+                    name="website"
+                    type="text"
+                    ref={honeypotRef}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
+                <div className="mpw-form__head">
                   <h3>Share your details</h3>
                   <p>We typically respond within one business day.</p>
                 </div>
-                <div className="bk-form__row">
+                <div className="mpw-form__row">
                   <Field label="Full name *" error={errors.contactName}>
                     <input
                       name="contactName"
@@ -1153,7 +1187,7 @@ export function HomePage() {
                     />
                   </Field>
                 </div>
-                <div className="bk-form__row">
+                <div className="mpw-form__row">
                   <Field label="Phone">
                     <input
                       name="phone"
@@ -1185,12 +1219,12 @@ export function HomePage() {
                   />
                 </Field>
                 {success ? (
-                  <p className="bk-status bk-status--ok">{success}</p>
+                  <p className="mpw-status mpw-status--ok">{success}</p>
                 ) : null}
                 {error ? (
-                  <p className="bk-status bk-status--err">{error}</p>
+                  <p className="mpw-status mpw-status--err">{error}</p>
                 ) : null}
-                <button type="submit" className="bk-submit" disabled={loading}>
+                <button type="submit" className="mpw-submit" disabled={loading}>
                   {loading ? (
                     "Submitting..."
                   ) : (
@@ -1200,7 +1234,7 @@ export function HomePage() {
                     </>
                   )}
                 </button>
-                <p className="bk-form__note">
+                <p className="mpw-form__note">
                   <Lock size={13} aria-hidden="true" />
                   No spam. Used only to respond to this enquiry.
                 </p>
@@ -1213,7 +1247,7 @@ export function HomePage() {
       {showTop ? (
         <button
           type="button"
-          className="bk-top"
+          className="mpw-top"
           aria-label="Scroll to top"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
